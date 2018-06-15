@@ -1,13 +1,15 @@
-Run:
+**For the leaked GE & AdvExt GE.**
+
+Copy `ai.obj` to current folder & run:
 
 ```bash
-./run.bat
+$ php core/main.php
 ...
 ```
 
 ## Example
 
-Bytecode:
+Code:
 
 ```
 class 0 hello : (null)

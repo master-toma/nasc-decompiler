@@ -30,9 +30,11 @@ $tokenizer = new Tokenizer();
 $parser = new Parser($data);
 $codegen = new Codegen();
 
-unlink('result/ai.nasc');
 $file = fopen('ai.obj', 'r');
 $line = 0;
+
+// write BOM
+file_put_contents('ai.nasc', pack('S',0xFEFF));
 
 while (!feof($file)) {
     $string = trim(fgets($file));
@@ -57,7 +59,7 @@ while (!feof($file)) {
 
         echo 'Decompile ' . $name . "\n";
         $class = $parser->parseClass($tokenizer->getHead());
-        file_put_contents('ai.nasc', $codegen->generateClass($class), FILE_APPEND);
+        file_put_contents('ai.nasc', iconv('UTF-8', 'UTF-16LE', $codegen->generateClass($class)), FILE_APPEND);
     }
 }
 

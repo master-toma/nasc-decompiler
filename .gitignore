@@ -2,8 +2,6 @@
 
 !.gitignore
 !README.md
-!run.bat
 
-!bin/
 !core/
 !data/

@@ -8,6 +8,8 @@ class Parser {
     private const STATE_PROPERTIES_TELPOS = 4;
     private const STATE_VARIABLES = 5;
 
+    private $data = null;
+
     private $state = self::STATE_NONE;
 
     /** @var SplStack */
@@ -19,14 +21,16 @@ class Parser {
     /** @var SplStack */
     private $branchStack = null;
 
-    private $parameters = [];
+    private $parameters = []; // TODO: parameters should be traversed through class hierarchy
     private $labels = [];
     private $strings = [];
 
-    private $data = null;
-
     /** @var ClassDeclaration */
     private $class = null;
+    /** @var PropertyDeclaration */
+    private $property = null;
+    /** @var HandlerDeclaration */
+    private $handler = null; // TODO: use handler property instead of the expression stack
 
     public function __construct(Data $data) {
         $this->data = $data;
@@ -230,25 +234,25 @@ class Parser {
     private function parseBuySellListBegin(Token $token) {
         $this->state = self::STATE_PROPERTIES_BUYSELL;
         $property = new PropertyDeclaration('BuySellList', $token->data[0]);
-        $this->expressionStack[] = $property;
         $this->class->addProperty($property);
+        $this->property = $property;
     }
 
     private function parseBuySellListEnd() {
         $this->state = self::STATE_NONE;
-        $this->expressionStack->pop();
+        $this->property = null;
     }
 
     private function parseTelPosListBegin(Token $token) {
         $this->state = self::STATE_PROPERTIES_TELPOS;
         $property = new PropertyDeclaration('TelPosList', $token->data[0]);
-        $this->expressionStack[] = $property;
         $this->class->addProperty($property);
+        $this->property = $property;
     }
 
     private function parseTelPosListEnd() {
         $this->state = self::STATE_NONE;
-        $this->expressionStack->pop();
+        $this->property = null;
     }
 
     private function parseHandlerBegin(Token $token) {
@@ -265,6 +269,10 @@ class Parser {
         $this->blockStack->pop();
 
         // reset handler-related state
+        // TODO: anyway stacks must be empty at the end of a handler
+        $this->expressionStack = new SplStack();
+        $this->statementStack = new SplStack();
+        $this->blockStack = new SplStack();
         $this->branchStack = new SplStack();
 
         $this->labels = [];
@@ -490,7 +498,7 @@ class Parser {
             $statement = $this->statementStack->pop();
 
             if ($statement instanceof SelectStatement) {
-                if ($token->prev->prev->name === 'jump') {
+                if ($token->prev->name === 'jump' && $token->prev->prev->name === 'jump') {
                     $this->blockStack->top()->addStatement(new BreakStatement());
                 }
 
@@ -559,13 +567,13 @@ class Parser {
         $raw = substr($token->raw, 1, -1);
         $row = array_map('trim', explode(';', $raw));
         $row[0] = '"' . substr($this->data->getEnum('ITEM', $row[0]), 1) . '"';
-        $this->expressionStack->top()->addRow($row);
+        $this->property->addRow($row);
     }
 
     private function parseTelPosList(Token $token) {
         $raw = substr($token->raw, 1, -1);
         $row = array_map('trim', explode(';', $raw));
-        $this->expressionStack->top()->addRow($row);
+        $this->property->addRow($row);
     }
 
     private function parseVariable(Token $token) {
