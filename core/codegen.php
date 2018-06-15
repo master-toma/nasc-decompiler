@@ -116,7 +116,7 @@ class Codegen {
             $rhs = $this->generateExpression($expression->getRHS(), $expression);
             $result = $lhs . ' ' . $expression->getOperator() . ' ' . $rhs;
 
-            // check braces
+            // check operators priority
             if ($parent instanceof BinaryExpression &&
                 $this->priority[$expression->getOperator()] < $this->priority[$parent->getOperator()]
             ) {
