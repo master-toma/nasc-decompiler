@@ -741,11 +741,11 @@
             },
             "2120": {
                 "name": "equiped_weapon_class_id",
-                "type": "int"
+                "type": "ITEM"
             },
             "2124": {
                 "name": "attack_type",
-                "type": "int"
+                "type": "AT"
             },
             "2248": {
                 "name": "builder_level",
@@ -753,7 +753,7 @@
             },
             "2264": {
                 "name": "last_blow_weapon_class_id",
-                "type": "int"
+                "type": "ITEM"
             },
             "2268": {
                 "name": "ssq_round",
@@ -761,7 +761,7 @@
             },
             "2272": {
                 "name": "ssq_part",
-                "type": "int"
+                "type": "SSQ_SIDE"
             },
             "2280": {
                 "name": "seal_selection_no",
@@ -967,7 +967,7 @@
             },
             "120": {
                 "name": "class_id",
-                "type": "int"
+                "type": "ITEM"
             },
             "144": {
                 "name": "pet_level",
@@ -1599,7 +1599,7 @@
             },
             "2684": {
                 "name": "class_id",
-                "type": "int"
+                "type": "NPC"
             }
         },
         "SpawnDefine": {

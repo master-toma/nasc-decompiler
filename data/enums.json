@@ -32,6 +32,22 @@
         "PSTATE_MOVE_TO_TARGET",
         "PSTATE_MOVE_SUPERPOINT"
     ],
+    "AT": [
+        "@AT_NONE",
+        "@AT_SWORD",
+        "@AT_BLUNT",
+        "@AT_DAGGER",
+        "@AT_POLE",
+        "@AT_FIST",
+        "@AT_BOW",
+        "@AT_ETC",
+        "@AT_DUAL",
+        "@AT_DUALFIST",
+        "@AT_FISHINGROD",
+        "@AT_RAPIER",
+        "@AT_CROSSBOW",
+        "@AT_ANCIENTSWORD"
+    ],
     "RACE": [
         "@race_human",
         "@race_elf",

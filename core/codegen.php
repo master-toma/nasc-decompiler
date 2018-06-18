@@ -65,7 +65,7 @@ class Codegen {
                     $list[] = "\n{" . implode('; ', $row) . '}';
                 }
 
-                $list = $list ? '{' . implode(";", $list) . "\n}" : '{}';
+                $list = $list ? '{' . implode(';', $list) . "\n}" : '{}';
                 $result .= $property->getType() . ' ' . $property->getName() . ' = ' . $list . ";\n";
             }
         }
