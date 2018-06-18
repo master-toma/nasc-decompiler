@@ -8,7 +8,7 @@
         "5": "SEE_CREATURE",
         "7": "SEE_ITEM",
         "9": "MY_DYING",
-        "10": "MY_DYING",
+        "10": "MY_DYING", // workaround
         "11": "TIMER_FIRED_EX",
         "12": "CREATED",
         "13": "CREATED", // workaround
