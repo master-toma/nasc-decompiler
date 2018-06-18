@@ -644,12 +644,12 @@ class Parser {
     }
 
     private function goToLabel(Token $token): ?Token {
-        // workaround for guild_master_test_helper1 wrong branch label bug
-        if (isset($this->labels[$token->data[0]])) {
-            $token->data[0] = 'L' . (substr($token->data[0], 1) + 1);
-        }
-
         $label = $token->data[0];
+
+        // TODO: fix bug with_master_test_helper1 & start_npc (branch label before branch)
+        if (isset($this->labels[$label])) {
+            return null;
+        }
 
         while ($token->name !== $label) {
             $token = $token->next;
@@ -677,7 +677,14 @@ class Parser {
             $enum = $this->data->getEnum($name, $id);
 
             if ($enum) {
-                return new EnumExpression($name, $enum);
+                $expression = new EnumExpression($name, $enum);
+
+                // workaround for short skill ids
+                if ($name === 'SKILL_SHORT') {
+                    return new BinaryExpression($expression, new IntegerExpression(65536), '/');
+                } else {
+                    return $expression;
+                }
             }
         }
 

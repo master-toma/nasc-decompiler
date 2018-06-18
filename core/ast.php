@@ -213,7 +213,7 @@ class BinaryExpression implements Expression {
             case '-':
             case '*':
             case '/':
-                // TODO: workaround for short skill ids
+                // workaround for short skill ids
                 if ($this->lhs->getType() === 'SKILL') {
                     return 'SKILL_SHORT';
                 } else if ($this->lhs->getType() === 'int' && $this->rhs->getType() === 'int') {

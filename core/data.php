@@ -59,7 +59,7 @@ class Data {
                 continue;
             }
 
-            // TODO: workaround for short skill ids
+            // workaround for short skill ids
             if ($name === 'SKILL') {
                 $pch = $this->loadPch($constants);
                 $enums[$name] = $pch;

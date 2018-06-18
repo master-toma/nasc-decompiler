@@ -11,7 +11,7 @@
         "10": "MY_DYING",
         "11": "TIMER_FIRED_EX",
         "12": "CREATED",
-        "13": "CREATED",
+        "13": "CREATED", // workaround
         "15": "SEE_SPELL",
         "16": "OUT_OF_TERRITORY",
         "17": "DESIRE_MANIPULATION",
@@ -42,7 +42,7 @@
         "63": "MOVE_TO_WAY_POINT_FINISHED",
         "64": "USE_SKILL_FINISHED",
         "65": "MOVE_TO_FINISHED",
-        "66": "MOVE_TO_FINISHED",
+        "66": "MOVE_TO_FINISHED", // workaround
         "77": "DOOR_HP_LEVEL_INFORMED",
         "78": "CONTROLTOWER_LEVEL_INFORMED",
         "79": "TB_REGISTER_PLEDGE_RETURNED",
