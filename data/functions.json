@@ -352,7 +352,7 @@
     "234881483": {
         "name": "GetSSQPrevWinner",
         "arguments": [],
-        "type": "int"
+        "type": "SSQ_SIDE"
     },
     "234881486": {
         "name": "GetPCCafeCouponEventState",
@@ -2872,7 +2872,7 @@
         "arguments": [
             "CSharedCreatureData",
             "string",
-            "int"
+            "QUEST"
         ],
         "type": "void"
     },
@@ -3186,7 +3186,7 @@
         "name": "GetDepositedSSQItemCount",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "SSQ_SIDE",
             "int"
         ],
         "type": "int"
@@ -3609,7 +3609,7 @@
         "name": "DeleteDepositedSSQItem",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "SSQ_SIDE",
             "int",
             "int"
         ],
@@ -3620,7 +3620,7 @@
         "arguments": [
             "CSharedCreatureData",
             "int",
-            "int",
+            "ITEM",
             "int"
         ],
         "type": "void"
