@@ -75,7 +75,7 @@
             },
             "164": {
                 "name": "skill_id",
-                "type": "int"
+                "type": "SKILL_SHORT"
             },
             "168": {
                 "name": "skill_level",
@@ -87,11 +87,11 @@
             },
             "176": {
                 "name": "skill_name_id",
-                "type": "int"
+                "type": "SKILL"
             },
             "180": {
                 "name": "occupation_name_id",
-                "type": "int"
+                "type": "CLASS"
             },
             "184": {
                 "name": "way_point_index",
@@ -107,7 +107,7 @@
             },
             "196": {
                 "name": "weapon_class_id",
-                "type": "int"
+                "type": "ITEM"
             },
             "200": {
                 "name": "success",

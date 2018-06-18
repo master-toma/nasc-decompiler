@@ -308,9 +308,9 @@ class Parser {
             $this->statementStack[] = $while;
         } else if ($this->statementStack->top() === '_case') {
             $this->statementStack->pop();
-            [$integer] = $this->popExpressions(1);
+            [$expression] = $this->popExpressions(1);
             $select = $this->statementStack->top();
-            $case = new CaseStatement($this->getEnum($select->getCondition()->getType(), $integer->getInteger()));
+            $case = new CaseStatement($this->getEnum([$select->getCondition()->getType(), 'SKILL'], $expression->getInteger()));
             $select->addCase($case);
             $this->blockStack[0] = $case->getBlock();
         } else if ($this->isSelectToken($token)) {
@@ -423,7 +423,9 @@ class Parser {
             $variable = $this->data->getVariable($this->class->getType(), $lhs->getType(), $rhs->getInteger());
             $this->expressionStack[] = new VariableExpression($variable['type'], $variable['name'], $lhs);
         } else {
-            $this->expressionStack[] = new BinaryExpression($lhs, $rhs, '+');
+            $this->expressionStack[] = $lhs;
+            $this->expressionStack[] = $rhs;
+            $this->parseBinary('+');
         }
     }
 
@@ -467,9 +469,11 @@ class Parser {
         [$rhs, $lhs] = $this->popExpressions(2);
 
         if ($rhs instanceof IntegerExpression) {
-            $rhs = $this->getEnum($lhs->getType(), $rhs->getInteger());
-        } else if ($lhs instanceof IntegerExpression) {
-            $lhs = $this->getEnum($rhs->getType(), $lhs->getInteger());
+            $rhs = $this->getEnum([$lhs->getType(), 'SKILL'], $rhs->getInteger());
+        }
+
+        if ($lhs instanceof IntegerExpression) {
+            $lhs = $this->getEnum([$rhs->getType(), 'SKILL'], $lhs->getInteger());
         }
 
         $this->expressionStack[] = new BinaryExpression($lhs, $rhs, $operator);
@@ -540,12 +544,22 @@ class Parser {
                 }
             } else if (strpos($value, '.') !== false) {
                 $expression = new FloatExpression($value);
-            } else if (stripos($name, 'skill') !== false || stripos($name, 'buff') !== false || stripos($name, 'spell') !== false) {
+            } else if (stripos($name, 'skill') !== false ||
+                stripos($name, 'buff') !== false ||
+                stripos($name, 'spell') !== false ||
+                stripos($name, 'magic') !== false ||
+                stripos($name, 'phys') !== false ||
+                stripos($name, 'heal') !== false
+            ) {
                 $expression = $this->getEnum('SKILL', $value);
-            } else if (stripos($name, 'item') !== false) {
+            } else if (stripos($name, 'item') !== false ||
+                stripos($name, 'weapon') !== false
+            ) {
                 $expression = $this->getEnum('ITEM', $value);
+            } else if (stripos($name, 'npc') !== false) {
+                $expression = $this->getEnum('NPC', $value);
             } else {
-                $expression = $this->getEnum(['SKILL', 'NPC'], $value);
+                $expression = $this->getEnum(['NPC', 'SKILL'], $value);
             }
         }
 

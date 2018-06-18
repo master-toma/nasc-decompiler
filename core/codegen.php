@@ -100,7 +100,11 @@ class Codegen {
 
             return $expression->getInteger();
         } else if ($expression instanceof FloatExpression) {
-            return sprintf('%.6f', $expression->getFloat());
+            $f = $expression->getFloat();
+
+            return floor($f * 10) === $f * 10
+                ? sprintf('%.1f', $f)
+                : $f;
         } else if ($expression instanceof StringExpression) {
             return '"' . $expression->getString() . '"';
         } else if ($expression instanceof EnumExpression) {

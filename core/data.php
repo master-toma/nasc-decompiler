@@ -55,7 +55,22 @@ class Data {
         $enums = $this->jsonDecode(file_get_contents($enums));
 
         foreach ($enums as $name => $constants) {
-            if (is_string($constants)) {
+            if (!is_string($constants)) {
+                continue;
+            }
+
+            // TODO: workaround for short skill ids
+            if ($name === 'SKILL') {
+                $pch = $this->loadPch($constants);
+                $enums[$name] = $pch;
+
+                foreach ($pch as $id => $skill) {
+                    if ($id % 65536 === 1) {
+                        $id = ($id - 1) / 65536;
+                        $enums['SKILL_SHORT'][$id] = $skill;
+                    }
+                }
+            } else {
                 $enums[$name] = $this->loadPch($constants);
             }
         }
