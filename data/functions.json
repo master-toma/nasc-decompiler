@@ -2367,7 +2367,7 @@
         "name": "CastBuffForQuestReward",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "SKILL"
         ],
         "type": "void"
     },
@@ -2375,7 +2375,7 @@
         "name": "CastBuffForAgitManager",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "SKILL"
         ],
         "type": "void"
     },
@@ -3249,7 +3249,7 @@
         "name": "SetNRMemoState",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "QUEST",
             "int"
         ],
         "type": "void"
@@ -4122,7 +4122,7 @@
             "string",
             "string",
             "string",
-            "int",
+            "ITEM",
             "string"
         ],
         "type": "void"
@@ -4848,7 +4848,7 @@
         "name": "GetNRMemoState",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "QUEST"
         ],
         "type": "int"
     },

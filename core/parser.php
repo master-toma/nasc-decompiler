@@ -633,6 +633,7 @@ class Parser {
         $label = $token->data[0];
 
         if (isset($this->labels[$label])) {
+            // TODO: unknown scenario
             return null;
         }
 

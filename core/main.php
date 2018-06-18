@@ -6,6 +6,7 @@ ini_set('memory_limit', '1G');
 
 // TODO: fix problems with these classes
 $ignore = [
+    // 'e11_drake_avlariel', // TODO: else if bug
     'merchant_for_pvp',
     'guild_master_test_helper1',
     'announce_raid_boss_position',
