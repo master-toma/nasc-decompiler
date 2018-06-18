@@ -2543,7 +2543,7 @@
         "name": "SetNRMemo",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "QUEST"
         ],
         "type": "void"
     },
@@ -2551,7 +2551,7 @@
         "name": "RemoveNRMemo",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "QUEST"
         ],
         "type": "void"
     },
@@ -2890,7 +2890,7 @@
         "arguments": [
             "CSharedCreatureData",
             "int",
-            "int"
+            "string"
         ],
         "type": "void"
     },
@@ -3258,7 +3258,7 @@
         "name": "SetNRFlagJournal",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "QUEST",
             "int"
         ],
         "type": "void"
@@ -3659,7 +3659,7 @@
         "name": "SetNRMemoStateEx",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "QUEST",
             "int",
             "int"
         ],
@@ -4840,7 +4840,7 @@
         "name": "HaveNRMemo",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "QUEST"
         ],
         "type": "int"
     },
@@ -5019,7 +5019,7 @@
         "name": "GetNRMemoStateEx",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "QUEST",
             "int"
         ],
         "type": "int"
