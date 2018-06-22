@@ -38,7 +38,7 @@ $tokenizer = new Tokenizer();
 $parser = new Parser($data);
 $codegen = new Codegen();
 
-$file = fopen('ai_adv.obj', 'r');
+$file = fopen('ai.obj', 'r');
 $line = 0;
 
 // write BOM

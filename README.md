@@ -7,7 +7,7 @@ $ php core/main.php
 ...
 ```
 
-Result in `ai.nasc` file.
+See decompiled code in `ai.nasc` file.
 
 ## Example
 
