@@ -20,6 +20,13 @@ include_once 'data.php';
 include_once 'parser.php';
 include_once 'codegen.php';
 
+include_once 'regression.php';
+
+$isTest = ($argv[1] ?? '') === 'test';
+$isGen = ($argv[1] ?? '') === 'gen';
+$regression = $isTest || $isGen ? new Regression('tests/' . $argv[2] . '.bin') : null;
+$failed = [];
+
 $data = new Data(
     'data/handlers.json',
     'data/variables.json',
@@ -31,7 +38,7 @@ $tokenizer = new Tokenizer();
 $parser = new Parser($data);
 $codegen = new Codegen();
 
-$file = fopen('ai.obj', 'r');
+$file = fopen('ai_adv.obj', 'r');
 $line = 0;
 
 // write BOM
@@ -55,12 +62,40 @@ while (!feof($file)) {
         $name = $tokenizer->getHead()->data[1];
 
         if (in_array($name, $ignore)) {
+            if ($isTest) {
+                $regression->test(null);
+            } else if ($isGen) {
+                $regression->generate(null);
+            }
+
             continue;
         }
 
-        echo 'Decompile ' . $name . "\n";
+        echo 'Decompile ' . $name;
         $class = $parser->parseClass($tokenizer->getHead());
-        file_put_contents('ai.nasc', iconv('UTF-8', 'UTF-16LE', $codegen->generateClass($class)), FILE_APPEND);
+        $code = $codegen->generateClass($class);
+        file_put_contents('ai.nasc', iconv('UTF-8', 'UTF-16LE', $code), FILE_APPEND);
+
+        if ($isTest) {
+            if ($regression->test($code)) {
+                echo ' - PASSED';
+            } else {
+                echo ' - FAILED';
+                $failed[] = $name;
+            }
+        } else if ($isGen) {
+            $regression->generate($code);
+        }
+
+        echo "\n";
+    }
+}
+
+if ($failed) {
+    echo "\nFailed tests:\n\n";
+
+    foreach ($failed as $name) {
+        echo $name . "\n";
     }
 }
 

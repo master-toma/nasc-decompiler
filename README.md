@@ -7,9 +7,11 @@ $ php core/main.php
 ...
 ```
 
+Result in `ai.nasc` file.
+
 ## Example
 
-Code:
+VM code:
 
 ```
 class 0 hello : (null)
@@ -52,7 +54,7 @@ handler_end
 class_end
 ```
 
-Decompiled source:
+Decompiled code:
 
 ```c++
 set_compiler_opt base_event_type(@NTYPE_NPC_EVENT)
