@@ -1,6 +1,7 @@
 <?php
 
-class Parser {
+class Parser
+{
     private const STATE_NONE = 0;
     private const STATE_PARAMETERS = 1;
     private const STATE_PARAMETERS_STRING = 2;
@@ -32,11 +33,13 @@ class Parser {
     /** @var HandlerDeclaration */
     private $handler = null; // TODO: use handler property instead of the expression stack
 
-    public function __construct(Data $data) {
+    public function __construct(Data $data)
+    {
         $this->data = $data;
     }
 
-    public function parseClass(Token $token): ?ClassDeclaration {
+    public function parseClass(Token $token): ?ClassDeclaration
+    {
         // reset state variables & stacks
         $this->state = self::STATE_NONE;
 
@@ -184,7 +187,7 @@ class Parser {
                 default:
                     if ($token->isString()) {
                         $this->parseString($token);
-                    } else if ($token->isLabel()) {
+                    } elseif ($token->isLabel()) {
                         $this->parseLabel($token);
                     } else {
                         switch ($this->state) {
@@ -215,7 +218,8 @@ class Parser {
 
     /* PARSERS */
 
-    private function parseClassBegin(Token $token) {
+    private function parseClassBegin(Token $token)
+    {
         $this->class = new ClassDeclaration(
             $token->data[0],
             $token->data[1],
@@ -223,39 +227,46 @@ class Parser {
         );
     }
 
-    private function parseParameterDefineBegin() {
+    private function parseParameterDefineBegin()
+    {
         $this->state = self::STATE_PARAMETERS;
     }
 
-    private function parseParameterDefineEnd() {
+    private function parseParameterDefineEnd()
+    {
         $this->state = self::STATE_NONE;
     }
 
-    private function parseBuySellListBegin(Token $token) {
+    private function parseBuySellListBegin(Token $token)
+    {
         $this->state = self::STATE_PROPERTIES_BUYSELL;
         $property = new PropertyDeclaration('BuySellList', $token->data[0]);
         $this->class->addProperty($property);
         $this->property = $property;
     }
 
-    private function parseBuySellListEnd() {
+    private function parseBuySellListEnd()
+    {
         $this->state = self::STATE_NONE;
         $this->property = null;
     }
 
-    private function parseTelPosListBegin(Token $token) {
+    private function parseTelPosListBegin(Token $token)
+    {
         $this->state = self::STATE_PROPERTIES_TELPOS;
         $property = new PropertyDeclaration('TelPosList', $token->data[0]);
         $this->class->addProperty($property);
         $this->property = $property;
     }
 
-    private function parseTelPosListEnd() {
+    private function parseTelPosListEnd()
+    {
         $this->state = self::STATE_NONE;
         $this->property = null;
     }
 
-    private function parseHandlerBegin(Token $token) {
+    private function parseHandlerBegin(Token $token)
+    {
         $name = $this->data->getHandler($this->class->getType(), $token->data[0]);
         $handler = new HandlerDeclaration($name);
 
@@ -264,7 +275,8 @@ class Parser {
         $this->statementStack[] = $handler;
     }
 
-    private function parseHandlerEnd() {
+    private function parseHandlerEnd()
+    {
         $this->statementStack->pop();
         $this->blockStack->pop();
 
@@ -291,29 +303,32 @@ class Parser {
 //        }
     }
 
-    private function parseVariableBegin() {
+    private function parseVariableBegin()
+    {
         $this->state = self::STATE_VARIABLES;
     }
 
-    private function parseVariableEnd() {
+    private function parseVariableEnd()
+    {
         $this->state = self::STATE_NONE;
     }
 
-    private function parseBranchFalse(Token $token) {
+    private function parseBranchFalse(Token $token)
+    {
         if ($this->isWhileToken($token)) {
             [$condition] = $this->popExpressions(1);
             $while = new WhileStatement($condition);
             $this->blockStack->top()->addStatement($while);
             $this->blockStack[] = $while->getBlock();
             $this->statementStack[] = $while;
-        } else if ($this->statementStack->top() === '_case') {
+        } elseif ($this->statementStack->top() === '_case') {
             $this->statementStack->pop();
             [$expression] = $this->popExpressions(1);
             $select = $this->statementStack->top();
             $case = new CaseStatement($this->getEnum([$select->getCondition()->getType(), 'SKILL'], $expression->getInteger()));
             $select->addCase($case);
             $this->blockStack[0] = $case->getBlock();
-        } else if ($this->isSelectToken($token)) {
+        } elseif ($this->isSelectToken($token)) {
             [$expression] = $this->popExpressions(1);
             $select = new SelectStatement($expression->getLHS());
             $case = new CaseStatement($expression->getRHS());
@@ -321,9 +336,9 @@ class Parser {
             $this->blockStack->top()->addStatement($select);
             $this->blockStack[] = $case->getBlock();
             $this->statementStack[] = $select;
-        } else if ($token->next->name === 'jump') {
+        } elseif ($token->next->name === 'jump') {
             $this->statementStack[] = '_for';
-        } else if ($token->prev->comment !== 'and list' || $token->next->isLabel()) { // TODO: remove comment checking
+        } elseif ($token->prev->comment !== 'and list' || $token->next->isLabel()) { // TODO: remove comment checking
             [$condition] = $this->popExpressions(1);
             $if = new IfStatement($condition);
             $this->blockStack->top()->addStatement($if);
@@ -336,7 +351,8 @@ class Parser {
         $this->branchStack[] = $token->data[0];
     }
 
-    private function parseShiftSp(Token $token) {
+    private function parseShiftSp(Token $token)
+    {
         if ($token->data[0] != -1 || !$this->expressionStack->count()) {
             return;
         }
@@ -349,7 +365,8 @@ class Parser {
         }
     }
 
-    private function parseAssign() {
+    private function parseAssign()
+    {
         [$rvalue, $lvalue] = $this->popExpressions(2);
 
         if ($rvalue instanceof IntegerExpression) {
@@ -368,7 +385,8 @@ class Parser {
         }
     }
 
-    private function parseJump(Token $token) {
+    private function parseJump(Token $token)
+    {
         for ($i = 0; $i < $this->statementStack->count(); $i++) {
             $statement = $this->statementStack[$i];
 
@@ -383,18 +401,20 @@ class Parser {
         }
     }
 
-    private function parsePushConst(Token $token) {
+    private function parsePushConst(Token $token)
+    {
         if ($token->prev->name === 'push_event') {
             $variable = $this->data->getVariable($this->class->getType(), null, $token->data[0]);
             $this->expressionStack[] = new VariableExpression($variable['type'], $variable['name']);
-        } else if (strpos($token->data[0], '.') !== false) {
+        } elseif (strpos($token->data[0], '.') !== false) {
             $this->expressionStack[] = new FloatExpression($token->data[0]);
         } else {
             $this->expressionStack[] = new IntegerExpression($token->data[0]);
         }
     }
 
-    private function parseFuncCall(Token $token) {
+    private function parseFuncCall(Token $token)
+    {
         $function = $this->data->getFunction($token->data[0]);
         $arguments = [];
 
@@ -412,7 +432,8 @@ class Parser {
         $this->expressionStack[] = new CallExpression($function['type'], $function['name'], $arguments, $object);
     }
 
-    private function parseAdd(Token $token) {
+    private function parseAdd(Token $token)
+    {
         if ($token->prev->prev->name === 'push_event') {
             return;
         }
@@ -429,11 +450,13 @@ class Parser {
         }
     }
 
-    private function parsePushString(Token $token) {
+    private function parsePushString(Token $token)
+    {
         $this->expressionStack[] = new StringExpression($this->strings[$token->data[0]]);
     }
 
-    private function parsePushParameter(Token $token) {
+    private function parsePushParameter(Token $token)
+    {
         if (!isset($this->parameters[$token->data[0]])) {
             $this->parameters[$token->data[0]] = 'int';
         }
@@ -441,31 +464,37 @@ class Parser {
         $this->expressionStack[] = new ParameterExpression($this->parameters[$token->data[0]], $token->data[0]);
     }
 
-    private function parsePushProperty(Token $token) {
+    private function parsePushProperty(Token $token)
+    {
         $this->expressionStack[] = new PropertyExpression('', $token->data[0]);
     }
 
-    private function parseEqual() {
+    private function parseEqual()
+    {
         if ($this->statementStack->top() !== '_case') {
             $this->parseBinary('==');
         }
     }
 
-    private function parseFetch(Token $token) {
+    private function parseFetch(Token $token)
+    {
         if (strpos($token->next->name, 'fetch_') === 0) {
             $this->expressionStack[] = $this->expressionStack->top();
         }
     }
 
-    private function parseCallSuper() {
+    private function parseCallSuper()
+    {
         $this->blockStack->top()->addStatement(new SuperStatement());
     }
 
-    private function parseExitHandler() {
+    private function parseExitHandler()
+    {
         $this->blockStack->top()->addStatement(new ReturnStatement());
     }
 
-    private function parseBinary(string $operator) {
+    private function parseBinary(string $operator)
+    {
         [$rhs, $lhs] = $this->popExpressions(2);
 
         if ($rhs instanceof IntegerExpression) {
@@ -479,7 +508,8 @@ class Parser {
         $this->expressionStack[] = new BinaryExpression($lhs, $rhs, $operator);
     }
 
-    private function parseUnary(string $operator) {
+    private function parseUnary(string $operator)
+    {
         [$expression] = $this->popExpressions(1);
 
         if ($expression instanceof IntegerExpression && $operator === '-') {
@@ -490,11 +520,13 @@ class Parser {
         }
     }
 
-    private function parseString(Token $token) {
+    private function parseString(Token $token)
+    {
         $this->strings[$token->name] = trim($token->data[0], '"');
     }
 
-    private function parseLabel(Token $token) {
+    private function parseLabel(Token $token)
+    {
         $this->labels[$token->name] = true;
 
         while ($this->branchStack->count() && $this->branchStack->top() === $token->name) {
@@ -518,7 +550,7 @@ class Parser {
                 } else {
                     $this->blockStack->pop();
                 }
-            } else if ($statement instanceof IfStatement && $token->prev->name === 'jump') {
+            } elseif ($statement instanceof IfStatement && $token->prev->name === 'jump') {
                 $this->blockStack[0] = $statement->getElseBlock();
                 $this->branchStack[] = $token->prev->data[0];
                 $this->statementStack[] = '_else';
@@ -528,7 +560,8 @@ class Parser {
         }
     }
 
-    private function parseParameter(Token $token) {
+    private function parseParameter(Token $token)
+    {
         $type = $this->fixTypeCase($token->name);
         $name = $token->data[0];
         $value = $token->data[1] ?? null;
@@ -542,9 +575,9 @@ class Parser {
                     $this->state = self::STATE_PARAMETERS_STRING;
                     $this->expressionStack[] = $expression;
                 }
-            } else if (strpos($value, '.') !== false) {
+            } elseif (strpos($value, '.') !== false) {
                 $expression = new FloatExpression($value);
-            } else if (stripos($name, 'skill') !== false ||
+            } elseif (stripos($name, 'skill') !== false ||
                 stripos($name, 'buff') !== false ||
                 stripos($name, 'spell') !== false ||
                 stripos($name, 'magic') !== false ||
@@ -552,11 +585,11 @@ class Parser {
                 stripos($name, 'heal') !== false
             ) {
                 $expression = $this->getEnum('SKILL', $value);
-            } else if (stripos($name, 'item') !== false ||
+            } elseif (stripos($name, 'item') !== false ||
                 stripos($name, 'weapon') !== false
             ) {
                 $expression = $this->getEnum('ITEM', $value);
-            } else if (stripos($name, 'npc') !== false) {
+            } elseif (stripos($name, 'npc') !== false) {
                 $expression = $this->getEnum('NPC', $value);
             } else {
                 $expression = $this->getEnum(['NPC', 'SKILL'], $value);
@@ -568,7 +601,8 @@ class Parser {
         $this->parameters[$name] = $expression ? $expression->getType() : $type;
     }
 
-    private function parseParameterString(Token $token) {
+    private function parseParameterString(Token $token)
+    {
         $this->expressionStack->top()->appendString("\n\t" . trim($token->raw, '"'));
 
         if (substr($token->raw, -1) === '"') {
@@ -577,20 +611,23 @@ class Parser {
         }
     }
 
-    private function parseBuySellList(Token $token) {
+    private function parseBuySellList(Token $token)
+    {
         $raw = substr($token->raw, 1, -1);
         $row = array_map('trim', explode(';', $raw));
         $row[0] = '"' . substr($this->data->getEnum('ITEM', $row[0]), 1) . '"';
         $this->property->addRow($row);
     }
 
-    private function parseTelPosList(Token $token) {
+    private function parseTelPosList(Token $token)
+    {
         $raw = substr($token->raw, 1, -1);
         $row = array_map('trim', explode(';', $raw));
         $this->property->addRow($row);
     }
 
-    private function parseVariable(Token $token) {
+    private function parseVariable(Token $token)
+    {
         $variable = trim($token->name, '"');
 
         if ($variable !== 'myself' && $variable[0] !== '_') {
@@ -607,7 +644,8 @@ class Parser {
      * @param int $number
      * @return Expression[]
      */
-    private function popExpressions(int $number): array {
+    private function popExpressions(int $number): array
+    {
         $expressions = [];
 
         while ($number) {
@@ -615,7 +653,7 @@ class Parser {
 
             if ($this->expressionStack->count()) {
                 $expressions[] = $this->expressionStack->pop();
-            } else if ($this->blockStack->count()) {
+            } elseif ($this->blockStack->count()) {
                 $expressions[] = $this->blockStack->top()->popStatement();
             }
         }
@@ -623,7 +661,8 @@ class Parser {
         return $expressions;
     }
 
-    private function isWhileToken(Token $token): bool {
+    private function isWhileToken(Token $token): bool
+    {
         $token = $this->goToLabel($token);
 
         if (!$token) {
@@ -633,7 +672,8 @@ class Parser {
         return $token->prev->name === 'jump' && isset($this->labels[$token->prev->data[0]]);
     }
 
-    private function isSelectToken(Token $token): bool {
+    private function isSelectToken(Token $token): bool
+    {
         $token = $this->goToLabel($token);
 
         if (!$token) {
@@ -643,7 +683,8 @@ class Parser {
         return $token->prev->name === 'jump' && $token->next->name === 'push_reg_sp';
     }
 
-    private function goToLabel(Token $token): ?Token {
+    private function goToLabel(Token $token): ?Token
+    {
         $label = $token->data[0];
 
         // TODO: fix bug with_master_test_helper1 & start_npc (branch label before branch)
@@ -658,7 +699,8 @@ class Parser {
         return $token;
     }
 
-    private function isObjectType(string $type): bool {
+    private function isObjectType(string $type): bool
+    {
         $primitives = $this->data->getEnums();
         $primitives['int'] = true;
         $primitives['float'] = true;
@@ -670,7 +712,8 @@ class Parser {
         return !isset($primitives[$type]);
     }
 
-    private function getEnum($name, int $id): Expression {
+    private function getEnum($name, int $id): Expression
+    {
         $names = (array) $name;
 
         foreach ($names as $name) {
@@ -691,7 +734,8 @@ class Parser {
         return new IntegerExpression($id);
     }
 
-    private function fixTypeCase(string $type): string {
+    private function fixTypeCase(string $type): string
+    {
         switch ($type) {
             case 'waypointstype':
                 return 'WayPointsType';

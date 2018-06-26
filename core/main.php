@@ -6,7 +6,7 @@ ini_set('memory_limit', '1G');
 
 // TODO: fix problems with these classes
 $ignore = [
-    // 'e11_drake_avlariel', // TODO: else if bug
+    // 'e11_drake_avlariel', // TODO: elseif bug
     'merchant_for_pvp',
     'guild_master_test_helper1',
     'announce_raid_boss_position',
@@ -42,11 +42,11 @@ $file = fopen('ai.obj', 'r');
 $line = 0;
 
 // write BOM
-file_put_contents('ai.nasc', pack('S',0xFEFF));
+file_put_contents('ai.nasc', pack('S', 0xFEFF));
 
 while (!feof($file)) {
     $string = trim(fgets($file));
-    $string = preg_replace('/[^\s\x20-\x7E]/','', $string); // remove non-ASCII characters
+    $string = preg_replace('/[^\s\x20-\x7E]/', '', $string); // remove non-ASCII characters
     $line++;
 
     if (!$string) {
@@ -58,13 +58,13 @@ while (!feof($file)) {
 
     if ($token->name === 'class') {
         $tokenizer->setHead($token);
-    } else if ($token->name === 'class_end') {
+    } elseif ($token->name === 'class_end') {
         $name = $tokenizer->getHead()->data[1];
 
         if (in_array($name, $ignore)) {
             if ($isTest) {
                 $regression->test(null);
-            } else if ($isGen) {
+            } elseif ($isGen) {
                 $regression->generate(null);
             }
 
@@ -83,7 +83,7 @@ while (!feof($file)) {
                 echo ' - FAILED';
                 $failed[] = $name;
             }
-        } else if ($isGen) {
+        } elseif ($isGen) {
             $regression->generate($code);
         }
 

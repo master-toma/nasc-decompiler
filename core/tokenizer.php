@@ -1,6 +1,7 @@
 <?php
 
-class Tokenizer {
+class Tokenizer
+{
     /** @var Token */
     private $head = null;
 
@@ -11,7 +12,8 @@ class Tokenizer {
      * @param string $string
      * @return Token Head of doubly linked list of tokens
      */
-    public function tokenize(string $string): Token {
+    public function tokenize(string $string): Token
+    {
         $token = new Token();
         $token->prev = $this->tail;
 
@@ -43,21 +45,25 @@ class Tokenizer {
         return $token;
     }
 
-    public function setHead(?Token $token) {
+    public function setHead(?Token $token)
+    {
         $token->prev = null;
         $this->head = $token;
     }
 
-    public function getHead(): ?Token {
+    public function getHead(): ?Token
+    {
         return $this->head;
     }
 
-    public function reset() {
+    public function reset()
+    {
         $this->head = null;
         $this->tail = null;
     }
 
-    private function split(string $string, string $delimiter = ' ') {
+    private function split(string $string, string $delimiter = ' ')
+    {
         $length = strlen($string);
         $parts = [];
         $part = '';
@@ -69,12 +75,12 @@ class Tokenizer {
             if ($state === 0 && $char === '"') {
                 $state = 1; // 1 - in string
                 $part .= $char;
-            } else if ($state === 1 && $char === '"' && $string[$i - 1] ?? '' !== '\\') {
+            } elseif ($state === 1 && $char === '"' && $string[$i - 1] ?? '' !== '\\') {
                 $state = 0;
                 $part .= $char;
                 $parts[] = $part;
                 $part = '';
-            } else if ($state === 0 && $char === $delimiter) {
+            } elseif ($state === 0 && $char === $delimiter) {
                 if ($part !== '') {
                     $parts[] = $part;
                     $part = '';
@@ -92,7 +98,8 @@ class Tokenizer {
     }
 }
 
-class Token {
+class Token
+{
     public $name = '';
     public $data = [];
     public $comment = '';
@@ -105,11 +112,13 @@ class Token {
     /** @var Token */
     public $next = null;
 
-    public function isString(): bool {
+    public function isString(): bool
+    {
         return ($this->name[0] ?? '') === 'S';
     }
 
-    public function isLabel(): bool {
+    public function isLabel(): bool
+    {
         return ($this->name[0] ?? '') === 'L';
     }
 }

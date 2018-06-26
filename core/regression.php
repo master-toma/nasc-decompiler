@@ -1,13 +1,16 @@
 <?php
 
-class Regression {
+class Regression
+{
     private $file;
 
-    public function __construct(string $file) {
+    public function __construct(string $file)
+    {
         $this->file = fopen($file, 'a+');
     }
 
-    public function generate(?string $class) {
+    public function generate(?string $class)
+    {
         static $first = true;
 
         if ($first) {
@@ -18,7 +21,8 @@ class Regression {
         fwrite($this->file, pack('L', crc32($class)));
     }
 
-    public function test(?string $class): bool {
+    public function test(?string $class): bool
+    {
         return unpack('L', fread($this->file, 4))[1] === crc32($class);
     }
 }

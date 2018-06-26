@@ -1,19 +1,22 @@
 <?php
 
-class Data {
+class Data
+{
     private $handlers = [];
     private $variables = [];
     private $functions = [];
     private $enums = [];
 
-    public function __construct(string $handlers, string $variables, string $functions, string $enums) {
+    public function __construct(string $handlers, string $variables, string $functions, string $enums)
+    {
         $this->handlers = $this->jsonDecode(file_get_contents($handlers));
         $this->variables = $this->jsonDecode(file_get_contents($variables));
         $this->functions = $this->jsonDecode(file_get_contents($functions));
         $this->enums = $this->loadEnums($enums);
     }
 
-    public function getHandler(int $type, int $id): string {
+    public function getHandler(int $type, int $id): string
+    {
         if (!isset($this->handlers[$type][$id])) {
             throw new RuntimeException(sprintf('Handler %d for class type %d not found', $id, $type));
         }
@@ -21,7 +24,8 @@ class Data {
         return $this->handlers[$type][$id];
     }
 
-    public function getVariable(int $type, ?string $class, int $address): array {
+    public function getVariable(int $type, ?string $class, int $address): array
+    {
         if (!isset($this->variables[$type][$class ? $class : '_'][$address])) {
             throw new RuntimeException(sprintf('Variable %s for class type %d not found', ($class ? $class . '->' : '') . $address, $type));
         }
@@ -29,7 +33,8 @@ class Data {
         return $this->variables[$type][$class ? $class : '_'][$address];
     }
 
-    public function getFunction(int $address): array {
+    public function getFunction(int $address): array
+    {
         if (!isset($this->functions[$address])) {
             throw new RuntimeException(sprintf('Function %d not found', $address));
         }
@@ -37,21 +42,25 @@ class Data {
         return $this->functions[$address];
     }
 
-    public function getEnum(string $name, int $id): ?string {
+    public function getEnum(string $name, int $id): ?string
+    {
         return $this->enums[$name][$id] ?? null;
     }
 
-    public function getEnums(): array {
+    public function getEnums(): array
+    {
         return $this->enums;
     }
 
-    private function jsonDecode(string $json): array {
+    private function jsonDecode(string $json): array
+    {
         // strip comments
         $json = preg_replace('#([\s]+//.*)|(^//.*)#', '', $json);
         return json_decode($json, true);
     }
 
-    private function loadEnums(string $enums): array {
+    private function loadEnums(string $enums): array
+    {
         $enums = $this->jsonDecode(file_get_contents($enums));
 
         foreach ($enums as $name => $constants) {
@@ -78,7 +87,8 @@ class Data {
         return $enums;
     }
 
-    private function loadPch(string $path): array {
+    private function loadPch(string $path): array
+    {
         $file = fopen($path, 'r');
         $result = [];
 
@@ -88,7 +98,7 @@ class Data {
 
         while (!feof($file)) {
             $string = trim(fgets($file));
-            $string = preg_replace('/[^\s\x20-\x7E]/','', $string); // remove non-ASCII characters
+            $string = preg_replace('/[^\s\x20-\x7E]/', '', $string); // remove non-ASCII characters
 
             if (!$string) {
                 continue;

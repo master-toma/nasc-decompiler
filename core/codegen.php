@@ -1,32 +1,34 @@
 <?php
 
-class Codegen {
+class Codegen
+{
     private $priority = [
-        '*'  => 9,
-        '/'  => 9,
-        '%'  => 9,
-        '+'  => 8,
-        '-'  => 8,
-        '<'  => 7,
+        '*' => 9,
+        '/' => 9,
+        '%' => 9,
+        '+' => 8,
+        '-' => 8,
+        '<' => 7,
         '<=' => 7,
-        '>'  => 7,
+        '>' => 7,
         '>=' => 7,
         '==' => 6,
         '!=' => 6,
-        '&'  => 5,
-        '^'  => 4,
-        '|'  => 3,
+        '&' => 5,
+        '^' => 4,
+        '|' => 3,
         '&&' => 2,
         '||' => 1,
     ];
 
-    public function generateClass(ClassDeclaration $class): string {
+    public function generateClass(ClassDeclaration $class): string
+    {
         $result = '';
 
         // compiler options
         if ($class->getType() === ClassDeclaration::TYPE_NPC_EVENT) {
             $result .= "set_compiler_opt base_event_type(@NTYPE_NPC_EVENT)\n\n";
-        } else if ($class->getType() === ClassDeclaration::TYPE_MAKER_EVENT) {
+        } elseif ($class->getType() === ClassDeclaration::TYPE_MAKER_EVENT) {
             $result .= "set_compiler_opt base_event_type(@NTYPE_MAKER_EVENT)\n\n";
         }
 
@@ -89,7 +91,8 @@ class Codegen {
         return $this->indent($result . '}') . "\n";
     }
 
-    private function generateExpression(Expression $expression, Expression $parent = null): string {
+    private function generateExpression(Expression $expression, Expression $parent = null): string
+    {
         if ($expression instanceof IntegerExpression) {
             // generate hex
             if ($parent instanceof BinaryExpression && !trim($parent->getOperator(), '&|') ||
@@ -99,23 +102,23 @@ class Codegen {
             }
 
             return $expression->getInteger();
-        } else if ($expression instanceof FloatExpression) {
+        } elseif ($expression instanceof FloatExpression) {
             $f = $expression->getFloat();
 
             return floor($f * 10) === $f * 10
                 ? sprintf('%.1f', $f)
                 : $f;
-        } else if ($expression instanceof StringExpression) {
+        } elseif ($expression instanceof StringExpression) {
             return '"' . $expression->getString() . '"';
-        } else if ($expression instanceof EnumExpression) {
+        } elseif ($expression instanceof EnumExpression) {
             return $expression->getName();
-        } else if ($expression instanceof ParameterExpression) {
+        } elseif ($expression instanceof ParameterExpression) {
             return $expression->getName();
-        } else if ($expression instanceof PropertyExpression) {
+        } elseif ($expression instanceof PropertyExpression) {
             return $expression->getName();
-        } else if ($expression instanceof UnaryExpression) {
+        } elseif ($expression instanceof UnaryExpression) {
             return $expression->getOperator() . $this->generateExpression($expression->getExpression(), $expression);
-        } else if ($expression instanceof BinaryExpression) {
+        } elseif ($expression instanceof BinaryExpression) {
             $lhs = $this->generateExpression($expression->getLHS(), $expression);
             $rhs = $this->generateExpression($expression->getRHS(), $expression);
             $result = $lhs . ' ' . $expression->getOperator() . ' ' . $rhs;
@@ -128,7 +131,7 @@ class Codegen {
             }
 
             return $result;
-        } else if ($expression instanceof AssignExpression) {
+        } elseif ($expression instanceof AssignExpression) {
             $lvalue = $this->generateExpression($expression->getLValue());
             $rvalue = $expression->getRValue();
 
@@ -147,10 +150,10 @@ class Codegen {
             }
 
             return $lvalue . ' = ' . $this->generateExpression($rvalue);
-        } else if ($expression instanceof VariableExpression) {
+        } elseif ($expression instanceof VariableExpression) {
             $object = $expression->getObject() ? $this->generateExpression($expression->getObject()) . '.' : '';
-            return  $object . $expression->getName();
-        } else if ($expression instanceof CallExpression) {
+            return $object . $expression->getName();
+        } elseif ($expression instanceof CallExpression) {
             $object = '';
 
             if ($expression->getObject()) {
@@ -159,7 +162,7 @@ class Codegen {
                 // myself. & gg. are not necessary for function calls
                 if (strpos($object, 'myself.') === 0) {
                     $object = substr($object, strlen('myself.'));
-                } else if (strpos($object, 'gg.') === 0) {
+                } elseif (strpos($object, 'gg.') === 0) {
                     $object = substr($object, strlen('gg.'));
                 }
             }
@@ -171,7 +174,8 @@ class Codegen {
         return '';
     }
 
-    private function generateStatement(Statement $statement): string {
+    private function generateStatement(Statement $statement): string
+    {
         if ($statement instanceof IfStatement) {
             $if = 'if (' . $this->generateExpression($statement->getCondition()) . ") {\n";
             $if .= $this->generateStatement($statement->getThenBlock());
@@ -181,14 +185,14 @@ class Codegen {
 
             if (count($else) === 1 && $else[0] instanceof IfStatement) {
                 $if .= ' else ' . $this->generateStatement($else[0]);
-            } else if ($else) {
+            } elseif ($else) {
                 $if .= " else {\n";
                 $if .= $this->generateStatement($statement->getElseBlock());
                 $if .= '}';
             }
 
             return $if;
-        } else if ($statement instanceof SelectStatement) {
+        } elseif ($statement instanceof SelectStatement) {
             $select = 'select (' . $this->generateExpression($statement->getCondition()) . ") {\n";
 
             foreach ($statement->getCases() as $case) {
@@ -197,26 +201,26 @@ class Codegen {
             }
 
             return $select . '}';
-        } else if ($statement instanceof WhileStatement) {
+        } elseif ($statement instanceof WhileStatement) {
             $while = 'while (' . $this->generateExpression($statement->getCondition()) . ") {\n";
             $while .= $this->generateStatement($statement->getBlock());
             return $while . '}';
-        } else if ($statement instanceof ForStatement) {
+        } elseif ($statement instanceof ForStatement) {
             $init = $this->generateExpression($statement->getInit());
             $condition = $this->generateExpression($statement->getCondition());
             $update = $this->generateExpression($statement->getUpdate());
             $for = 'for (' . $init . '; ' . $condition . '; ' . $update . ") {\n";
             $for .= $this->generateStatement($statement->getBlock());
             return $for . '}';
-        } else if ($statement instanceof ReturnStatement) {
+        } elseif ($statement instanceof ReturnStatement) {
             return 'return;';
-        } else if ($statement instanceof SuperStatement) {
+        } elseif ($statement instanceof SuperStatement) {
             return 'super;';
-        } else if ($statement instanceof BreakStatement) {
+        } elseif ($statement instanceof BreakStatement) {
             return 'break;';
-        } else if ($statement instanceof Expression) {
+        } elseif ($statement instanceof Expression) {
             return $this->generateExpression($statement) . ';';
-        } else if ($statement instanceof BlockStatement) {
+        } elseif ($statement instanceof BlockStatement) {
             $block = '';
 
             foreach ($statement->getStatements() as $statement) {
@@ -229,7 +233,8 @@ class Codegen {
         return '';
     }
 
-    private function indent(string $string): string {
+    private function indent(string $string): string
+    {
         $result = [];
         $lines = explode("\n", $string);
         $indent = 0;
