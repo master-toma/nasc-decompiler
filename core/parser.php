@@ -338,7 +338,7 @@ class Parser
             $this->statementStack[] = $select;
         } elseif ($token->next->name === 'jump') {
             $this->statementStack[] = '_for';
-        } elseif ($token->prev->comment !== 'and list' || $token->next->isLabel()) { // TODO: remove comment checking
+        } elseif ($token->prev->comment !== 'and list') {
             [$condition] = $this->popExpressions(1);
             $if = new IfStatement($condition);
             $this->blockStack->top()->addStatement($if);

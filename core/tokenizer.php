@@ -10,7 +10,7 @@ class Tokenizer
 
     /**
      * @param string $string
-     * @return Token Head of doubly linked list of tokens
+     * @return Token Head of the tokens doubly linked list
      */
     public function tokenize(string $string): Token
     {

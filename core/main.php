@@ -63,6 +63,7 @@ while (!feof($file)) {
 
         if (in_array($name, $ignore)) {
             if ($isTest) {
+                // just move cursor in test file
                 $regression->test(null);
             } elseif ($isGen) {
                 $regression->generate(null);
