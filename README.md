@@ -1,3 +1,5 @@
+**PHP 7 is required.**
+
 **For the leaked GF & AdvExt GF/GE.**
 
 Copy `ai.obj` to current folder & run:

@@ -17,6 +17,11 @@ interface Declaration extends Node
 {
 }
 
+interface OperationExpression extends Expression
+{
+    public function getOperator(): string;
+}
+
 /* EXPRESSIONS */
 
 class AssignExpression implements Expression
@@ -230,7 +235,7 @@ class EnumExpression implements Expression
     }
 }
 
-class BinaryExpression implements Expression
+class BinaryExpression implements OperationExpression
 {
     private $lhs = null;
     private $rhs = null;
@@ -291,7 +296,7 @@ class BinaryExpression implements Expression
     }
 }
 
-class UnaryExpression implements Expression
+class UnaryExpression implements OperationExpression
 {
     private $expression = null;
     private $operator = '';

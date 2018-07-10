@@ -1,17 +1,19 @@
 {
     // PCH-files copied directly from server
-    "SKILL": "./data/pch/skill_pch.txt",
-    "ITEM": "./data/pch/item_pch.txt",
-    "NPC": "./data/pch/npc_pch.txt",
-    "CATEGORY": "./data/pch/category_pch.txt",
-    "QUEST": "./data/pch/quest_pch.txt",
+    "SKILL": "./data/ge/pch/skill_pch.txt",
+    "ITEM": "./data/ge/pch/item_pch.txt",
+    "NPC": "./data/ge/pch/npc_pch.txt",
+    "CATEGORY": "./data/ge/pch/category_pch.txt",
+    "QUEST": "./data/ge/pch/quest_pch.txt",
+
     // PCH-files by splitting the manual_pch.txt file from server
-    "GM_ID": "./data/pch/boss_pch.txt",
-    "CLASS": "./data/pch/class_pch.txt",
-    "PLEDGE": "./data/pch/pledge_pch.txt",
-    "SCE": "./data/pch/sce_pch.txt",
-    "ABNORMAL": "./data/pch/abnormal_pch.txt",
-    // custom types from the manual_pch.txt file
+    "GM_ID": "./data/ge/pch/boss_pch.txt",
+    "CLASS": "./data/ge/pch/class_pch.txt",
+    "PLEDGE": "./data/ge/pch/pledge_pch.txt",
+    "SCE": "./data/ge/pch/sce_pch.txt",
+    "ABNORMAL": "./data/ge/pch/abnormal_pch.txt",
+
+    // built-in constants
     "P_STATE": [
         "PSTATE_IDLE",
         "PSTATE_MOVE_AROUND",
@@ -30,6 +32,8 @@
         "PSTATE_MOVE_TO_TARGET",
         "PSTATE_MOVE_SUPERPOINT"
     ],
+
+    // custom types from the manual_pch.txt file
     "AT": [
         "@AT_NONE",
         "@AT_SWORD",

@@ -18,7 +18,8 @@ include_once 'tokenizer.php';
 include_once 'ast.php';
 include_once 'data.php';
 include_once 'parser.php';
-include_once 'nasc.php';
+include_once 'generators/protocol.php';
+include_once 'generators/nasc.php';
 
 include_once 'regression.php';
 
@@ -28,15 +29,16 @@ $regression = $isTest || $isGenerate ? new Regression('tests/' . $argv[2] . '.bi
 $failedTests = [];
 
 $data = new Data(
-    'data/handlers.json',
-    'data/variables.json',
-    'data/functions.json',
-    'data/enums.json'
+    'data/ge/handlers.json',
+    'data/ge/variables.json',
+    'data/ge/functions.json',
+    'data/ge/enums.json',
+    'data/ge/fstring.txt'
 );
 
 $tokenizer = new Tokenizer();
 $parser = new Parser($data);
-$codegen = new Codegen();
+$generator = new NASCGenerator();
 
 $file = fopen('ai.obj', 'r');
 $line = 0;
@@ -73,7 +75,7 @@ while (!feof($file)) {
 
         echo 'Decompile ' . $name;
         $class = $parser->parseClass($tokenizer->getHead());
-        $code = $codegen->generateClass($class);
+        $code = $generator->generateClass($class);
         file_put_contents('ai.nasc', iconv('UTF-8', 'UTF-16LE', $code), FILE_APPEND);
 
         if ($isTest) {

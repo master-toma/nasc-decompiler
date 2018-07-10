@@ -8,13 +8,13 @@ class Data
     private $enums = [];
     private $strings = [];
 
-    public function __construct(string $handlers, string $variables, string $functions, string $enums)
+    public function __construct(string $handlers, string $variables, string $functions, string $enums, string $strings)
     {
         $this->handlers = $this->jsonDecode(file_get_contents($handlers));
         $this->variables = $this->jsonDecode(file_get_contents($variables));
         $this->functions = $this->jsonDecode(file_get_contents($functions));
         $this->enums = $this->loadEnums($enums);
-//        $this->strings = $this->loadStrings($strings);
+        $this->strings = $this->loadStrings($strings);
     }
 
     public function getHandler(int $type, int $id): string
@@ -47,7 +47,8 @@ class Data
     public function getString(int $id): string
     {
         if (!isset($this->strings[$id])) {
-            throw new RuntimeException(sprintf('String %d not found', $id));
+            trigger_error(sprintf('String %d not found', $id), E_USER_WARNING);
+            return (string) $id;
         }
 
         return $this->strings[$id];
@@ -138,7 +139,9 @@ class Data
         return $result;
     }
 
-    private function loadStrings(string $path): array {
-
+    private function loadStrings(string $path): array
+    {
+        // TODO implement
+        return [];
     }
 }

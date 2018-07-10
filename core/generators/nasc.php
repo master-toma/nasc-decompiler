@@ -95,9 +95,7 @@ class NASCGenerator implements GeneratorProtocol
     {
         if ($expression instanceof IntegerExpression) {
             // generate hex
-            if ($parent instanceof BinaryExpression && !trim($parent->getOperator(), '&|') ||
-                $parent instanceof UnaryExpression && $parent->getOperator() === '~'
-            ) {
+            if ($parent instanceof OperationExpression && !trim($parent->getOperator(), '&|~')) {
                 return '0x' . dechex($expression->getInteger());
             }
 
