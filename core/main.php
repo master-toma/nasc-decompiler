@@ -4,21 +4,17 @@
 error_reporting(E_ALL);
 ini_set('memory_limit', '1G');
 
-// TODO: fix problems with these classes
-$ignore = [
-    // 'e11_drake_avlariel', // TODO: elseif bug
-    'merchant_for_pvp',
-    'guild_master_test_helper1',
-    'announce_raid_boss_position',
-    'c_tower_maker_special3',
-    'public_wyvern',
+$ignored = [
+    'guild_master_test_helper1', // fatal
+    'public_wyvern' // fatal
 ];
 
 include_once 'tokenizer.php';
 include_once 'ast.php';
 include_once 'data.php';
 include_once 'parser.php';
-include_once 'generators/protocol.php';
+
+include_once 'generators/interface.php';
 include_once 'generators/nasc.php';
 
 include_once 'regression.php';
@@ -29,11 +25,11 @@ $regression = $isTest || $isGenerate ? new Regression('tests/' . $argv[2] . '.bi
 $failedTests = [];
 
 $data = new Data(
-    'data/ge/handlers.json',
-    'data/ge/variables.json',
-    'data/ge/functions.json',
-    'data/ge/enums.json',
-    'data/ge/fstring.txt'
+    'data/gf/handlers.json',
+    'data/gf/variables.json',
+    'data/gf/functions.json',
+    'data/gf/enums.json',
+    'data/gf/fstring.txt'
 );
 
 $tokenizer = new Tokenizer();
@@ -63,11 +59,11 @@ while (!feof($file)) {
     } elseif ($token->name === 'class_end') {
         $name = $tokenizer->getHead()->data[1];
 
-        if (in_array($name, $ignore)) {
+        if (in_array($name, $ignored)) {
             if ($isTest) {
                 $regression->test(null); // move cursor forward
             } elseif ($isGenerate) {
-                $regression->generate(null);
+                $regression->generate(null); // write zero checksum for ignored class
             }
 
             continue;

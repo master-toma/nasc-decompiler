@@ -529,12 +529,12 @@ class Parser
     {
         $this->labels[$token->name] = true;
 
-        while ($this->branchStack->count() && $this->branchStack->top() === $token->name) {
+        while (in_array($token->name, iterator_to_array($this->branchStack))) {
             $this->branchStack->pop();
             $statement = $this->statementStack->pop();
 
             if ($statement instanceof SelectStatement) {
-                if ($token->prev->name === 'jump' && $token->prev->prev->name === 'jump') {
+                if ($token->prev->name === 'jump' && ($token->prev->prev->name === 'jump' || $token->next->isLabel())) {
                     $this->blockStack->top()->addStatement(new BreakStatement());
                 }
 
@@ -696,7 +696,6 @@ class Parser
     {
         $label = $token->data[0];
 
-        // TODO: fix bug with guild_master_test_helper1 & start_npc (branch label before branch)
         if (isset($this->labels[$label])) {
             return null;
         }

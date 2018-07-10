@@ -1,6 +1,6 @@
 <?php
 
-class NASCGenerator implements GeneratorProtocol
+class NASCGenerator implements GeneratorInterface
 {
     private $priority = [
         '*' => 9,
@@ -247,7 +247,10 @@ class NASCGenerator implements GeneratorProtocol
                 $indent--;
             }
 
-            if ($currFirstChar !== '}' && ($prevLastChar === '}' || $currLastChar === '{' && trim($prevLastChar, '{:'))) {
+            if ($currLastChar !== ':' &&
+                $currFirstChar !== '}' &&
+                ($prevLastChar === '}' || $currLastChar === '{' && trim($prevLastChar, '{:'))
+            ) {
                 $result[] = '';
             }
 
