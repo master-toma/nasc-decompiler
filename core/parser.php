@@ -615,7 +615,11 @@ class Parser
     {
         $raw = substr($token->raw, 1, -1);
         $row = array_map('trim', explode(';', $raw));
-        $row[0] = '"' . substr($this->data->getEnum('ITEM', $row[0]), 1) . '"';
+
+        if (is_numeric($row[0])) {
+            $row[0] = '"' . substr($this->data->getEnum('ITEM', $row[0]), 1) . '"';
+        }
+
         $this->property->addRow($row);
     }
 
@@ -623,6 +627,11 @@ class Parser
     {
         $raw = substr($token->raw, 1, -1);
         $row = array_map('trim', explode(';', $raw));
+
+        if (is_numeric($row[0])) {
+            $row[0] = '"' . $this->data->getString($row[0]) . '"';
+        }
+
         $this->property->addRow($row);
     }
 
@@ -687,7 +696,7 @@ class Parser
     {
         $label = $token->data[0];
 
-        // TODO: fix bug with_master_test_helper1 & start_npc (branch label before branch)
+        // TODO: fix bug with guild_master_test_helper1 & start_npc (branch label before branch)
         if (isset($this->labels[$label])) {
             return null;
         }

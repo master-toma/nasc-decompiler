@@ -1,6 +1,6 @@
 <?php
 
-class Codegen
+class NASCGenerator implements GeneratorProtocol
 {
     private $priority = [
         '*' => 9,

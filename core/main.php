@@ -18,14 +18,14 @@ include_once 'tokenizer.php';
 include_once 'ast.php';
 include_once 'data.php';
 include_once 'parser.php';
-include_once 'codegen.php';
+include_once 'nasc.php';
 
 include_once 'regression.php';
 
 $isTest = ($argv[1] ?? '') === 'test';
-$isGen = ($argv[1] ?? '') === 'gen';
-$regression = $isTest || $isGen ? new Regression('tests/' . $argv[2] . '.bin') : null;
-$failed = [];
+$isGenerate = ($argv[1] ?? '') === 'generate';
+$regression = $isTest || $isGenerate ? new Regression('tests/' . $argv[2] . '.bin') : null;
+$failedTests = [];
 
 $data = new Data(
     'data/handlers.json',
@@ -63,9 +63,8 @@ while (!feof($file)) {
 
         if (in_array($name, $ignore)) {
             if ($isTest) {
-                // just move cursor in test file
-                $regression->test(null);
-            } elseif ($isGen) {
+                $regression->test(null); // move cursor forward
+            } elseif ($isGenerate) {
                 $regression->generate(null);
             }
 
@@ -82,9 +81,9 @@ while (!feof($file)) {
                 echo ' - PASSED';
             } else {
                 echo ' - FAILED';
-                $failed[] = $name;
+                $failedTests[] = $name;
             }
-        } elseif ($isGen) {
+        } elseif ($isGenerate) {
             $regression->generate($code);
         }
 
@@ -92,10 +91,10 @@ while (!feof($file)) {
     }
 }
 
-if ($failed) {
+if ($failedTests) {
     echo "\nFailed tests:\n\n";
 
-    foreach ($failed as $name) {
+    foreach ($failedTests as $name) {
         echo $name . "\n";
     }
 }

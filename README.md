@@ -1,4 +1,4 @@
-**For the leaked GE & AdvExt GE.**
+**For the leaked GF & AdvExt GF/GE.**
 
 Copy `ai.obj` to current folder & run:
 

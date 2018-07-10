@@ -75,7 +75,7 @@ class Tokenizer
             if ($state === 0 && $char === '"') {
                 $state = 1; // 1 - in string
                 $part .= $char;
-            } elseif ($state === 1 && $char === '"' && $string[$i - 1] ?? '' !== '\\') {
+            } elseif ($state === 1 && $char === '"' && ($string[$i - 1] ?? '') !== '\\') {
                 $state = 0;
                 $part .= $char;
                 $parts[] = $part;
