@@ -281,7 +281,6 @@ class Parser
         $this->blockStack->pop();
 
         // reset handler-related state
-        // TODO: anyway stacks must be empty at the end of a handler
         $this->expressionStack = new SplStack();
         $this->statementStack = new SplStack();
         $this->blockStack = new SplStack();
@@ -289,18 +288,6 @@ class Parser
 
         $this->labels = [];
         $this->strings = [];
-
-//        if ($this->expressionStack->count() > 0) {
-//            throw new RuntimeException('Expression stack is not empty');
-//        }
-//
-//        if ($this->statementStack->count() > 0) {
-//            throw new RuntimeException('Statement stack is not empty');
-//        }
-//
-//        if ($this->blockStack->count() > 0) {
-//            throw new RuntimeException('Block stack is not empty');
-//        }
     }
 
     private function parseVariableBegin()
