@@ -1,0 +1,3 @@
+[VCP_HP] = 9
+[VCP_MAXHP] = 10
+[VCP_HP_REGEN] = 35
