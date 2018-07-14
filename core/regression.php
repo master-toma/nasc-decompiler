@@ -23,6 +23,10 @@ class Regression
 
     public function test(?string $class): bool
     {
+        if (!$this->file) {
+            return false;
+        }
+
         return unpack('L', fread($this->file, 4))[1] === crc32($class);
     }
 }

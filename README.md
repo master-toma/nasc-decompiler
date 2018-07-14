@@ -9,7 +9,26 @@ $ php core/main.php
 ...
 ```
 
+Or just run `./run.bat` on Windows.
+
 See decompiled code in `ai.nasc` file.
+
+## Command Line Arguments
+
+```
+--test          Run regression tests. Provide a test file name from the tests directory (without .bin extension). Default: NULL
+--generate      Generate regression tests. Provide a new test file name (without extension). Default: NULL
+--input         AI file to decompile. Default: 'ai.obj'
+--chronicle     AI chronicle. Provide a directory name from the data directory. Default: 'gf'
+--language      Resulting language. Provide a file name from the core/generators directory (without .php extension). Default: 'nasc'
+--split         Split result by classes. Default: true
+```
+
+Example:
+
+```
+./run.bat --input=gf_ruoff.obj --test=gf_ruoff
+```
 
 ## Example
 

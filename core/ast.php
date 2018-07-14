@@ -278,10 +278,8 @@ class BinaryExpression implements OperationExpression
                 // workaround for short skill ids
                 if ($this->lhs->getType() === 'SKILL') {
                     return 'SKILL_SHORT';
-                } else {
-                    if ($this->lhs->getType() === 'int' && $this->rhs->getType() === 'int') {
-                        return 'int';
-                    }
+                } elseif ($this->lhs->getType() === 'int' && $this->rhs->getType() === 'int') {
+                    return 'int';
                 }
 
                 return 'double';

@@ -1,8 +1,7 @@
 {
     "0": {
         "_": {
-            "8": {
-                // workaround
+            "8": { // workaround
                 "name": "creature",
                 "type": "CSharedCreatureData"
             },
@@ -620,18 +619,15 @@
                 "name": "name",
                 "type": "string"
             },
-            "188": {
-                // workaround
+            "188": { // workaround
                 "name": "race",
                 "type": "RACE"
             },
-            "192": {
-                // workaround
+            "192": { // workaround
                 "name": "occupation",
                 "type": "CLASS"
             },
-            "200": {
-                // workaround
+            "200": { // workaround
                 "name": "name",
                 "type": "string"
             },
@@ -655,8 +651,7 @@
                 "name": "hp",
                 "type": "double"
             },
-            "468": {
-                // workaround
+            "468": { // workaround
                 "name": "karma",
                 "type": "int"
             },
@@ -684,18 +679,15 @@
                 "name": "karma",
                 "type": "int"
             },
-            "836": {
-                // workaround
+            "836": { // workaround
                 "name": "yongma_type",
                 "type": "RIDE"
             },
-            "1092": {
-                // workaround
+            "1092": { // workaround
                 "name": "level",
                 "type": "int"
             },
-            "1560": {
-                // workaround
+            "1560": { // workaround
                 "name": "builder_level",
                 "type": "int"
             },
@@ -723,8 +715,7 @@
                 "name": "dbid",
                 "type": "int"
             },
-            "1920": {
-                // workaround
+            "1920": { // workaround
                 "name": "summoner_id",
                 "type": "int"
             },
@@ -744,8 +735,7 @@
                 "name": "hp_regen",
                 "type": "double"
             },
-            "2080": {
-                // workaround
+            "2080": { // workaround
                 "name": "strider_level",
                 "type": "int"
             },
@@ -1105,18 +1095,15 @@
                 "name": "av_ai0",
                 "type": "CSharedValue"
             },
-            "308": {
-                // workaround
+            "308": { // workaround
                 "name": "i_ai0",
                 "type": "int"
             },
-            "312": {
-                // workaround
+            "312": { // workaround
                 "name": "i_ai1",
                 "type": "int"
             },
-            "316": {
-                // workaround
+            "316": { // workaround
                 "name": "i_ai2",
                 "type": "int"
             },
@@ -1164,8 +1151,7 @@
                 "name": "sit_on_stop",
                 "type": "int"
             },
-            "544": {
-                // workaround
+            "544": { // workaround
                 "name": "sm",
                 "type": "CSharedCreatureData"
             },

@@ -104,11 +104,7 @@ class Data
         $file = fopen($path, 'r');
         $result = [];
 
-        if (!$file) {
-            return [];
-        }
-
-        while (!feof($file)) {
+        while ($file && !feof($file)) {
             $string = trim(fgets($file));
             $string = preg_replace('/[^\s\x20-\x7E]/', '', $string); // remove non-ASCII characters
 

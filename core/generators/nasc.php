@@ -1,6 +1,6 @@
 <?php
 
-class NASCGenerator implements GeneratorInterface
+class NascGenerator implements GeneratorInterface
 {
     private $priority = [
         '*' => 9,
