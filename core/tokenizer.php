@@ -23,7 +23,7 @@ class Tokenizer
 
         if ($string[0] === 'S' && is_numeric($string[1])) {
             // string token
-            [$label, $string] = explode("\t", $string, 2);
+            [$label, $string] = preg_split("/\s/", $string, 2);
             $token->name = substr($label, 0, -1);
             $token->data = [$string];
         } else {
