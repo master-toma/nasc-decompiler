@@ -884,6 +884,10 @@
                 "name": "instant_zone_type_id",
                 "type": "int"
             },
+            "2872": {
+                "name": "instant_zone_type_id_in_use",
+                "type": "int"
+            },
             "3540": {
                 "name": "db_value",
                 "type": "int"

@@ -1,0 +1,4778 @@
+{
+    "218103816": {
+        "name": "DoRespawn",
+        "arguments": [],
+        "type": "void"
+    },
+    "218103817": {
+        "name": "ResetRespawn",
+        "arguments": [],
+        "type": "void"
+    },
+    "218103822": {
+        "name": "RegisterOlympiadFieldEventEx",
+        "arguments": [],
+        "type": "void"
+    },
+    "218103823": {
+        "name": "GetInZoneID",
+        "arguments": [],
+        "type": "int"
+    },
+    "218169344": {
+        "name": "GetSpawnDefine",
+        "arguments": [
+            "int"
+        ],
+        "type": "SpawnDefine"
+    },
+    "218169345": {
+        "name": "GetSpawnDefineByNick",
+        "arguments": [
+            "string"
+        ],
+        "type": "SpawnDefine"
+    },
+    "218169347": {
+        "name": "RegisterNpcPosEvent",
+        "arguments": [
+            "string"
+        ],
+        "type": "void"
+    },
+    "218169349": {
+        "name": "RegisterSiegeEventEx",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "218169350": {
+        "name": "RegisterAgitSiegeEventEx",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "218169355": {
+        "name": "RegisterFieldCycleEventEx",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "218234882": {
+        "name": "AddTimerEx",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "218234884": {
+        "name": "RegisterDoorEvent",
+        "arguments": [
+            "string",
+            "int"
+        ],
+        "type": "void"
+    },
+    "218300423": {
+        "name": "RegisterRespawn",
+        "arguments": [
+            "int",
+            "int",
+            "SpawnDefine"
+        ],
+        "type": "void"
+    },
+    "218300426": {
+        "name": "AtomicIncreaseTotal",
+        "arguments": [
+            "SpawnDefine",
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "218300428": {
+        "name": "RegisterFortressEventEx",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "218365965": {
+        "name": "RegisterInstantZoneEventEx",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "234881055": {
+        "name": "RemoveAllAttackDesire",
+        "arguments": [],
+        "type": "void"
+    },
+    "234881058": {
+        "name": "RandomizeAttackDesire",
+        "arguments": [],
+        "type": "void"
+    },
+    "234881061": {
+        "name": "GetLifeTime",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881062": {
+        "name": "GetTick",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881063": {
+        "name": "GetCurrentTick",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881070": {
+        "name": "StopMove",
+        "arguments": [],
+        "type": "void"
+    },
+    "234881081": {
+        "name": "GetTimeHour",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881086": {
+        "name": "GetPathfindFailCount",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881089": {
+        "name": "IsSpoiled",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881114": {
+        "name": "InstantRandomTeleportInMyTerritory",
+        "arguments": [],
+        "type": "void"
+    },
+    "234881166": {
+        "name": "GetLastAttacker",
+        "arguments": [],
+        "type": "CSharedCreatureData"
+    },
+    "234881184": {
+        "name": "Castle_GetPledgeName",
+        "arguments": [],
+        "type": "string"
+    },
+    "234881185": {
+        "name": "Castle_GetOwnerName",
+        "arguments": [],
+        "type": "string"
+    },
+    "234881186": {
+        "name": "Castle_GetSiegeTime",
+        "arguments": [],
+        "type": "string"
+    },
+    "234881187": {
+        "name": "Residence_GetTaxRate",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881188": {
+        "name": "Residence_GetTaxRateCurrent",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881200": {
+        "name": "Castle_IsUnderSiege",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881203": {
+        "name": "Castle_BanishOthers",
+        "arguments": [],
+        "type": "void"
+    },
+    "234881206": {
+        "name": "Castle_GetRawSiegeTime",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881207": {
+        "name": "Castle_GetRawSystemTime",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881209": {
+        "name": "Castle_GetPledgeId",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881210": {
+        "name": "Castle_GetLifeControlLevel",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881214": {
+        "name": "Agit_GetCostFailDay",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881253": {
+        "name": "Residence_GetTaxIncome",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881254": {
+        "name": "Residence_GetTaxIncomeReserved",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881255": {
+        "name": "Manor_GetSeedIncome",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881256": {
+        "name": "IsManorSettingTime",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881274": {
+        "name": "Maker_GetNpcCount",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881282": {
+        "name": "Despawn",
+        "arguments": [],
+        "type": "void"
+    },
+    "234881283": {
+        "name": "Suicide",
+        "arguments": [],
+        "type": "void"
+    },
+    "234881338": {
+        "name": "GetHateInfoCount",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881348": {
+        "name": "Lotto_GetState",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881350": {
+        "name": "Lotto_GetRoundNumber",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881353": {
+        "name": "Lotto_GetAccumulatedReward",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881358": {
+        "name": "Lotto_GetChosenNumber",
+        "arguments": [],
+        "type": "string"
+    },
+    "234881386": {
+        "name": "GetSSQRoundNumber",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881387": {
+        "name": "GetSSQStatus",
+        "arguments": [],
+        "type": "SSQ_STATUS"
+    },
+    "234881388": {
+        "name": "GetSSQWinner",
+        "arguments": [],
+        "type": "SSQ_SIDE"
+    },
+    "234881418": {
+        "name": "CanLotto",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881429": {
+        "name": "GetOlympiadWaitingCount",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881430": {
+        "name": "GetClassFreeOlympiadWaitingCount",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881431": {
+        "name": "GetTeamOlympiadWaitingCount",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881449": {
+        "name": "RegisterAsOlympiadOperator",
+        "arguments": [],
+        "type": "void"
+    },
+    "234881451": {
+        "name": "GetMyMaker",
+        "arguments": [],
+        "type": "NpcMakerEx"
+    },
+    "234881454": {
+        "name": "RemoveAllDesire",
+        "arguments": [],
+        "type": "void"
+    },
+    "234881461": {
+        "name": "GetPCCafePointEventState",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881473": {
+        "name": "GetFishingEventRewardRemainTime",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881489": {
+        "name": "GetSSQPrevWinner",
+        "arguments": [],
+        "type": "SSQ_SIDE"
+    },
+    "234881492": {
+        "name": "GetPCCafeCouponEventState",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881501": {
+        "name": "UnequipWeapon",
+        "arguments": [],
+        "type": "void"
+    },
+    "234881510": {
+        "name": "InstantZone_GetId",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881516": {
+        "name": "InstantZone_MarkRestriction",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881523": {
+        "name": "IsMyBossAlive",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881524": {
+        "name": "IsEventDropTime",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881578": {
+        "name": "CleftManagerEnter",
+        "arguments": [],
+        "type": "void"
+    },
+    "234881579": {
+        "name": "GetCleftState",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881582": {
+        "name": "GetEvolutionId",
+        "arguments": [],
+        "type": "int"
+    },
+    "234881621": {
+        "name": "GetPlayingUserCount",
+        "arguments": [],
+        "type": "int"
+    },
+    "234946561": {
+        "name": "IsNullCreature",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946562": {
+        "name": "IsNullHateInfo",
+        "arguments": [
+            "HateInfo"
+        ],
+        "type": "int"
+    },
+    "234946563": {
+        "name": "IsNullParty",
+        "arguments": [
+            "CSharedPartyData"
+        ],
+        "type": "int"
+    },
+    "234946564": {
+        "name": "IsNullString",
+        "arguments": [
+            "string"
+        ],
+        "type": "int"
+    },
+    "234946586": {
+        "name": "AddPetDefaultDesire_Follow",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946592": {
+        "name": "RemoveAttackDesire",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946596": {
+        "name": "GetTopDesireValue",
+        "arguments": [
+            "int"
+        ],
+        "type": "float"
+    },
+    "234946600": {
+        "name": "GetDirection",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946601": {
+        "name": "GetDirectionToTarget",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946609": {
+        "name": "IsStaticObjectID",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946612": {
+        "name": "GetStaticObjectFromID",
+        "arguments": [
+            "int"
+        ],
+        "type": "CSharedStaticObjectData"
+    },
+    "234946614": {
+        "name": "UnregisterGlobalMap",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946615": {
+        "name": "GetGlobalMap",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946616": {
+        "name": "GetSummon",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "CSharedCreatureData"
+    },
+    "234946619": {
+        "name": "LookNeighbor",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946624": {
+        "name": "CanAttack",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946626": {
+        "name": "Say",
+        "arguments": [
+            "string"
+        ],
+        "type": "void"
+    },
+    "234946628": {
+        "name": "SayInt",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946631": {
+        "name": "EquipItem",
+        "arguments": [
+            "ITEM"
+        ],
+        "type": "void"
+    },
+    "234946632": {
+        "name": "Shout",
+        "arguments": [
+            "string"
+        ],
+        "type": "void"
+    },
+    "234946656": {
+        "name": "DistFromMe",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "float"
+    },
+    "234946658": {
+        "name": "StaticObjectDistFromMe",
+        "arguments": [
+            "CSharedStaticObjectData"
+        ],
+        "type": "float"
+    },
+    "234946663": {
+        "name": "OpenHennaItemListForEquip",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946664": {
+        "name": "OpenHennaListForUnquip",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946665": {
+        "name": "GetMemoCount",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946673": {
+        "name": "SetCurrentQuestID",
+        "arguments": [
+            "QUEST"
+        ],
+        "type": "void"
+    },
+    "234946679": {
+        "name": "GetLeaderOfParty",
+        "arguments": [
+            "CSharedPartyData"
+        ],
+        "type": "CSharedCreatureData"
+    },
+    "234946685": {
+        "name": "Pledge_GetLeader",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "CSharedCreatureData"
+    },
+    "234946686": {
+        "name": "GetPledge",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "CSharedPledgeData"
+    },
+    "234946687": {
+        "name": "GetPledgeByIndex",
+        "arguments": [
+            "int"
+        ],
+        "type": "CSharedPledgeData"
+    },
+    "234946688": {
+        "name": "MPCC_GetMaster",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946689": {
+        "name": "MPCC_GetPartyCount",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946691": {
+        "name": "MPCC_GetMemberCount",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946692": {
+        "name": "MPCC_GetMPCCId",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946710": {
+        "name": "GetPledgeSkillLevel",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946719": {
+        "name": "IsMyLord",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946725": {
+        "name": "Residence_SetTaxRate",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946734": {
+        "name": "Castle_GateOpenClose",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946735": {
+        "name": "Castle_GetPledgeState",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946747": {
+        "name": "Castle_GetRelatedFortressList",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946754": {
+        "name": "Agit_GetDecoLevel",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946755": {
+        "name": "Agit_GetDecoExpire",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946760": {
+        "name": "AuctionAgit_GetAgitCostInfo",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946768": {
+        "name": "Fortress_GetState",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946770": {
+        "name": "Fortress_GetOwnerRewardCycleCount",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946771": {
+        "name": "Fortress_GetCastleTreasureLevel",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946772": {
+        "name": "Fortress_IsInBoundary",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946775": {
+        "name": "Fortress_GetPledgeSiegeState",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946777": {
+        "name": "Fortress_ResetFacility",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946794": {
+        "name": "Skill_GetConsumeHP",
+        "arguments": [
+            "SKILL"
+        ],
+        "type": "int"
+    },
+    "234946795": {
+        "name": "Skill_GetConsumeMP",
+        "arguments": [
+            "SKILL"
+        ],
+        "type": "int"
+    },
+    "234946796": {
+        "name": "Skill_GetEffectPoint",
+        "arguments": [
+            "SKILL"
+        ],
+        "type": "int"
+    },
+    "234946797": {
+        "name": "Skill_GetAbnormalType",
+        "arguments": [
+            "SKILL"
+        ],
+        "type": "int"
+    },
+    "234946799": {
+        "name": "Skill_InReuseDelay",
+        "arguments": [
+            "SKILL"
+        ],
+        "type": "int"
+    },
+    "234946803": {
+        "name": "UseSoulShot",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946805": {
+        "name": "SetPrivateID",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946806": {
+        "name": "CreatePrivates",
+        "arguments": [
+            "string"
+        ],
+        "type": "void"
+    },
+    "234946811": {
+        "name": "Maker_FindNpcByKey",
+        "arguments": [
+            "int"
+        ],
+        "type": "CSharedCreatureData"
+    },
+    "234946821": {
+        "name": "InMyTerritory",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946822": {
+        "name": "IsInThisTerritory",
+        "arguments": [
+            "string"
+        ],
+        "type": "int"
+    },
+    "234946840": {
+        "name": "CloseTutorialHTML",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946852": {
+        "name": "TB_RegisterPledge",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946853": {
+        "name": "TB_RegisterMember",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946854": {
+        "name": "TB_GetNpcType",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946857": {
+        "name": "TB_GetBattleRoyalPledgeList",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946866": {
+        "name": "OpenSiegeInfo",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946871": {
+        "name": "SetMaxHateListSize",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946875": {
+        "name": "GetHateInfoByIndex",
+        "arguments": [
+            "int"
+        ],
+        "type": "HateInfo"
+    },
+    "234946876": {
+        "name": "GetHateInfoByCreature",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "HateInfo"
+    },
+    "234946878": {
+        "name": "GetMaxHateInfo",
+        "arguments": [
+            "int"
+        ],
+        "type": "HateInfo"
+    },
+    "234946881": {
+        "name": "RemoveHateInfoByCreature",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946883": {
+        "name": "SetHateInfoListIndex",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946890": {
+        "name": "Lotto_MakeFinalRewardFHTML",
+        "arguments": [
+            "CFHTML"
+        ],
+        "type": "int"
+    },
+    "234946918": {
+        "name": "ShowManorDefaultInfo",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946925": {
+        "name": "GetSSQSealOwner",
+        "arguments": [
+            "SSQ_SEAL"
+        ],
+        "type": "SSQ_SIDE"
+    },
+    "234946930": {
+        "name": "GetTimeOfSSQ",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946935": {
+        "name": "GetTicketBuyCount",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946938": {
+        "name": "IsJoinableToDawn",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946939": {
+        "name": "RegisterToEventListener",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946942": {
+        "name": "GetTimeAttackFee",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946945": {
+        "name": "GetAngleFromTarget",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946950": {
+        "name": "GetBingoSelectCount",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946952": {
+        "name": "GetMatchedBingoLineCount",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946953": {
+        "name": "ClearBingoBoard",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946955": {
+        "name": "IsNewbie",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946956": {
+        "name": "ShowQuestInfoList",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946962": {
+        "name": "AddOlympiad",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946963": {
+        "name": "AddClassFreeOlympiad",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946964": {
+        "name": "AddTeamOlympiad",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946968": {
+        "name": "GetOlympiadPoint",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946969": {
+        "name": "IsMainClass",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946970": {
+        "name": "RemoveOlympiad",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946975": {
+        "name": "GetStatusForOlympiadField",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946977": {
+        "name": "GetPlayer1ForOlympiadField",
+        "arguments": [
+            "int"
+        ],
+        "type": "string"
+    },
+    "234946978": {
+        "name": "GetPlayer2ForOlympiadField",
+        "arguments": [
+            "int"
+        ],
+        "type": "string"
+    },
+    "234946980": {
+        "name": "SetNobless",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946981": {
+        "name": "SetHero",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234946982": {
+        "name": "GetPreviousOlympiadPoint",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234946984": {
+        "name": "FindNeighborHero",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234946988": {
+        "name": "SetEnchantOfWeapon",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946989": {
+        "name": "RemoveDesire",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234946991": {
+        "name": "ChangeMoveType",
+        "arguments": [
+            "MT"
+        ],
+        "type": "void"
+    },
+    "234946994": {
+        "name": "GetPCCafePoint",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947000": {
+        "name": "IsWeaponEquippedInHand",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947003": {
+        "name": "MG_UnregisterPledge",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947005": {
+        "name": "MG_JoinGame",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947006": {
+        "name": "MG_SetWinner",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947008": {
+        "name": "CheckCursedUser",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947010": {
+        "name": "GetFishingEventRanking",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947011": {
+        "name": "ShowHtmlFishingEventRanking",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947012": {
+        "name": "GiveFishingEventPrize",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947013": {
+        "name": "IsAcademyMember",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947014": {
+        "name": "HasAcademyMaster",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947015": {
+        "name": "HasAcademyMember",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947016": {
+        "name": "GetAcademyMaster",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "CSharedCreatureData"
+    },
+    "234947017": {
+        "name": "GetAcademyMember",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "CSharedCreatureData"
+    },
+    "234947019": {
+        "name": "OwnPledgeNameValue",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947023": {
+        "name": "HasAcademy",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947026": {
+        "name": "GetPledgeMemberCount",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947027": {
+        "name": "IsPCCafeUser",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947029": {
+        "name": "GetOlympiadTradePoint",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947032": {
+        "name": "ShowVariationMakeWindow",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947033": {
+        "name": "ShowVariationCancelWindow",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947034": {
+        "name": "ShowBaseAttributeCancelWindow",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947035": {
+        "name": "IsInCombatMode",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947044": {
+        "name": "SetVisible",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234947050": {
+        "name": "InstantZone_Leave",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947051": {
+        "name": "InstantZone_Finish",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234947053": {
+        "name": "InstantZone_AddExtraDuration",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234947055": {
+        "name": "ShowChangePledgeNameUI",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947057": {
+        "name": "GetPledgeCastleSiegeDefenceCount",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947062": {
+        "name": "CreatePVPMatch",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234947075": {
+        "name": "GetPVPPoint",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947077": {
+        "name": "RegisterUserResurrectionTower",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234947078": {
+        "name": "CheckRegisterUserPVPMatch",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947079": {
+        "name": "IsUserPVPMatching",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947080": {
+        "name": "RegisterUserPVPMatch",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947081": {
+        "name": "UnregisterUserPVPMatch",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947083": {
+        "name": "GetRankUserPVPMatch",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947084": {
+        "name": "GetOverhitBonus",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947093": {
+        "name": "ShowPremiumItemList",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947095": {
+        "name": "IsStackableItemEx",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234947098": {
+        "name": "ChangeStatus",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234947101": {
+        "name": "IsDominionOfLord",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234947102": {
+        "name": "GetDominionSiegeID",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947107": {
+        "name": "IsHostileInDominionSiege",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947108": {
+        "name": "BlockUpsetManagerEnter",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234947111": {
+        "name": "BlockUpsetRegisterMe",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234947116": {
+        "name": "CleftUserEnter",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947129": {
+        "name": "GetOnAirShip",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947130": {
+        "name": "IsOccupiedPlatform",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "234947131": {
+        "name": "IsCleftUser",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947132": {
+        "name": "IsLordOfCastle",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "234947135": {
+        "name": "SetAbilityItemDrop",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234947138": {
+        "name": "BlockTimer",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234947139": {
+        "name": "UnblockTimer",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234947141": {
+        "name": "FixMoveType",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "234947155": {
+        "name": "ChangeUserTalkTarget",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "235012101": {
+        "name": "AddMoveAroundDesire",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012103": {
+        "name": "AddDoNothingDesire",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012107": {
+        "name": "AddGetItemDesireEx",
+        "arguments": [
+            "CItemList",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012109": {
+        "name": "AddFleeDesire",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012111": {
+        "name": "AddFollowDesire",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012140": {
+        "name": "GetCookie",
+        "arguments": [
+            "CSharedCreatureData",
+            "string"
+        ],
+        "type": "int"
+    },
+    "235012143": {
+        "name": "AddTimerEx",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012149": {
+        "name": "RegisterGlobalMap",
+        "arguments": [
+            "GM_ID",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012154": {
+        "name": "Summon_SetOption",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012169": {
+        "name": "ShoutEx",
+        "arguments": [
+            "string",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012172": {
+        "name": "ShowPage",
+        "arguments": [
+            "CSharedCreatureData",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235012174": {
+        "name": "ShowSystemMessage",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012175": {
+        "name": "ShowSystemMessageStr",
+        "arguments": [
+            "CSharedCreatureData",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235012180": {
+        "name": "ShowTelPosListPage",
+        "arguments": [
+            "CSharedCreatureData",
+            "TelPosList"
+        ],
+        "type": "void"
+    },
+    "235012187": {
+        "name": "TeleportToUser",
+        "arguments": [
+            "CSharedCreatureData",
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "235012190": {
+        "name": "ShowMultisell",
+        "arguments": [
+            "int",
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "235012197": {
+        "name": "GetWayPointDelay",
+        "arguments": [
+            "waypointdelaystype",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012198": {
+        "name": "ChangeStopType",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012202": {
+        "name": "SetMemo",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST"
+        ],
+        "type": "void"
+    },
+    "235012205": {
+        "name": "RemoveMemo",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST"
+        ],
+        "type": "void"
+    },
+    "235012210": {
+        "name": "GetOneTimeQuestFlag",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST"
+        ],
+        "type": "int"
+    },
+    "235012212": {
+        "name": "GetInventoryInfo",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012213": {
+        "name": "SetDBValue",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012214": {
+        "name": "HavePledgePower",
+        "arguments": [
+            "CSharedCreatureData",
+            "PLEDGE"
+        ],
+        "type": "int"
+    },
+    "235012216": {
+        "name": "GetMemberOfParty",
+        "arguments": [
+            "CSharedPartyData",
+            "int"
+        ],
+        "type": "CSharedCreatureData"
+    },
+    "235012226": {
+        "name": "MPCC_GetPartyID",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012237": {
+        "name": "GetItemData",
+        "arguments": [
+            "CSharedCreatureData",
+            "ITEM"
+        ],
+        "type": "CSharedItemData"
+    },
+    "235012239": {
+        "name": "FHTML_SetFileName",
+        "arguments": [
+            "CFHTML",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235012243": {
+        "name": "ShowFHTML",
+        "arguments": [
+            "CSharedCreatureData",
+            "CFHTML"
+        ],
+        "type": "void"
+    },
+    "235012266": {
+        "name": "Residence_VaultTakeOutMoney",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012267": {
+        "name": "Residence_VaultSaveMoney",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012289": {
+        "name": "Agit_ResetDeco",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012294": {
+        "name": "Agit_GetDecoDay",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012295": {
+        "name": "Agit_GetDecoFee",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012300": {
+        "name": "Fortress_ProtectedNpcDied",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012314": {
+        "name": "AddChoice",
+        "arguments": [
+            "int",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235012315": {
+        "name": "ShowChoicePage",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012316": {
+        "name": "ShowSkillList",
+        "arguments": [
+            "CSharedCreatureData",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235012317": {
+        "name": "ShowEnchantSkillList",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012323": {
+        "name": "IsInCategory",
+        "arguments": [
+            "CATEGORY",
+            "CLASS"
+        ],
+        "type": "int"
+    },
+    "235012324": {
+        "name": "ClassChange",
+        "arguments": [
+            "CSharedCreatureData",
+            "CLASS"
+        ],
+        "type": "void"
+    },
+    "235012334": {
+        "name": "Skill_HaveAttribute",
+        "arguments": [
+            "SKILL",
+            "ATTR"
+        ],
+        "type": "int"
+    },
+    "235012336": {
+        "name": "UseSkill",
+        "arguments": [
+            "CSharedCreatureData",
+            "SKILL"
+        ],
+        "type": "int"
+    },
+    "235012350": {
+        "name": "SoundEffect",
+        "arguments": [
+            "CSharedCreatureData",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235012369": {
+        "name": "PledgeLevelUp",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012372": {
+        "name": "ShowTutorialHTML",
+        "arguments": [
+            "CSharedCreatureData",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235012374": {
+        "name": "ShowQuestionMark",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012377": {
+        "name": "EnableTutorialEvent",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012380": {
+        "name": "DeleteAllRadar",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012385": {
+        "name": "EvolvePetWithSameExp",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012386": {
+        "name": "RideWyvern",
+        "arguments": [
+            "CSharedCreatureData",
+            "NPC"
+        ],
+        "type": "void"
+    },
+    "235012391": {
+        "name": "TB_SetNpcType",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012392": {
+        "name": "TB_GetPledgeRegisterStatus",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012394": {
+        "name": "TB_CheckMemberRegisterStatus",
+        "arguments": [
+            "int",
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "235012396": {
+        "name": "CreateSubJob",
+        "arguments": [
+            "CSharedCreatureData",
+            "CLASS"
+        ],
+        "type": "void"
+    },
+    "235012397": {
+        "name": "ChangeSubJob",
+        "arguments": [
+            "CSharedCreatureData",
+            "CLASS"
+        ],
+        "type": "void"
+    },
+    "235012403": {
+        "name": "SetDoorHpLevel",
+        "arguments": [
+            "string",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012404": {
+        "name": "GetDoorHpLevel",
+        "arguments": [
+            "CSharedCreatureData",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235012405": {
+        "name": "SetControlTowerLevel",
+        "arguments": [
+            "string",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012406": {
+        "name": "GetControlTowerLevel",
+        "arguments": [
+            "CSharedCreatureData",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235012418": {
+        "name": "RemoveAllHateInfoIF",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012427": {
+        "name": "Lotto_ShowPrevRewardPage",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012428": {
+        "name": "Lotto_GiveReward",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012429": {
+        "name": "Lotto_ShowCurRewardPage",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012431": {
+        "name": "GetMaxSellableCount",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012432": {
+        "name": "GetCurrentSeedSellCountSet",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012433": {
+        "name": "GetCurrentSeedRemainCount",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012434": {
+        "name": "GetCurrentSeedPrice",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012435": {
+        "name": "GetNextSeedSellCountSet",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012436": {
+        "name": "GetNextSeedPrice",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012439": {
+        "name": "GetSeedDefaultPrice",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012440": {
+        "name": "GetProcurementRate",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012441": {
+        "name": "GetProcurementCount",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012442": {
+        "name": "GetProcurementType",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012443": {
+        "name": "GetRemainProcureCropCount",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012444": {
+        "name": "GetNextProcurementRate",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012445": {
+        "name": "GetNextProcurementCount",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012446": {
+        "name": "GetNextProcurementType",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012449": {
+        "name": "GetCropClassidByOrderNum",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012450": {
+        "name": "ShowSellSeedList",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012451": {
+        "name": "ShowProcureCropList",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012455": {
+        "name": "ShowSeedSetting",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012456": {
+        "name": "ShowCropSetting",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012457": {
+        "name": "ShowProcureCropDetail",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012472": {
+        "name": "SetTicketBuyCount",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012482": {
+        "name": "CreateBingoBoard",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012484": {
+        "name": "GetNumberFromBingoBoard",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012485": {
+        "name": "SelectBingoNumber",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012487": {
+        "name": "IsSelectedBingoNumber",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012493": {
+        "name": "ShowQuestMark",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST"
+        ],
+        "type": "void"
+    },
+    "235012508": {
+        "name": "GetRankByOlympiadRankOrder",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012509": {
+        "name": "GetNameByOlympiadRankOrder",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "string"
+    },
+    "235012515": {
+        "name": "ObserveOlympiad",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012528": {
+        "name": "ChangeMoveType2",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012531": {
+        "name": "UpdatePCCafePoint",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012534": {
+        "name": "CastBuffForQuestReward",
+        "arguments": [
+            "CSharedCreatureData",
+            "SKILL"
+        ],
+        "type": "void"
+    },
+    "235012535": {
+        "name": "CastBuffForAgitManager",
+        "arguments": [
+            "CSharedCreatureData",
+            "SKILL"
+        ],
+        "type": "void"
+    },
+    "235012538": {
+        "name": "MG_RegisterPledge",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012554": {
+        "name": "UpdatePledgeNameValue",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012556": {
+        "name": "CreateAcademy",
+        "arguments": [
+            "CSharedCreatureData",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235012558": {
+        "name": "HasSubPledge",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235012566": {
+        "name": "DeleteOlympiadTradePoint",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012572": {
+        "name": "PlayAnimation",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012577": {
+        "name": "SetWorldTrapVisibleByClassId",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012578": {
+        "name": "ActivateWorldTrapByClassId",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012579": {
+        "name": "DefuseWorldTrapByClassId",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012597": {
+        "name": "UpdatePCCafePoint2",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012599": {
+        "name": "RegisterPVPMatch",
+        "arguments": [
+            "CSharedPartyData",
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "235012600": {
+        "name": "UnregisterPVPMatch",
+        "arguments": [
+            "CSharedPartyData",
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "235012601": {
+        "name": "StartPVPMatch",
+        "arguments": [
+            "CSharedPartyData",
+            "CSharedPartyData"
+        ],
+        "type": "void"
+    },
+    "235012604": {
+        "name": "CheckRegisterParty2",
+        "arguments": [
+            "CSharedPartyData",
+            "CSharedPartyData"
+        ],
+        "type": "void"
+    },
+    "235012605": {
+        "name": "RegisterResurrectionTower",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012606": {
+        "name": "Dispel",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012607": {
+        "name": "DeleteAcquireSkills",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012608": {
+        "name": "RegisterTeleporterType",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012609": {
+        "name": "UpdatePVPPoint",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012612": {
+        "name": "IsToggleSkillOnOff",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012618": {
+        "name": "AddKillPointUserPVPMatch",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012622": {
+        "name": "SetNRMemo",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST"
+        ],
+        "type": "void"
+    },
+    "235012625": {
+        "name": "RemoveNRMemo",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST"
+        ],
+        "type": "void"
+    },
+    "235012635": {
+        "name": "RegisterDominion",
+        "arguments": [
+            "int",
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "235012636": {
+        "name": "DeclareLord",
+        "arguments": [
+            "int",
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "235012646": {
+        "name": "BlockUpsetUserEnter",
+        "arguments": [
+            "int",
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "235012648": {
+        "name": "BlockUpsetChangeAmount",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012649": {
+        "name": "BlockUpsetChangeColor",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012659": {
+        "name": "StartScenePlayer",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012664": {
+        "name": "BuyAirShip",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012672": {
+        "name": "Whisper",
+        "arguments": [
+            "CSharedCreatureData",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235012679": {
+        "name": "TeleportTo",
+        "arguments": [
+            "CSharedCreatureData",
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "235012680": {
+        "name": "ChangeNPCState",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012682": {
+        "name": "ChangeNickName",
+        "arguments": [
+            "CSharedCreatureData",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235012683": {
+        "name": "ChangeMasterName",
+        "arguments": [
+            "CSharedCreatureData",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235012685": {
+        "name": "SetAttackable",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077640": {
+        "name": "AddAttackDesire",
+        "arguments": [
+            "CSharedCreatureData",
+            "AMT",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077646": {
+        "name": "AddFleeDesireEx",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077660": {
+        "name": "AddMoveSuperPointDesire",
+        "arguments": [
+            "string",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077661": {
+        "name": "AddMoveFreewayDesire",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077667": {
+        "name": "MakeAttackEvent",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077675": {
+        "name": "SetCookie",
+        "arguments": [
+            "CSharedCreatureData",
+            "string",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077677": {
+        "name": "SetTeleportPosOnLost",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077692": {
+        "name": "BroadcastScriptEvent",
+        "arguments": [
+            "SCE",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077709": {
+        "name": "ShowQuestPage",
+        "arguments": [
+            "CSharedCreatureData",
+            "string",
+            "QUEST"
+        ],
+        "type": "void"
+    },
+    "235077713": {
+        "name": "BroadcastSystemMessage",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077714": {
+        "name": "BroadcastSystemMessageStr",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235077739": {
+        "name": "SetMemoState",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077742": {
+        "name": "SetJournal",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077743": {
+        "name": "SetFlagJournal",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077747": {
+        "name": "SetOneTimeQuestFlag",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077765": {
+        "name": "MPCC_SetMasterPartyRouting",
+        "arguments": [
+            "int",
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077768": {
+        "name": "OwnItemCountEx",
+        "arguments": [
+            "CSharedCreatureData",
+            "ITEM",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235077769": {
+        "name": "GiveItem1",
+        "arguments": [
+            "CSharedCreatureData",
+            "ITEM",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077770": {
+        "name": "DropItem1",
+        "arguments": [
+            "CSharedCreatureData",
+            "ITEM",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077772": {
+        "name": "DeleteItem1",
+        "arguments": [
+            "CSharedCreatureData",
+            "ITEM",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235077776": {
+        "name": "FHTML_SetInt",
+        "arguments": [
+            "CFHTML",
+            "string",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077778": {
+        "name": "FHTML_SetStr",
+        "arguments": [
+            "CFHTML",
+            "string",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235077780": {
+        "name": "ShowQuestFHTML",
+        "arguments": [
+            "CSharedCreatureData",
+            "CFHTML",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077824": {
+        "name": "Agit_SetDeco",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077833": {
+        "name": "Fortress_PledgeRegister",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077834": {
+        "name": "Fortress_PledgeUnregister",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077835": {
+        "name": "Fortress_BarrackCaptured",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077839": {
+        "name": "Fortress_CastleTreasureTaken",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077848": {
+        "name": "Fortress_SetFacility",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077854": {
+        "name": "ShowGrowSkillMessage",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235077856": {
+        "name": "ShowEnchantSkillMessage",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077857": {
+        "name": "ShowEtcSkillList",
+        "arguments": [
+            "CSharedCreatureData",
+            "SKILL_ACQ",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235077876": {
+        "name": "UseSpiritShot",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077884": {
+        "name": "IncrementParam",
+        "arguments": [
+            "CSharedCreatureData",
+            "PARAM",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077887": {
+        "name": "VoiceEffect",
+        "arguments": [
+            "CSharedCreatureData",
+            "string",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077888": {
+        "name": "EffectMusic",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235077920": {
+        "name": "DestroyPet",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077931": {
+        "name": "GetSubJobList",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077934": {
+        "name": "RenewSubJob",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "CLASS"
+        ],
+        "type": "void"
+    },
+    "235077959": {
+        "name": "Lotto_ShowBuyingPage",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "CFHTML"
+        ],
+        "type": "void"
+    },
+    "235077960": {
+        "name": "Lotto_BuyTicket",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077988": {
+        "name": "ShowSeedInfo",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235077989": {
+        "name": "ShowCropInfo",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235078003": {
+        "name": "GetDepositedSSQItemCount",
+        "arguments": [
+            "CSharedCreatureData",
+            "SSQ_SIDE",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235078013": {
+        "name": "AddTimeAttackFee",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235078030": {
+        "name": "SetHTMLCookie",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235078031": {
+        "name": "GetHTMLCookie",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235078032": {
+        "name": "LookItem",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235078117": {
+        "name": "ShowEnchantSkillListDrawer",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235078121": {
+        "name": "InstantZone_Enter",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235078159": {
+        "name": "SetNRMemoState",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235078163": {
+        "name": "SetNRFlagJournal",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235078189": {
+        "name": "CleftCenterDestroyed",
+        "arguments": [
+            "int",
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235078192": {
+        "name": "RenewSpawnedPos",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235078193": {
+        "name": "SetDieEvent",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235078198": {
+        "name": "RegisterAsAirportManager",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235078199": {
+        "name": "SummonAirShip",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235078222": {
+        "name": "ChangeDir",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143177": {
+        "name": "AddAttackDesireEx",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143187": {
+        "name": "AddMoveToWayPointDesire",
+        "arguments": [
+            "waypointstype",
+            "waypointdelaystype",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143191": {
+        "name": "AddMoveToDesire",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143192": {
+        "name": "AddEffectActionDesire",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143195": {
+        "name": "AddMoveToTargetDesire",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143229": {
+        "name": "BroadcastScriptEventEx",
+        "arguments": [
+            "SCE",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143256": {
+        "name": "InstantTeleport",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143261": {
+        "name": "ShowBuySell",
+        "arguments": [
+            "CSharedCreatureData",
+            "BuySellList",
+            "BuySellList",
+            "float"
+        ],
+        "type": "void"
+    },
+    "235143276": {
+        "name": "SetMemoStateEx",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143302": {
+        "name": "GiveItemEx",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235143307": {
+        "name": "DropItem2",
+        "arguments": [
+            "CSharedCreatureData",
+            "ITEM",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143373": {
+        "name": "Fortress_ContractCastle",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143394": {
+        "name": "ShowGrowEtcSkillMessage",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235143415": {
+        "name": "CreateOnePrivate",
+        "arguments": [
+            "NPC",
+            "string",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143431": {
+        "name": "InstantTeleportInMyTerritory",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143435": {
+        "name": "EarthQuakeToParty",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143445": {
+        "name": "ShowTutorialHTML2",
+        "arguments": [
+            "CSharedCreatureData",
+            "string",
+            "int",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235143454": {
+        "name": "CreatePet",
+        "arguments": [
+            "CSharedCreatureData",
+            "ITEM",
+            "NPC",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143459": {
+        "name": "RideForEvent",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143542": {
+        "name": "DeleteDepositedSSQItem",
+        "arguments": [
+            "CSharedCreatureData",
+            "SSQ_SIDE",
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235143551": {
+        "name": "GiveTimeAttackReward",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "ITEM",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143629": {
+        "name": "CreateSubPledge",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235143646": {
+        "name": "AddLogByNpc",
+        "arguments": [
+            "int",
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143664": {
+        "name": "SetStaticMeshStatus",
+        "arguments": [
+            "CSharedCreatureData",
+            "string",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143696": {
+        "name": "SetNRMemoStateEx",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143717": {
+        "name": "BlockUpset",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235143762": {
+        "name": "GetNPCLogByID",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST",
+            "int",
+            "NPC"
+        ],
+        "type": "int"
+    },
+    "235143766": {
+        "name": "FindRandomUser",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235208724": {
+        "name": "AddUseSkillDesire",
+        "arguments": [
+            "CSharedCreatureData",
+            "SKILL",
+            "ST",
+            "AMT",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235208729": {
+        "name": "AddEffectActionDesire2",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235208910": {
+        "name": "Fortress_OwnerRewardTaken",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235208986": {
+        "name": "ShowRadar",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235208987": {
+        "name": "DeleteRadar",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235209016": {
+        "name": "AddHateInfo",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235209140": {
+        "name": "GiveItemByPCCafePoint",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235209202": {
+        "name": "GiveItemByCastleSiegeDefence",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235209269": {
+        "name": "StartScenePlayerAround",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235209296": {
+        "name": "IncreaseNPCLogByID",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST",
+            "int",
+            "NPC",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235274329": {
+        "name": "InstantTeleportWithItem",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235274332": {
+        "name": "SellPreview",
+        "arguments": [
+            "CSharedCreatureData",
+            "BuySellList",
+            "string",
+            "string",
+            "string",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235274504": {
+        "name": "InstantTeleportInMyTerritoryWithCondition",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235274527": {
+        "name": "EvolvePet",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "NPC",
+            "ITEM",
+            "NPC",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235274609": {
+        "name": "AddSSQMember",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235274613": {
+        "name": "DepositSSQItemEx",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235274620": {
+        "name": "AddTimeAttackRecord",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235274624": {
+        "name": "TeleportParty",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235339797": {
+        "name": "AddUseSkillDesireEx",
+        "arguments": [
+            "int",
+            "SKILL",
+            "ST",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235339859": {
+        "name": "ShowSysMsgToParty2",
+        "arguments": [
+            "CSharedPartyData",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235340042": {
+        "name": "EarthQuakeByNPC",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235340375": {
+        "name": "CreateOnePrivateNearUser",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "string",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235405342": {
+        "name": "AddMoveFormationDesire",
+        "arguments": [
+            "string",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235405397": {
+        "name": "Teleport",
+        "arguments": [
+            "CSharedCreatureData",
+            "TelPosList",
+            "string",
+            "string",
+            "string",
+            "string",
+            "ITEM",
+            "string"
+        ],
+        "type": "void"
+    },
+    "235471113": {
+        "name": "InstantTeleportMPCC",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235471328": {
+        "name": "GiveEventItem",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235536863": {
+        "name": "AddLogByNpc2",
+        "arguments": [
+            "int",
+            "CSharedCreatureData",
+            "string",
+            "string",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235602168": {
+        "name": "CreateOnePrivateEx",
+        "arguments": [
+            "NPC",
+            "string",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "235667705": {
+        "name": "CreateOnePrivateInzoneEx",
+        "arguments": [
+            "int",
+            "string",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235667724": {
+        "name": "SpecialCamera",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235667726": {
+        "name": "SpecialCamera3",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268435465": {
+        "name": "GetTimeOfDay",
+        "arguments": [],
+        "type": "int"
+    },
+    "268435468": {
+        "name": "AllocCodeInfoList",
+        "arguments": [],
+        "type": "CodeInfoList"
+    },
+    "268435523": {
+        "name": "GetNullCreature",
+        "arguments": [],
+        "type": "CSharedCreatureData"
+    },
+    "268500999": {
+        "name": "Rand",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501000": {
+        "name": "GetL2Time",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501002": {
+        "name": "GetNpcMaker",
+        "arguments": [
+            "string"
+        ],
+        "type": "NpcMakerEx"
+    },
+    "268501005": {
+        "name": "GetNPCFromID",
+        "arguments": [
+            "int"
+        ],
+        "type": "CSharedCreatureData"
+    },
+    "268501008": {
+        "name": "GetRoomInfoList",
+        "arguments": [
+            "string"
+        ],
+        "type": "RoomInfoList"
+    },
+    "268501009": {
+        "name": "Announce",
+        "arguments": [
+            "string"
+        ],
+        "type": "void"
+    },
+    "268501011": {
+        "name": "IsNull",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "268501018": {
+        "name": "GetParty",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "268501022": {
+        "name": "Castle_GetDomainFortressContractStatus",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501023": {
+        "name": "FloatToInt",
+        "arguments": [
+            "double"
+        ],
+        "type": "int"
+    },
+    "268501025": {
+        "name": "Skill_IsMagic",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501029": {
+        "name": "GetCreatureFromID",
+        "arguments": [
+            "int"
+        ],
+        "type": "CSharedCreatureData"
+    },
+    "268501030": {
+        "name": "GetCreatureFromIndex",
+        "arguments": [
+            "int"
+        ],
+        "type": "CSharedCreatureData"
+    },
+    "268501031": {
+        "name": "GetIndexFromCreature",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "268501033": {
+        "name": "GetPartyFromID",
+        "arguments": [
+            "int"
+        ],
+        "type": "CSharedPartyData"
+    },
+    "268501034": {
+        "name": "IntToStr",
+        "arguments": [
+            "int"
+        ],
+        "type": "string"
+    },
+    "268501037": {
+        "name": "Party_GetCount",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "268501039": {
+        "name": "GetSSQPart",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "SSQ_SIDE"
+    },
+    "268501047": {
+        "name": "Party_GetLeader",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "268501048": {
+        "name": "StrToInt",
+        "arguments": [
+            "string"
+        ],
+        "type": "int"
+    },
+    "268501058": {
+        "name": "SetAsNull",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "268501061": {
+        "name": "GetStep_FieldCycle",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501062": {
+        "name": "GetPoint_FieldCycle",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501070": {
+        "name": "Fortress_GetOwnerPledgeId",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501071": {
+        "name": "Fortress_GetParentCastleId",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501073": {
+        "name": "Fortress_GetContractStatus",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501074": {
+        "name": "Fortress_GetAvailableOwnMinutes",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501075": {
+        "name": "Fortress_GetRentCost",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501076": {
+        "name": "Fortress_GetNextRewardRemainTime",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501087": {
+        "name": "IsCreateDate",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "268501088": {
+        "name": "CanGetBirthdayGift",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "268501089": {
+        "name": "SaveGetBirthdayGiftTime",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "268501090": {
+        "name": "GetBirthdayGiftCount",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "268501093": {
+        "name": "CanGet5YearGift",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
+    },
+    "268501095": {
+        "name": "SaveGet5YearGiftTimeCount",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "268501106": {
+        "name": "GetDBSavingMap",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501109": {
+        "name": "GetDominionState",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501110": {
+        "name": "SetSkillAll",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "268501113": {
+        "name": "GetDominionWarState",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268501124": {
+        "name": "LoadJackpotTime",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "268501125": {
+        "name": "IsJackpotTime",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "268566539": {
+        "name": "InstantZone_GetNpcMaker",
+        "arguments": [
+            "int",
+            "string"
+        ],
+        "type": "NpcMakerEx"
+    },
+    "268566543": {
+        "name": "CreateRoomInfoList",
+        "arguments": [
+            "string",
+            "int"
+        ],
+        "type": "int"
+    },
+    "268566546": {
+        "name": "GetDateTime",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "268566550": {
+        "name": "IsSameString",
+        "arguments": [
+            "string",
+            "string"
+        ],
+        "type": "int"
+    },
+    "268566555": {
+        "name": "Area_SetOnOff",
+        "arguments": [
+            "string",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268566556": {
+        "name": "Castle_GateOpenClose2",
+        "arguments": [
+            "string",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268566563": {
+        "name": "GetAbnormalLevel",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "ABNORMAL"
+    },
+    "268566564": {
+        "name": "GetAbnormalMagicLevel",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "int"
+    },
+    "268566568": {
+        "name": "GetPartyFromEventRoom",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "CSharedPartyData"
+    },
+    "268566576": {
+        "name": "IsWinnerOfTimeAttackEvent",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "int"
+    },
+    "268566577": {
+        "name": "GetTimeAttackRewardFlag",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "int"
+    },
+    "268566578": {
+        "name": "OwnItemCount",
+        "arguments": [
+            "CSharedCreatureData",
+            "ITEM"
+        ],
+        "type": "int"
+    },
+    "268566580": {
+        "name": "HaveMemo",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST"
+        ],
+        "type": "int"
+    },
+    "268566581": {
+        "name": "GetMemoState",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST"
+        ],
+        "type": "int"
+    },
+    "268566582": {
+        "name": "Party_GetCreature",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "int"
+    },
+    "268566592": {
+        "name": "GetSubpledgeMasterName",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "int"
+    },
+    "268566593": {
+        "name": "AddPCSocial",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268566608": {
+        "name": "Fortress_GetFacilityLevel",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "268566615": {
+        "name": "AddScriptLog",
+        "arguments": [
+            "LOG",
+            "string"
+        ],
+        "type": "void"
+    },
+    "268566617": {
+        "name": "HaveNRMemo",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST"
+        ],
+        "type": "int"
+    },
+    "268566618": {
+        "name": "GetNRMemoState",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST"
+        ],
+        "type": "int"
+    },
+    "268566620": {
+        "name": "GetRank_RimKamaroka",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "string"
+    },
+    "268566621": {
+        "name": "OwnItemEnchantCount",
+        "arguments": [
+            "CSharedCreatureData",
+            "ITEM"
+        ],
+        "type": "int"
+    },
+    "268566627": {
+        "name": "GetDailyQuestFlag",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "int"
+    },
+    "268566628": {
+        "name": "SetDailyQuestFlag",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268566636": {
+        "name": "InzoneDoorBreakable",
+        "arguments": [
+            "string",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268566640": {
+        "name": "RegisterDBSavingMap",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268566643": {
+        "name": "LoadDBSavingMap",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268566647": {
+        "name": "SetXMasEventState",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268632084": {
+        "name": "SendScriptEvent",
+        "arguments": [
+            "int",
+            "SCE",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268632089": {
+        "name": "AddLogExWithoutCreature",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268632093": {
+        "name": "Castle_GateOpenCloseEx",
+        "arguments": [
+            "string",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268632110": {
+        "name": "AddLog",
+        "arguments": [
+            "int",
+            "CSharedCreatureData",
+            "QUEST"
+        ],
+        "type": "void"
+    },
+    "268632115": {
+        "name": "GetMemoStateEx",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST",
+            "int"
+        ],
+        "type": "int"
+    },
+    "268632121": {
+        "name": "AddPartyToEventRoom",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "268632122": {
+        "name": "ClearEventRoom",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268632124": {
+        "name": "SetNpcParam",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268632136": {
+        "name": "AddPointWithoutActor_FieldCycle",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268632138": {
+        "name": "SetStepWithoutActor_FieldCycle",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268632149": {
+        "name": "Area_SetOnOffEx",
+        "arguments": [
+            "string",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268632152": {
+        "name": "GetNRMemoStateEx",
+        "arguments": [
+            "CSharedCreatureData",
+            "QUEST",
+            "int"
+        ],
+        "type": "int"
+    },
+    "268632155": {
+        "name": "SetPoint_RimKamaroka",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268632175": {
+        "name": "SendDominionScriptEvent",
+        "arguments": [
+            "int",
+            "int",
+            "DSE"
+        ],
+        "type": "void"
+    },
+    "268697614": {
+        "name": "SendMakerScriptEvent",
+        "arguments": [
+            "NpcMakerEx",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268697621": {
+        "name": "SendScriptEventEx",
+        "arguments": [
+            "CSharedCreatureData",
+            "SCE",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268697624": {
+        "name": "AddLogEx",
+        "arguments": [
+            "int",
+            "CSharedCreatureData",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268697643": {
+        "name": "GetTimeAttackRecordInfo",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "string"
+    },
+    "268697671": {
+        "name": "AddPoint_FieldCycle",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "268697673": {
+        "name": "SetStep_FieldCycle",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "268697686": {
+        "name": "Area_SetBannedTerritoryOnOff",
+        "arguments": [
+            "string",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268763159": {
+        "name": "InstantTeleportEx",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "268828716": {
+        "name": "MakeFString",
+        "arguments": [
+            "int",
+            "string",
+            "string",
+            "string",
+            "string",
+            "string"
+        ],
+        "type": "string"
+    },
+    "269090819": {
+        "name": "ShowOnScreenMsgStr",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "string"
+        ],
+        "type": "void"
+    },
+    "269090910": {
+        "name": "SendUIEvent",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "string",
+            "string",
+            "string",
+            "string",
+            "string",
+            "string"
+        ],
+        "type": "void"
+    },
+    "269156357": {
+        "name": "BroadcastOnScreenMsgStr",
+        "arguments": [
+            "CSharedCreatureData",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "string"
+        ],
+        "type": "void"
+    },
+    "285212676": {
+        "name": "Despawn",
+        "arguments": [],
+        "type": "void"
+    },
+    "285278213": {
+        "name": "LoadDBNpcInfo",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "285278215": {
+        "name": "SetDBLoaded",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "285278216": {
+        "name": "RegToRespawnTimer",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "285343744": {
+        "name": "Spawn",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "285409282": {
+        "name": "Spawn2",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "285409286": {
+        "name": "SendScriptEvent",
+        "arguments": [
+            "int",
+            "SCE",
+            "int"
+        ],
+        "type": "void"
+    },
+    "285802497": {
+        "name": "SpawnEx",
+        "arguments": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "301989888": {
+        "name": "Next",
+        "arguments": [],
+        "type": "CodeInfo"
+    },
+    "301989889": {
+        "name": "RandomSelectOne",
+        "arguments": [],
+        "type": "CodeInfo"
+    },
+    "318767105": {
+        "name": "Next",
+        "arguments": [],
+        "type": "CodeInfo"
+    },
+    "318767106": {
+        "name": "RandomSelectOne",
+        "arguments": [],
+        "type": "CodeInfo"
+    },
+    "318898176": {
+        "name": "SetInfo",
+        "arguments": [
+            "int",
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "352321539": {
+        "name": "GetValue",
+        "arguments": [],
+        "type": "int"
+    },
+    "352387072": {
+        "name": "Increment",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "352387073": {
+        "name": "Decrement",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "352387074": {
+        "name": "Exchange",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "352452612": {
+        "name": "CompareExchange",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "369098754": {
+        "name": "Clear",
+        "arguments": [],
+        "type": "void"
+    },
+    "369098756": {
+        "name": "PartyChanged",
+        "arguments": [],
+        "type": "int"
+    },
+    "369164288": {
+        "name": "GetMemberID",
+        "arguments": [
+            "int"
+        ],
+        "type": "int"
+    },
+    "369164289": {
+        "name": "SetParty",
+        "arguments": [
+            "int"
+        ],
+        "type": "void"
+    },
+    "385941504": {
+        "name": "GetRoomInfo",
+        "arguments": [
+            "int"
+        ],
+        "type": "RoomInfo"
+    },
+    "520093696": {
+        "name": "GetSize",
+        "arguments": [],
+        "type": "int"
+    },
+    "520159233": {
+        "name": "GetItemIndex",
+        "arguments": [
+            "string"
+        ],
+        "type": "int"
+    },
+    "536870914": {
+        "name": "Clear",
+        "arguments": [],
+        "type": "void"
+    },
+    "536870918": {
+        "name": "GetSize",
+        "arguments": [],
+        "type": "int"
+    },
+    "536936448": {
+        "name": "Add",
+        "arguments": [
+            "string"
+        ],
+        "type": "void"
+    },
+    "536936451": {
+        "name": "Get",
+        "arguments": [
+            "int"
+        ],
+        "type": "string"
+    }
+}

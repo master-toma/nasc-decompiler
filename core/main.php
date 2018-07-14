@@ -1,5 +1,7 @@
 <?php
 
+// TODO: rewrite this hell
+
 // (▀̿Ĺ̯▀̿ ̿)
 error_reporting(E_ALL);
 ini_set('memory_limit', '1G');
@@ -9,13 +11,13 @@ $ignored = [
     'public_wyvern' // fatal
 ];
 
-include_once 'tokenizer.php';
-include_once 'ast.php';
-include_once 'data.php';
-include_once 'parser.php';
-include_once 'regression.php';
+require_once 'tokenizer.php';
+require_once 'ast.php';
+require_once 'data.php';
+require_once 'parser.php';
+require_once 'regression.php';
 
-include_once 'generators/interface.php';
+require_once 'generators/interface.php';
 
 $optionsConfig = [
     'test' => ["\t" . 'Run regression tests. Provide a test file name from the tests directory (without .bin extension).', null],
@@ -47,7 +49,7 @@ if (isset($options['h'])) {
     die;
 }
 
-include_once 'generators/' . $options['language'] . '.php';
+require_once 'generators/' . $options['language'] . '.php';
 
 if (!isset($options['output'])) {
     $options['output'] = pathinfo($options['input'], PATHINFO_FILENAME);
