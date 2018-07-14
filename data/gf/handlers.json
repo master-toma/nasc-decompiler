@@ -119,6 +119,7 @@
         "160": "LOAD_DBSAVING_MAP_RETURNED",
         "161": "DOMINION_SCRIPT_EVENT",
         "162": "DIE_SET",
+        "164": "SOCIAL_ACTION_EVENT",
         "165": "PET_DIED",
         "166": "WAS_COLLECTED",
         "167": "ON_AIRSHIP_EVENT",
