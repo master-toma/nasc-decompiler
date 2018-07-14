@@ -11,7 +11,7 @@ $ php core/main.php
 
 Or just run `./run.bat` on Windows.
 
-See decompiled code in `ai.nasc` file.
+See decompiled code in `ai` directory.
 
 ## Command Line Arguments
 
