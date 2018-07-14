@@ -132,8 +132,11 @@ class NascGenerator implements GeneratorInterface
             $result = $lhs . ' ' . $expression->getOperator() . ' ' . $rhs;
 
             // check operators priority
-            if ($parent instanceof BinaryExpression &&
-                $this->priority[$expression->getOperator()] < $this->priority[$parent->getOperator()]
+            if ($parent instanceof BinaryExpression && (
+                    $this->priority[$expression->getOperator()] < $this->priority[$parent->getOperator()] ||
+                    $expression === $parent->getRHS() && $parent->getOperator() === '/' && $expression->getOperator() === '*' ||
+                    $expression === $parent->getRHS() && $parent->getOperator() === '-' && $expression->getOperator() === '+'
+                )
             ) {
                 $result = '(' . $result . ')';
             }
