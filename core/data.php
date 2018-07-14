@@ -8,6 +8,8 @@ class Data
     private $enums = [];
     private $strings = [];
 
+    private $variableTypeCache = [];
+
     public function __construct(string $handlers, string $variables, string $functions, string $enums, string $strings)
     {
         $this->handlers = $this->jsonDecode(file_get_contents($handlers));
@@ -33,6 +35,25 @@ class Data
         }
 
         return $this->variables[$type][$class ? $class : '_'][$address];
+    }
+
+    public function getVariableType(int $type, string $name): string
+    {
+        if (isset($this->variableTypeCache[$type]) && array_key_exists($name, $this->variableTypeCache[$type])) {
+            return $this->variableTypeCache[$type][$name];
+        }
+
+        foreach ($this->variables[$type] as $class) {
+            foreach ($class as $variable) {
+                if ($variable['name'] === $name) {
+                    $this->variableTypeCache[$type][$name] = $variable['type'];
+                    return $variable['type'];
+                }
+            }
+        }
+
+//        throw new RuntimeException(sprintf('Variable %s for class type %d not found', $name, $type));
+        return null;
     }
 
     public function getFunction(int $address): array

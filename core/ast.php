@@ -640,11 +640,35 @@ class PropertyDeclaration implements Declaration
     }
 }
 
+class VariableDeclaration implements Declaration
+{
+    private $type = '';
+    private $name = '';
+
+    public function __construct(string $type, string $name)
+    {
+        $this->type = $type;
+        $this->name = $name;
+    }
+
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+}
+
 class HandlerDeclaration implements Declaration
 {
     private $name = '';
-    private $variables = [];
     private $block = null;
+
+    /** @var VariableDeclaration[] */
+    private $variables = [];
 
     public function __construct(string $name)
     {
@@ -657,11 +681,14 @@ class HandlerDeclaration implements Declaration
         return $this->name;
     }
 
-    public function addVariable(string $variable)
+    public function addVariable(VariableDeclaration $variable)
     {
         $this->variables[] = $variable;
     }
 
+    /**
+     * @return VariableDeclaration[]
+     */
     public function getVariables(): array
     {
         return $this->variables;

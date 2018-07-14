@@ -624,10 +624,14 @@ class Parser
 
     private function parseVariable(Token $token)
     {
-        $variable = trim($token->name, '"');
+        $variable = $this->fixVariableName(trim($token->name, '"'));
 
         if ($variable !== 'myself' && $variable[0] !== '_') {
-            $this->statementStack->top()->addVariable($variable);
+            $type = $this->data->getVariableType($this->class->getType(), $variable);
+
+            if ($type) {
+                $this->statementStack->top()->addVariable(new VariableDeclaration($type, $variable));
+            }
         }
     }
 
@@ -738,6 +742,18 @@ class Parser
                 return 'WayPointDelaysType';
             default:
                 return $type;
+        }
+    }
+
+    private function fixVariableName(string $variable): string
+    {
+        switch ($variable) {
+            case 'damege':
+                return 'damage';
+            case 'script_event3':
+                return 'script_event_arg3';
+            default:
+                return $variable;
         }
     }
 }

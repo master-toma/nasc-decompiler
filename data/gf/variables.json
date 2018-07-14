@@ -1,6 +1,31 @@
 {
     "0": {
         "_": {
+            // unknown addresses
+            "-1": {
+                "name": "c5",
+                "type": "CSharedCreatureData"
+            },
+            "-2": {
+                "name": "c6",
+                "type": "CSharedCreatureData"
+            },
+            "-3": {
+                "name": "c7",
+                "type": "CSharedCreatureData"
+            },
+            "-4": {
+                "name": "c8",
+                "type": "CSharedCreatureData"
+            },
+            "-5": {
+                "name": "c9",
+                "type": "CSharedCreatureData"
+            },
+            "-6": {
+                "name": "i12",
+                "type": "int"
+            },
             "8": { // workaround
                 "name": "creature",
                 "type": "CSharedCreatureData"
@@ -1293,6 +1318,10 @@
                 "name": "residence_id",
                 "type": "int"
             },
+            "228": {
+                "name": "inzone_id",
+                "type": "int"
+            },
             "232": {
                 "name": "inzone_type_id",
                 "type": "int"
@@ -1375,6 +1404,10 @@
             },
             "576": {
                 "name": "s0",
+                "type": "string"
+            },
+            "584": {
+                "name": "s1",
                 "type": "string"
             },
             "624": {

@@ -81,8 +81,13 @@ class NascGenerator implements GeneratorInterface
             $result .= "handler:\n";
 
             foreach ($class->getHandlers() as $handler) {
-                $variables = implode(', ', $handler->getVariables());
-                $result .= 'EventHandler ' . $handler->getName() . '(' . $variables . ") {\n";
+                $variables = [];
+
+                foreach ($handler->getVariables() as $variable) {
+                    $variables[] = $variable->getName();
+                }
+
+                $result .= 'EventHandler ' . $handler->getName() . '(' . implode(', ', $variables) . ") {\n";
                 $result .= $this->generateStatement($handler->getBlock());
                 $result .= "}\n";
             }
