@@ -1488,6 +1488,10 @@
                 "name": "i_quest4",
                 "type": "int"
             },
+            "184": {
+                "name": "c_ai0",
+                "type": "CSharedCreatureData"
+            },
             "408": {
                 "name": "sm",
                 "type": "CSharedCreatureData"

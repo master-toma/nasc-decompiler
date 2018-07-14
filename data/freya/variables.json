@@ -867,6 +867,10 @@
                 "name": "i_ai9",
                 "type": "int"
             },
+            "1256": {
+                "name": "c_ai0",
+                "type": "CSharedCreatureData"
+            },
             "1480": {
                 "name": "sm",
                 "type": "CSharedCreatureData"
