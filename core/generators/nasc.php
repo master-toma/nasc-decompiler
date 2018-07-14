@@ -153,7 +153,7 @@ class NascGenerator implements GeneratorInterface
                     $rhs instanceof IntegerExpression && $rhs->getInteger() === 1 &&
                     $lhs instanceof VariableExpression && $this->generateExpression($lhs) === $lvalue
                 ) {
-                    return '++' . $lvalue;
+                    return $rvalue->getOperator() . $rvalue->getOperator() . $lvalue;
                 }
             }
 

@@ -109,7 +109,8 @@ while ($file && !feof($file)) {
     if ($token->name === 'class') {
         $tokenizer->setHead($token);
     } elseif ($token->name === 'class_end') {
-        $name = $tokenizer->getHead()->data[1];
+        $head = $tokenizer->getHead();
+        $name = $head->data[1];
 
         if (in_array($name, $ignored)) {
             if ($options['test']) {
@@ -122,7 +123,7 @@ while ($file && !feof($file)) {
         }
 
         echo 'Decompile ' . $name;
-        $class = $parser->parseClass($tokenizer->getHead());
+        $class = $parser->parseClass($head);
         $code = $generator->generateClass($class);
 
         if (!$options['split']) {
