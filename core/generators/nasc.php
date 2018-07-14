@@ -132,13 +132,17 @@ class NascGenerator implements GeneratorInterface
             $result = $lhs . ' ' . $expression->getOperator() . ' ' . $rhs;
 
             // check operators priority
-            if ($parent instanceof BinaryExpression && (
-                    $this->priority[$expression->getOperator()] < $this->priority[$parent->getOperator()] ||
-                    $expression === $parent->getRHS() && $parent->getOperator() === '/' && !trim($expression->getOperator(), '/*') ||
-                    $expression === $parent->getRHS() && $parent->getOperator() === '-' && !trim($expression->getOperator(), '-+')
-                )
-            ) {
-                $result = '(' . $result . ')';
+            if ($parent instanceof BinaryExpression) {
+                $expressionPriority = $this->priority[$expression->getOperator()];
+                $parentPriority = $this->priority[$parent->getOperator()];
+
+                if ($expressionPriority < $parentPriority ||
+                    $expression === $parent->getRHS() &&
+                    $expressionPriority === $parentPriority &&
+                    !trim($parent->getOperator(), '/-')
+                ) {
+                    $result = '(' . $result . ')';
+                }
             }
 
             return $result;
@@ -146,8 +150,8 @@ class NascGenerator implements GeneratorInterface
             $lvalue = $this->generateExpression($expression->getLValue());
             $rvalue = $expression->getRValue();
 
-            // generate increment
-            if ($rvalue instanceof BinaryExpression && $rvalue->getOperator() === '+') {
+            // generate increment/decrement
+            if ($rvalue instanceof BinaryExpression && !trim($rvalue->getOperator(), '+-')) {
                 $lhs = $rvalue->getLHS();
                 $rhs = $rvalue->getRHS();
 
