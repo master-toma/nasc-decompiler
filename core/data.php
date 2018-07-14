@@ -129,7 +129,7 @@ class Data
             }
 
             $name = trim($name, '[]');
-            $result[$id] = '@' . $name;
+            $result[$id] = $name;
         }
 
         return $result;

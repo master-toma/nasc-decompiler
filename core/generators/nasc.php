@@ -109,7 +109,11 @@ class NascGenerator implements GeneratorInterface
         } elseif ($expression instanceof StringExpression) {
             return '"' . $expression->getString() . '"';
         } elseif ($expression instanceof EnumExpression) {
-            return $expression->getName();
+            if ($expression->getType() === 'P_STATE') {
+                return $expression->getName();
+            } else {
+                return '@' . $expression->getName();
+            }
         } elseif ($expression instanceof ParameterExpression) {
             return $expression->getName();
         } elseif ($expression instanceof PropertyExpression) {

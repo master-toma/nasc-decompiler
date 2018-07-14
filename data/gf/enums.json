@@ -35,132 +35,132 @@
 
     // custom types from the manual_pch.txt file
     "AT": [
-        "@AT_NONE",
-        "@AT_SWORD",
-        "@AT_BLUNT",
-        "@AT_DAGGER",
-        "@AT_POLE",
-        "@AT_FIST",
-        "@AT_BOW",
-        "@AT_ETC",
-        "@AT_DUAL",
-        "@AT_DUALFIST",
-        "@AT_FISHINGROD",
-        "@AT_RAPIER",
-        "@AT_CROSSBOW",
-        "@AT_ANCIENTSWORD"
+        "AT_NONE",
+        "AT_SWORD",
+        "AT_BLUNT",
+        "AT_DAGGER",
+        "AT_POLE",
+        "AT_FIST",
+        "AT_BOW",
+        "AT_ETC",
+        "AT_DUAL",
+        "AT_DUALFIST",
+        "AT_FISHINGROD",
+        "AT_RAPIER",
+        "AT_CROSSBOW",
+        "AT_ANCIENTSWORD"
     ],
     "RACE": [
-        "@race_human",
-        "@race_elf",
-        "@race_dark_elf",
-        "@race_orc",
-        "@race_dwarf",
-        "@race_kamael"
+        "race_human",
+        "race_elf",
+        "race_dark_elf",
+        "race_orc",
+        "race_dwarf",
+        "race_kamael"
     ],
     "BOOL": [
-        "@FALSE",
-        "@TRUE"
+        "FALSE",
+        "TRUE"
     ],
     "SSQ_SIDE": [
-        "@NONE",
-        "@TWILIGHT",
-        "@DAWN"
+        "NONE",
+        "TWILIGHT",
+        "DAWN"
     ],
     "SSQ_SEAL": [
-        "@NONE",
-        "@SEAL_AVARICE",
-        "@SEAL_REVELATION",
-        "@SEAL_STRIFE"
+        "NONE",
+        "SEAL_AVARICE",
+        "SEAL_REVELATION",
+        "SEAL_STRIFE"
     ],
     "SSQ_STATUS": [
-        "@NONE",
-        "@SS_EVENT",
-        "@SS_ACCOUNTING",
-        "@SS_SEAL_EFFECT"
+        "NONE",
+        "SS_EVENT",
+        "SS_ACCOUNTING",
+        "SS_SEAL_EFFECT"
     ],
     "NOBLESS": [
-        "@NOBLESS_NONE",
-        "@NOBLESS_ACTIVE"
+        "NOBLESS_NONE",
+        "NOBLESS_ACTIVE"
     ],
     "HERO": [
-        "@HERO_NONE",
-        "@HERO_WAITING",
-        "@HERO_ACTIVE"
+        "HERO_NONE",
+        "HERO_WAITING",
+        "HERO_ACTIVE"
     ],
     "RIDE": [
-        "@ride_none",
-        "@ride_strider",
-        "@ride_wyvern",
-        "@ride_wolf"
+        "ride_none",
+        "ride_strider",
+        "ride_wyvern",
+        "ride_wolf"
     ],
     "SKILL_ACQ": [
-        "@null",
-        "@fishing_skill_acquire",
-        "@pledge_skill_acquire",
-        "@sub_pledge_skill_acquire",
-        "@transform_skill_acquire",
-        "@subjob_skill_acquire",
-        "@collect_skill_acquire"
+        "null",
+        "fishing_skill_acquire",
+        "pledge_skill_acquire",
+        "sub_pledge_skill_acquire",
+        "transform_skill_acquire",
+        "subjob_skill_acquire",
+        "collect_skill_acquire"
     ],
     "AMT": [
-        "@AMT_STAND",
-        "@AMT_MOVE_TO_TARGET"
+        "AMT_STAND",
+        "AMT_MOVE_TO_TARGET"
     ],
     "ST": [
-        "@ST_ATTACK",
-        "@ST_HEAL"
+        "ST_ATTACK",
+        "ST_HEAL"
     ],
     "PARAM": [
-        "@PARAM_EXP",
-        "@PARAM_SP",
-        "@PARAM_INT",
-        "@PARAM_STR",
-        "@PARAM_CON",
-        "@PARAM_MEN",
-        "@PARAM_DEX",
-        "@PARAM_WIT",
-        "@PARAM_LEVEL",
-        "@PARAM_PKCOUNT"
+        "PARAM_EXP",
+        "PARAM_SP",
+        "PARAM_INT",
+        "PARAM_STR",
+        "PARAM_CON",
+        "PARAM_MEN",
+        "PARAM_DEX",
+        "PARAM_WIT",
+        "PARAM_LEVEL",
+        "PARAM_PKCOUNT"
     ],
     "ATTR": {
-        "-2": "@attr_none",
-        "0": "@attr_fire",
-        "1": "@attr_water",
-        "2": "@attr_wind",
-        "3": "@attr_earth",
-        "4": "@attr_holy",
-        "5": "@attr_unholy"
+        "-2": "attr_none",
+        "0": "attr_fire",
+        "1": "attr_water",
+        "2": "attr_wind",
+        "3": "attr_earth",
+        "4": "attr_holy",
+        "5": "attr_unholy"
     },
     "NTYPE": [
-        "@NTYPE_NPC_EVENT",
-        "@NTYPE_MAKER_EVENT"
+        "NTYPE_NPC_EVENT",
+        "NTYPE_MAKER_EVENT"
     ],
     "MT": [
-        "@MT_SLOW",
-        "@MT_FAST"
+        "MT_SLOW",
+        "MT_FAST"
     ],
     "LOG": {
-        "2": "@LOG_ERROR",
-        "3": "@LOG_DEBUG"
+        "2": "LOG_ERROR",
+        "3": "LOG_DEBUG"
     },
     "DSE": {
-        "72901": "@DOMINION_DEFEND_CARRIAGE",
-        "73001": "@DOMINION_DEFEND_SUPPLY",
-        "73101": "@DOMINION_DEFEND_GUARD",
-        "73201": "@DOMINION_DEFEND_PRIEST",
-        "73301": "@DOMINION_DEFEND_TRADER",
-        "72902": "@DOMINION_MY_DYING_CARRIAGE",
-        "73002": "@DOMINION_MY_DYING_SUPPLY",
-        "73102": "@DOMINION_MY_DYING_GUARD",
-        "73202": "@DOMINION_MY_DYING_PRIEST",
-        "73302": "@DOMINION_MY_DYING_TRADER",
-        "72903": "@DOMINION_DEF_SUCCESS_CARRIAGE",
-        "73003": "@DOMINION_DEF_SUCCESS_SUPPLY",
-        "73103": "@DOMINION_DEF_SUCCESS_GUARD",
-        "73203": "@DOMINION_DEF_SUCCESS_PRIEST",
-        "73303": "@DOMINION_DEF_SUCCESS_TRADER",
-        "71701": "@DOMINION_ATTACKED",
-        "71702": "@DOMINION_MY_DYING"
+        "72901": "DOMINION_DEFEND_CARRIAGE",
+        "73001": "DOMINION_DEFEND_SUPPLY",
+        "73101": "DOMINION_DEFEND_GUARD",
+        "73201": "DOMINION_DEFEND_PRIEST",
+        "73301": "DOMINION_DEFEND_TRADER",
+        "72902": "DOMINION_MY_DYING_CARRIAGE",
+        "73002": "DOMINION_MY_DYING_SUPPLY",
+        "73102": "DOMINION_MY_DYING_GUARD",
+        "73202": "DOMINION_MY_DYING_PRIEST",
+        "73302": "DOMINION_MY_DYING_TRADER",
+        "72903": "DOMINION_DEF_SUCCESS_CARRIAGE",
+        "73003": "DOMINION_DEF_SUCCESS_SUPPLY",
+        "73103": "DOMINION_DEF_SUCCESS_GUARD",
+        "73203": "DOMINION_DEF_SUCCESS_PRIEST",
+        "73303": "DOMINION_DEF_SUCCESS_TRADER",
+        "71701": "DOMINION_ATTACKED",
+        "71702": "DOMINION_MY_DYING"
     }
 }

@@ -604,7 +604,7 @@ class Parser
         $row = array_map('trim', explode(';', $raw));
 
         if (is_numeric($row[0])) {
-            $row[0] = '"' . substr($this->data->getEnum('ITEM', $row[0]), 1) . '"';
+            $row[0] = '"' . $this->data->getEnum('ITEM', $row[0]) . '"';
         }
 
         $this->property->addRow($row);
