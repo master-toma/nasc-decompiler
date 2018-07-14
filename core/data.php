@@ -37,7 +37,7 @@ class Data
         return $this->variables[$type][$class ? $class : '_'][$address];
     }
 
-    public function getVariableType(int $type, string $name): string
+    public function getVariableType(int $type, string $name): ?string
     {
         if (isset($this->variableTypeCache[$type]) && array_key_exists($name, $this->variableTypeCache[$type])) {
             return $this->variableTypeCache[$type][$name];

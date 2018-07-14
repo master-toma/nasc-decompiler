@@ -23,7 +23,8 @@ $optionsConfig = [
     'input' => ["\t" . 'AI file to decompile.', 'ai.obj'],
     'chronicle' => ['AI chronicle. Provide a directory name from the data directory.', 'gf'],
     'language' => ['Resulting language. Provide a file name from the core/generators directory (without .php extension).', 'nasc'],
-    'split' => ["\t" . 'Split result by classes.', true]
+    'split' => ["\t" . 'Split result by classes.', true],
+    'join' => ["\t" . 'Join split classes into one file. Provide a directory which contains the classes.txt file.', null]
 ];
 
 $longopts = [];
@@ -55,10 +56,8 @@ if (!isset($options['output'])) {
 $regression = null;
 $failedTests = [];
 
-if ($options['test']) {
-    $regression = new Regression('tests/' . $options['test'] . '.bin');
-} elseif ($options['generate']) {
-    $regression = new Regression('tests/' . $options['generate'] . '.bin');
+if ($options['test'] || $options['generate']) {
+    $regression = new Regression('tests/' . ($options['test'] ?? $options['generate']) . '.bin');
 }
 
 $data = new Data(
@@ -137,7 +136,7 @@ while ($file && !feof($file)) {
             }
         } else {
             $outputFile = $options['output'] . '/' . $name . '.' . $options['language'];
-            file_put_contents($options['output'] . '/classes.txt', $name . "\n", FILE_APPEND);
+            file_put_contents($options['output'] . '/classes.txt', $name . '.' . $options['language'] . "\n", FILE_APPEND);
 
             // workaround for NASC: convert to UTF-16LE BOM
             if ($options['language'] === 'nasc') {
