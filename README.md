@@ -1,8 +1,12 @@
-**PHP 7 is required.**
+**PHP 7 is required (Windows executables are bundled).**
 
-**For the leaked GF AI & AdvExt GF/GE AI.**
+Supports:
 
-Copy `ai.obj` to current folder & run:
+* Leaked GF
+* AdvExt GF/GE
+* GD
+
+To run copy `ai.obj` to current folder & run:
 
 ```bash
 $ php core/main.php
