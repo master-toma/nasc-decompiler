@@ -813,7 +813,7 @@
             },
             "2736": {
                 "name": "p_state",
-                "type": "P_STATE"
+                "type": "PSTATE"
             },
             "2760": {
                 "name": "master",
@@ -977,7 +977,7 @@
         "CNPC": {
             "48": {
                 "name": "p_state",
-                "type": "P_STATE"
+                "type": "PSTATE"
             },
             "52": {
                 "name": "temper",

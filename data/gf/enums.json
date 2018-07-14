@@ -14,7 +14,7 @@
     "ABNORMAL": "./data/gf/pch/abnormal_pch.txt",
 
     // built-in constants
-    "P_STATE": [
+    "PSTATE": [
         "PSTATE_IDLE",
         "PSTATE_MOVE_AROUND",
         "PSTATE_DO_NOTHING",

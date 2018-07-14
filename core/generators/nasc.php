@@ -109,7 +109,8 @@ class NascGenerator implements GeneratorInterface
         } elseif ($expression instanceof StringExpression) {
             return '"' . $expression->getString() . '"';
         } elseif ($expression instanceof EnumExpression) {
-            if ($expression->getType() === 'P_STATE') {
+            if ($expression->getType() === 'PSTATE') {
+                // PSTATE type should't be prefixed
                 return $expression->getName();
             } else {
                 return '@' . $expression->getName();
