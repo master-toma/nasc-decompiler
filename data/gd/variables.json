@@ -699,6 +699,7 @@
                 "name": "boss_id",
                 "type": "int"
             },
+            // duplicates
             "11812": {
                 "name": "class_id",
                 "type": "NPC"
@@ -1121,10 +1122,6 @@
                 "name": "i_quest6",
                 "type": "int"
             },
-            "1160": {
-                "name": "i_quest6",
-                "type": "int"
-            },
             "1168": {
                 "name": "i_quest7",
                 "type": "int"
@@ -1323,10 +1320,6 @@
                 "name": "respawn_rand",
                 "type": "int"
             },
-            "152": {
-                "name": "dbname",
-                "type": "string"
-            },
             "208": {
                 "name": "has_dbname",
                 "type": "int"
@@ -1459,10 +1452,6 @@
             }
         },
 		"MPCCData": {
-            "36": {
-                "name": "id",
-                "type": "int"
-            },
             "36": {
                 "name": "mpcc_id",
                 "type": "int"
@@ -2603,10 +2592,6 @@
                 "name": "i_quest6",
                 "type": "int"
             },
-            "1160": {
-                "name": "i_quest6",
-                "type": "int"
-            },
             "1168": {
                 "name": "i_quest7",
                 "type": "int"
@@ -2805,10 +2790,6 @@
                 "name": "respawn_rand",
                 "type": "int"
             },
-            "152": {
-                "name": "dbname",
-                "type": "string"
-            },
             "208": {
                 "name": "has_dbname",
                 "type": "int"
@@ -2941,10 +2922,6 @@
             }
         },
 		"MPCCData": {
-            "36": {
-                "name": "id",
-                "type": "int"
-            },
             "36": {
                 "name": "mpcc_id",
                 "type": "int"

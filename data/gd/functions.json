@@ -336,15 +336,6 @@
         ],
         "type": "void"
     },
-    "268632231": {
-        "name": "SendUSMEvent",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
     "268501158": {
         "name": "GetElapsedTimeFromLastLogout",
         "arguments": [
@@ -719,27 +710,6 @@
             "float"
         ],
         "type": "float"
-    },
-    "269418601": {
-        "name": "SendUIEventFStr",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int",
-            "int",
-            "string",
-            "string",
-            "string",
-            "string",
-            "string",
-            "int",
-            "string",
-            "string",
-            "string",
-            "string",
-            "string"
-        ],
-        "type": "void"
     },
     "269484195": {
         "name": "BroadcastUIEventFStr",
