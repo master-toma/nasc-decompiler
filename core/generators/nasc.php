@@ -166,24 +166,19 @@ class NascGenerator implements GeneratorInterface
 
             return $lvalue . ' = ' . $this->generateExpression($rvalue);
         } elseif ($expression instanceof VariableExpression) {
-            $object = $expression->getObject() ? $this->generateExpression($expression->getObject()) . '.' : '';
-            return $object . $expression->getName();
+            $path = $expression->getObject() ? $this->generateExpression($expression->getObject()) . '.' : '';
+            return $path . $expression->getName();
         } elseif ($expression instanceof CallExpression) {
-            $object = '';
+            $path = '';
+            $object = $expression->getObject();
 
-            if ($expression->getObject()) {
-                $object = $this->generateExpression($expression->getObject()) . '.';
-
-                // myself. & gg. are not necessary for function calls
-                if (strpos($object, 'myself.') === 0) {
-                    $object = substr($object, strlen('myself.'));
-                } elseif (strpos($object, 'gg.') === 0) {
-                    $object = substr($object, strlen('gg.'));
-                }
+            // myself. & gg. are not necessary for function calls
+            if ($object && (!$object instanceof VariableExpression || !in_array($object->getName(), ['myself', 'gg']))) {
+                $path = $this->generateExpression($expression->getObject()) . '.';
             }
 
             $arguments = implode(', ', array_map([$this, 'generateExpression'], $expression->getArguments()));
-            return $object . $expression->getFunction() . '(' . $arguments . ')';
+            return $path . $expression->getFunction() . '(' . $arguments . ')';
         }
 
         return '';
