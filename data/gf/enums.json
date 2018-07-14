@@ -13,7 +13,7 @@
     "SCE": "./data/gf/pch/sce_pch.txt",
     "ABNORMAL": "./data/gf/pch/abnormal_pch.txt",
 
-    // built-in constants
+    // custom types from the manual_pch.txt file
     "PSTATE": [
         "PSTATE_IDLE",
         "PSTATE_MOVE_AROUND",
@@ -32,8 +32,6 @@
         "PSTATE_MOVE_TO_TARGET",
         "PSTATE_MOVE_SUPERPOINT"
     ],
-
-    // custom types from the manual_pch.txt file
     "AT": [
         "AT_NONE",
         "AT_SWORD",
@@ -124,7 +122,7 @@
         "PARAM_PKCOUNT"
     ],
     "ATTR": {
-        "-2": "attr_none",
+       "-2": "attr_none",
         "0": "attr_fire",
         "1": "attr_water",
         "2": "attr_wind",

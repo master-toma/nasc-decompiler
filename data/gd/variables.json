@@ -721,7 +721,7 @@
             },
             "11864": {
                 "name": "p_state",
-                "type": "P_STATE"
+                "type": "PSTATE"
             },
             "11880": {
                 "name": "master",
@@ -1087,7 +1087,7 @@
 		"CNPC": {
             "1104": {
                 "name": "p_state",
-                "type": "P_STATE"
+                "type": "PSTATE"
             },
             "1108": {
                 "name": "temper",
@@ -2341,7 +2341,7 @@
             },
             "11864": {
                 "name": "p_state",
-                "type": "P_STATE"
+                "type": "PSTATE"
             },
             "11880": {
                 "name": "master",
@@ -2569,7 +2569,7 @@
 		"CNPC": {
             "1104": {
                 "name": "p_state",
-                "type": "P_STATE"
+                "type": "PSTATE"
             },
             "1108": {
                 "name": "temper",
