@@ -55,11 +55,7 @@ class CallExpression implements Expression
 {
     private $type = '';
     private $function = '';
-
-    /** @var Expression */
     private $object = null;
-
-    /** @var Expression[] */
     private $arguments = [];
 
     public function __construct(string $type, string $function, array $arguments, Expression $object)
@@ -121,8 +117,6 @@ class VariableExpression implements Expression
 {
     private $type = '';
     private $name = '';
-
-    /** @var Expression */
     private $object = null;
 
     public function __construct(string $type, string $name, Expression $object = null)
@@ -333,11 +327,21 @@ class BreakStatement implements Statement
 
 class SuperStatement implements Statement
 {
+    private $handler = null;
+
+    public function __construct(HandlerDeclaration $handler)
+    {
+        $this->handler = $handler;
+    }
+
+    public function getHandler(): HandlerDeclaration
+    {
+        return $this->handler;
+    }
 }
 
 class BlockStatement implements Statement
 {
-    /** @var Statement[] */
     private $statements = [];
 
     public function addStatement(Statement $statement)
@@ -446,8 +450,6 @@ class ForStatement implements Statement
 class SelectStatement implements Statement
 {
     private $condition = null;
-
-    /** @var CaseStatement[] */
     private $cases = [];
 
     public function __construct(Expression $condition)
@@ -507,13 +509,8 @@ class ClassDeclaration implements Declaration
     private $name = '';
     private $super = '';
 
-    /** @var ParameterDeclaration[] */
     private $parameters = [];
-
-    /** @var PropertyDeclaration[] */
     private $properties = [];
-
-    /** @var HandlerDeclaration[] */
     private $handlers = [];
 
     public function __construct(int $type, string $name, string $super = '')
@@ -666,8 +663,6 @@ class HandlerDeclaration implements Declaration
 {
     private $name = '';
     private $block = null;
-
-    /** @var VariableDeclaration[] */
     private $variables = [];
 
     public function __construct(string $name)

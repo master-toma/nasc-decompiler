@@ -268,11 +268,11 @@ class Parser
     private function parseHandlerBegin(Token $token)
     {
         $name = $this->data->getHandler($this->class->getType(), $token->data[0]);
-        $handler = new HandlerDeclaration($name);
+        $this->handler = new HandlerDeclaration($name);
 
-        $this->class->addHandler($handler);
-        $this->blockStack[] = $handler->getBlock();
-        $this->statementStack[] = $handler;
+        $this->class->addHandler($this->handler);
+        $this->blockStack[] = $this->handler->getBlock();
+        $this->statementStack[] = $this->handler;
     }
 
     private function parseHandlerEnd()
@@ -472,7 +472,7 @@ class Parser
 
     private function parseCallSuper()
     {
-        $this->blockStack->top()->addStatement(new SuperStatement());
+        $this->blockStack->top()->addStatement(new SuperStatement($this->handler));
     }
 
     private function parseExitHandler()
