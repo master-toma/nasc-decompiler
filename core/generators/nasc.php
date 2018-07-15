@@ -118,7 +118,8 @@ class NascGenerator implements GeneratorInterface
                 // PSTATE type should't be prefixed
                 return $expression->getName();
             } else {
-                return '@' . $expression->getName();
+                $name = $expression->getName();
+                return '@' . (strpos($name, '.') !== false ? '"' . $name . '"' : $name);
             }
         } elseif ($expression instanceof ParameterExpression) {
             return $expression->getName();

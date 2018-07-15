@@ -1,0 +1,2846 @@
+{
+    "1": {
+        "MPCCData": {
+            "24": {
+                "type": "double", 
+                "name": "z"
+            }, 
+            "8": {
+                "type": "double", 
+                "name": "x"
+            }, 
+            "16": {
+                "type": "double", 
+                "name": "y"
+            }, 
+            "36": {
+                "type": "int", 
+                "name": "mpcc_id"
+            }, 
+            "72": {
+                "type": "int", 
+                "name": "party_count"
+            }
+        }, 
+        "NPCMakerEx": {
+            "1128": {
+                "type": "int", 
+                "name": "npc_count"
+            }, 
+            "1224": {
+                "type": "int", 
+                "name": "i_ai2"
+            }, 
+            "1160": {
+                "type": "int", 
+                "name": "i_quest3"
+            }, 
+            "1208": {
+                "type": "int", 
+                "name": "i_quest9"
+            }, 
+            "1144": {
+                "type": "int", 
+                "name": "i_quest1"
+            }, 
+            "1220": {
+                "type": "int", 
+                "name": "i_ai1"
+            }, 
+            "1168": {
+                "type": "int", 
+                "name": "i_quest4"
+            }, 
+            "1200": {
+                "type": "int", 
+                "name": "i_quest8"
+            }, 
+            "1228": {
+                "type": "int", 
+                "name": "i_ai3"
+            }, 
+            "1192": {
+                "type": "int", 
+                "name": "i_quest7"
+            }, 
+            "1256": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai0"
+            }, 
+            "1124": {
+                "type": "int", 
+                "name": "def_count"
+            }, 
+            "1252": {
+                "type": "int", 
+                "name": "i_ai9"
+            }, 
+            "1376": {
+                "type": "int", 
+                "name": "enabled"
+            }, 
+            "1176": {
+                "type": "int", 
+                "name": "i_quest5"
+            }, 
+            "1236": {
+                "type": "int", 
+                "name": "i_ai5"
+            }, 
+            "1216": {
+                "type": "int", 
+                "name": "i_ai0"
+            }, 
+            "1232": {
+                "type": "int", 
+                "name": "i_ai4"
+            }, 
+            "1132": {
+                "type": "int", 
+                "name": "maximum_npc"
+            }, 
+            "1272": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai2"
+            }, 
+            "1136": {
+                "type": "int", 
+                "name": "i_quest0"
+            }, 
+            "1152": {
+                "type": "int", 
+                "name": "i_quest2"
+            }, 
+            "5088": {
+                "type": "int", 
+                "name": "inzone_id"
+            }, 
+            "1264": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai1"
+            }, 
+            "1026": {
+                "type": "CIntList", 
+                "name": "name"
+            }, 
+            "1280": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai3"
+            }, 
+            "1184": {
+                "type": "int", 
+                "name": "i_quest6"
+            }, 
+            "5080": {
+                "type": "int", 
+                "name": "inzone_type_id"
+            }, 
+            "1288": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai4"
+            }, 
+            "5084": {
+                "type": "int", 
+                "name": "inzone_cluster_id"
+            }, 
+            "1240": {
+                "type": "int", 
+                "name": "i_ai6"
+            }, 
+            "1244": {
+                "type": "int", 
+                "name": "i_ai7"
+            }, 
+            "1248": {
+                "type": "int", 
+                "name": "i_ai8"
+            }, 
+            "1368": {
+                "type": "CIntList", 
+                "name": "int_list"
+            }
+        }, 
+        "HateInfo": {
+            "8": {
+                "type": "CSharedCreatureData", 
+                "name": "creature"
+            }, 
+            "20": {
+                "type": "int", 
+                "name": "temp0"
+            }, 
+            "16": {
+                "type": "int", 
+                "name": "hate"
+            }
+        }, 
+        "RoomInfo": {
+            "8": {
+                "type": "int", 
+                "name": "index"
+            }, 
+            "80": {
+                "type": "CSharedValue", 
+                "name": "status"
+            }, 
+            "12": {
+                "type": "int", 
+                "name": "member_count"
+            }, 
+            "56": {
+                "type": "int", 
+                "name": "party_id"
+            }, 
+            "52": {
+                "type": "int", 
+                "name": "time"
+            }
+        }, 
+        "Position": {
+            "8": {
+                "type": "int", 
+                "name": "x"
+            }, 
+            "12": {
+                "type": "int", 
+                "name": "y"
+            }, 
+            "16": {
+                "type": "int", 
+                "name": "z"
+            }
+        }, 
+        "CNPC": {
+            "1128": {
+                "type": "int", 
+                "name": "i_ai0"
+            }, 
+            "1224": {
+                "type": "CSharedCreatureData", 
+                "name": "c_quest1"
+            }, 
+            "1160": {
+                "type": "int", 
+                "name": "i_ai4"
+            }, 
+            "1208": {
+                "type": "int", 
+                "name": "attack_tick"
+            }, 
+            "1144": {
+                "type": "int", 
+                "name": "i_ai2"
+            }, 
+            "1080": {
+                "type": "int", 
+                "name": "i_quest4"
+            }, 
+            "1120": {
+                "type": "int", 
+                "name": "i_quest9"
+            }, 
+            "1168": {
+                "type": "int", 
+                "name": "i_ai5"
+            }, 
+            "1200": {
+                "type": "int", 
+                "name": "i_ai9"
+            }, 
+            "1088": {
+                "type": "int", 
+                "name": "i_quest5"
+            }, 
+            "1480": {
+                "type": "CSharedCreatureData", 
+                "name": "sm"
+            }, 
+            "1488": {
+                "type": "CSharedCreatureData", 
+                "name": "master"
+            }, 
+            "1256": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai0"
+            }, 
+            "1056": {
+                "type": "int", 
+                "name": "i_quest1"
+            }, 
+            "1192": {
+                "type": "int", 
+                "name": "i_ai8"
+            }, 
+            "1072": {
+                "type": "int", 
+                "name": "i_quest3"
+            }, 
+            "1524": {
+                "type": "int", 
+                "name": "start_x"
+            }, 
+            "1112": {
+                "type": "int", 
+                "name": "i_quest8"
+            }, 
+            "1504": {
+                "type": "CSharedCreatureData", 
+                "name": "top_desire_target"
+            }, 
+            "1376": {
+                "type": "CSharedValue", 
+                "name": "av_ai0"
+            }, 
+            "1288": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai4"
+            }, 
+            "1464": {
+                "type": "CIntList", 
+                "name": "int_list"
+            }, 
+            "1528": {
+                "type": "int", 
+                "name": "start_y"
+            }, 
+            "1176": {
+                "type": "int", 
+                "name": "i_ai6"
+            }, 
+            "1096": {
+                "type": "int", 
+                "name": "i_quest6"
+            }, 
+            "1216": {
+                "type": "CSharedCreatureData", 
+                "name": "c_quest0"
+            }, 
+            "1232": {
+                "type": "CSharedCreatureData", 
+                "name": "c_quest2"
+            }, 
+            "1272": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai2"
+            }, 
+            "1136": {
+                "type": "int", 
+                "name": "i_ai1"
+            }, 
+            "1152": {
+                "type": "int", 
+                "name": "i_ai3"
+            }, 
+            "1620": {
+                "type": "int", 
+                "name": "sit_on_stop"
+            }, 
+            "1496": {
+                "type": "CSharedCreatureData", 
+                "name": "boss"
+            }, 
+            "1264": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai1"
+            }, 
+            "1040": {
+                "type": "PSTATE", 
+                "name": "p_state"
+            }, 
+            "1280": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai3"
+            }, 
+            "1044": {
+                "type": "int", 
+                "name": "temper"
+            }, 
+            "1184": {
+                "type": "int", 
+                "name": "i_ai7"
+            }, 
+            "1048": {
+                "type": "int", 
+                "name": "i_quest0"
+            }, 
+            "1064": {
+                "type": "int", 
+                "name": "i_quest2"
+            }, 
+            "1472": {
+                "type": "int", 
+                "name": "m_WorldTrapState"
+            }, 
+            "1240": {
+                "type": "CSharedCreatureData", 
+                "name": "c_quest3"
+            }, 
+            "1104": {
+                "type": "int", 
+                "name": "i_quest7"
+            }, 
+            "1532": {
+                "type": "int", 
+                "name": "start_z"
+            }, 
+            "1360": {
+                "type": "CSharedValue", 
+                "name": "av_quest0"
+            }, 
+            "1248": {
+                "type": "CSharedCreatureData", 
+                "name": "c_quest4"
+            }, 
+            "1368": {
+                "type": "CSharedValue", 
+                "name": "av_quest1"
+            }, 
+            "1512": {
+                "type": "SKILL", 
+                "name": "top_skill_name_id"
+            }
+        }, 
+        "CSharedCreatureData": {
+            "6960": {
+                "type": "SSQ_SIDE", 
+                "name": "ssq_part"
+            }, 
+            "8550": {
+                "type": "int", 
+                "name": "no_attack_damage"
+            }, 
+            "6968": {
+                "type": "int", 
+                "name": "seal_selection_no"
+            }, 
+            "6812": {
+                "type": "int", 
+                "name": "attack_type"
+            }, 
+            "456": {
+                "type": "int", 
+                "name": "karma"
+            }, 
+            "36": {
+                "type": "int", 
+                "name": "id"
+            }, 
+            "6536": {
+                "type": "int", 
+                "name": "dbid"
+            }, 
+            "6744": {
+                "type": "double", 
+                "name": "hp_regen"
+            }, 
+            "7388": {
+                "type": "int", 
+                "name": "class_id"
+            }, 
+            "116": {
+                "type": "CLASS", 
+                "name": "subjob3_class"
+            }, 
+            "8549": {
+                "type": "int", 
+                "name": "absolute_defence"
+            }, 
+            "7116": {
+                "type": "string", 
+                "name": "ai"
+            }, 
+            "7036": {
+                "type": "int", 
+                "name": "ssq_dawn_round"
+            }, 
+            "112": {
+                "type": "CLASS", 
+                "name": "subjob2_class"
+            }, 
+            "68": {
+                "type": "int", 
+                "name": "is_pc"
+            }, 
+            "176": {
+                "type": "int", 
+                "name": "sp"
+            }, 
+            "7380": {
+                "type": "int", 
+                "name": "summoner_id"
+            }, 
+            "6704": {
+                "type": "double", 
+                "name": "max_mp"
+            }, 
+            "7384": {
+                "type": "int", 
+                "name": "boss_id"
+            }, 
+            "7456": {
+                "type": "CSharedCreatureData", 
+                "name": "master"
+            }, 
+            "6340": {
+                "type": "int", 
+                "name": "graduatedacademy_dbid"
+            }, 
+            "448": {
+                "type": "int", 
+                "name": "pk_count"
+            }, 
+            "8536": {
+                "type": "int", 
+                "name": "param2"
+            }, 
+            "7520": {
+                "type": "int", 
+                "name": "yongma_class"
+            }, 
+            "8540": {
+                "type": "int", 
+                "name": "param3"
+            }, 
+            "344": {
+                "type": "string", 
+                "name": "name"
+            }, 
+            "7516": {
+                "type": "RIDE", 
+                "name": "yongma_type"
+            }, 
+            "6324": {
+                "type": "int", 
+                "name": "pledge_type"
+            }, 
+            "8532": {
+                "type": "int", 
+                "name": "param1"
+            }, 
+            "7512": {
+                "type": "int", 
+                "name": "flag"
+            }, 
+            "6320": {
+                "type": "int", 
+                "name": "is_pledge_master"
+            }, 
+            "7552": {
+                "type": "int", 
+                "name": "transformID"
+            }, 
+            "328": {
+                "type": "double", 
+                "name": "hp"
+            }, 
+            "96": {
+                "type": "HERO", 
+                "name": "hero_type"
+            }, 
+            "6300": {
+                "type": "int", 
+                "name": "quest_last_reward_time"
+            }, 
+            "7040": {
+                "type": "int", 
+                "name": "in_peacezone"
+            }, 
+            "24": {
+                "type": "double", 
+                "name": "z"
+            }, 
+            "7396": {
+                "type": "int", 
+                "name": "respawn_time"
+            }, 
+            "6808": {
+                "type": "ITEM", 
+                "name": "equiped_weapon_class_id"
+            }, 
+            "7392": {
+                "type": "int", 
+                "name": "weight_point"
+            }, 
+            "441": {
+                "type": "int", 
+                "name": "is_freezed"
+            }, 
+            "400": {
+                "type": "double", 
+                "name": "mp"
+            }, 
+            "120": {
+                "type": "RACE", 
+                "name": "race"
+            }, 
+            "76": {
+                "type": "int", 
+                "name": "age"
+            }, 
+            "108": {
+                "type": "CLASS", 
+                "name": "subjob1_class"
+            }, 
+            "124": {
+                "type": "CLASS", 
+                "name": "occupation"
+            }, 
+            "72": {
+                "type": "int", 
+                "name": "alive"
+            }, 
+            "8": {
+                "type": "double", 
+                "name": "x"
+            }, 
+            "6528": {
+                "type": "int", 
+                "name": "death_penalty_level"
+            }, 
+            "6952": {
+                "type": "ITEM", 
+                "name": "last_blow_weapon_class_id"
+            }, 
+            "92": {
+                "type": "NOBLESS", 
+                "name": "nobless_type"
+            }, 
+            "104": {
+                "type": "CLASS", 
+                "name": "subjob0_class"
+            }, 
+            "6636": {
+                "type": "int", 
+                "name": "level"
+            }, 
+            "7440": {
+                "type": "PSTATE", 
+                "name": "p_state"
+            }, 
+            "7564": {
+                "type": "int", 
+                "name": "instant_zone_type_id_in_use"
+            }, 
+            "7536": {
+                "type": "int", 
+                "name": "pet_dbid"
+            }, 
+            "7560": {
+                "type": "int", 
+                "name": "instant_zone_type_id"
+            }, 
+            "7044": {
+                "type": "int", 
+                "name": "in_battlefield"
+            }, 
+            "7544": {
+                "type": "int", 
+                "name": "max_magic_level"
+            }, 
+            "16": {
+                "type": "double", 
+                "name": "y"
+            }, 
+            "88": {
+                "type": "int", 
+                "name": "subjob_id"
+            }, 
+            "7556": {
+                "type": "int", 
+                "name": "instant_zone_id"
+            }, 
+            "6312": {
+                "type": "int", 
+                "name": "pledge_id"
+            }, 
+            "416": {
+                "type": "int", 
+                "name": "stop_mode"
+            }, 
+            "8528": {
+                "type": "int", 
+                "name": "db_value"
+            }, 
+            "6956": {
+                "type": "int", 
+                "name": "ssq_round"
+            }, 
+            "7524": {
+                "type": "int", 
+                "name": "strider_level"
+            }, 
+            "7372": {
+                "type": "int", 
+                "name": "summon_type"
+            }, 
+            "436": {
+                "type": "int", 
+                "name": "target_id"
+            }, 
+            "6936": {
+                "type": "int", 
+                "name": "builder_level"
+            }, 
+            "7528": {
+                "type": "int", 
+                "name": "meal"
+            }, 
+            "7464": {
+                "type": "int", 
+                "name": "action"
+            }, 
+            "432": {
+                "type": "int", 
+                "name": "target_index"
+            }, 
+            "6696": {
+                "type": "double", 
+                "name": "max_hp"
+            }, 
+            "6376": {
+                "type": "int", 
+                "name": "residence_id"
+            }, 
+            "7428": {
+                "type": "int", 
+                "name": "clan_help_range"
+            }
+        }, 
+        "CSharedPartyData": {
+            "24": {
+                "type": "double", 
+                "name": "z"
+            }, 
+            "76": {
+                "type": "int", 
+                "name": "member_count"
+            }, 
+            "16": {
+                "type": "double", 
+                "name": "y"
+            }, 
+            "36": {
+                "type": "int", 
+                "name": "id"
+            }, 
+            "8": {
+                "type": "double", 
+                "name": "x"
+            }
+        }, 
+        "DBNpcInfo": {
+            "60": {
+                "type": "int", 
+                "name": "hp"
+            }, 
+            "76": {
+                "type": "int", 
+                "name": "z"
+            }, 
+            "88": {
+                "type": "int", 
+                "name": "db_value"
+            }, 
+            "64": {
+                "type": "int", 
+                "name": "mp"
+            }, 
+            "72": {
+                "type": "int", 
+                "name": "y"
+            }, 
+            "68": {
+                "type": "int", 
+                "name": "x"
+            }, 
+            "8": {
+                "type": "string", 
+                "name": "dbname"
+            }, 
+            "80": {
+                "type": "int", 
+                "name": "death_time"
+            }, 
+            "92": {
+                "type": "int", 
+                "name": "arg1"
+            }, 
+            "84": {
+                "type": "int", 
+                "name": "is_alive"
+            }
+        }, 
+        "SpawnDefine": {
+            "144": {
+                "type": "int", 
+                "name": "npc_count"
+            }, 
+            "152": {
+                "type": "int", 
+                "name": "respawn_rand"
+            }, 
+            "140": {
+                "type": "int", 
+                "name": "total"
+            }, 
+            "156": {
+                "type": "string", 
+                "name": "dbname"
+            }, 
+            "208": {
+                "type": "int", 
+                "name": "has_dbname"
+            }, 
+            "148": {
+                "type": "int", 
+                "name": "respawn_time"
+            }, 
+            "40": {
+                "type": "string", 
+                "name": "nickname"
+            }, 
+            "90": {
+                "type": "string", 
+                "name": "name"
+            }
+        }, 
+        "GlobalObject": {
+            "176": {
+                "type": "int", 
+                "name": "server_time"
+            }
+        }, 
+        "PositionList": {
+            "8": {
+                "type": "int", 
+                "name": "size"
+            }
+        }, 
+        "CodeInfoList": {
+            "8": {
+                "type": "int", 
+                "name": "code"
+            }
+        }, 
+        "CSharedStaticObjectData": {
+            "24": {
+                "type": "double", 
+                "name": "z"
+            }, 
+            "8": {
+                "type": "double", 
+                "name": "x"
+            }, 
+            "36": {
+                "type": "int", 
+                "name": "id"
+            }, 
+            "16": {
+                "type": "double", 
+                "name": "y"
+            }
+        }, 
+        "RoomInfoList": {
+            "8": {
+                "type": "int", 
+                "name": "size"
+            }
+        }, 
+        "CSharedItemData": {
+            "24": {
+                "type": "double", 
+                "name": "z"
+            }, 
+            "16": {
+                "type": "double", 
+                "name": "y"
+            }, 
+            "36": {
+                "type": "int", 
+                "name": "id"
+            }, 
+            "88": {
+                "type": "ITEM", 
+                "name": "class_id"
+            }, 
+            "72": {
+                "type": "int", 
+                "name": "count"
+            }, 
+            "112": {
+                "type": "int", 
+                "name": "pet_level"
+            }, 
+            "8": {
+                "type": "double", 
+                "name": "x"
+            }, 
+            "84": {
+                "type": "int", 
+                "name": "dbid"
+            }
+        }, 
+        "CSharedValue": {
+            "8": {
+                "type": "int", 
+                "name": "value"
+            }
+        }, 
+        "CSharedPledgeData": {
+            "24": {
+                "type": "double", 
+                "name": "z"
+            }, 
+            "268": {
+                "type": "int", 
+                "name": "member_count"
+            }, 
+            "16": {
+                "type": "double", 
+                "name": "y"
+            }, 
+            "196": {
+                "type": "int", 
+                "name": "skill_level"
+            }, 
+            "36": {
+                "type": "int", 
+                "name": "id"
+            }, 
+            "1400": {
+                "type": "int", 
+                "name": "total_member_count"
+            }, 
+            "240": {
+                "type": "int", 
+                "name": "fortress_id"
+            }, 
+            "1956": {
+                "type": "int", 
+                "name": "airship_count"
+            }, 
+            "124": {
+                "type": "string", 
+                "name": "master_name"
+            }, 
+            "72": {
+                "type": "string", 
+                "name": "name"
+            }, 
+            "68": {
+                "type": "int", 
+                "name": "db_id"
+            }, 
+            "8": {
+                "type": "double", 
+                "name": "x"
+            }, 
+            "236": {
+                "type": "int", 
+                "name": "agit_id"
+            }, 
+            "224": {
+                "type": "int", 
+                "name": "is_guilty"
+            }, 
+            "1904": {
+                "type": "int", 
+                "name": "prev_server"
+            }, 
+            "232": {
+                "type": "int", 
+                "name": "castle_id"
+            }, 
+            "220": {
+                "type": "int", 
+                "name": "status"
+            }
+        }, 
+        "_": {
+            "216": {
+                "type": "int", 
+                "name": "pledge_index"
+            }, 
+            "768": {
+                "type": "CNPC", 
+                "name": "deleted_npc"
+            }, 
+            "212": {
+                "type": "int", 
+                "name": "z"
+            }, 
+            "760": {
+                "type": "SpawnDefine", 
+                "name": "created_def"
+            }, 
+            "664": {
+                "type": "RoomInfoList", 
+                "name": "rlist1"
+            }, 
+            "136": {
+                "type": "string", 
+                "name": "script"
+            }, 
+            "496": {
+                "type": "CSharedItemData", 
+                "name": "item1"
+            }, 
+            "696": {
+                "type": "PositionList", 
+                "name": "plist1"
+            }, 
+            "344": {
+                "type": "int", 
+                "name": "i8"
+            }, 
+            "288": {
+                "type": "int", 
+                "name": "i1"
+            }, 
+            "404": {
+                "type": "float", 
+                "name": "f7"
+            }, 
+            "544": {
+                "type": "HateInfo", 
+                "name": "h4"
+            }, 
+            "400": {
+                "type": "float", 
+                "name": "f6"
+            }, 
+            "280": {
+                "type": "int", 
+                "name": "i0"
+            }, 
+            "96": {
+                "type": "CSharedCreatureData", 
+                "name": "target"
+            }, 
+            "408": {
+                "type": "float", 
+                "name": "f8"
+            }, 
+            "672": {
+                "type": "Position", 
+                "name": "pos0"
+            }, 
+            "120": {
+                "type": "CSharedStaticObjectData", 
+                "name": "victim_so"
+            }, 
+            "260": {
+                "type": "int", 
+                "name": "level"
+            }, 
+            "264": {
+                "type": "int", 
+                "name": "action_id"
+            }, 
+            "128": {
+                "type": "CSharedItemData", 
+                "name": "item"
+            }, 
+            "56": {
+                "type": "CSharedCreatureData", 
+                "name": "victim"
+            }, 
+            "536": {
+                "type": "HateInfo", 
+                "name": "h3"
+            }, 
+            "416": {
+                "type": "CSharedCreatureData", 
+                "name": "c0"
+            }, 
+            "412": {
+                "type": "float", 
+                "name": "f9"
+            }, 
+            "296": {
+                "type": "int", 
+                "name": "i2"
+            }, 
+            "376": {
+                "type": "float", 
+                "name": "f0"
+            }, 
+            "592": {
+                "type": "FHTML", 
+                "name": "fhtml0"
+            }, 
+            "704": {
+                "type": "GlobalObject", 
+                "name": "gg"
+            }, 
+            "312": {
+                "type": "int", 
+                "name": "i4"
+            }, 
+            "196": {
+                "type": "ITEM", 
+                "name": "weapon_class_id"
+            }, 
+            "192": {
+                "type": "int", 
+                "name": "time"
+            }, 
+            "392": {
+                "type": "float", 
+                "name": "f4"
+            }, 
+            "88": {
+                "type": "CSharedCreatureData", 
+                "name": "speller"
+            }, 
+            "396": {
+                "type": "float", 
+                "name": "f5"
+            }, 
+            "112": {
+                "type": "CSharedCreatureData", 
+                "name": "creature"
+            }, 
+            "80": {
+                "type": "CSharedCreatureData", 
+                "name": "commander"
+            }, 
+            "796": {
+                "type": "int", 
+                "name": "died"
+            }, 
+            "792": {
+                "type": "int", 
+                "name": "enabled"
+            }, 
+            "520": {
+                "type": "HateInfo", 
+                "name": "h1"
+            }, 
+            "368": {
+                "type": "int", 
+                "name": "i11"
+            }, 
+            "528": {
+                "type": "HateInfo", 
+                "name": "h2"
+            }, 
+            "424": {
+                "type": "CSharedCreatureData", 
+                "name": "c1"
+            }, 
+            "360": {
+                "type": "int", 
+                "name": "i10"
+            }, 
+            "584": {
+                "type": "string", 
+                "name": "s1"
+            }, 
+            "448": {
+                "type": "CSharedCreatureData", 
+                "name": "c4"
+            }, 
+            "440": {
+                "type": "CSharedCreatureData", 
+                "name": "c3"
+            }, 
+            "304": {
+                "type": "int", 
+                "name": "i3"
+            }, 
+            "380": {
+                "type": "float", 
+                "name": "f1"
+            }, 
+            "244": {
+                "type": "int", 
+                "name": "timer_id"
+            }, 
+            "384": {
+                "type": "float", 
+                "name": "f2"
+            }, 
+            "240": {
+                "type": "int", 
+                "name": "question_id"
+            }, 
+            "388": {
+                "type": "float", 
+                "name": "f3"
+            }, 
+            "248": {
+                "type": "SCE", 
+                "name": "script_event_arg1"
+            }, 
+            "784": {
+                "type": "DBNpcInfo", 
+                "name": "record0"
+            }, 
+            "640": {
+                "type": "RoomInfo", 
+                "name": "room0"
+            }, 
+            "648": {
+                "type": "RoomInfo", 
+                "name": "room1"
+            }, 
+            "512": {
+                "type": "HateInfo", 
+                "name": "h0"
+            }, 
+            "432": {
+                "type": "CSharedCreatureData", 
+                "name": "c2"
+            }, 
+            "624": {
+                "type": "NPCMakerEx", 
+                "name": "maker0"
+            }, 
+            "336": {
+                "type": "int", 
+                "name": "i7"
+            }, 
+            "576": {
+                "type": "string", 
+                "name": "s0"
+            }, 
+            "456": {
+                "type": "CSharedPledgeData", 
+                "name": "pledge0"
+            }, 
+            "64": {
+                "type": "CSharedCreatureData", 
+                "name": "private"
+            }, 
+            "252": {
+                "type": "SCE", 
+                "name": "script_event_arg2"
+            }, 
+            "176": {
+                "type": "SKILL", 
+                "name": "skill_name_id"
+            }, 
+            "256": {
+                "type": "SCE", 
+                "name": "script_event_arg3"
+            }, 
+            "172": {
+                "type": "int", 
+                "name": "need_quest"
+            }, 
+            "656": {
+                "type": "RoomInfoList", 
+                "name": "rlist0"
+            }, 
+            "180": {
+                "type": "CLASS", 
+                "name": "occupation_name_id"
+            }, 
+            "184": {
+                "type": "int", 
+                "name": "way_point_index"
+            }, 
+            "736": {
+                "type": "SpawnDefine", 
+                "name": "def0"
+            }, 
+            "188": {
+                "type": "int", 
+                "name": "next_way_point_index"
+            }, 
+            "568": {
+                "type": "CNPC", 
+                "name": "npc2"
+            }, 
+            "752": {
+                "type": "SpawnDefine", 
+                "name": "loaded_def"
+            }, 
+            "632": {
+                "type": "NPCMakerEx", 
+                "name": "maker1"
+            }, 
+            "560": {
+                "type": "CNPC", 
+                "name": "npc1"
+            }, 
+            "464": {
+                "type": "CSharedPledgeData", 
+                "name": "pledge1"
+            }, 
+            "168": {
+                "type": "int", 
+                "name": "skill_level"
+            }, 
+            "228": {
+                "type": "int", 
+                "name": "inzone_id"
+            }, 
+            "164": {
+                "type": "SKILL_SHORT", 
+                "name": "skill_id"
+            }, 
+            "224": {
+                "type": "int", 
+                "name": "residence_id"
+            }, 
+            "160": {
+                "type": "int", 
+                "name": "ask"
+            }, 
+            "504": {
+                "type": "CSharedStaticObjectData", 
+                "name": "so0"
+            }, 
+            "220": {
+                "type": "int", 
+                "name": "desire"
+            }, 
+            "272": {
+                "type": "int", 
+                "name": "reply"
+            }, 
+            "728": {
+                "type": "NPCMakerEx", 
+                "name": "myself"
+            }, 
+            "152": {
+                "type": "int", 
+                "name": "who"
+            }, 
+            "744": {
+                "type": "SpawnDefine", 
+                "name": "deleted_def"
+            }, 
+            "600": {
+                "type": "FHTML", 
+                "name": "fhtml1"
+            }, 
+            "156": {
+                "type": "QUEST", 
+                "name": "quest_id"
+            }, 
+            "608": {
+                "type": "int", 
+                "name": "_code"
+            }, 
+            "552": {
+                "type": "CNPC", 
+                "name": "npc0"
+            }, 
+            "236": {
+                "type": "int", 
+                "name": "event_id"
+            }, 
+            "232": {
+                "type": "int", 
+                "name": "inzone_type_id"
+            }, 
+            "48": {
+                "type": "CSharedCreatureData", 
+                "name": "attacker"
+            }, 
+            "40": {
+                "type": "CSharedCreatureData", 
+                "name": "talker"
+            }, 
+            "320": {
+                "type": "int", 
+                "name": "i5"
+            }, 
+            "328": {
+                "type": "int", 
+                "name": "i6"
+            }, 
+            "688": {
+                "type": "PositionList", 
+                "name": "plist0"
+            }, 
+            "200": {
+                "type": "int", 
+                "name": "success"
+            }, 
+            "144": {
+                "type": "int", 
+                "name": "damage"
+            }, 
+            "776": {
+                "type": "CNPC", 
+                "name": "created_npc"
+            }, 
+            "204": {
+                "type": "int", 
+                "name": "x"
+            }, 
+            "612": {
+                "type": "int", 
+                "name": "_choiceN"
+            }, 
+            "208": {
+                "type": "int", 
+                "name": "y"
+            }, 
+            "616": {
+                "type": "int", 
+                "name": "_from_choice"
+            }, 
+            "148": {
+                "type": "int", 
+                "name": "state"
+            }, 
+            "72": {
+                "type": "CSharedCreatureData", 
+                "name": "friend"
+            }, 
+            "488": {
+                "type": "CSharedItemData", 
+                "name": "item0"
+            }, 
+            "480": {
+                "type": "CSharedPartyData", 
+                "name": "party1"
+            }, 
+            "472": {
+                "type": "CSharedPartyData", 
+                "name": "party0"
+            }, 
+            "352": {
+                "type": "int", 
+                "name": "i9"
+            }, 
+            "680": {
+                "type": "Position", 
+                "name": "pos1"
+            }
+        }, 
+        "CodeInfo": {
+            "52": {
+                "type": "int", 
+                "name": "code"
+            }
+        }
+    }, 
+    "0": {
+        "MPCCData": {
+            "24": {
+                "type": "double", 
+                "name": "z"
+            }, 
+            "8": {
+                "type": "double", 
+                "name": "x"
+            }, 
+            "16": {
+                "type": "double", 
+                "name": "y"
+            }, 
+            "36": {
+                "type": "int", 
+                "name": "mpcc_id"
+            }, 
+            "72": {
+                "type": "int", 
+                "name": "party_count"
+            }
+        }, 
+        "NPCMakerEx": {
+            "1128": {
+                "type": "int", 
+                "name": "npc_count"
+            }, 
+            "1224": {
+                "type": "int", 
+                "name": "i_ai2"
+            }, 
+            "1160": {
+                "type": "int", 
+                "name": "i_quest3"
+            }, 
+            "1208": {
+                "type": "int", 
+                "name": "i_quest9"
+            }, 
+            "1144": {
+                "type": "int", 
+                "name": "i_quest1"
+            }, 
+            "1220": {
+                "type": "int", 
+                "name": "i_ai1"
+            }, 
+            "1168": {
+                "type": "int", 
+                "name": "i_quest4"
+            }, 
+            "1200": {
+                "type": "int", 
+                "name": "i_quest8"
+            }, 
+            "1228": {
+                "type": "int", 
+                "name": "i_ai3"
+            }, 
+            "1192": {
+                "type": "int", 
+                "name": "i_quest7"
+            }, 
+            "1256": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai0"
+            }, 
+            "1124": {
+                "type": "int", 
+                "name": "def_count"
+            }, 
+            "1252": {
+                "type": "int", 
+                "name": "i_ai9"
+            }, 
+            "1376": {
+                "type": "int", 
+                "name": "enabled"
+            }, 
+            "1176": {
+                "type": "int", 
+                "name": "i_quest5"
+            }, 
+            "1236": {
+                "type": "int", 
+                "name": "i_ai5"
+            }, 
+            "1216": {
+                "type": "int", 
+                "name": "i_ai0"
+            }, 
+            "1232": {
+                "type": "int", 
+                "name": "i_ai4"
+            }, 
+            "1132": {
+                "type": "int", 
+                "name": "maximum_npc"
+            }, 
+            "1272": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai2"
+            }, 
+            "1136": {
+                "type": "int", 
+                "name": "i_quest0"
+            }, 
+            "1152": {
+                "type": "int", 
+                "name": "i_quest2"
+            }, 
+            "5088": {
+                "type": "int", 
+                "name": "inzone_id"
+            }, 
+            "1264": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai1"
+            }, 
+            "1026": {
+                "type": "CIntList", 
+                "name": "name"
+            }, 
+            "1280": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai3"
+            }, 
+            "1184": {
+                "type": "int", 
+                "name": "i_quest6"
+            }, 
+            "5080": {
+                "type": "int", 
+                "name": "inzone_type_id"
+            }, 
+            "1288": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai4"
+            }, 
+            "5084": {
+                "type": "int", 
+                "name": "inzone_cluster_id"
+            }, 
+            "1240": {
+                "type": "int", 
+                "name": "i_ai6"
+            }, 
+            "1244": {
+                "type": "int", 
+                "name": "i_ai7"
+            }, 
+            "1248": {
+                "type": "int", 
+                "name": "i_ai8"
+            }, 
+            "1368": {
+                "type": "CIntList", 
+                "name": "int_list"
+            }
+        }, 
+        "HateInfo": {
+            "8": {
+                "type": "CSharedCreatureData", 
+                "name": "creature"
+            }, 
+            "20": {
+                "type": "int", 
+                "name": "temp0"
+            }, 
+            "16": {
+                "type": "int", 
+                "name": "hate"
+            }
+        }, 
+        "RoomInfo": {
+            "8": {
+                "type": "int", 
+                "name": "index"
+            }, 
+            "80": {
+                "type": "CSharedValue", 
+                "name": "status"
+            }, 
+            "12": {
+                "type": "int", 
+                "name": "member_count"
+            }, 
+            "56": {
+                "type": "int", 
+                "name": "party_id"
+            }, 
+            "52": {
+                "type": "int", 
+                "name": "time"
+            }
+        }, 
+        "Position": {
+            "8": {
+                "type": "int", 
+                "name": "x"
+            }, 
+            "12": {
+                "type": "int", 
+                "name": "y"
+            }, 
+            "16": {
+                "type": "int", 
+                "name": "z"
+            }
+        }, 
+        "CNPC": {
+            "1128": {
+                "type": "int", 
+                "name": "i_ai0"
+            }, 
+            "1224": {
+                "type": "CSharedCreatureData", 
+                "name": "c_quest1"
+            }, 
+            "1160": {
+                "type": "int", 
+                "name": "i_ai4"
+            }, 
+            "1208": {
+                "type": "int", 
+                "name": "attack_tick"
+            }, 
+            "1144": {
+                "type": "int", 
+                "name": "i_ai2"
+            }, 
+            "1080": {
+                "type": "int", 
+                "name": "i_quest4"
+            }, 
+            "1120": {
+                "type": "int", 
+                "name": "i_quest9"
+            }, 
+            "1168": {
+                "type": "int", 
+                "name": "i_ai5"
+            }, 
+            "1200": {
+                "type": "int", 
+                "name": "i_ai9"
+            }, 
+            "1088": {
+                "type": "int", 
+                "name": "i_quest5"
+            }, 
+            "1480": {
+                "type": "CSharedCreatureData", 
+                "name": "sm"
+            }, 
+            "1488": {
+                "type": "CSharedCreatureData", 
+                "name": "master"
+            }, 
+            "1256": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai0"
+            }, 
+            "1056": {
+                "type": "int", 
+                "name": "i_quest1"
+            }, 
+            "1192": {
+                "type": "int", 
+                "name": "i_ai8"
+            }, 
+            "1072": {
+                "type": "int", 
+                "name": "i_quest3"
+            }, 
+            "1524": {
+                "type": "int", 
+                "name": "start_x"
+            }, 
+            "1112": {
+                "type": "int", 
+                "name": "i_quest8"
+            }, 
+            "1504": {
+                "type": "CSharedCreatureData", 
+                "name": "top_desire_target"
+            }, 
+            "1376": {
+                "type": "CSharedValue", 
+                "name": "av_ai0"
+            }, 
+            "1288": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai4"
+            }, 
+            "1464": {
+                "type": "CIntList", 
+                "name": "int_list"
+            }, 
+            "1528": {
+                "type": "int", 
+                "name": "start_y"
+            }, 
+            "1176": {
+                "type": "int", 
+                "name": "i_ai6"
+            }, 
+            "1096": {
+                "type": "int", 
+                "name": "i_quest6"
+            }, 
+            "1216": {
+                "type": "CSharedCreatureData", 
+                "name": "c_quest0"
+            }, 
+            "1232": {
+                "type": "CSharedCreatureData", 
+                "name": "c_quest2"
+            }, 
+            "1272": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai2"
+            }, 
+            "1136": {
+                "type": "int", 
+                "name": "i_ai1"
+            }, 
+            "1152": {
+                "type": "int", 
+                "name": "i_ai3"
+            }, 
+            "1620": {
+                "type": "int", 
+                "name": "sit_on_stop"
+            }, 
+            "1496": {
+                "type": "CSharedCreatureData", 
+                "name": "boss"
+            }, 
+            "1264": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai1"
+            }, 
+            "1040": {
+                "type": "PSTATE", 
+                "name": "p_state"
+            }, 
+            "1280": {
+                "type": "CSharedCreatureData", 
+                "name": "c_ai3"
+            }, 
+            "1044": {
+                "type": "int", 
+                "name": "temper"
+            }, 
+            "1184": {
+                "type": "int", 
+                "name": "i_ai7"
+            }, 
+            "1048": {
+                "type": "int", 
+                "name": "i_quest0"
+            }, 
+            "1064": {
+                "type": "int", 
+                "name": "i_quest2"
+            }, 
+            "1472": {
+                "type": "int", 
+                "name": "m_WorldTrapState"
+            }, 
+            "1240": {
+                "type": "CSharedCreatureData", 
+                "name": "c_quest3"
+            }, 
+            "1104": {
+                "type": "int", 
+                "name": "i_quest7"
+            }, 
+            "1532": {
+                "type": "int", 
+                "name": "start_z"
+            }, 
+            "1360": {
+                "type": "CSharedValue", 
+                "name": "av_quest0"
+            }, 
+            "1248": {
+                "type": "CSharedCreatureData", 
+                "name": "c_quest4"
+            }, 
+            "1368": {
+                "type": "CSharedValue", 
+                "name": "av_quest1"
+            }, 
+            "1512": {
+                "type": "int", 
+                "name": "top_skill_name_id"
+            }
+        }, 
+        "CSharedCreatureData": {
+            "6960": {
+                "type": "SSQ_SIDE", 
+                "name": "ssq_part"
+            }, 
+            "8550": {
+                "type": "int", 
+                "name": "no_attack_damage"
+            }, 
+            "6968": {
+                "type": "int", 
+                "name": "seal_selection_no"
+            }, 
+            "6812": {
+                "type": "int", 
+                "name": "attack_type"
+            }, 
+            "456": {
+                "type": "int", 
+                "name": "karma"
+            }, 
+            "36": {
+                "type": "int", 
+                "name": "id"
+            }, 
+            "6536": {
+                "type": "int", 
+                "name": "dbid"
+            }, 
+            "6744": {
+                "type": "double", 
+                "name": "hp_regen"
+            }, 
+            "7388": {
+                "type": "int", 
+                "name": "class_id"
+            }, 
+            "116": {
+                "type": "CLASS", 
+                "name": "subjob3_class"
+            }, 
+            "8549": {
+                "type": "int", 
+                "name": "absolute_defence"
+            }, 
+            "7116": {
+                "type": "string", 
+                "name": "ai"
+            }, 
+            "7036": {
+                "type": "int", 
+                "name": "ssq_dawn_round"
+            }, 
+            "112": {
+                "type": "CLASS", 
+                "name": "subjob2_class"
+            }, 
+            "68": {
+                "type": "int", 
+                "name": "is_pc"
+            }, 
+            "176": {
+                "type": "int", 
+                "name": "sp"
+            }, 
+            "7380": {
+                "type": "int", 
+                "name": "summoner_id"
+            }, 
+            "6704": {
+                "type": "double", 
+                "name": "max_mp"
+            }, 
+            "7384": {
+                "type": "int", 
+                "name": "boss_id"
+            }, 
+            "7456": {
+                "type": "CSharedCreatureData", 
+                "name": "master"
+            }, 
+            "6340": {
+                "type": "int", 
+                "name": "graduatedacademy_dbid"
+            }, 
+            "448": {
+                "type": "int", 
+                "name": "pk_count"
+            }, 
+            "8536": {
+                "type": "int", 
+                "name": "param2"
+            }, 
+            "7520": {
+                "type": "int", 
+                "name": "yongma_class"
+            }, 
+            "8540": {
+                "type": "int", 
+                "name": "param3"
+            }, 
+            "344": {
+                "type": "string", 
+                "name": "name"
+            }, 
+            "7516": {
+                "type": "RIDE", 
+                "name": "yongma_type"
+            }, 
+            "6324": {
+                "type": "int", 
+                "name": "pledge_type"
+            }, 
+            "8532": {
+                "type": "int", 
+                "name": "param1"
+            }, 
+            "7512": {
+                "type": "int", 
+                "name": "flag"
+            }, 
+            "6320": {
+                "type": "int", 
+                "name": "is_pledge_master"
+            }, 
+            "7552": {
+                "type": "int", 
+                "name": "transformID"
+            }, 
+            "328": {
+                "type": "double", 
+                "name": "hp"
+            }, 
+            "96": {
+                "type": "HERO", 
+                "name": "hero_type"
+            }, 
+            "6300": {
+                "type": "int", 
+                "name": "quest_last_reward_time"
+            }, 
+            "7040": {
+                "type": "int", 
+                "name": "in_peacezone"
+            }, 
+            "24": {
+                "type": "double", 
+                "name": "z"
+            }, 
+            "7396": {
+                "type": "int", 
+                "name": "respawn_time"
+            }, 
+            "6808": {
+                "type": "ITEM", 
+                "name": "equiped_weapon_class_id"
+            }, 
+            "7392": {
+                "type": "int", 
+                "name": "weight_point"
+            }, 
+            "441": {
+                "type": "int", 
+                "name": "is_freezed"
+            }, 
+            "400": {
+                "type": "double", 
+                "name": "mp"
+            }, 
+            "120": {
+                "type": "RACE", 
+                "name": "race"
+            }, 
+            "76": {
+                "type": "int", 
+                "name": "age"
+            }, 
+            "108": {
+                "type": "CLASS", 
+                "name": "subjob1_class"
+            }, 
+            "124": {
+                "type": "CLASS", 
+                "name": "occupation"
+            }, 
+            "72": {
+                "type": "int", 
+                "name": "alive"
+            }, 
+            "8": {
+                "type": "double", 
+                "name": "x"
+            }, 
+            "6528": {
+                "type": "int", 
+                "name": "death_penalty_level"
+            }, 
+            "6952": {
+                "type": "ITEM", 
+                "name": "last_blow_weapon_class_id"
+            }, 
+            "92": {
+                "type": "NOBLESS", 
+                "name": "nobless_type"
+            }, 
+            "104": {
+                "type": "CLASS", 
+                "name": "subjob0_class"
+            }, 
+            "6636": {
+                "type": "int", 
+                "name": "level"
+            }, 
+            "7440": {
+                "type": "PSTATE", 
+                "name": "p_state"
+            }, 
+            "7564": {
+                "type": "int", 
+                "name": "instant_zone_type_id_in_use"
+            }, 
+            "7536": {
+                "type": "int", 
+                "name": "pet_dbid"
+            }, 
+            "7560": {
+                "type": "int", 
+                "name": "instant_zone_type_id"
+            }, 
+            "7044": {
+                "type": "int", 
+                "name": "in_battlefield"
+            }, 
+            "7544": {
+                "type": "int", 
+                "name": "max_magic_level"
+            }, 
+            "16": {
+                "type": "double", 
+                "name": "y"
+            }, 
+            "88": {
+                "type": "int", 
+                "name": "subjob_id"
+            }, 
+            "7556": {
+                "type": "int", 
+                "name": "instant_zone_id"
+            }, 
+            "6312": {
+                "type": "int", 
+                "name": "pledge_id"
+            }, 
+            "416": {
+                "type": "int", 
+                "name": "stop_mode"
+            }, 
+            "8528": {
+                "type": "int", 
+                "name": "db_value"
+            }, 
+            "6956": {
+                "type": "int", 
+                "name": "ssq_round"
+            }, 
+            "7524": {
+                "type": "int", 
+                "name": "strider_level"
+            }, 
+            "7372": {
+                "type": "int", 
+                "name": "summon_type"
+            }, 
+            "436": {
+                "type": "int", 
+                "name": "target_id"
+            }, 
+            "6936": {
+                "type": "int", 
+                "name": "builder_level"
+            }, 
+            "7528": {
+                "type": "int", 
+                "name": "meal"
+            }, 
+            "7464": {
+                "type": "int", 
+                "name": "action"
+            }, 
+            "432": {
+                "type": "int", 
+                "name": "target_index"
+            }, 
+            "6696": {
+                "type": "double", 
+                "name": "max_hp"
+            }, 
+            "6376": {
+                "type": "int", 
+                "name": "residence_id"
+            }, 
+            "7428": {
+                "type": "int", 
+                "name": "clan_help_range"
+            }
+        }, 
+        "CSharedPartyData": {
+            "24": {
+                "type": "double", 
+                "name": "z"
+            }, 
+            "76": {
+                "type": "int", 
+                "name": "member_count"
+            }, 
+            "16": {
+                "type": "double", 
+                "name": "y"
+            }, 
+            "36": {
+                "type": "int", 
+                "name": "id"
+            }, 
+            "8": {
+                "type": "double", 
+                "name": "x"
+            }
+        }, 
+        "DBNpcInfo": {
+            "60": {
+                "type": "int", 
+                "name": "hp"
+            }, 
+            "76": {
+                "type": "int", 
+                "name": "z"
+            }, 
+            "88": {
+                "type": "int", 
+                "name": "db_value"
+            }, 
+            "64": {
+                "type": "int", 
+                "name": "mp"
+            }, 
+            "72": {
+                "type": "int", 
+                "name": "y"
+            }, 
+            "68": {
+                "type": "int", 
+                "name": "x"
+            }, 
+            "8": {
+                "type": "string", 
+                "name": "dbname"
+            }, 
+            "80": {
+                "type": "int", 
+                "name": "death_time"
+            }, 
+            "92": {
+                "type": "int", 
+                "name": "arg1"
+            }, 
+            "84": {
+                "type": "int", 
+                "name": "is_alive"
+            }
+        }, 
+        "SpawnDefine": {
+            "144": {
+                "type": "int", 
+                "name": "npc_count"
+            }, 
+            "152": {
+                "type": "int", 
+                "name": "respawn_rand"
+            }, 
+            "140": {
+                "type": "int", 
+                "name": "total"
+            }, 
+            "156": {
+                "type": "string", 
+                "name": "dbname"
+            }, 
+            "208": {
+                "type": "int", 
+                "name": "has_dbname"
+            }, 
+            "148": {
+                "type": "int", 
+                "name": "respawn_time"
+            }, 
+            "40": {
+                "type": "string", 
+                "name": "nickname"
+            }, 
+            "90": {
+                "type": "string", 
+                "name": "name"
+            }
+        }, 
+        "GlobalObject": {
+            "176": {
+                "type": "int", 
+                "name": "server_time"
+            }
+        }, 
+        "PositionList": {
+            "8": {
+                "type": "int", 
+                "name": "size"
+            }
+        }, 
+        "CodeInfoList": {
+            "8": {
+                "type": "int", 
+                "name": "code"
+            }
+        }, 
+        "CSharedStaticObjectData": {
+            "24": {
+                "type": "double", 
+                "name": "z"
+            }, 
+            "8": {
+                "type": "double", 
+                "name": "x"
+            }, 
+            "36": {
+                "type": "int", 
+                "name": "id"
+            }, 
+            "16": {
+                "type": "double", 
+                "name": "y"
+            }
+        }, 
+        "RoomInfoList": {
+            "8": {
+                "type": "int", 
+                "name": "size"
+            }
+        }, 
+        "CSharedItemData": {
+            "24": {
+                "type": "double", 
+                "name": "z"
+            }, 
+            "16": {
+                "type": "double", 
+                "name": "y"
+            }, 
+            "36": {
+                "type": "int", 
+                "name": "id"
+            }, 
+            "88": {
+                "type": "int", 
+                "name": "class_id"
+            }, 
+            "72": {
+                "type": "int", 
+                "name": "count"
+            }, 
+            "112": {
+                "type": "int", 
+                "name": "pet_level"
+            }, 
+            "8": {
+                "type": "double", 
+                "name": "x"
+            }, 
+            "84": {
+                "type": "int", 
+                "name": "dbid"
+            }
+        }, 
+        "CSharedValue": {
+            "8": {
+                "type": "int", 
+                "name": "value"
+            }
+        }, 
+        "CSharedPledgeData": {
+            "24": {
+                "type": "double", 
+                "name": "z"
+            }, 
+            "268": {
+                "type": "int", 
+                "name": "member_count"
+            }, 
+            "16": {
+                "type": "double", 
+                "name": "y"
+            }, 
+            "196": {
+                "type": "int", 
+                "name": "skill_level"
+            }, 
+            "36": {
+                "type": "int", 
+                "name": "id"
+            }, 
+            "1400": {
+                "type": "int", 
+                "name": "total_member_count"
+            }, 
+            "240": {
+                "type": "int", 
+                "name": "fortress_id"
+            }, 
+            "1956": {
+                "type": "int", 
+                "name": "airship_count"
+            }, 
+            "124": {
+                "type": "string", 
+                "name": "master_name"
+            }, 
+            "72": {
+                "type": "string", 
+                "name": "name"
+            }, 
+            "68": {
+                "type": "int", 
+                "name": "db_id"
+            }, 
+            "8": {
+                "type": "double", 
+                "name": "x"
+            }, 
+            "236": {
+                "type": "int", 
+                "name": "agit_id"
+            }, 
+            "224": {
+                "type": "int", 
+                "name": "is_guilty"
+            }, 
+            "1904": {
+                "type": "int", 
+                "name": "prev_server"
+            }, 
+            "232": {
+                "type": "int", 
+                "name": "castle_id"
+            }, 
+            "220": {
+                "type": "int", 
+                "name": "status"
+            }
+        }, 
+        "_": {
+            "216": {
+                "type": "int", 
+                "name": "pledge_index"
+            }, 
+            "768": {
+                "type": "CodeInfoList", 
+                "name": "random1_list"
+            }, 
+            "212": {
+                "type": "int", 
+                "name": "z"
+            }, 
+            "760": {
+                "type": "CSharedPartyData", 
+                "name": "aparty"
+            }, 
+            "664": {
+                "type": "RoomInfoList", 
+                "name": "rlist1"
+            }, 
+            "136": {
+                "type": "string", 
+                "name": "script"
+            }, 
+            "496": {
+                "type": "CSharedItemData", 
+                "name": "item1"
+            }, 
+            "696": {
+                "type": "PositionList", 
+                "name": "plist1"
+            }, 
+            "344": {
+                "type": "int", 
+                "name": "i8"
+            }, 
+            "288": {
+                "type": "int", 
+                "name": "i1"
+            }, 
+            "404": {
+                "type": "float", 
+                "name": "f7"
+            }, 
+            "544": {
+                "type": "HateInfo", 
+                "name": "h4"
+            }, 
+            "400": {
+                "type": "float", 
+                "name": "f6"
+            }, 
+            "280": {
+                "type": "int", 
+                "name": "i0"
+            }, 
+            "96": {
+                "type": "CSharedCreatureData", 
+                "name": "target"
+            }, 
+            "408": {
+                "type": "float", 
+                "name": "f8"
+            }, 
+            "672": {
+                "type": "Position", 
+                "name": "pos0"
+            }, 
+            "120": {
+                "type": "CSharedStaticObjectData", 
+                "name": "victim_so"
+            }, 
+            "260": {
+                "type": "int", 
+                "name": "level"
+            }, 
+            "264": {
+                "type": "int", 
+                "name": "action_id"
+            }, 
+            "128": {
+                "type": "CSharedItemData", 
+                "name": "item"
+            }, 
+            "56": {
+                "type": "CSharedCreatureData", 
+                "name": "victim"
+            }, 
+            "536": {
+                "type": "HateInfo", 
+                "name": "h3"
+            }, 
+            "416": {
+                "type": "CSharedCreatureData", 
+                "name": "c0"
+            }, 
+            "412": {
+                "type": "float", 
+                "name": "f9"
+            }, 
+            "296": {
+                "type": "int", 
+                "name": "i2"
+            }, 
+            "376": {
+                "type": "float", 
+                "name": "f0"
+            }, 
+            "592": {
+                "type": "FHTML", 
+                "name": "fhtml0"
+            }, 
+            "704": {
+                "type": "GlobalObject", 
+                "name": "gg"
+            }, 
+            "312": {
+                "type": "int", 
+                "name": "i4"
+            }, 
+            "196": {
+                "type": "ITEM", 
+                "name": "weapon_class_id"
+            }, 
+            "192": {
+                "type": "int", 
+                "name": "time"
+            }, 
+            "392": {
+                "type": "float", 
+                "name": "f4"
+            }, 
+            "88": {
+                "type": "CSharedCreatureData", 
+                "name": "speller"
+            }, 
+            "396": {
+                "type": "float", 
+                "name": "f5"
+            }, 
+            "112": {
+                "type": "CSharedCreatureData", 
+                "name": "creature"
+            }, 
+            "80": {
+                "type": "CSharedCreatureData", 
+                "name": "commander"
+            }, 
+            "792": {
+                "type": "CItemIndexList", 
+                "name": "item_index_list"
+            }, 
+            "520": {
+                "type": "HateInfo", 
+                "name": "h1"
+            }, 
+            "368": {
+                "type": "int", 
+                "name": "i11"
+            }, 
+            "528": {
+                "type": "HateInfo", 
+                "name": "h2"
+            }, 
+            "424": {
+                "type": "CSharedCreatureData", 
+                "name": "c1"
+            }, 
+            "360": {
+                "type": "int", 
+                "name": "i10"
+            }, 
+            "584": {
+                "type": "string", 
+                "name": "s1"
+            }, 
+            "448": {
+                "type": "CSharedCreatureData", 
+                "name": "c4"
+            }, 
+            "440": {
+                "type": "CSharedCreatureData", 
+                "name": "c3"
+            }, 
+            "304": {
+                "type": "int", 
+                "name": "i3"
+            }, 
+            "380": {
+                "type": "float", 
+                "name": "f1"
+            }, 
+            "244": {
+                "type": "int", 
+                "name": "timer_id"
+            }, 
+            "384": {
+                "type": "float", 
+                "name": "f2"
+            }, 
+            "240": {
+                "type": "int", 
+                "name": "question_id"
+            }, 
+            "388": {
+                "type": "float", 
+                "name": "f3"
+            }, 
+            "248": {
+                "type": "SCE", 
+                "name": "script_event_arg1"
+            }, 
+            "784": {
+                "type": "CodeInfo", 
+                "name": "code_info"
+            }, 
+            "640": {
+                "type": "RoomInfo", 
+                "name": "room0"
+            }, 
+            "648": {
+                "type": "RoomInfo", 
+                "name": "room1"
+            }, 
+            "512": {
+                "type": "HateInfo", 
+                "name": "h0"
+            }, 
+            "432": {
+                "type": "CSharedCreatureData", 
+                "name": "c2"
+            }, 
+            "624": {
+                "type": "NPCMakerEx", 
+                "name": "maker0"
+            }, 
+            "336": {
+                "type": "int", 
+                "name": "i7"
+            }, 
+            "576": {
+                "type": "string", 
+                "name": "s0"
+            }, 
+            "456": {
+                "type": "CSharedPledgeData", 
+                "name": "pledge0"
+            }, 
+            "64": {
+                "type": "CSharedCreatureData", 
+                "name": "private"
+            }, 
+            "252": {
+                "type": "SCE", 
+                "name": "script_event_arg2"
+            }, 
+            "176": {
+                "type": "int", 
+                "name": "skill_name_id"
+            }, 
+            "256": {
+                "type": "SCE", 
+                "name": "script_event_arg3"
+            }, 
+            "172": {
+                "type": "int", 
+                "name": "need_quest"
+            }, 
+            "656": {
+                "type": "RoomInfoList", 
+                "name": "rlist0"
+            }, 
+            "180": {
+                "type": "CLASS", 
+                "name": "occupation_name_id"
+            }, 
+            "184": {
+                "type": "int", 
+                "name": "way_point_index"
+            }, 
+            "736": {
+                "type": "CSharedCreatureData", 
+                "name": "member"
+            }, 
+            "188": {
+                "type": "int", 
+                "name": "next_way_point_index"
+            }, 
+            "568": {
+                "type": "CNPC", 
+                "name": "npc2"
+            }, 
+            "752": {
+                "type": "MPCCData", 
+                "name": "lmpcc"
+            }, 
+            "632": {
+                "type": "NPCMakerEx", 
+                "name": "maker1"
+            }, 
+            "560": {
+                "type": "CNPC", 
+                "name": "npc1"
+            }, 
+            "464": {
+                "type": "CSharedPledgeData", 
+                "name": "pledge1"
+            }, 
+            "168": {
+                "type": "int", 
+                "name": "skill_level"
+            }, 
+            "228": {
+                "type": "int", 
+                "name": "inzone_id"
+            }, 
+            "164": {
+                "type": "SKILL_SHORT", 
+                "name": "skill_id"
+            }, 
+            "224": {
+                "type": "int", 
+                "name": "residence_id"
+            }, 
+            "160": {
+                "type": "int", 
+                "name": "ask"
+            }, 
+            "504": {
+                "type": "CSharedStaticObjectData", 
+                "name": "so0"
+            }, 
+            "220": {
+                "type": "int", 
+                "name": "desire"
+            }, 
+            "272": {
+                "type": "int", 
+                "name": "reply"
+            }, 
+            "728": {
+                "type": "CSharedCreatureData", 
+                "name": "last_attacker"
+            }, 
+            "152": {
+                "type": "int", 
+                "name": "who"
+            }, 
+            "744": {
+                "type": "CSharedPartyData", 
+                "name": "lparty"
+            }, 
+            "600": {
+                "type": "FHTML", 
+                "name": "fhtml1"
+            }, 
+            "156": {
+                "type": "QUEST", 
+                "name": "quest_id"
+            }, 
+            "608": {
+                "type": "int", 
+                "name": "_code"
+            }, 
+            "552": {
+                "type": "CNPC", 
+                "name": "npc0"
+            }, 
+            "236": {
+                "type": "int", 
+                "name": "event_id"
+            }, 
+            "232": {
+                "type": "int", 
+                "name": "inzone_type_id"
+            }, 
+            "48": {
+                "type": "CSharedCreatureData", 
+                "name": "attacker"
+            }, 
+            "40": {
+                "type": "CSharedCreatureData", 
+                "name": "talker"
+            }, 
+            "320": {
+                "type": "int", 
+                "name": "i5"
+            }, 
+            "328": {
+                "type": "int", 
+                "name": "i6"
+            }, 
+            "688": {
+                "type": "PositionList", 
+                "name": "plist0"
+            }, 
+            "200": {
+                "type": "int", 
+                "name": "success"
+            }, 
+            "144": {
+                "type": "int", 
+                "name": "damage"
+            }, 
+            "776": {
+                "type": "CodeInfoList", 
+                "name": "always_list"
+            }, 
+            "204": {
+                "type": "int", 
+                "name": "x"
+            }, 
+            "612": {
+                "type": "int", 
+                "name": "_choiceN"
+            }, 
+            "208": {
+                "type": "int", 
+                "name": "y"
+            }, 
+            "616": {
+                "type": "int", 
+                "name": "_from_choice"
+            }, 
+            "148": {
+                "type": "int", 
+                "name": "state"
+            }, 
+            "72": {
+                "type": "CSharedCreatureData", 
+                "name": "friend"
+            }, 
+            "488": {
+                "type": "CSharedItemData", 
+                "name": "item0"
+            }, 
+            "480": {
+                "type": "CSharedPartyData", 
+                "name": "party1"
+            }, 
+            "472": {
+                "type": "CSharedPartyData", 
+                "name": "party0"
+            }, 
+            "352": {
+                "type": "int", 
+                "name": "i9"
+            }, 
+            "800": {
+                "type": "CNPC", 
+                "name": "myself"
+            }, 
+            "680": {
+                "type": "Position", 
+                "name": "pos1"
+            }
+        }, 
+        "CodeInfo": {
+            "52": {
+                "type": "int", 
+                "name": "code"
+            }
+        }
+    }
+}
