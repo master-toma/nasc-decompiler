@@ -187,7 +187,7 @@ class Main
                 $name = $head->data[1];
 
                 if ($this->isIgnoredClass($name)) {
-                    // write zero checksum or move cursor forward
+                    // write zero checksum & move cursor forward
                     $this->generateOrRunTests($name, null);
                     continue;
                 }

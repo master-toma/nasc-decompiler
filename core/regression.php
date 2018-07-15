@@ -2,7 +2,8 @@
 
 class Regression
 {
-    private $file;
+    private $file = null;
+    private $first = true;
 
     public function __construct(string $file)
     {
@@ -11,11 +12,9 @@ class Regression
 
     public function generate(?string $code)
     {
-        static $first = true;
-
-        if ($first) {
+        if ($this->first) {
             ftruncate($this->file, 0);
-            $first = false;
+            $this->first = false;
         }
 
         fwrite($this->file, pack('L', crc32($code)));
