@@ -4,7 +4,8 @@ Supports:
 
 * Leaked GF
 * AdvExt GF/GE
-* GD
+* GD - thanks to @ChaosPaladin!
+* HF - thanks to Eressea!
 
 To run copy `ai.obj` to current folder & run:
 
