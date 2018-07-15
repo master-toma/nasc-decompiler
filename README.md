@@ -21,20 +21,26 @@ See decompiled code in `ai` directory.
 ## Command Line Arguments
 
 ```
---test          Run regression tests. Provide a test file name from the tests directory (without .bin extension). Default: NULL
---generate      Generate regression tests. Provide a new test file name (without extension). Default: NULL
 --input         AI file to decompile. Default: 'ai.obj'
 --chronicle     AI chronicle. Provide a directory name from the data directory. Default: 'gf'
 --language      Resulting language. Provide a file name from the core/generators directory (without .php extension). Default: 'nasc'
 --tree          Split result in tree structure. Provide the tree depth (0 - don't split, 1 - flat, more than 3 can cause problems on Windows). Default: 3
 --join          Join split classes into one file. Provide a directory which contains the classes.txt file. Default: NULL
 --utf16le       Encode output in UTF-16LE instead of UTF-8. NASC Compiler supports only UTF-16LE. Default: false
+--test          Run regression tests. Provide a test file name from the tests directory (without .bin extension). Default: NULL
+--generate      Generate regression tests. Provide a new test file name (without extension). Default: NULL
 ```
 
 Example (don't split & convert to UTF16-LE for NASC Compiler):
 
 ```
 ./run.bat --input=gf_ruoff.obj --tree=0 --utf16le=1
+```
+
+Join splitted classes for compilation:
+
+```
+./run.bat --join=gf_ruoff --utf16le=1
 ```
 
 ## Example

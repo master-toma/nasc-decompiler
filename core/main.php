@@ -24,14 +24,14 @@ class Main
 
     private $optionsConfig = [
         // option => [description, default value]
-        'test' => ["\t" . 'Run regression tests. Provide a test file name from the tests directory (without .bin extension).', null],
-        'generate' => ['Generate regression tests. Provide a new test file name (without extension).', null],
         'input' => ["\t" . 'AI file to decompile.', 'ai.obj'],
         'chronicle' => ['AI chronicle. Provide a directory name from the data directory.', 'gf'],
         'language' => ['Resulting language. Provide a file name from the core/generators directory (without .php extension).', 'nasc'],
         'tree' => ["\t" . 'Split result in tree structure. Provide the tree depth (0 - don\'t split, 1 - flat, more than 3 can cause problems on Windows).', 3],
         'join' => ["\t" . 'Join split classes into one file. Provide a directory which contains the classes.txt file.', null],
-        'utf16le' => ['Encode output in UTF-16LE instead of UTF-8. NASC Compiler supports only UTF-16LE.', false]
+        'utf16le' => ['Encode output in UTF-16LE instead of UTF-8. NASC Compiler supports only UTF-16LE.', false],
+        'test' => ["\t" . 'Run regression tests. Provide a test file name from the tests directory (without .bin extension).', null],
+        'generate' => ['Generate regression tests. Provide a new test file name (without extension).', null]
     ];
 
     /** @var Regression */
@@ -57,10 +57,10 @@ class Main
             return;
         }
 
-//        if ($this->options['join']) {
-//            $this->join();
-//            return;
-//        }
+        if ($this->options['join']) {
+            $this->join();
+            return;
+        }
 
         echo "\nUse -h option for help.\n\n";
         $this->prepareOutput();
@@ -221,6 +221,30 @@ class Main
         } elseif ($this->options['generate']) {
             $this->regression->generate($code);
         }
+    }
+
+    private function join()
+    {
+        echo "\nJoin classes...\n\n";
+
+        $classes = file($this->options['join'] . '/classes.txt');
+        $outputFile = pathinfo($this->options['join'], PATHINFO_FILENAME) . '.' . pathinfo(trim($classes[0]), PATHINFO_EXTENSION);
+        file_put_contents($outputFile, $this->options['utf16le'] ? self::BOM : '');
+
+        foreach ($classes as $line) {
+            $class = trim($line);
+
+            if (!$class) {
+                continue;
+            }
+
+            $code = file_get_contents($this->options['join'] . '/' . $class) . "\n";
+            file_put_contents($outputFile, $this->options['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code) : $code, FILE_APPEND);
+            echo '.';
+        }
+
+        echo "\n\nDone!\n\n";
+        echo 'Result in file: ' . $outputFile . "\n";
     }
 
     private function isIgnoredClass(string $class): bool
