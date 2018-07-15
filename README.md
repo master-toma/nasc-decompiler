@@ -37,7 +37,7 @@ Example (don't split & convert to UTF16-LE for NASC Compiler):
 ./run.bat --input=gf_ruoff.obj --tree=0 --utf16le=1
 ```
 
-Join splitted classes for compilation:
+Join split classes for compilation:
 
 ```
 ./run.bat --join=gf_ruoff --utf16le=1

@@ -211,7 +211,13 @@ class Main
 
     private function generateOrRunTests(string $class, ?string $code)
     {
-        if ($this->options['test']) {
+        if ($code === null) {
+            if ($this->options['test']) {
+                $this->regression->test($code);
+            } elseif ($this->options['generate']) {
+                $this->regression->generate($code);
+            }
+        } else if ($this->options['test']) {
             if ($this->regression->test($code)) {
                 echo ' - PASSED (failed tests: ' . count($this->failedTests) . ')';
             } else {
