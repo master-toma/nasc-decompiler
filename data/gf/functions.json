@@ -5578,5 +5578,35 @@
             "int"
         ],
         "type": "void"
+    },
+    // MyExt64 custom functions
+    "235078277": {
+        "name": "SetLocalMap",
+        "arguments": [
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
+    },
+    "235012742": {
+        "name": "GetLocalMap﻿",
+        "arguments": [
+            "int",
+            "int"
+        ],
+        "type": "int"
+    },
+    "268828804": {
+        "name": "DebugLog﻿",
+        "arguments": [
+            "string",
+            "string",
+            "string",
+            "int",
+            "int",
+            "int"
+        ],
+        "type": "void"
     }
 }

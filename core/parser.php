@@ -614,11 +614,6 @@ class Parser
     {
         $raw = substr($token->raw, 1, -1);
         $row = array_map('trim', explode(';', $raw));
-
-        if (is_numeric($row[0])) {
-            $row[0] = '"' . $this->data->getString($row[0]) . '"';
-        }
-
         $this->property->addRow($row);
     }
 

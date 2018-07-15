@@ -93,7 +93,7 @@ class NascGenerator implements GeneratorInterface
             }
         }
 
-        return $this->indent($result . '}') . "\n";
+        return $this->indent($result . '}');
     }
 
     private function generateExpression(Expression $expression, Expression $parent = null): string

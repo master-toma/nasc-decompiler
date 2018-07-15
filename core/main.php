@@ -1,15 +1,8 @@
 <?php
 
-// TODO: rewrite this hell
-
 // (▀̿Ĺ̯▀̿ ̿)
 error_reporting(E_ALL);
 ini_set('memory_limit', '1G');
-
-$ignored = [
-    'guild_master_test_helper1', // fatal
-    'public_wyvern' // fatal
-];
 
 require_once 'tokenizer.php';
 require_once 'ast.php';
@@ -19,171 +12,280 @@ require_once 'regression.php';
 
 require_once 'generators/interface.php';
 
-$optionsConfig = [
-    'test' => ["\t" . 'Run regression tests. Provide a test file name from the tests directory (without .bin extension).', null],
-    'generate' => ['Generate regression tests. Provide a new test file name (without extension).', null],
-    'input' => ["\t" . 'AI file to decompile.', 'ai.obj'],
-    'chronicle' => ['AI chronicle. Provide a directory name from the data directory.', 'gf'],
-    'language' => ['Resulting language. Provide a file name from the core/generators directory (without .php extension).', 'nasc'],
-    'split' => ["\t" . 'Split result by classes.', true],
-    'join' => ["\t" . 'Join split classes into one file. Provide a directory which contains the classes.txt file.', null]
-];
+class Main
+{
+    public const BOM = "\xFF\xFE";
 
-$longopts = [];
-$defaults = [];
+    // try uncomment this for your ai.obj
+    private $ignoredClasses = [
+        'guild_master_test_helper1',
+        'public_wyvern'
+    ];
 
-foreach ($optionsConfig as $option => $config) {
-    $longopts[] = $option . '::';
-    $defaults[$option] = $config[1];
-}
+    private $optionsConfig = [
+        // option => [description, default value]
+        'test' => ["\t" . 'Run regression tests. Provide a test file name from the tests directory (without .bin extension).', null],
+        'generate' => ['Generate regression tests. Provide a new test file name (without extension).', null],
+        'input' => ["\t" . 'AI file to decompile.', 'ai.obj'],
+        'chronicle' => ['AI chronicle. Provide a directory name from the data directory.', 'gf'],
+        'language' => ['Resulting language. Provide a file name from the core/generators directory (without .php extension).', 'nasc'],
+        'tree' => ["\t" . 'Split result in tree structure. Provide the tree depth (0 - don\'t split, 1 - flat, more than 3 can cause problems on Windows).', 3],
+        'join' => ["\t" . 'Join split classes into one file. Provide a directory which contains the classes.txt file.', null],
+        'utf16le' => ['Encode output in UTF-16LE instead of UTF-8. NASC Compiler supports only UTF-16LE.', false]
+    ];
 
-$options = getopt('h', $longopts) + $defaults;
+    /** @var Regression */
+    private $regression = null;
+    /** @var Tokenizer */
+    private $tokenizer = null;
+    /** @var Parser */
+    private $parser = null;
+    /** @var GeneratorInterface */
+    private $generator = null;
 
-if (isset($options['h'])) {
-    echo "\n";
+    private $options = [];
+    private $failedTests = [];
+    private $tree = [];
 
-    foreach ($optionsConfig as $option => $config) {
-        echo "\t--" . $option . "\t" . $config[0] . " Default: " . var_export($config[1], true) . "\n";
-    }
+    public function run()
+    {
+        $this->parseOptions();
+        $this->initializeDependencies();
 
-    die;
-}
-
-require_once 'generators/' . $options['language'] . '.php';
-
-if (!isset($options['output'])) {
-    $options['output'] = pathinfo($options['input'], PATHINFO_FILENAME);
-}
-
-$regression = null;
-$failedTests = [];
-
-if ($options['test'] || $options['generate']) {
-    $regression = new Regression('tests/' . ($options['test'] ?? $options['generate']) . '.bin');
-}
-
-$data = new Data(
-    'data/' . $options['chronicle'] . '/handlers.json',
-    'data/' . $options['chronicle'] . '/variables.json',
-    'data/' . $options['chronicle'] . '/functions.json',
-    'data/' . $options['chronicle'] . '/enums.json',
-    'data/' . $options['chronicle'] . '/fstring.txt'
-);
-
-$tokenizer = new Tokenizer();
-$parser = new Parser($data);
-
-$generatorClass = ucfirst($options['language']) . 'Generator';
-$generator = new $generatorClass(); /** @var GeneratorInterface $generator */
-
-$file = fopen($options['input'], 'r');
-$line = 0;
-
-if (!$options['split']) {
-    $outputFile = $options['output'] . '.' . $options['language'];
-
-    // workaround for NASC: write BOM
-    if ($options['language'] === 'nasc') {
-        file_put_contents($outputFile, pack('S', 0xFEFF));
-    } else {
-        file_put_contents($outputFile, '');
-    }
-} elseif (!is_dir($options['output'])) {
-    mkdir($options['output']);
-} else {
-    echo 'Cleaning output directory: ' . $options['output'] . "\n\n";
-    array_map('unlink', glob($options['output'] . '/*'));
-}
-
-while ($file && !feof($file)) {
-    $string = trim(fgets($file));
-    $string = preg_replace('/[^\s\x20-\x7E]/', '', $string); // remove non-ASCII characters
-    $line++;
-
-    if (!$string) {
-        continue;
-    }
-
-    $token = $tokenizer->tokenize($string);
-    $token->line = $line;
-
-    if ($token->name === 'class') {
-        $tokenizer->setHead($token);
-    } elseif ($token->name === 'class_end') {
-        $head = $tokenizer->getHead();
-        $name = $head->data[1];
-
-        if (in_array($name, $ignored)) {
-            if ($options['test']) {
-                $regression->test(null); // move cursor forward
-            } elseif ($options['generate']) {
-                $regression->generate(null); // write zero checksum for ignored class
-            }
-
-            continue;
+        if (isset($this->options['h'])) {
+            $this->printHelp();
+            return;
         }
 
-        echo 'Decompile ' . $name;
-        $class = $parser->parseClass($head);
-        $code = $generator->generateClass($class);
+//        if ($this->options['join']) {
+//            $this->join();
+//            return;
+//        }
 
-        if (!$options['split']) {
-            $outputFile = $options['output'] . '.' . $options['language'];
+        echo "\nUse -h option for help.\n\n";
+        $this->prepareOutput();
+        $this->decompile();
 
-            // workaround for NASC: convert to UTF-16LE BOM
-            if ($options['language'] === 'nasc') {
-                file_put_contents($outputFile, iconv('UTF-8', 'UTF-16LE', $code), FILE_APPEND);
-            } else {
-                file_put_contents($outputFile, $code, FILE_APPEND);
+        if ($this->ignoredClasses) {
+            echo "\nSkipped classes:\n\n";
+
+            foreach ($this->ignoredClasses as $name) {
+                echo $name . "\n";
             }
+        }
+
+        if ($this->failedTests) {
+            echo "\nFailed tests:\n\n";
+
+            foreach ($this->failedTests as $name) {
+                echo $name . "\n";
+            }
+        }
+
+        echo "\nDone!\n\n";
+
+        if ($this->options['tree']) {
+            echo 'Results in directory: ' . $this->options['output'] . "\n";
+            echo 'Classes order file: ' . $this->options['output'] . "/classes.txt\n";
         } else {
-            $outputFile = $options['output'] . '/' . $name . '.' . $options['language'];
-            file_put_contents($options['output'] . '/classes.txt', $name . '.' . $options['language'] . "\n", FILE_APPEND);
+            echo 'Result in file: ' . $this->options['output'] . '.' . $this->options['language'] . "\n";
+        }
+    }
 
-            // workaround for NASC: convert to UTF-16LE BOM
-            if ($options['language'] === 'nasc') {
-                file_put_contents($outputFile, pack('S', 0xFEFF) . iconv('UTF-8', 'UTF-16LE', $code));
-            } else {
-                file_put_contents($outputFile, $code);
-            }
+    private function parseOptions()
+    {
+        $options = [];
+        $defaults = [];
+
+        foreach ($this->optionsConfig as $option => $config) {
+            $options[] = $option . '::';
+            $defaults[$option] = $config[1];
         }
 
-        if ($options['test']) {
-            if ($regression->test($code)) {
-                echo ' - PASSED (failed tests: ' . count($failedTests) . ')';
+        $this->options = getopt('h', $options) + $defaults;
+
+        if (!isset($this->options['output'])) {
+            $this->options['output'] = pathinfo($this->options['input'], PATHINFO_FILENAME);
+        }
+    }
+
+    private function initializeDependencies()
+    {
+        if ($this->options['test'] || $this->options['generate']) {
+            $this->regression = new Regression('tests/' . ($this->options['test'] ?? $this->options['generate']) . '.bin');
+        }
+
+        $data = new Data(
+            'data/' . $this->options['chronicle'] . '/handlers.json',
+            'data/' . $this->options['chronicle'] . '/variables.json',
+            'data/' . $this->options['chronicle'] . '/functions.json',
+            'data/' . $this->options['chronicle'] . '/enums.json'
+        );
+
+        $this->tokenizer = new Tokenizer();
+        $this->parser = new Parser($data);
+
+        require_once 'generators/' . $this->options['language'] . '.php';
+        $generatorClass = ucfirst($this->options['language']) . 'Generator';
+        $this->generator = new $generatorClass();
+    }
+
+    private function printHelp()
+    {
+        echo "\n";
+
+        foreach ($this->optionsConfig as $option => $config) {
+            echo "\t--" . $option . "\t" . $config[0] . " Default: " . var_export($config[1], true) . "\n";
+        }
+    }
+
+    private function prepareOutput()
+    {
+        if (!$this->options['tree']) {
+            $outputFile = $this->options['output'] . '.' . $this->options['language'];
+            file_put_contents($outputFile, $this->options['utf16le'] ? self::BOM : '');
+        } elseif (!is_dir($this->options['output'])) {
+            mkdir($this->options['output']);
+        } else {
+            echo 'Cleaning output directory: ' . $this->options['output'] . "\n\n";
+            $this->removeTree($this->options['output']);
+            mkdir($this->options['output']);
+        }
+    }
+
+    private function decompile()
+    {
+        stream_filter_register('utf16le', utf16le_filter::class);
+        $file = fopen($this->options['input'], 'r');
+        stream_filter_append($file, 'utf16le');
+
+        $line = 0;
+
+        while ($file && !feof($file)) {
+            $string = trim(fgets($file));
+            $line++;
+
+            if (!$string) {
+                continue;
+            }
+
+            $token = $this->tokenizer->tokenize($string);
+            $token->line = $line;
+
+            if ($token->name === 'class') {
+                $this->tokenizer->setHead($token);
+            } elseif ($token->name === 'class_end') {
+                $head = $this->tokenizer->getHead();
+                $name = $head->data[1];
+
+                if ($this->isIgnoredClass($name)) {
+                    // write zero checksum or move cursor forward
+                    $this->generateOrRunTests($name, null);
+                    continue;
+                }
+
+                echo 'Decompile ' . $name;
+                $class = $this->parser->parseClass($head);
+                $code = $this->generator->generateClass($class);
+                $this->generateOrRunTests($name, $code);
+                echo "\n";
+
+                if (!$this->options['tree']) {
+                    $outputFile = $this->options['output'] . '.' . $this->options['language'];
+                    file_put_contents($outputFile, $this->options['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code) : $code, FILE_APPEND);
+                } else {
+                    $path = $this->treePath($name, $class->getSuper(), $this->options['tree']);
+                    $dir = $this->options['output'] . '/' . $path;
+                    $outputFile = $dir . $name . '.' . $this->options['language'];
+
+                    if (!file_exists($dir)) {
+                        mkdir($dir, 0755, true);
+                    }
+
+                    file_put_contents($this->options['output'] . '/classes.txt', $path . $name . '.' . $this->options['language'] . "\n", FILE_APPEND);
+                    file_put_contents($outputFile, $this->options['utf16le'] ? self::BOM . iconv('UTF-8', 'UTF-16LE', $code) : $code);
+                }
+            }
+        }
+    }
+
+    private function generateOrRunTests(string $class, ?string $code)
+    {
+        if ($this->options['test']) {
+            if ($this->regression->test($code)) {
+                echo ' - PASSED (failed tests: ' . count($this->failedTests) . ')';
             } else {
                 echo ' - FAILED';
-                $failedTests[] = $name;
+                $this->failedTests[] = $class;
             }
-        } elseif ($options['generate']) {
-            $regression->generate($code);
+        } elseif ($this->options['generate']) {
+            $this->regression->generate($code);
+        }
+    }
+
+    private function isIgnoredClass(string $class): bool
+    {
+        return in_array($class, $this->ignoredClasses);
+    }
+
+    private function removeTree(string $dir) {
+        $files = array_diff(scandir($dir), ['.', '..']);
+
+        foreach ($files as $file) {
+            $path = $dir . '/' . $file;
+
+            if (is_dir($path)) {
+                $this->removeTree($path);
+            } else {
+                unlink($path);
+            }
         }
 
-        echo "\n";
+        rmdir($dir);
+    }
+
+    private function treePath(string $class, ?string $super, int $depth): string
+    {
+        if ($super) {
+            $this->tree[$class] = $super;
+        }
+
+        $path = '';
+        $current = $class;
+
+        while (isset($this->tree[$current])) {
+            $current = $this->tree[$current];
+            $path = $current . '/' . $path;
+        }
+
+        $parts = explode('/', $path);
+
+        if (count($parts) >= $depth) {
+            $path = implode('/', array_slice($parts, 0, $depth - 1));
+
+            if ($path) {
+                $path .= '/';
+            }
+        }
+
+        return $path;
     }
 }
 
-if ($ignored) {
-    echo "\nSkipped classes:\n\n";
+class utf16le_filter extends php_user_filter
+{
+    public function filter($in, $out, &$consumed, $closing)
+    {
+        while ($bucket = stream_bucket_make_writeable($in)) {
+            $data = substr($bucket->data, 0, 2) === Main::BOM ? substr($bucket->data, 2) : $bucket->data;
+            $bucket->data = iconv('UTF-16LE', 'UTF-8', $data);
+            $consumed += $bucket->datalen;
+            stream_bucket_append($out, $bucket);
+        }
 
-    foreach ($ignored as $name) {
-        echo $name . "\n";
+        return PSFS_PASS_ON;
     }
 }
 
-if ($failedTests) {
-    echo "\nFailed tests:\n\n";
-
-    foreach ($failedTests as $name) {
-        echo $name . "\n";
-    }
-}
-
-echo "\nDone!\n\n";
-
-if ($options['split']) {
-    echo 'Results in directory: ' . $options['output'] . "\n";
-    echo 'Classes order file: ' . $options['output'] . "/classes.txt\n";
-} else {
-    echo 'Result in file: ' . $options['output'] . '.' . $options['language'] . "\n";
-}
+$main = new Main();
+$main->run();

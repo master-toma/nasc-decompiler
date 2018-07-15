@@ -1,4 +1,3 @@
-[ab_none]	=	-1
 [ab_ab_hawk_eye]	=	0
 [ab_all_attack_down]	=	1
 [ab_all_attack_up]	=	2

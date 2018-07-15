@@ -9,7 +9,7 @@ class Regression
         $this->file = fopen($file, 'a+');
     }
 
-    public function generate(?string $class)
+    public function generate(?string $code)
     {
         static $first = true;
 
@@ -18,15 +18,15 @@ class Regression
             $first = false;
         }
 
-        fwrite($this->file, pack('L', crc32($class)));
+        fwrite($this->file, pack('L', crc32($code)));
     }
 
-    public function test(?string $class): bool
+    public function test(?string $code): bool
     {
         if (!$this->file) {
             return false;
         }
 
-        return unpack('L', fread($this->file, 4))[1] === crc32($class);
+        return unpack('L', fread($this->file, 4))[1] === crc32($code);
     }
 }

@@ -2,10 +2,10 @@
 
 Supports:
 
-* Leaked GF
+* GF
 * AdvExt GF/GE
-* GD - thanks to [@ChaosPaladin](https://github.com/ChaosPaladin)
 * HF - thanks to Eressea
+* GD - thanks to [@ChaosPaladin](https://github.com/ChaosPaladin)
 
 To run copy `ai.obj` to current folder & run:
 
@@ -26,13 +26,15 @@ See decompiled code in `ai` directory.
 --input         AI file to decompile. Default: 'ai.obj'
 --chronicle     AI chronicle. Provide a directory name from the data directory. Default: 'gf'
 --language      Resulting language. Provide a file name from the core/generators directory (without .php extension). Default: 'nasc'
---split         Split result by classes. Default: true
+--tree          Split result in tree structure. Provide the tree depth (0 - don't split, 1 - flat, more than 3 can cause problems on Windows). Default: 3
+--join          Join split classes into one file. Provide a directory which contains the classes.txt file. Default: NULL
+--utf16le       Encode output in UTF-16LE instead of UTF-8. NASC Compiler supports only UTF-16LE. Default: false
 ```
 
-Example:
+Example (don't split & convert to UTF16-LE for NASC Compiler):
 
 ```
-./run.bat --input=gf_ruoff.obj --test=gf_ruoff
+./run.bat --input=gf_ruoff.obj --tree=0 --utf16le=1
 ```
 
 ## Example

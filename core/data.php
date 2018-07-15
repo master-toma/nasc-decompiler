@@ -6,17 +6,15 @@ class Data
     private $variables = [];
     private $functions = [];
     private $enums = [];
-    private $strings = [];
 
     private $variableTypeCache = [];
 
-    public function __construct(string $handlers, string $variables, string $functions, string $enums, string $strings)
+    public function __construct(string $handlers, string $variables, string $functions, string $enums)
     {
         $this->handlers = $this->jsonDecode(file_get_contents($handlers));
         $this->variables = $this->jsonDecode(file_get_contents($variables));
         $this->functions = $this->jsonDecode(file_get_contents($functions));
         $this->enums = $this->loadEnums($enums);
-        $this->strings = $this->loadStrings($strings);
     }
 
     public function getHandler(int $type, int $id): string
@@ -63,16 +61,6 @@ class Data
         }
 
         return $this->functions[$address];
-    }
-
-    public function getString(int $id): string
-    {
-        if (!isset($this->strings[$id])) {
-            trigger_error(sprintf('String %d not found', $id), E_USER_WARNING);
-            return (string) $id;
-        }
-
-        return $this->strings[$id];
     }
 
     public function getEnum(string $name, int $id): ?string
@@ -154,11 +142,5 @@ class Data
         }
 
         return $result;
-    }
-
-    private function loadStrings(string $path): array
-    {
-        // TODO implement
-        return [];
     }
 }

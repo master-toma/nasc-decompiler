@@ -11,9 +11,9 @@
     "CLASS": "./data/h5/pch/class_pch.txt",
     "PLEDGE": "./data/h5/pch/pledge_pch.txt",
     "SCE": "./data/h5/pch/sce_pch.txt",
-    "ABNORMAL": "./data/h5/pch/abnormal_pch.txt",
+    "ABNORMAL": "./data/h5/pch/abnormal_pch.txt", // remove ab_none!
 
-    // built-in constants
+    // custom types from the manual_pch.txt file
     "PSTATE": [
         "PSTATE_IDLE",
         "PSTATE_MOVE_AROUND",
@@ -34,8 +34,6 @@
         "PSTATE_MOVE_SUPERPOINT",
         "PSTATE_MOVE_FREEWAY"
     ],
-
-    // custom types from the manual_pch.txt file
     "AT": [
         "AT_NONE",
         "AT_SWORD",
