@@ -17,40 +17,40 @@ class Data
         $this->enums = $this->loadEnums($enums);
     }
 
-    public function getHandler(int $type, int $id): string
+    public function getHandler(int $classType, int $id): string
     {
-        if (!isset($this->handlers[$type][$id])) {
-            throw new RuntimeException(sprintf('Handler %d for class type %d not found', $id, $type));
+        if (!isset($this->handlers[$classType][$id])) {
+            throw new RuntimeException(sprintf('Handler %d for class type %d not found', $id, $classType));
         }
 
-        return $this->handlers[$type][$id];
+        return $this->handlers[$classType][$id];
     }
 
-    public function getVariable(int $type, ?string $class, int $address): array
+    public function getVariable(int $classType, ?string $objectType, int $address): array
     {
-        if (!isset($this->variables[$type][$class ? $class : '_'][$address])) {
-            throw new RuntimeException(sprintf('Variable %s for class type %d not found', ($class ? $class . '->' : '') . $address, $type));
+        if (!isset($this->variables[$classType][$objectType ? $objectType : '_'][$address])) {
+            throw new RuntimeException(sprintf('Variable %s for class type %d not found', ($objectType ? $objectType . '->' : '') . $address, $classType));
         }
 
-        return $this->variables[$type][$class ? $class : '_'][$address];
+        return $this->variables[$classType][$objectType ? $objectType : '_'][$address];
     }
 
-    public function getVariableType(int $type, string $name): ?string
+    public function getVariableType(int $classType, string $name): ?string
     {
-        if (isset($this->variableTypeCache[$type]) && array_key_exists($name, $this->variableTypeCache[$type])) {
-            return $this->variableTypeCache[$type][$name];
+        if (isset($this->variableTypeCache[$classType]) && array_key_exists($name, $this->variableTypeCache[$classType])) {
+            return $this->variableTypeCache[$classType][$name];
         }
 
-        foreach ($this->variables[$type] as $class) {
+        foreach ($this->variables[$classType] as $class) {
             foreach ($class as $variable) {
                 if ($variable['name'] === $name) {
-                    $this->variableTypeCache[$type][$name] = $variable['type'];
+                    $this->variableTypeCache[$classType][$name] = $variable['type'];
                     return $variable['type'];
                 }
             }
         }
 
-//        throw new RuntimeException(sprintf('Variable %s for class type %d not found', $name, $type));
+//        throw new RuntimeException(sprintf('Variable %s for class type %d not found', $name, $classType));
         return null;
     }
 

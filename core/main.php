@@ -200,7 +200,7 @@ class Main
 
                 if (!$this->options['tree']) {
                     $outputFile = $this->options['output'] . '.' . $this->options['language'];
-                    file_put_contents($outputFile, $this->options['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code) : $code, FILE_APPEND);
+                    file_put_contents($outputFile, ($this->options['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code) : $code) . "\n", FILE_APPEND);
                 } else {
                     $path = $this->treePath($name, $class->getSuper(), $this->options['tree']);
                     $dir = $this->options['output'] . '/' . $path;
