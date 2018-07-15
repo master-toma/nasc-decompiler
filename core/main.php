@@ -16,7 +16,15 @@ class Main
 {
     public const BOM = "\xFF\xFE";
 
-    // try uncomment this for your ai.obj
+    private $chronicles = [
+        'default' => 'gf',
+        2 => 'gf',
+        56 => 'freya',
+        60 => 'h5',
+        73 => 'gd'
+    ];
+
+    // try comment this for your ai.obj
     private $ignoredClasses = [
         'guild_master_test_helper1',
         'public_wyvern'
@@ -207,6 +215,46 @@ class Main
                 }
             }
         }
+    }
+
+    private function parseHeader()
+    {
+//        $this->header = new HeaderDeclaration();
+//
+//        while ($this->file && !feof($this->file)) {
+//            $string = trim(fgets($this->file));
+//
+//            if (!$string) {
+//                continue;
+//            }
+//
+//            $token = $this->tokenizer->tokenize($string);
+//
+//            switch ($token->name) {
+//                case 'SizeofPointer':
+//                    $this->header->sizeOfPointer = $token->data[0];
+//                    break;
+//                case 'SharedFactoryVersion':
+//                    $this->header->sharedFactoryVersion = $token->data[0];
+//                    break;
+//                case 'NPCHVersion':
+//                    $this->header->npcHVersion = $token->data[0];
+//                    break;
+//                case 'NASCVersion':
+//                    $this->header->nascVersion = $token->data[0];
+//                    break;
+//                case 'NPCEventHVersion':
+//                    $this->header->npcEventVersion = $token->data[0];
+//                    break;
+//                case 'Debug':
+//                    $this->header->debug = $token->data[0];
+//                    break;
+//                default:
+//                    break 2;
+//            }
+//        }
+//
+//        fseek($this->file, 0);
     }
 
     private function generateOrRunTests(string $class, ?string $code)

@@ -694,3 +694,13 @@ class HandlerDeclaration implements Declaration
         return $this->block;
     }
 }
+
+class HeaderDeclaration implements Declaration
+{
+    public $sizeOfPointer = 0;
+    public $sharedFactoryVersion = 0;
+    public $npcHVersion = 0;
+    public $nascVersion = 0;
+    public $npcEventVersion = 0;
+    public $debug = 0;
+}
