@@ -139,8 +139,12 @@ class NascGenerator implements GeneratorInterface
 
                 if ($expressionPriority < $parentPriority ||
                     $expression === $parent->getRHS() &&
-                    $expressionPriority === $parentPriority &&
-                    !trim($parent->getOperator(), '/-')
+                    $expressionPriority === $parentPriority && (
+                        !trim($parent->getOperator(), '/-') ||
+                        // workaround for the strings concatenation
+                        $parent->getOperator() === '+' &&
+                        $expression->getOperator() === '-'
+                    )
                 ) {
                     $result = '(' . $result . ')';
                 }
