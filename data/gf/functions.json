@@ -119,6 +119,11 @@
         "arguments": [],
         "type": "void"
     },
+    "234881053": { // h5
+        "name": "RemoveAbsoluteDesire",
+        "arguments": [],
+        "type": "void"
+    },
     "234881054": {
         "name": "RandomizeAttackDesire",
         "arguments": [],
@@ -332,7 +337,7 @@
     "234881446": {
         "name": "GetMyMaker",
         "arguments": [],
-        "type": "NpcMakerEx"
+        "type": "NPCMakerEx"
     },
     "234881449": {
         "name": "RemoveAllDesire",
@@ -372,7 +377,7 @@
     "234881509": {
         "name": "InstantZone_MarkRestriction",
         "arguments": [],
-        "type": "int"
+        "type": "void"
     },
     "234881516": {
         "name": "IsMyBossAlive",
@@ -412,7 +417,7 @@
     "234881591": {
         "name": "GetPlayingUserCount",
         "arguments": [],
-        "type": "int"
+        "type": "void"
     },
     "234881617": {
         "name": "RegisterAsBirthdayManager",
@@ -499,14 +504,14 @@
     "234946610": {
         "name": "UnregisterGlobalMap",
         "arguments": [
-            "int"
+            "GM_ID"
         ],
         "type": "void"
     },
     "234946611": {
         "name": "GetGlobalMap",
         "arguments": [
-            "int"
+            "GM_ID"
         ],
         "type": "int"
     },
@@ -634,7 +639,7 @@
         "arguments": [
             "int"
         ],
-        "type": "int"
+        "type": "CSharedCreatureData"
     },
     "234946682": {
         "name": "MPCC_GetPartyCount",
@@ -928,7 +933,7 @@
         "arguments": [
             "CFHTML"
         ],
-        "type": "int"
+        "type": "void"
     },
     "234946913": {
         "name": "ShowManorDefaultInfo",
@@ -1110,7 +1115,7 @@
         "arguments": [
             "int"
         ],
-        "type": "int"
+        "type": "CSharedCreatureData"
     },
     "234946983": {
         "name": "SetEnchantOfWeapon",
@@ -1163,6 +1168,13 @@
     },
     "234947000": {
         "name": "MG_SetWinner",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "void"
+    },
+    "234947001": { // h5
+        "name": "MG_GetUnreturnedPoint",
         "arguments": [
             "CSharedCreatureData"
         ],
@@ -1397,7 +1409,7 @@
         "arguments": [
             "CSharedCreatureData"
         ],
-        "type": "int"
+        "type": "float"
     },
     "234947085": {
         "name": "ShowPremiumItemList",
@@ -1614,7 +1626,7 @@
     "235012106": {
         "name": "AddGetItemDesireEx",
         "arguments": [
-            "CItemList",
+            "int",
             "int"
         ],
         "type": "void"
@@ -2667,6 +2679,14 @@
         ],
         "type": "void"
     },
+    "235012680": { // h5
+        "name": "ObserveEventMatch",
+        "arguments": [
+            "CSharedCreatureData",
+            "int"
+        ],
+        "type": "void"
+    },
     "235012684": {
         "name": "ChangeNPCState",
         "arguments": [
@@ -3670,7 +3690,7 @@
         "arguments": [
             "int",
             "int",
-            "int",
+            "CSharedCreatureData",
             "int"
         ],
         "type": "void"
@@ -4040,7 +4060,7 @@
             "int",
             "SKILL",
             "ST",
-            "int",
+            "AMT",
             "int",
             "int",
             "int"
@@ -4090,7 +4110,7 @@
         "name": "CreateOnePrivateNearUser",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "NPC",
             "string",
             "int",
             "int",
@@ -4291,7 +4311,7 @@
     "235667699": {
         "name": "CreateOnePrivateInzoneEx",
         "arguments": [
-            "int",
+            "NPC",
             "string",
             "int",
             "int",
@@ -4409,14 +4429,14 @@
         "arguments": [
             "string"
         ],
-        "type": "NpcMakerEx"
+        "type": "NPCMakerEx"
     },
     "268501003": {
         "name": "GetNPCFromID",
         "arguments": [
             "int"
         ],
-        "type": "CSharedCreatureData"
+        "type": "CNPC"
     },
     "268501006": {
         "name": "GetRoomInfoList",
@@ -4435,7 +4455,7 @@
     "268501009": {
         "name": "IsNull",
         "arguments": [
-            "CSharedCreatureData"
+            "pointer"
         ],
         "type": "int"
     },
@@ -4444,7 +4464,7 @@
         "arguments": [
             "CSharedCreatureData"
         ],
-        "type": "int"
+        "type": "CSharedPartyData"
     },
     "268501020": {
         "name": "Castle_GetDomainFortressContractStatus",
@@ -4456,14 +4476,14 @@
     "268501021": {
         "name": "FloatToInt",
         "arguments": [
-            "double"
+            "float"
         ],
         "type": "int"
     },
     "268501023": {
         "name": "Skill_IsMagic",
         "arguments": [
-            "int"
+            "SKILL"
         ],
         "type": "int"
     },
@@ -4521,7 +4541,7 @@
         "arguments": [
             "CSharedCreatureData"
         ],
-        "type": "int"
+        "type": "CSharedCreatureData"
     },
     "268501046": {
         "name": "StrToInt",
@@ -4533,7 +4553,7 @@
     "268501056": {
         "name": "SetAsNull",
         "arguments": [
-            "CSharedCreatureData"
+            "pointer"
         ],
         "type": "void"
     },
@@ -4690,7 +4710,7 @@
             "int",
             "string"
         ],
-        "type": "NpcMakerEx"
+        "type": "NPCMakerEx"
     },
     "268566541": {
         "name": "CreateRoomInfoList",
@@ -4736,9 +4756,9 @@
         "name": "GetAbnormalLevel",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "ABNORMAL"
         ],
-        "type": "ABNORMAL"
+        "type": "int"
     },
     "268566562": {
         "name": "GetAbnormalMagicLevel",
@@ -4802,7 +4822,7 @@
             "CSharedCreatureData",
             "int"
         ],
-        "type": "int"
+        "type": "CSharedCreatureData"
     },
     "268566590": {
         "name": "GetSubpledgeMasterName",
@@ -4810,7 +4830,7 @@
             "CSharedCreatureData",
             "int"
         ],
-        "type": "int"
+        "type": "string"
     },
     "268566591": {
         "name": "AddPCSocial",
@@ -4984,7 +5004,7 @@
         "arguments": [
             "CSharedCreatureData",
             "int",
-            "int"
+            "float"
         ],
         "type": "void"
     },
@@ -5054,7 +5074,7 @@
     "268697612": {
         "name": "SendMakerScriptEvent",
         "arguments": [
-            "NpcMakerEx",
+            "NPCMakerEx",
             "int",
             "int",
             "int"

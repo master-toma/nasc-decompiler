@@ -387,11 +387,11 @@
             },
             "632": {
                 "name": "maker0",
-                "type": "NpcMakerEx"
+                "type": "NPCMakerEx"
             },
             "640": {
                 "name": "maker1",
-                "type": "NpcMakerEx"
+                "type": "NPCMakerEx"
             },
             "648": {
                 "name": "room0",
@@ -697,7 +697,7 @@
             },
             "11808": {
                 "name": "boss_id",
-                "type": "int"
+                "type": "GM_ID"
             },
             // duplicates
             "11812": {
@@ -947,7 +947,7 @@
                 "type": "int"
             }
         },
-		"NpcMakerEx": {
+		"NPCMakerEx": {
             "1188": {
                 "name": "def_count",
                 "type": "int"
@@ -1858,11 +1858,11 @@
             },
             "632": {
                 "name": "maker0",
-                "type": "NpcMakerEx"
+                "type": "NPCMakerEx"
             },
             "640": {
                 "name": "maker1",
-                "type": "NpcMakerEx"
+                "type": "NPCMakerEx"
             },
             "648": {
                 "name": "room0",
@@ -1902,7 +1902,7 @@
             },
             "736": {
                 "name": "myself",
-                "type": "NpcMakerEx"
+                "type": "NPCMakerEx"
             },
             "744": {
                 "name": "def0",
@@ -1941,7 +1941,7 @@
                 "type": "int"
             }
         },
-        "NpcMakerEx": {
+        "NPCMakerEx": {
             "1188": {
                 "name": "def_count",
                 "type": "int"
@@ -2306,7 +2306,7 @@
             },
             "11808": {
                 "name": "boss_id",
-                "type": "int"
+                "type": "GM_ID"
             },
             "11812": {
                 "name": "class_id",

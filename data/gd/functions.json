@@ -1659,7 +1659,7 @@
     "234881485": {
         "name": "GetMyMaker",
         "arguments": [],
-        "type": "NpcMakerEx"
+        "type": "NPCMakerEx"
     },
     "234881488": {
         "name": "RemoveAllDesire",
@@ -1826,14 +1826,14 @@
     "234946617": {
         "name": "UnregisterGlobalMap",
         "arguments": [
-            "int"
+            "GM_ID"
         ],
         "type": "int"
     },
     "234946618": {
         "name": "GetGlobalMap",
         "arguments": [
-            "int"
+            "GM_ID"
         ],
         "type": "int"
     },
@@ -5712,7 +5712,7 @@
         "arguments": [
             "string"
         ],
-        "type": "NpcMakerEx"
+        "type": "NPCMakerEx"
     },
     "268501007": {
         "name": "GetNPCFromID",
@@ -5766,7 +5766,7 @@
     "268501029": {
         "name": "Skill_IsMagic",
         "arguments": [
-            "int"
+            "SKILL"
         ],
         "type": "int"
     },
@@ -6000,7 +6000,7 @@
             "int",
             "string"
         ],
-        "type": "NpcMakerEx"
+        "type": "NPCMakerEx"
     },
     "268566545": {
         "name": "CreateRoomInfoList",
@@ -6046,9 +6046,9 @@
         "name": "GetAbnormalLevel",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "ABNORMAL"
         ],
-        "type": "ABNORMAL"
+        "type": "int"
     },
     "268566569": {
         "name": "GetAbnormalMagicLevel",
@@ -6364,7 +6364,7 @@
     "268697616": {
         "name": "SendMakerScriptEvent",
         "arguments": [
-            "NpcMakerEx",
+            "NPCMakerEx",
             "int",
             "int",
             "int"

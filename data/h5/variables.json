@@ -474,7 +474,7 @@
                 "name": "max_mp"
             }, 
             "7384": {
-                "type": "int", 
+                "type": "GM_ID",
                 "name": "boss_id"
             }, 
             "7456": {
@@ -1896,7 +1896,7 @@
                 "name": "max_mp"
             }, 
             "7384": {
-                "type": "int", 
+                "type": "GM_ID",
                 "name": "boss_id"
             }, 
             "7456": {

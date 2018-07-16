@@ -578,6 +578,8 @@ class Parser
                 $expression = $this->getEnum('ITEM', $value);
             } elseif (stripos($name, 'npc') !== false) {
                 $expression = $this->getEnum('NPC', $value);
+            } elseif (strtolower($name) === 'gm_id') {
+                $expression = $this->getEnum('GM_ID', $value);
             } else {
                 $expression = $this->getEnum(['NPC', 'SKILL'], $value);
             }

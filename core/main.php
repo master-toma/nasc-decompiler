@@ -83,7 +83,7 @@ class Main
         }
 
         if ($this->failedTests) {
-            echo "\nFailed tests:\n\n";
+            echo "\nFailed tests (" . count($this->failedTests) . "):\n\n";
 
             foreach ($this->failedTests as $name) {
                 echo $name . "\n";
