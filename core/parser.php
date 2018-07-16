@@ -423,8 +423,8 @@ class Parser
             array_unshift($arguments, $expression);
         }
 
-        [$object] = $this->popExpressions(1);
-        $this->expressionStack[] = new CallExpression($function['type'], $function['name'], $arguments, $object);
+//        [$object] = $this->popExpressions(1);
+        $this->expressionStack[] = new CallExpression($function['type'], $function['name'], $arguments, null);
     }
 
     private function parseAdd(Token $token)
