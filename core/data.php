@@ -117,7 +117,7 @@ class Data
             $string = trim(fgets($file));
             $string = preg_replace('/[^\s\x20-\x7E]/', '', $string); // remove non-ASCII characters
 
-            if (!$string) {
+            if (!$string || $string[0] !== '[') {
                 continue;
             }
 

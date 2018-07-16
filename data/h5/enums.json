@@ -71,7 +71,11 @@
         "NONE",
         "SEAL_AVARICE",
         "SEAL_REVELATION",
-        "SEAL_STRIFE"
+        "SEAL_STRIFE",
+        "SEAL_CHASTISEMENT",
+        "SEAL_AROUSAL",
+        "SEAL_DISASTER",
+        "SEAL_AMAGEDON"
     ],
     "SSQ_STATUS": [
         "NONE",
