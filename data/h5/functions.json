@@ -3799,7 +3799,7 @@
         "type": "void", 
         "name": "RegisterGlobalMap", 
         "arguments": [
-            "GM_ID", 
+            "int",
             "int"
         ]
     }, 
@@ -5922,14 +5922,14 @@
         "type": "int", 
         "name": "UnregisterGlobalMap", 
         "arguments": [
-            "GM_ID"
+            "int"
         ]
     }, 
     "234946615": {
         "type": "int", 
         "name": "GetGlobalMap", 
         "arguments": [
-            "GM_ID"
+            "int"
         ]
     }, 
     "235339860": {

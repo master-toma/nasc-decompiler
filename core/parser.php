@@ -701,6 +701,7 @@ class Parser
         $primitives['double'] = true;
         $primitives['string'] = true;
         $primitives['void'] = true;
+        $primitives['pointer'] = true;
         $primitives['WayPointsType'] = true;
         $primitives['WayPointDelaysType'] = true;
         return !isset($primitives[$type]);
