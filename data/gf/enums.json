@@ -11,7 +11,7 @@
     "CLASS": "./data/gf/pch/class_pch.txt",
     "PLEDGE": "./data/gf/pch/pledge_pch.txt",
     "SCE": "./data/gf/pch/sce_pch.txt",
-    "ABNORMAL": "./data/gf/pch/abnormal_pch.txt", // remove ab_none!
+    "ABNORMAL": "./data/gf/pch/abnormal_pch.txt",
 
     // custom types from the manual_pch.txt file
     "PSTATE": [

@@ -11,7 +11,7 @@
     "CLASS": "./data/freya/pch/class_pch.txt",
     "PLEDGE": "./data/freya/pch/pledge_pch.txt",
     "SCE": "./data/freya/pch/sce_pch.txt",
-    "ABNORMAL": "./data/freya/pch/abnormal_pch.txt", // remove ab_none!
+    "ABNORMAL": "./data/freya/pch/abnormal_pch.txt",
 
     // custom types from the manual_pch.txt file
     "PSTATE": [
