@@ -26,11 +26,11 @@ class NascGenerator implements GeneratorInterface
         $result = '';
 
         // compiler options
-        if ($class->getType() === ClassDeclaration::TYPE_NPC_EVENT) {
-            $result .= "set_compiler_opt base_event_type(@NTYPE_NPC_EVENT)\n\n";
-        } elseif ($class->getType() === ClassDeclaration::TYPE_MAKER_EVENT) {
-            $result .= "set_compiler_opt base_event_type(@NTYPE_MAKER_EVENT)\n\n";
-        }
+//        if ($class->getType() === ClassDeclaration::TYPE_NPC_EVENT) {
+//            $result .= "set_compiler_opt base_event_type(@NTYPE_NPC_EVENT)\n\n";
+//        } elseif ($class->getType() === ClassDeclaration::TYPE_MAKER_EVENT) {
+//            $result .= "set_compiler_opt base_event_type(@NTYPE_MAKER_EVENT)\n\n";
+//        }
 
         // class declaration
         if ($class->getSuper()) {
