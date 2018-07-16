@@ -348,11 +348,6 @@ class Parser
 
     private function parseShiftSp(Token $token)
     {
-//        if ($token->data[0] == 1 && $this->expressionStack->count()) {
-//            $this->expressionStack->push($this->expressionStack->top());
-//            return;
-//        }
-
         if ($token->data[0] != -1 || !$this->expressionStack->count()) {
             return;
         }
