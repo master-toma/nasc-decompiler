@@ -461,6 +461,18 @@
             }
         },
         "CSharedCreatureData": {
+            "8": {
+                "name": "x",
+                "type": "double"
+            },
+            "16": {
+                "name": "y",
+                "type": "double"
+            },
+            "24": {
+                "name": "z",
+                "type": "double"
+            },
             "888": {
                 "name": "level",
                 "type": "int"

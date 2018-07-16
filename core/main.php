@@ -27,8 +27,15 @@ class Main
 
     // try comment this for your ai.obj
     private $ignoredClasses = [
+        // broken gf_off classes
         'guild_master_test_helper1',
-        'public_wyvern'
+        'public_wyvern',
+
+        // broken c1_off classes
+//        'ai_boss04_antaras',
+//        'ai_boss04_heart_of_warding',
+//        'sophia',
+//        'teleport_cube_antaras',
     ];
 
     private $optionsConfig = [
