@@ -88,6 +88,8 @@ class Main
             foreach ($this->failedTests as $name) {
                 echo $name . "\n";
             }
+        } else {
+            echo "\nAll tests passed!\n";
         }
 
         echo "\nDone!\n\n";

@@ -34,13 +34,13 @@ See decompiled code in `ai` directory.
 Example (don't split & convert to UTF16-LE for NASC Compiler):
 
 ```
-./run.bat --input=gf_ruoff.obj --tree=0 --utf16le=1
+./run.bat --input=gf_off.obj --tree=0 --utf16le=1
 ```
 
-Join split classes for compilation:
+Join classes & convert to UTF16-LE for NASC Compiler:
 
 ```
-./run.bat --join=gf_ruoff --utf16le=1
+./run.bat --join=gf_off --utf16le=1
 ```
 
 ## Example
