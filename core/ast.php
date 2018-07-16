@@ -58,7 +58,7 @@ class CallExpression implements Expression
     private $object = null;
     private $arguments = [];
 
-    public function __construct(string $type, string $function, array $arguments, Expression $object)
+    public function __construct(string $type, string $function, array $arguments, ?Expression $object)
     {
         $this->type = $type;
         $this->function = $function;
@@ -354,7 +354,7 @@ class BlockStatement implements Statement
         return $this->statements;
     }
 
-    public function popStatement(): Statement
+    public function popStatement(): ?Statement
     {
         return array_pop($this->statements);
     }

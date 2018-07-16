@@ -21,7 +21,8 @@ class Main
         2 => 'gf',
         56 => 'freya',
         60 => 'h5',
-        73 => 'gd'
+        73 => 'gd',
+        133 => 'c1'
     ];
 
     // try comment this for your ai.obj
@@ -186,7 +187,9 @@ class Main
                 $this->tokenizer->setHead($token);
             } elseif ($token->name === 'class_end') {
                 $head = $this->tokenizer->getHead();
-                $name = $head->data[1];
+
+                // c1 support workaround
+                $name = count($head->data) === 3 ? $head->data[0] : $head->data[1];
 
                 if ($this->isIgnoredClass($name)) {
                     // write zero checksum & move cursor forward

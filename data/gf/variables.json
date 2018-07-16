@@ -1428,7 +1428,7 @@
             },
             "728": {
                 "name": "myself",
-                "type": "NPCMakerEx"
+                "type": "CNPC" // TODO: must be NPCMakerEx
             },
             "736": {
                 "name": "def0",

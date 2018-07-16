@@ -7,7 +7,7 @@
     "QUEST": "./data/pch/quest_pch.txt",
 
     // PCH-files by splitting the manual_pch.txt file from server
-    "GM_ID": "./data/gd/pch/boss_pch.txt",
+    "GM_ID": "./data/gd/pch/gm_pch.txt",
     "CLASS": "./data/gd/pch/class_pch.txt",
     "PLEDGE": "./data/gd/pch/pledge_pch.txt",
     "SCE": "./data/gd/pch/sce_pch.txt",

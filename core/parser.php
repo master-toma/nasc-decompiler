@@ -220,11 +220,19 @@ class Parser
 
     private function parseClassBegin(Token $token)
     {
-        $this->class = new ClassDeclaration(
-            $token->data[0],
-            $token->data[1],
-            $token->data[3] !== '(null)' ? $token->data[3] : ''
-        );
+        if (count($token->data) === 3) { // c1 support workaround
+            $this->class = new ClassDeclaration(
+                0,
+                $token->data[0],
+                $token->data[2] !== '(null)' ? $token->data[2] : ''
+            );
+        } else {
+            $this->class = new ClassDeclaration(
+                $token->data[0],
+                $token->data[1],
+                $token->data[3] !== '(null)' ? $token->data[3] : ''
+            );
+        }
     }
 
     private function parseParameterDefineBegin()
@@ -325,7 +333,7 @@ class Parser
             $this->statementStack[] = $select;
         } elseif ($token->next->name === 'jump') {
             $this->statementStack[] = '_for';
-        } elseif ($token->prev->comment !== 'and list') {
+        } elseif ($token->next->isLabel() || $token->prev->name !== 'fetch_i') { // $token->prev->comment !== 'and list'
             [$condition] = $this->popExpressions(1);
             $if = new IfStatement($condition);
             $this->blockStack->top()->addStatement($if);
