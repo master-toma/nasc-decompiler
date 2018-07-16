@@ -1428,7 +1428,7 @@
             },
             "728": {
                 "name": "myself",
-                "type": "CNPC"
+                "type": "NPCMakerEx"
             },
             "736": {
                 "name": "def0",

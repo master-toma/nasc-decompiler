@@ -105,6 +105,9 @@ class Data
             }
         }
 
+        // workaround to skip @ab_none precompiled header
+        unset($enums['ABNORMAL']['ab_none']);
+
         return $enums;
     }
 
