@@ -67,20 +67,19 @@ class Tokenizer
         $length = strlen($string);
         $parts = [];
         $part = '';
-        $state = 0; // 1 - in string
+        $inString = false;
 
         for ($i = 0; $i < $length; $i++) {
             $char = $string[$i];
 
-            if ($state === 0 && $char === '"') {
-                $state = 1; // 1 - in string
+            if (!$inString && $char === '"') {
+                $inString = true;
                 $part .= $char;
-            } elseif ($state === 1 && $char === '"' && ($string[$i - 1] ?? '') !== '\\') {
-                $state = 0;
-                $part .= $char;
-                $parts[] = $part;
-                $part = '';
-            } elseif ($state === 0 && $char === $delimiter) {
+            } elseif ($inString && $char === '"' && ($string[$i - 1] ?? '') !== '\\') {
+                $inString = false;
+            }
+
+            if (!$inString && $char === $delimiter) {
                 if ($part !== '') {
                     $parts[] = $part;
                     $part = '';
