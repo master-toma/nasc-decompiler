@@ -100,7 +100,7 @@ class NascGenerator implements GeneratorInterface
     {
         if ($expression instanceof IntegerExpression) {
             // generate hex
-            if ($parent instanceof OperationExpression && !trim($parent->getOperator(), '&|~')) {
+            if ($parent instanceof OperationExpression && in_array($parent->getOperator(), ['&', '|', '~'])) {
                 return '0x' . dechex($expression->getInteger());
             }
 
