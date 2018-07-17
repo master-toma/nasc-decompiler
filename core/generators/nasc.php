@@ -155,19 +155,19 @@ class NascGenerator implements GeneratorInterface
             $lvalue = $this->generateExpression($expression->getLValue());
             $rvalue = $expression->getRValue();
 
-            // generate increment/decrement
-            if ($rvalue instanceof BinaryExpression && !trim($rvalue->getOperator(), '+-')) {
-                $lhs = $rvalue->getLHS();
-                $rhs = $rvalue->getRHS();
-
-                if ($lhs instanceof IntegerExpression && $lhs->getInteger() === 1 &&
-                    $rhs instanceof VariableExpression && $this->generateExpression($rhs) === $lvalue ||
-                    $rhs instanceof IntegerExpression && $rhs->getInteger() === 1 &&
-                    $lhs instanceof VariableExpression && $this->generateExpression($lhs) === $lvalue
-                ) {
-                    return $rvalue->getOperator() . $rvalue->getOperator() . $lvalue;
-                }
-            }
+            // generate increment/decrement 
+            // if ($rvalue instanceof BinaryExpression && !trim($rvalue->getOperator(), '+-')) {
+            //     $lhs = $rvalue->getLHS();
+            //     $rhs = $rvalue->getRHS();
+            // 
+            //     if ($lhs instanceof IntegerExpression && $lhs->getInteger() === 1 &&
+            //         $rhs instanceof VariableExpression && $this->generateExpression($rhs) === $lvalue ||
+            //         $rhs instanceof IntegerExpression && $rhs->getInteger() === 1 &&
+            //         $lhs instanceof VariableExpression && $this->generateExpression($lhs) === $lvalue
+            //     ) {
+            //         return $rvalue->getOperator() . $rvalue->getOperator() . $lvalue;
+            //     }
+            // }
 
             return $lvalue . ' = ' . $this->generateExpression($rvalue);
         } elseif ($expression instanceof VariableExpression) {
