@@ -2,23 +2,29 @@
 
 class NascGenerator implements GeneratorInterface
 {
-    private $priority = [
-        '*' => 9,
-        '/' => 9,
-        '%' => 9,
-        '+' => 8,
-        '-' => 8,
-        '<' => 7,
-        '<=' => 7,
-        '>' => 7,
-        '>=' => 7,
-        '==' => 6,
-        '!=' => 6,
-        '&' => 5,
-        '^' => 4,
-        '|' => 3,
-        '&&' => 2,
-        '||' => 1,
+    private const LEFT_ASSOCIATIVE = 0;
+    private const RIGHT_ASSOCIATIVE = 1;
+
+    private $operators = [
+        '~' => [10, self::RIGHT_ASSOCIATIVE],
+        '++' => [10, self::RIGHT_ASSOCIATIVE],
+        '--' => [10, self::RIGHT_ASSOCIATIVE],
+        '*' => [9, self::LEFT_ASSOCIATIVE],
+        '/' => [9, self::LEFT_ASSOCIATIVE],
+        '%' => [9, self::LEFT_ASSOCIATIVE],
+        '+' => [8, self::LEFT_ASSOCIATIVE],
+        '-' => [8, self::LEFT_ASSOCIATIVE],
+        '<' => [7, self::LEFT_ASSOCIATIVE],
+        '<=' => [7, self::LEFT_ASSOCIATIVE],
+        '>' => [7, self::LEFT_ASSOCIATIVE],
+        '>=' => [7, self::LEFT_ASSOCIATIVE],
+        '==' => [6, self::LEFT_ASSOCIATIVE],
+        '!=' => [6, self::LEFT_ASSOCIATIVE],
+        '&' => [5, self::LEFT_ASSOCIATIVE],
+        '^' => [4, self::LEFT_ASSOCIATIVE],
+        '|' => [3, self::LEFT_ASSOCIATIVE],
+        '&&' => [2, self::LEFT_ASSOCIATIVE],
+        '||' => [1, self::LEFT_ASSOCIATIVE]
     ];
 
     public function generateClass(ClassDeclaration $class): string
@@ -126,34 +132,37 @@ class NascGenerator implements GeneratorInterface
         } elseif ($expression instanceof PropertyExpression) {
             return $expression->getName();
         } elseif ($expression instanceof UnaryExpression) {
-            return $expression->getOperator() . $this->generateExpression($expression->getExpression(), $expression);
+            $rhs = $expression->getExpression();
+            $generatedRHS = $this->generateExpression($rhs, $expression);
+
+            if ($rhs instanceof OperationExpression && $this->getPrecedence($expression) > $this->getPrecedence($rhs)) {
+                return $expression->getOperator() . '(' . $generatedRHS . ')';
+            } else {
+                return $expression->getOperator() . $generatedRHS;
+            }
         } elseif ($expression instanceof BinaryExpression) {
-            $lhs = $this->generateExpression($expression->getLHS(), $expression);
-            $rhs = $this->generateExpression($expression->getRHS(), $expression);
-            $result = $lhs . ' ' . $expression->getOperator() . ' ' . $rhs;
+            $lhs = $expression->getLHS();
+            $rhs = $expression->getRHS();
+            $generatedLHS = $this->generateExpression($lhs, $expression);
+            $generatedRHS = $this->generateExpression($rhs, $expression);
 
-            // check operators priority
-            if ($parent instanceof BinaryExpression) {
-                $expressionPriority = $this->priority[$expression->getOperator()];
-                $parentPriority = $this->priority[$parent->getOperator()];
-
-                if ($expressionPriority < $parentPriority ||
-                    $expression === $parent->getRHS() &&
-                    $expressionPriority === $parentPriority && (
-                        !trim($parent->getOperator(), '/-') ||
-                        // workaround for the strings concatenation
-                        $parent->getOperator() === '+' &&
-                        $expression->getOperator() === '-' ||
-                        // workaround for x * y % z
-                        $parent->getOperator() === '*' &&
-                        $expression->getOperator() === '%'
-                    )
-                ) {
-                    $result = '(' . $result . ')';
-                }
+            if ($lhs instanceof OperationExpression && (
+                    $this->getPrecedence($expression) > $this->getPrecedence($lhs) ||
+                    $this->getPrecedence($expression) == $this->getPrecedence($lhs) &&
+                    $this->isRightAssociative($expression)
+                )) {
+                $generatedLHS = '(' . $generatedLHS . ')';
             }
 
-            return $result;
+            if ($rhs instanceof OperationExpression && (
+                    $this->getPrecedence($expression) > $this->getPrecedence($rhs) ||
+                    $this->getPrecedence($expression) == $this->getPrecedence($rhs) &&
+                    $this->isLeftAssociative($expression)
+                )) {
+                $generatedRHS = '(' . $generatedRHS . ')';
+            }
+
+            return $generatedLHS . ' ' . $expression->getOperator() . ' ' . $generatedRHS;
         } elseif ($expression instanceof AssignExpression) {
             $lvalue = $this->generateExpression($expression->getLValue());
             $rvalue = $expression->getRValue();
@@ -267,5 +276,20 @@ class NascGenerator implements GeneratorInterface
         }
 
         return implode("\n", $result) . "\n";
+    }
+
+    private function getPrecedence(OperationExpression $expression): int
+    {
+        return $this->operators[$expression->getOperator()][0];
+    }
+
+    private function isLeftAssociative(OperationExpression $expression): bool
+    {
+        return $this->operators[$expression->getOperator()][1] === self::LEFT_ASSOCIATIVE;
+    }
+
+    private function isRightAssociative(OperationExpression $expression): bool
+    {
+        return $this->operators[$expression->getOperator()][1] === self::RIGHT_ASSOCIATIVE;
     }
 }
