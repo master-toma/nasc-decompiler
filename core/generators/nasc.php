@@ -143,7 +143,10 @@ class NascGenerator implements GeneratorInterface
                         !trim($parent->getOperator(), '/-') ||
                         // workaround for the strings concatenation
                         $parent->getOperator() === '+' &&
-                        $expression->getOperator() === '-'
+                        $expression->getOperator() === '-' ||
+                        // workaround for x * y % z
+                        $parent->getOperator() === '*' &&
+                        $expression->getOperator() === '%'
                     )
                 ) {
                     $result = '(' . $result . ')';
