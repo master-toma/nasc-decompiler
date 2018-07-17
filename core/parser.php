@@ -22,7 +22,7 @@ class Parser
     /** @var SplStack */
     private $branchStack = null;
 
-    private $parameters = []; // TODO: parameters should be traversed through class hierarchy
+    private $parameters = [];
     private $labels = [];
     private $strings = [];
 
@@ -31,7 +31,7 @@ class Parser
     /** @var PropertyDeclaration */
     private $property = null;
     /** @var HandlerDeclaration */
-    private $handler = null; // TODO: use handler property instead of the expression stack
+    private $handler = null;
 
     public function __construct(Data $data)
     {
@@ -369,7 +369,7 @@ class Parser
     {
         [$rvalue, $lvalue] = $this->popExpressions(2);
 
-        // detect increment/decrement
+        // increment/decrement
         if (in_array($token->prev->name, ['add', 'sub']) &&
             $token->prev->prev->name === 'push_const' && $token->prev->prev->data[0] == 1 &&
             strpos($token->prev->prev->prev->name, 'fetch_i') === 0 &&
@@ -437,7 +437,7 @@ class Parser
             array_unshift($arguments, $expression);
         }
 
-        [$object] = $this->popExpressions(1);
+        [$object] = $this->popExpressions(1); // on c1 $object always should be null
         $this->expressionStack[] = new CallExpression($function['type'], $function['name'], $arguments, $object);
     }
 
@@ -699,7 +699,13 @@ class Parser
             return false;
         }
 
-        return $token->prev->name === 'jump' && $token->next->name === 'push_reg_sp';
+        return $token->prev->name === 'jump' && (
+            $token->next->name === 'push_reg_sp' ||
+            // select with only one case
+            $token->prev->prev->name === 'jump' &&
+            $token->prev->data[0] === $token->next->name &&
+            $token->prev->prev->data[0] === $token->next->next->name
+        );
     }
 
     private function goToLabel(Token $token): ?Token

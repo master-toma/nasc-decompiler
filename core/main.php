@@ -29,13 +29,7 @@ class Main
     private $ignoredClasses = [
         // broken gf_off classes
         'guild_master_test_helper1',
-        'public_wyvern',
-
-        // broken c1_off classes
-//        'ai_boss04_antaras',
-//        'ai_boss04_heart_of_warding',
-//        'sophia',
-//        'teleport_cube_antaras',
+        'public_wyvern'
     ];
 
     private $optionsConfig = [
@@ -129,6 +123,8 @@ class Main
 
     private function initializeDependencies()
     {
+        stream_filter_register('utf16le', utf16le_filter::class);
+
         if ($this->options['test'] || $this->options['generate']) {
             $this->regression = new Regression('tests/' . ($this->options['test'] ?? $this->options['generate']) . '.bin');
         }
@@ -173,9 +169,11 @@ class Main
 
     private function decompile()
     {
-        stream_filter_register('utf16le', utf16le_filter::class);
         $file = fopen($this->options['input'], 'r');
-        stream_filter_append($file, 'utf16le');
+
+        if (fread($file, 2) === self::BOM) {
+            stream_filter_append($file, 'utf16le');
+        }
 
         $line = 0;
 
@@ -364,7 +362,6 @@ class Main
 
 class utf16le_filter extends php_user_filter
 {
-    // todo: support encodings other than UTF-16
     public function filter($in, $out, &$consumed, $closing)
     {
         while ($bucket = stream_bucket_make_writeable($in)) {
