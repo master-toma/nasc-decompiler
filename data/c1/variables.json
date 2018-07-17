@@ -527,11 +527,11 @@
             },
             "1616": {
                 "name": "boss_id",
-                "type": "int"
+                "type": "NPC"
             },
             "1620": {
                 "name": "class_id",
-                "type": "int"
+                "type": "CLASS"
             },
             "1624": {
                 "name": "weight_point",
