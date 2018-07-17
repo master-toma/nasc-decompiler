@@ -87,11 +87,11 @@
             },
             "96": {
                 "name": "quest_id",
-                "type": "int"
+                "type": "QUEST"
             },
             "100": {
                 "name": "ask",
-                "type": "int"
+                "type": "QUEST"
             },
             "104": {
                 "name": "reply",
@@ -259,7 +259,7 @@
             },
             "120": {
                 "name": "skill_name_id",
-                "type": "int"
+                "type": "SKILL"
             },
             "124": {
                 "name": "occupation_name_id",
@@ -295,7 +295,7 @@
             },
             "180": {
                 "name": "script_event_arg1",
-                "type": "int"
+                "type": "QUEST"
             },
             "184": {
                 "name": "script_event_arg2",
@@ -313,7 +313,7 @@
             },
             "152": {
                 "name": "is_pc",
-                "type": "int"
+                "type": "BOOL"
             },
             "156": {
                 "name": "hp_ratio",
@@ -369,7 +369,7 @@
             },
             "2416": {
                 "name": "top_skill_name_id",
-                "type": "int"
+                "type": "SKILL"
             },
             "2500": {
                 "name": "sit_on_stop",
@@ -515,11 +515,11 @@
             },
             "152": {
                 "name": "occupation",
-                "type": "int"
+                "type": "CATEGORY"
             },
             "1620": {
                 "name": "npc_class_id",
-                "type": "int"
+                "type": "NPC"
             },
             "248": {
                 "name": "sp",
@@ -527,11 +527,11 @@
             },
             "1616": {
                 "name": "boss_id",
-                "type": "int"
+                "type": "NPC"
             },
             "1620": {
                 "name": "class_id",
-                "type": "int"
+                "type": "NPC"
             },
             "1624": {
                 "name": "weight_point",
@@ -543,7 +543,7 @@
             },
             "148": {
                 "name": "race",
-                "type": "int"
+                "type": "RACE"
             },
             "412": {
                 "name": "karma",
@@ -551,7 +551,7 @@
             },
             "1332": {
                 "name": "last_blow_weapon_class_id",
-                "type": "int"
+                "type": "ITEM"
             },
             "1656": {
                 "name": "clan_help_range",
@@ -575,7 +575,7 @@
             },
             "1148": {
                 "name": "attack_type",
-                "type": "int"
+                "type": "AT"
             },
             "736": {
                 "name": "residence_id",
@@ -583,7 +583,7 @@
             },
             "1144": {
                 "name": "equiped_weapon_class_id",
-                "type": "int"
+                "type": "ITEM"
             },
             "644": {
                 "name": "quest_last_reward_time",
