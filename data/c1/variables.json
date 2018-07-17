@@ -531,7 +531,7 @@
             },
             "1620": {
                 "name": "class_id",
-                "type": "CLASS"
+                "type": "NPC"
             },
             "1624": {
                 "name": "weight_point",
