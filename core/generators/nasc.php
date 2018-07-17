@@ -119,7 +119,7 @@ class NascGenerator implements GeneratorInterface
                 return $expression->getName();
             } else {
                 $name = $expression->getName();
-                return '@' . (strpos($name, '.') !== false ? '"' . $name . '"' : $name);
+                return '@' . (preg_match('/\W/', $name) ? '"' . $name . '"' : $name);
             }
         } elseif ($expression instanceof ParameterExpression) {
             return $expression->getName();
