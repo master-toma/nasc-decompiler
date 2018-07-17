@@ -53,8 +53,13 @@ class Parser
 
         $this->class = null;
 
-        // parse tokens
         while ($token) {
+            // skip comments
+            if (!$token->name) {
+                $token = $token->next;
+                continue;
+            }
+
             switch ($token->name) {
                 case 'class':
                     $this->parseClassBegin($token);
@@ -97,7 +102,7 @@ class Parser
                     break;
                 case 'assign4':
                 case 'assign':
-                    $this->parseAssign();
+                    $this->parseAssign($token);
                     break;
                 case 'jump':
                     $this->parseJump($token);
@@ -333,7 +338,7 @@ class Parser
             $this->statementStack[] = $select;
         } elseif ($token->next->name === 'jump') {
             $this->statementStack[] = '_for';
-        } elseif ($token->next->isLabel() || $token->prev->name !== 'fetch_i') { // $token->prev->comment !== 'and list'
+        } elseif ($token->next->isLabel() || strpos($token->prev->name, 'fetch_i') === false) { // $token->prev->comment !== 'and list'
             [$condition] = $this->popExpressions(1);
             $if = new IfStatement($condition);
             $this->blockStack->top()->addStatement($if);
@@ -360,15 +365,24 @@ class Parser
         }
     }
 
-    private function parseAssign()
+    private function parseAssign(Token $token)
     {
         [$rvalue, $lvalue] = $this->popExpressions(2);
 
-        if ($rvalue instanceof IntegerExpression) {
-            $rvalue = $this->getEnum($lvalue->getType(), $rvalue->getInteger());
-        }
+        // detect increment/decrement
+        if (in_array($token->prev->name, ['add', 'sub']) &&
+            $token->prev->prev->name === 'push_const' && $token->prev->prev->data[0] == 1 &&
+            strpos($token->prev->prev->prev->name, 'fetch_i') === 0 &&
+            strpos($token->prev->prev->prev->prev->name, 'fetch_i') === 0
+        ) {
+            $this->expressionStack[] = new UnaryExpression($lvalue, $token->prev->name === 'add' ? '++' : '--');
+        } else {
+            if ($rvalue instanceof IntegerExpression) {
+                $rvalue = $this->getEnum($lvalue->getType(), $rvalue->getInteger());
+            }
 
-        $this->expressionStack[] = new AssignExpression($lvalue, $rvalue);;
+            $this->expressionStack[] = new AssignExpression($lvalue, $rvalue);
+        }
 
         // for statement
         if ($this->statementStack->top() === '_for') {

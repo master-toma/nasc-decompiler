@@ -364,6 +364,7 @@ class Main
 
 class utf16le_filter extends php_user_filter
 {
+    // todo: support encodings other than UTF-16
     public function filter($in, $out, &$consumed, $closing)
     {
         while ($bucket = stream_bucket_make_writeable($in)) {
