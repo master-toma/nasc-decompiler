@@ -4,11 +4,13 @@
     "ITEM": "./data/c1/pch/item_pch.txt",
     "NPC": "./data/c1/pch/npc_pch.txt",
     "CATEGORY": "./data/c1/pch/category_pch.txt",
-    "QUEST": "./data/c1/pch/quest_pch.txt",
+    "QUEST": "./data/c1/pch/quest_pch.txt",	
 
     // PCH-files by splitting the manual_pch.txt file from server
     "GM_ID": "./data/c1/pch/gm_pch.txt",
     "CLASS": "./data/c1/pch/class_pch.txt",
+	"TUTORIAL": "./data/c1/pch/tutorial_pch.txt",	
+    "SCE": "./data/freya/pch/sce_pch.txt",
     "ABNORMAL": "./data/c1/pch/abnormal_pch.txt",
 
     // custom types from the manual_pch.txt file
@@ -27,6 +29,10 @@
 		"PSTATE_MOVE_TO",
 		"PSTATE_EFFECT_ACTION",
 		"PSTATE_PET_DEFAULT"
+    ],
+	"BOOL": [
+        "FALSE",
+        "TRUE"
     ],
     "AT": [
         "AT_NONE",

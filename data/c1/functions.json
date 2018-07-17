@@ -19,7 +19,7 @@
         "name": "AddAttackDesire",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "AMT",
             "float"
         ],
         "type": "void"
@@ -87,9 +87,9 @@
         "name": "AddUseSkillDesire",
         "arguments": [
             "CSharedCreatureData",
-            "int",
-            "int",
-            "int",
+            "SKILL",
+            "ST",
+            "AMT",
             "float"
         ],
         "type": "void"
@@ -99,8 +99,8 @@
         "arguments": [
             "int",
             "int",
-            "int",
-            "int",
+            "ST",
+            "AMT",
             "int",
             "float"
         ],
@@ -244,7 +244,7 @@
     "30": {
         "name": "GetCreatureFromIndex",
         "arguments": [
-            "int"
+            "AMT"
         ],
         "type": "CSharedCreatureData"
     },
@@ -274,8 +274,8 @@
         "name": "SendScriptEvent",
         "arguments": [
             "CSharedCreatureData",
-            "int",
-            "int"
+            "QUEST",
+            "SCE"
         ],
         "type": "void"
     },
@@ -471,7 +471,7 @@
         "name": "HaveMemo",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "QUEST"
         ],
         "type": "int"
     },
@@ -479,7 +479,7 @@
         "name": "SetMemo",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "QUEST"
         ],
         "type": "int"
     },
@@ -487,7 +487,7 @@
         "name": "SetMemoState",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "QUEST",
             "int"
         ],
         "type": "int"
@@ -496,7 +496,7 @@
         "name": "GetMemoState",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "QUEST"
         ],
         "type": "int"
     },
@@ -504,7 +504,7 @@
         "name": "RemoveMemo",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "QUEST"
         ],
         "type": "int"
     },
@@ -512,7 +512,7 @@
         "name": "SetJournal",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "QUEST",
             "int"
         ],
         "type": "void"
@@ -521,7 +521,7 @@
         "name": "GetOneTimeQuestFlag",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "QUEST"
         ],
         "type": "int"
     },
@@ -529,7 +529,7 @@
         "name": "SetOneTimeQuestFlag",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "QUEST",
             "int"
         ],
         "type": "void"
@@ -612,7 +612,7 @@
         "name": "GiveItem1",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "ITEM",
             "int"
         ],
         "type": "int"
@@ -645,7 +645,7 @@
         "name": "DeleteItem1",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "ITEM",
             "int"
         ],
         "type": "int"
@@ -654,7 +654,7 @@
         "name": "OwnItemCount",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "ITEM"
         ],
         "type": "int"
     },
@@ -692,7 +692,7 @@
         "arguments": [
             "UNKNOWN",
             "string",
-            "int"
+            "QUEST"
         ],
         "type": "void"
     },
@@ -1124,7 +1124,7 @@
     "143": {
         "name": "IsInCategory",
         "arguments": [
-            "int",
+            "CATEGORY",
             "int"
         ],
         "type": "int"
@@ -1140,14 +1140,14 @@
     "145": {
         "name": "Castle_GetCropRate",
         "arguments": [
-            "int"
+            "NPC"
         ],
         "type": "int"
     },
     "146": {
         "name": "Castle_GetCropPrice",
         "arguments": [
-            "int"
+            "NPC"
         ],
         "type": "int"
     },
@@ -1155,18 +1155,18 @@
         "name": "Castle_GetCropIncome",
         "arguments": [
         ],
-        "type": "int"
+        "type": "NPC"
     },
     "148": {
         "name": "Residence_GetTaxIncome",
         "arguments": [
         ],
-        "type": "int"
+        "type": "NPC"
     },
     "149": {
         "name": "Castle_SetCropPrice",
         "arguments": [
-            "int",
+            "NPC",
             "int"
         ],
         "type": "void"
@@ -1174,7 +1174,7 @@
     "150": {
         "name": "Castle_SetCropDrop",
         "arguments": [
-            "int",
+            "NPC",
             "int",
             "int"
         ],
@@ -1183,7 +1183,7 @@
     "151": {
         "name": "Castle_DeleteCropDrop",
         "arguments": [
-            "int"
+            "NPC"
         ],
         "type": "void"
     },
@@ -1191,7 +1191,7 @@
         "name": "Castle_PostCropPurchase",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "NPC",
             "int"
         ],
         "type": "void"
@@ -1206,14 +1206,14 @@
     "154": {
         "name": "Skill_GetConsumeHP",
         "arguments": [
-            "int"
+            "SKILL"
         ],
         "type": "int"
     },
     "155": {
         "name": "Skill_GetConsumeMP",
         "arguments": [
-            "int"
+            "SKILL"
         ],
         "type": "int"
     },
@@ -1227,30 +1227,30 @@
     "157": {
         "name": "Skill_GetAttribute",
         "arguments": [
-            "int"
+            "SKILL"
         ],
-        "type": "int"
+        "type": "SKILL"
     },
     "158": {
         "name": "Skill_GetAbnormalType",
         "arguments": [
-            "int"
+            "SKILL"
         ],
         "type": "int"
     },
     "159": {
         "name": "Skill_GetAbnormalLevel",
         "arguments": [
-            "int"
+            "ABNORMAL"
         ],
         "type": "int"
     },
     "160": {
         "name": "Skill_InReuseDelay",
         "arguments": [
-            "int"
+            "SKILL"
         ],
-        "type": "int"
+        "type": "BOOL"
     },
     "161": {
         "name": "UseSkill",
@@ -1292,7 +1292,7 @@
     "166": {
         "name": "CreateOnePrivate",
         "arguments": [
-            "int",
+            "NPC",
             "string",
             "int",
             "int"
@@ -1322,7 +1322,7 @@
     "170": {
         "name": "CreateOnePrivateEx",
         "arguments": [
-            "int",
+            "NPC",
             "string",
             "int",
             "int",
@@ -1339,7 +1339,7 @@
         "name": "IncrementParam",
         "arguments": [
             "CSharedCreatureData",
-            "int",
+            "PARAM",
             "int"
         ],
         "type": "void"
@@ -1505,7 +1505,7 @@
         "name": "ShowQuestionMark",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "QUEST"
         ],
         "type": "void"
     },
@@ -1529,7 +1529,7 @@
         "name": "EnableTutorialEvent",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "TUTORIAL"
         ],
         "type": "void"
     },
@@ -1557,8 +1557,8 @@
         "name": "CreatePet",
         "arguments": [
             "CSharedCreatureData",
-            "int",
-            "int"
+            "ITEM",
+            "NPC"
         ],
         "type": "void"
     },
