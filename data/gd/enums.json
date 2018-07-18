@@ -1,10 +1,10 @@
 {
     // PCH-files copied directly from server
-    "SKILL": "./data/pch/skill_pch.txt",
-    "ITEM": "./data/pch/item_pch.txt",
-    "NPC": "./data/pch/npc_pch.txt",
-    "CATEGORY": "./data/pch/category_pch.txt",
-    "QUEST": "./data/pch/quest_pch.txt",
+    "SKILL": "./data/gd/pch/skill_pch.txt",
+    "ITEM": "./data/gd/pch/item_pch.txt",
+    "NPC": "./data/gd/pch/npc_pch.txt",
+    "CATEGORY": "./data/gd/pch/category_pch.txt",
+    "QUEST": "./data/gd/pch/quest_pch.txt",
 
     // PCH-files by splitting the manual_pch.txt file from server
     "GM_ID": "./data/gd/pch/gm_pch.txt",
@@ -12,6 +12,7 @@
     "PLEDGE": "./data/gd/pch/pledge_pch.txt",
     "SCE": "./data/gd/pch/sce_pch.txt",
     "ABNORMAL": "./data/gd/pch/abnormal_pch.txt",
+    "SKILL_ACQ": "./data/gd/pch/acq_pch.txt",
 
     // custom types from the manual_pch.txt file
     "PSTATE": [
@@ -91,15 +92,6 @@
         "ride_strider",
         "ride_wyvern",
         "ride_wolf"
-    ],
-    "SKILL_ACQ": [
-        "null",
-        "fishing_skill_acquire",
-        "pledge_skill_acquire",
-        "sub_pledge_skill_acquire",
-        "transform_skill_acquire",
-        "subjob_skill_acquire",
-        "collect_skill_acquire"
     ],
     "AMT": [
         "AMT_STAND",
