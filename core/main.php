@@ -29,7 +29,6 @@ class Main
     private $ignoredClasses = [
         // broken gf_off classes
         'guild_master_test_helper1',
-        'public_wyvern'
     ];
 
     private $optionsConfig = [
