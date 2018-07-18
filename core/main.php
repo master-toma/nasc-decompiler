@@ -25,11 +25,7 @@ class Main
         133 => 'c1'
     ];
 
-    // try comment this for your ai.obj
-    private $ignoredClasses = [
-        // broken gf_off classes
-        'guild_master_test_helper1',
-    ];
+    private $ignoredClasses = [];
 
     private $optionsConfig = [
         // option => [description, default value]
