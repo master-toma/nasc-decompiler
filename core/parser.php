@@ -26,6 +26,9 @@ class Parser
     private $labels = [];
     private $strings = [];
 
+    // workaround to prevent case generation with same label as already generated
+    private $parsedSelectCases = [];
+
     /** @var ClassDeclaration */
     private $class = null;
     /** @var PropertyDeclaration */
@@ -301,6 +304,7 @@ class Parser
 
         $this->labels = [];
         $this->strings = [];
+        $this->parsedSelectCases = [];
     }
 
     private function parseVariableBegin()
@@ -322,13 +326,15 @@ class Parser
             $this->blockStack[] = $while->getBlock();
             $this->statementStack[] = $while;
         } elseif ($this->statementStack->top() === '_case') {
+            $this->parsedSelectCases[$token->data[0]] = true;
             $this->statementStack->pop();
             [$expression] = $this->popExpressions(1);
             $select = $this->statementStack->top();
             $case = new CaseStatement($this->getEnum([$select->getCondition()->getType(), 'SKILL'], $expression->getInteger()));
             $select->addCase($case);
             $this->blockStack[0] = $case->getBlock();
-        } elseif ($this->isSelectToken($token)) {
+        } elseif ($this->isSelectToken($token) && !isset($this->parsedSelectCases[$token->data[0]])) {
+            $this->parsedSelectCases[$token->data[0]] = true;
             [$expression] = $this->popExpressions(1);
             $select = new SelectStatement($expression->getLHS());
             $case = new CaseStatement($expression->getRHS());
@@ -543,7 +549,10 @@ class Parser
             $statement = $this->statementStack->pop();
 
             if ($statement instanceof SelectStatement) {
-                if ($token->prev->name === 'jump' && ($token->prev->prev->name === 'jump' || $token->next->isLabel())) {
+                if ($token->prev->name === 'jump' && (
+                    $token->prev->prev(function (Token $token) { return !$token->isLabel(); })->name === 'jump' ||
+                    $token->next->isLabel()
+                )) {
                     $this->blockStack->top()->addStatement(new BreakStatement());
                 }
 
@@ -716,7 +725,7 @@ class Parser
             return null;
         }
 
-        while ($token->name !== $label) {
+        while ($token->name !== 'handler_end' && $token->name !== $label) {
             $token = $token->next;
         }
 

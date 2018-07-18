@@ -140,6 +140,7 @@ class Data
                 [$name, $id] = preg_split('/\s+/', $string);
             }
 
+            $id = strpos($id, '0x') === 0 ? hexdec($id) : $id;
             $name = trim($name, '[]');
             $result[$id] = $name;
         }
