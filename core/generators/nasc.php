@@ -151,18 +151,18 @@ class NascGenerator implements GeneratorInterface
             $generatedRHS = $this->generateExpression($rhs, $expression);
 
             if ($lhs instanceof OperationExpression && (
-                    $this->getPrecedence($expression) > $this->getPrecedence($lhs) ||
-                    $this->getPrecedence($expression) == $this->getPrecedence($lhs) &&
-                    $this->isRightAssociative($expression)
-                )) {
+                $this->getPrecedence($expression) > $this->getPrecedence($lhs) ||
+                $this->getPrecedence($expression) == $this->getPrecedence($lhs) &&
+                $this->isRightAssociative($expression)
+            )) {
                 $generatedLHS = '(' . $generatedLHS . ')';
             }
 
             if ($rhs instanceof OperationExpression && (
-                    $this->getPrecedence($expression) > $this->getPrecedence($rhs) ||
-                    $this->getPrecedence($expression) == $this->getPrecedence($rhs) &&
-                    $this->isLeftAssociative($expression)
-                )) {
+                $this->getPrecedence($expression) > $this->getPrecedence($rhs) ||
+                $this->getPrecedence($expression) == $this->getPrecedence($rhs) &&
+                $this->isLeftAssociative($expression)
+            )) {
                 $generatedRHS = '(' . $generatedRHS . ')';
             }
 

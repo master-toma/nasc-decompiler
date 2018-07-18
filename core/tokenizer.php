@@ -120,4 +120,26 @@ class Token
     {
         return ($this->name[0] ?? '') === 'L';
     }
+
+    public function next(callable $condition): ?Token
+    {
+        $token = $this;
+
+        do {
+            $token = $token->next;
+        } while ($token && !$condition($token));
+
+        return $token;
+    }
+
+    public function prev(callable $condition): ?Token
+    {
+        $token = $this;
+
+        do {
+            $token = $token->prev;
+        } while ($token && !$condition($token));
+
+        return $token;
+    }
 }

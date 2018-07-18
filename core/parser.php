@@ -549,7 +549,10 @@ class Parser
             $statement = $this->statementStack->pop();
 
             if ($statement instanceof SelectStatement) {
-                if ($token->prev->name === 'jump' && ($token->prev->prev->name === 'jump' || $token->next->isLabel())) {
+                if ($token->prev->name === 'jump' && (
+                    $token->prev->prev(function (Token $token) { return !$token->isLabel(); })->name === 'jump' ||
+                    $token->next->isLabel()
+                )) {
                     $this->blockStack->top()->addStatement(new BreakStatement());
                 }
 
