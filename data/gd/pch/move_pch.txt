@@ -1,8 +1,0 @@
-[MoveSuperPoint_FollowRail] = 0
-[MoveSuperPoint_Random] = 1
-[MoveSuperPoint_FollowRail_Restart] = 2
-[MoveSuperPoint_FollowRail_Restart_Teleport] = 3
-//
-[MoveFreeway_Oneway] = 0
-[MoveFreeway_Loop] = 1
-[MoveFreeway_Loop_Teleport] = 2
