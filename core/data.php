@@ -173,16 +173,23 @@ class Data
 
     private function patternToRegex(string $pattern): string
     {
-        $regex = str_replace('*', '(.*)', $pattern);
+        $parts = explode('|', $pattern);
+        $result = [];
 
-        if ($pattern[0] !== '*') {
-            $regex = '^' . $regex;
+        foreach ($parts as $part) {
+            $regex = str_replace('*', '(.*)', $part);
+
+            if ($pattern[0] !== '*') {
+                $regex = '^' . $regex;
+            }
+
+            if ($pattern[strlen($part) - 1] !== '*') {
+                $regex .= '$';
+            }
+
+            $result[] = $regex;
         }
 
-        if ($pattern[strlen($pattern) - 1] !== '*') {
-            $regex .= '$';
-        }
-
-        return '/' . $regex . '/';
+        return '/' . implode('|', $result) . '/';
     }
 }
