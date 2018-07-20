@@ -17,7 +17,6 @@ class Main
     public const BOM = "\xFF\xFE";
 
     private $chronicles = [
-        'default' => 'gf',
         2 => 'gf',
         56 => 'freya',
         60 => 'h5',
@@ -31,7 +30,7 @@ class Main
         // option => [description, default value]
         'config' => ['Path to configuration file.', null],
         'input' => ["\t" . 'AI file to decompile.', 'ai.obj'],
-        'chronicle' => ['AI chronicle. Provide a directory name from the data directory.', 'gf'],
+        'chronicles' => ['AI chronicles. Provide a directory name from the data directory.', 'gf'],
         'language' => ['Resulting language. Provide a file name from the core/generators directory (without .php extension).', 'nasc'],
         'tree' => ["\t" . 'Split result in tree structure. Provide the tree depth (0 - don\'t split, 1 - flat, more than 3 can cause problems on Windows).', 3],
         'join' => ["\t" . 'Join split classes into one file. Provide a directory which contains the classes.txt file.', null],
@@ -48,7 +47,10 @@ class Main
     private $parser = null;
     /** @var GeneratorInterface */
     private $generator = null;
+    /** @var HeaderDeclaration */
+    private $header = null;
 
+    private $file = null;
     private $config = [];
     private $failedTests = [];
     private $tree = [];
@@ -125,25 +127,37 @@ class Main
 
     private function initializeDependencies()
     {
+        // open file
         stream_filter_register('utf16le', utf16le_filter::class);
+        $this->file = fopen($this->config['input'], 'r');
 
+        if (fread($this->file, 2) === self::BOM) {
+            stream_filter_append($this->file, 'utf16le');
+        }
+
+        // init tests
         if ($this->config['test'] || $this->config['generate']) {
             $this->regression = new Regression('tests/' . ($this->config['test'] ?? $this->config['generate']) . '.bin');
         }
 
-        $data = new Data(
-            'data/' . $this->config['chronicle'] . '/handlers.json',
-            'data/' . $this->config['chronicle'] . '/variables.json',
-            'data/' . $this->config['chronicle'] . '/functions.json',
-            'data/' . $this->config['chronicle'] . '/enums.json'
-        );
-
-        $this->tokenizer = new Tokenizer();
-        $this->parser = new Parser($data);
-
+        // init generator
         require_once 'generators/' . $this->config['language'] . '.php';
         $generatorClass = ucfirst($this->config['language']) . 'Generator';
         $this->generator = new $generatorClass();
+
+        // parse header & choose correct data
+        $this->tokenizer = new Tokenizer();
+        $this->parseHeader();
+
+        $data = new Data(
+            'data/' . $this->chronicles[$this->header->nascVersion] ?? $this->config['chronicles'],
+            'handlers.json',
+            'variables.json',
+            'functions.json',
+            'enums.json'
+        );
+
+        $this->parser = new Parser($data);
     }
 
     private function printHelp()
@@ -169,18 +183,53 @@ class Main
         }
     }
 
+    private function parseHeader()
+    {
+        $this->header = new HeaderDeclaration();
+
+        while ($this->file && !feof($this->file)) {
+            $string = trim(fgets($this->file));
+
+            if (!$string) {
+                continue;
+            }
+
+            $token = $this->tokenizer->tokenize($string);
+
+            switch ($token->name) {
+                case 'SizeofPointer':
+                    $this->header->sizeOfPointer = $token->data[0];
+                    break;
+                case 'SharedFactoryVersion':
+                    $this->header->sharedFactoryVersion = $token->data[0];
+                    break;
+                case 'NPCHVersion':
+                    $this->header->npcHVersion = $token->data[0];
+                    break;
+                case 'NASCVersion':
+                    $this->header->nascVersion = $token->data[0];
+                    break;
+                case 'NPCEventHVersion':
+                    $this->header->npcEventVersion = $token->data[0];
+                    break;
+                case 'Debug':
+                    $this->header->debug = $token->data[0];
+                    break;
+                default:
+                    break 2;
+            }
+        }
+
+        fseek($this->file, 0);
+    }
+
     private function decompile()
     {
-        $file = fopen($this->config['input'], 'r');
-
-        if (fread($file, 2) === self::BOM) {
-            stream_filter_append($file, 'utf16le');
-        }
 
         $line = 0;
 
-        while ($file && !feof($file)) {
-            $string = trim(fgets($file));
+        while ($this->file && !feof($this->file)) {
+            $string = trim(fgets($this->file));
             $line++;
 
             if (!$string) {
@@ -227,46 +276,6 @@ class Main
                 }
             }
         }
-    }
-
-    private function parseHeader()
-    {
-//        $this->header = new HeaderDeclaration();
-//
-//        while ($this->file && !feof($this->file)) {
-//            $string = trim(fgets($this->file));
-//
-//            if (!$string) {
-//                continue;
-//            }
-//
-//            $token = $this->tokenizer->tokenize($string);
-//
-//            switch ($token->name) {
-//                case 'SizeofPointer':
-//                    $this->header->sizeOfPointer = $token->data[0];
-//                    break;
-//                case 'SharedFactoryVersion':
-//                    $this->header->sharedFactoryVersion = $token->data[0];
-//                    break;
-//                case 'NPCHVersion':
-//                    $this->header->npcHVersion = $token->data[0];
-//                    break;
-//                case 'NASCVersion':
-//                    $this->header->nascVersion = $token->data[0];
-//                    break;
-//                case 'NPCEventHVersion':
-//                    $this->header->npcEventVersion = $token->data[0];
-//                    break;
-//                case 'Debug':
-//                    $this->header->debug = $token->data[0];
-//                    break;
-//                default:
-//                    break 2;
-//            }
-//        }
-//
-//        fseek($this->file, 0);
     }
 
     private function generateOrRunTests(string $class, ?string $code)

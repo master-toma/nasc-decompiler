@@ -9,12 +9,12 @@ class Data
 
     private $variableTypeCache = [];
 
-    public function __construct(string $handlers, string $variables, string $functions, string $enums)
+    public function __construct(string $dir, string $handlers, string $variables, string $functions, string $enums)
     {
-        $this->handlers = $this->jsonDecode(file_get_contents($handlers));
-        $this->variables = $this->jsonDecode(file_get_contents($variables));
-        $this->functions = $this->jsonDecode(file_get_contents($functions));
-        $this->enums = $this->loadEnums($enums);
+        $this->handlers = $this->jsonDecode(file_get_contents($dir . '/' . $handlers));
+        $this->variables = $this->jsonDecode(file_get_contents($dir . '/' . $variables));
+        $this->functions = $this->jsonDecode(file_get_contents($dir . '/' . $functions));
+        $this->enums = $this->loadEnums($dir . '/' . $enums);
     }
 
     public function getHandler(int $classType, int $id): string
