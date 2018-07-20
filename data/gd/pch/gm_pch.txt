@@ -245,7 +245,7 @@
 [gm_id_state142] = 16250148
 [gm_id_state143] = 16250149
 [gm_id_state144] = 16250150
-//
+
 [gm_uthanka] = 30032
 [gm_end_g_cartia] = 30033
 [gm_cartia] = 336470001
