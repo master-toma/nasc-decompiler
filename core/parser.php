@@ -330,7 +330,7 @@ class Parser
             $this->statementStack->pop();
             [$expression] = $this->popExpressions(1);
             $select = $this->statementStack->top();
-            $case = new CaseStatement($this->getEnum([$select->getCondition()->getType(), 'SKILL'], $expression->getInteger()));
+            $case = new CaseStatement($this->getPrecompiledHeader([$select->getCondition()->getType(), 'SKILL'], $expression->getInteger()));
             $select->addCase($case);
             $this->blockStack[0] = $case->getBlock();
         } elseif ($this->isSelectToken($token) && !isset($this->parsedSelectCases[$token->data[0]])) {
@@ -384,7 +384,7 @@ class Parser
             $this->expressionStack[] = new UnaryExpression($lvalue, $token->prev->name === 'add' ? '++' : '--');
         } else {
             if ($rvalue instanceof IntegerExpression) {
-                $rvalue = $this->getEnum($lvalue->getType(), $rvalue->getInteger());
+                $rvalue = $this->getPrecompiledHeader($lvalue->getType(), $rvalue->getInteger());
             }
 
             $this->expressionStack[] = new AssignExpression($lvalue, $rvalue);
@@ -437,7 +437,7 @@ class Parser
             $expression = $this->expressionStack->pop();
 
             if ($expression instanceof IntegerExpression) {
-                $expression = $this->getEnum($type, $expression->getInteger());
+                $expression = $this->getPrecompiledHeader($type, $expression->getInteger());
             }
 
             array_unshift($arguments, $expression);
@@ -513,11 +513,11 @@ class Parser
         [$rhs, $lhs] = $this->popExpressions(2);
 
         if ($rhs instanceof IntegerExpression) {
-            $rhs = $this->getEnum([$lhs->getType(), 'SKILL'], $rhs->getInteger());
+            $rhs = $this->getPrecompiledHeader([$lhs->getType(), 'SKILL'], $rhs->getInteger());
         }
 
         if ($lhs instanceof IntegerExpression) {
-            $lhs = $this->getEnum([$rhs->getType(), 'SKILL'], $lhs->getInteger());
+            $lhs = $this->getPrecompiledHeader([$rhs->getType(), 'SKILL'], $lhs->getInteger());
         }
 
         $this->expressionStack[] = new BinaryExpression($lhs, $rhs, $operator);
@@ -528,7 +528,7 @@ class Parser
         [$expression] = $this->popExpressions(1);
 
         if ($expression instanceof IntegerExpression && $operator === '-') {
-            // negation execution for negative enums
+            // negation execution for negative precompiled headers
             $this->expressionStack[] = new IntegerExpression(-$expression->getInteger());
         } else {
             $this->expressionStack[] = new UnaryExpression($expression, $operator);
@@ -602,17 +602,17 @@ class Parser
                 stripos($name, 'phys') !== false ||
                 stripos($name, 'heal') !== false
             ) {
-                $expression = $this->getEnum('SKILL', $value);
+                $expression = $this->getPrecompiledHeader('SKILL', $value);
             } elseif (stripos($name, 'item') !== false ||
                 stripos($name, 'weapon') !== false
             ) {
-                $expression = $this->getEnum('ITEM', $value);
+                $expression = $this->getPrecompiledHeader('ITEM', $value);
             } elseif (stripos($name, 'npc') !== false) {
-                $expression = $this->getEnum('NPC', $value);
+                $expression = $this->getPrecompiledHeader('NPC', $value);
             } elseif (strtolower($name) === 'gm_id') {
-                $expression = $this->getEnum('GM_ID', $value);
+                $expression = $this->getPrecompiledHeader('GM_ID', $value);
             } else {
-                $expression = $this->getEnum(['NPC', 'SKILL'], $value);
+                $expression = $this->getPrecompiledHeader(['NPC', 'SKILL'], $value);
             }
         }
 
@@ -637,7 +637,7 @@ class Parser
         $row = array_map('trim', explode(';', $raw));
 
         if (is_numeric($row[0])) {
-            $row[0] = '"' . $this->data->getEnum('ITEM', $row[0]) . '"';
+            $row[0] = '"' . $this->data->getPrecompiledHeader('ITEM', $row[0]) . '"';
         }
 
         $this->property->addRow($row);
@@ -734,7 +734,7 @@ class Parser
 
     private function isObjectType(string $type): bool
     {
-        $primitives = $this->data->getEnums();
+        $primitives = $this->data->getPrecompiledHeaders();
         $primitives['int'] = true;
         $primitives['float'] = true;
         $primitives['double'] = true;
@@ -746,15 +746,15 @@ class Parser
         return !isset($primitives[$type]);
     }
 
-    private function getEnum($name, int $id): Expression
+    private function getPrecompiledHeader($name, int $id): Expression
     {
         $names = (array) $name;
 
         foreach ($names as $name) {
-            $enum = $this->data->getEnum($name, $id);
+            $pch = $this->data->getPrecompiledHeader($name, $id);
 
-            if ($enum) {
-                $expression = new EnumExpression($name, $enum);
+            if ($pch) {
+                $expression = new PCHExpression($name, $pch);
 
                 // workaround for short skill ids
                 if ($name === 'SKILL_SHORT') {

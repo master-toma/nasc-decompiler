@@ -154,7 +154,7 @@ class Main
             'handlers.json',
             'variables.json',
             'functions.json',
-            'enums.json'
+            'pch.json'
         );
 
         $this->parser = new Parser($data);
