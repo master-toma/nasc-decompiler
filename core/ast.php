@@ -207,7 +207,7 @@ class StringExpression implements Expression
     }
 }
 
-class EnumExpression implements Expression
+class PCHExpression implements Expression
 {
     private $type = '';
     private $name = '';

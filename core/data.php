@@ -2,19 +2,22 @@
 
 class Data
 {
+    private $dir = '';
+
     private $handlers = [];
     private $variables = [];
     private $functions = [];
-    private $enums = [];
+    private $pch = [];
 
     private $variableTypeCache = [];
 
-    public function __construct(string $dir, string $handlers, string $variables, string $functions, string $enums)
+    public function __construct(string $dir, string $handlers, string $variables, string $functions, string $pch)
     {
-        $this->handlers = $this->jsonDecode(file_get_contents($dir . '/' . $handlers));
-        $this->variables = $this->jsonDecode(file_get_contents($dir . '/' . $variables));
-        $this->functions = $this->jsonDecode(file_get_contents($dir . '/' . $functions));
-        $this->enums = $this->loadEnums($dir . '/' . $enums);
+        $this->dir = $dir . '/';
+        $this->handlers = $this->jsonDecode(file_get_contents($this->dir . $handlers));
+        $this->variables = $this->jsonDecode(file_get_contents($this->dir . $variables));
+        $this->functions = $this->jsonDecode(file_get_contents($this->dir . $functions));
+        $this->pch = $this->loadPrecompiledHeaders($this->dir . $pch);
     }
 
     public function getHandler(int $classType, int $id): string
@@ -63,14 +66,14 @@ class Data
         return $this->functions[$address];
     }
 
-    public function getEnum(string $name, int $id): ?string
+    public function getPrecompiledHeader(string $name, int $id): ?string
     {
-        return $this->enums[$name][$id] ?? null;
+        return $this->pch[$name][$id] ?? null;
     }
 
-    public function getEnums(): array
+    public function getPrecompiledHeaders(): array
     {
-        return $this->enums;
+        return $this->pch;
     }
 
     private function jsonDecode(string $json): array
@@ -80,41 +83,55 @@ class Data
         return json_decode($json, true);
     }
 
-    private function loadEnums(string $enums): array
+    private function loadPrecompiledHeaders(string $pch): array
     {
-        $enums = $this->jsonDecode(file_get_contents($enums));
+        $pch = $this->jsonDecode(file_get_contents($pch));
+        $files = [];
 
-        foreach ($enums as $name => $constants) {
-            if (!is_string($constants)) {
+        foreach ($pch as $name => $constants) {
+            $file = null;
+            $pattern = null;
+
+            if (is_string($constants)) {
+                $file = $constants;
+            } elseif (is_array($constants) && !empty($constants['file'])) {
+                $file = $constants['file'];
+                $pattern = $constants['pattern'] ?? null;
+            } else {
                 continue;
             }
 
-            // workaround for short skill ids
-            if ($name === 'SKILL') {
-                $pch = $this->loadPch($constants);
-                $enums[$name] = $pch;
+            $files[$file][$name] = $pattern;
+        }
 
-                foreach ($pch as $id => $skill) {
-                    if ($id % 65536 === 1) {
-                        $id = ($id - 1) / 65536;
-                        $enums['SKILL_SHORT'][$id] = $skill;
+        foreach ($files as $file => $patterns) {
+            $values = $this->loadPch($this->dir . $file, $patterns);
+
+            foreach ($values as $name => $constants) {
+                $pch[$name] = $constants;
+
+                // workaround for short skill ids
+                if ($name === 'SKILL') {
+                    foreach ($constants as $id => $skill) {
+                        if ($id % 65536 === 1) {
+                            $id = ($id - 1) / 65536;
+                            $pch['SKILL_SHORT'][$id] = $skill;
+                        }
                     }
                 }
-            } else {
-                $enums[$name] = $this->loadPch($constants);
             }
         }
 
         // workaround to skip @ab_none precompiled header
-        unset($enums['ABNORMAL']['ab_none']);
+        unset($pch['ABNORMAL'][-1]);
 
-        return $enums;
+        return $pch;
     }
 
-    private function loadPch(string $path): array
+    private function loadPch(string $path, array $patterns): array
     {
         $file = fopen($path, 'r');
-        $result = [];
+        $result = array_combine(array_keys($patterns), array_fill(0, count($patterns), []));
 
         while ($file && !feof($file)) {
             $string = trim(fgets($file));
@@ -133,18 +150,39 @@ class Data
             }
 
             if (strpos($string, '=') !== false) {
-                [$name, $id] = explode('=', $string);
-                $name = trim($name);
+                [$constant, $id] = explode('=', $string);
+                $constant = trim($constant);
                 $id = trim($id);
             } else {
-                [$name, $id] = preg_split('/\s+/', $string);
+                [$constant, $id] = preg_split('/\s+/', $string);
             }
 
             $id = strpos($id, '0x') === 0 ? hexdec($id) : $id;
-            $name = trim($name, '[]');
-            $result[$id] = $name;
+            $constant = trim($constant, '[]');
+
+            foreach ($patterns as $name => $pattern) {
+                if (!$pattern || preg_match($this->patternToRegex($pattern), $constant)) {
+                    $result[$name][$id] = $constant;
+                    break;
+                }
+            }
         }
 
         return $result;
+    }
+
+    private function patternToRegex(string $pattern): string
+    {
+        $regex = str_replace('*', '(.*)', $pattern);
+
+        if ($pattern[0] !== '*') {
+            $regex = '^' . $regex;
+        }
+
+        if ($pattern[strlen($pattern) - 1] !== '*') {
+            $regex .= '$';
+        }
+
+        return '/' . $regex . '/';
     }
 }

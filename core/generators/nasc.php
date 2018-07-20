@@ -123,12 +123,13 @@ class NascGenerator implements GeneratorInterface
                 : $f;
         } elseif ($expression instanceof StringExpression) {
             return '"' . $expression->getString() . '"';
-        } elseif ($expression instanceof EnumExpression) {
-            if ($expression->getType() === 'PSTATE') {
-                // PSTATE type should't be prefixed
+        } elseif ($expression instanceof PCHExpression) {
+            $name = $expression->getName();
+
+            if (strpos($name, 'PSTATE_') === 0) {
+                // PSTATE should't be prefixed
                 return $expression->getName();
             } else {
-                $name = $expression->getName();
                 return '@' . (preg_match('/\W/', $name) ? '"' . $name . '"' : $name);
             }
         } elseif ($expression instanceof ParameterExpression) {
