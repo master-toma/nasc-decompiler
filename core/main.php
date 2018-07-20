@@ -17,26 +17,27 @@ class Main
     public const BOM = "\xFF\xFE";
 
     private $chronicles = [
-        2 => 'gf',
-        56 => 'freya',
-        60 => 'h5',
-        73 => 'gd',
+        // nasc version => chronicles
+        2   => 'gf',
+        56  => 'freya',
+        60  => 'h5',
+        73  => 'gd',
         133 => 'c1'
     ];
 
-    private $ignoredClasses = [];
-
     private $options = [
-        // option => [description, default value]
-        'config' => ['Path to configuration file.', null],
-        'input' => ["\t" . 'AI file to decompile.', 'ai.obj'],
-        'chronicles' => ['AI chronicles. Provide a directory name from the data directory.', 'gf'],
-        'language' => ['Resulting language. Provide a file name from the core/generators directory (without .php extension).', 'nasc'],
-        'tree' => ["\t" . 'Split result in tree structure. Provide the tree depth (0 - don\'t split, 1 - flat, more than 3 can cause problems on Windows).', 3],
-        'join' => ["\t" . 'Join split classes into one file. Provide a directory which contains the classes.txt file.', null],
-        'utf16le' => ['Encode output in UTF-16LE instead of UTF-8. NASC Compiler supports only UTF-16LE.', false],
-        'test' => ["\t" . 'Run regression tests. Provide a test file name from the tests directory (without .bin extension).', null],
-        'generate' => ['Generate regression tests. Provide a new test file name (without extension).', null]
+        // option       => [description, default value]
+        'config'        => ['Path to JSON configuration file.', null],
+        'input'         => ["\t" . 'Path to AI file to decompile.', 'ai.obj'],
+        'output'        => ['Path to result file/directory.', null],
+        'chronicles'    => ['AI chronicles. Provide a directory name from the data directory.', null],
+        'language'      => ['Result language. Provide a file name from the core/generators directory (without .php extension).', 'nasc'],
+        'tree'          => ["\t" . 'Split result in tree structure. Provide a tree depth (0 - don\'t split, 1 - flat, more than 3 can cause problems on Windows).', 3],
+        'join'          => ["\t" . 'Join split classes into one file. Provide path to a directory which contains the classes.txt file.', null],
+        'utf16le'       => ['Encode output in UTF-16LE instead of UTF-8. NASC Compiler supports only UTF-16LE.', false],
+        'test'          => ["\t" . 'Run regression tests. Provide a test file name from the tests directory (without .bin extension).', null],
+        'generate'      => ['Generate regression tests. Provide a new test file name (without extension).', null],
+        'ignore'        => ['Comma-separated list of ignored classes.', null]
     ];
 
     /** @var Regression */
@@ -57,7 +58,7 @@ class Main
 
     public function run()
     {
-        $this->parseOptions();
+        $this->parseConfig();
 
         if (isset($this->config['h'])) {
             $this->printHelp();
@@ -74,10 +75,10 @@ class Main
         $this->prepareOutput();
         $this->decompile();
 
-        if ($this->ignoredClasses) {
+        if ($this->config['ignore']) {
             echo "\nSkipped classes:\n\n";
 
-            foreach ($this->ignoredClasses as $name) {
+            foreach ($this->config['ignore'] as $name) {
                 echo $name . "\n";
             }
         }
@@ -98,12 +99,13 @@ class Main
             echo 'Results in directory: ' . $this->config['output'] . "\n";
             echo 'Classes order file: ' . $this->config['output'] . "/classes.txt\n";
         } else {
-            echo 'Result in file: ' . $this->config['output'] . '.' . $this->config['language'] . "\n";
+            echo 'Result in file: ' . $this->config['output'] . "\n";
         }
     }
 
-    private function parseOptions()
+    private function parseConfig()
     {
+        // parse options
         $options = [];
         $defaults = [];
 
@@ -114,14 +116,25 @@ class Main
 
         $this->config = getopt('h', $options);
 
+        // read config file
         if (!empty($this->config['config']) || !empty($defaults['config'])) {
             $this->config += json_decode(file_get_contents($this->config['config'] ?? $defaults['config']), true);
         }
 
         $this->config += $defaults;
 
+        // prepare --output option
         if (empty($this->config['output'])) {
             $this->config['output'] = pathinfo($this->config['input'], PATHINFO_FILENAME);
+
+            if (!$this->config['tree']) {
+                $this->config['output'] .= '.' . $this->config['language'];
+            }
+        }
+
+        // prepare --ignore option
+        if (!is_array($this->config['ignore'])) {
+            $this->config['ignore'] = array_filter(explode(',', $this->config['ignore']));
         }
     }
 
@@ -149,8 +162,11 @@ class Main
         $this->tokenizer = new Tokenizer();
         $this->parseHeader();
 
+        $chronicles = $this->config['chronicles'] ?? $this->chronicles[$this->header->nascVersion];
+        echo 'Chronicles: ' . $chronicles . "\n";
+
         $data = new Data(
-            'data/' . $this->chronicles[$this->header->nascVersion] ?? $this->config['chronicles'],
+            'data/' . $chronicles,
             'handlers.json',
             'variables.json',
             'functions.json',
@@ -172,8 +188,7 @@ class Main
     private function prepareOutput()
     {
         if (!$this->config['tree']) {
-            $outputFile = $this->config['output'] . '.' . $this->config['language'];
-            file_put_contents($outputFile, $this->config['utf16le'] ? self::BOM : '');
+            file_put_contents($this->config['output'], $this->config['utf16le'] ? self::BOM : '');
         } elseif (!is_dir($this->config['output'])) {
             mkdir($this->config['output']);
         } else {
@@ -260,8 +275,8 @@ class Main
                 echo "\n";
 
                 if (!$this->config['tree']) {
-                    $outputFile = $this->config['output'] . '.' . $this->config['language'];
-                    file_put_contents($outputFile, ($this->config['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code) : $code) . "\n", FILE_APPEND);
+                    $code = $this->config['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code . "\n") : $code . "\n";
+                    file_put_contents($this->config['output'], $code, FILE_APPEND);
                 } else {
                     $path = $this->treePath($name, $class->getSuper(), $this->config['tree']);
                     $dir = $this->config['output'] . '/' . $path;
@@ -272,7 +287,8 @@ class Main
                     }
 
                     file_put_contents($this->config['output'] . '/classes.txt', $path . $name . '.' . $this->config['language'] . "\n", FILE_APPEND);
-                    file_put_contents($outputFile, $this->config['utf16le'] ? self::BOM . iconv('UTF-8', 'UTF-16LE', $code) : $code);
+                    $code = $this->config['utf16le'] ? self::BOM . iconv('UTF-8', 'UTF-16LE', $code) : $code;
+                    file_put_contents($outputFile, $code);
                 }
             }
         }
@@ -324,7 +340,7 @@ class Main
 
     private function isIgnoredClass(string $class): bool
     {
-        return in_array($class, $this->ignoredClasses);
+        return in_array($class, $this->config['ignore']);
     }
 
     private function removeTree(string $dir) {

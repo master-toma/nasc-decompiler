@@ -1,0 +1,8 @@
+{
+    "input": "test.obj",
+    "tree": 0,
+    "utf16le": true,
+    "ignored": [
+        "guild_master_test_helper1"
+    ]
+}
