@@ -17,7 +17,6 @@ class Main
     public const BOM = "\xFF\xFE";
 
     private $chronicles = [
-        'default' => 'gf',
         2 => 'gf',
         56 => 'freya',
         60 => 'h5',
@@ -27,10 +26,11 @@ class Main
 
     private $ignoredClasses = [];
 
-    private $optionsConfig = [
+    private $options = [
         // option => [description, default value]
+        'config' => ['Path to configuration file.', null],
         'input' => ["\t" . 'AI file to decompile.', 'ai.obj'],
-        'chronicle' => ['AI chronicle. Provide a directory name from the data directory.', 'gf'],
+        'chronicles' => ['AI chronicles. Provide a directory name from the data directory.', 'gf'],
         'language' => ['Resulting language. Provide a file name from the core/generators directory (without .php extension).', 'nasc'],
         'tree' => ["\t" . 'Split result in tree structure. Provide the tree depth (0 - don\'t split, 1 - flat, more than 3 can cause problems on Windows).', 3],
         'join' => ["\t" . 'Join split classes into one file. Provide a directory which contains the classes.txt file.', null],
@@ -47,27 +47,30 @@ class Main
     private $parser = null;
     /** @var GeneratorInterface */
     private $generator = null;
+    /** @var HeaderDeclaration */
+    private $header = null;
 
-    private $options = [];
+    private $file = null;
+    private $config = [];
     private $failedTests = [];
     private $tree = [];
 
     public function run()
     {
         $this->parseOptions();
-        $this->initializeDependencies();
 
-        if (isset($this->options['h'])) {
+        if (isset($this->config['h'])) {
             $this->printHelp();
             return;
         }
 
-        if ($this->options['join']) {
+        if ($this->config['join']) {
             $this->join();
             return;
         }
 
         echo "\nUse -h option for help.\n\n";
+        $this->initializeDependencies();
         $this->prepareOutput();
         $this->decompile();
 
@@ -85,17 +88,17 @@ class Main
             foreach ($this->failedTests as $name) {
                 echo $name . "\n";
             }
-        } else {
+        } elseif ($this->config['test']) {
             echo "\nAll tests passed!\n";
         }
 
         echo "\nDone!\n\n";
 
-        if ($this->options['tree']) {
-            echo 'Results in directory: ' . $this->options['output'] . "\n";
-            echo 'Classes order file: ' . $this->options['output'] . "/classes.txt\n";
+        if ($this->config['tree']) {
+            echo 'Results in directory: ' . $this->config['output'] . "\n";
+            echo 'Classes order file: ' . $this->config['output'] . "/classes.txt\n";
         } else {
-            echo 'Result in file: ' . $this->options['output'] . '.' . $this->options['language'] . "\n";
+            echo 'Result in file: ' . $this->config['output'] . '.' . $this->config['language'] . "\n";
         }
     }
 
@@ -104,76 +107,129 @@ class Main
         $options = [];
         $defaults = [];
 
-        foreach ($this->optionsConfig as $option => $config) {
+        foreach ($this->options as $option => $config) {
             $options[] = $option . '::';
             $defaults[$option] = $config[1];
         }
 
-        $this->options = getopt('h', $options) + $defaults;
+        $this->config = getopt('h', $options);
 
-        if (!isset($this->options['output'])) {
-            $this->options['output'] = pathinfo($this->options['input'], PATHINFO_FILENAME);
+        if (!empty($this->config['config']) || !empty($defaults['config'])) {
+            $this->config += json_decode(file_get_contents($this->config['config'] ?? $defaults['config']), true);
+        }
+
+        $this->config += $defaults;
+
+        if (empty($this->config['output'])) {
+            $this->config['output'] = pathinfo($this->config['input'], PATHINFO_FILENAME);
         }
     }
 
     private function initializeDependencies()
     {
+        // open file
         stream_filter_register('utf16le', utf16le_filter::class);
+        $this->file = fopen($this->config['input'], 'r');
 
-        if ($this->options['test'] || $this->options['generate']) {
-            $this->regression = new Regression('tests/' . ($this->options['test'] ?? $this->options['generate']) . '.bin');
+        if (fread($this->file, 2) === self::BOM) {
+            stream_filter_append($this->file, 'utf16le');
         }
 
+        // init tests
+        if ($this->config['test'] || $this->config['generate']) {
+            $this->regression = new Regression('tests/' . ($this->config['test'] ?? $this->config['generate']) . '.bin');
+        }
+
+        // init generator
+        require_once 'generators/' . $this->config['language'] . '.php';
+        $generatorClass = ucfirst($this->config['language']) . 'Generator';
+        $this->generator = new $generatorClass();
+
+        // parse header & choose correct data
+        $this->tokenizer = new Tokenizer();
+        $this->parseHeader();
+
         $data = new Data(
-            'data/' . $this->options['chronicle'] . '/handlers.json',
-            'data/' . $this->options['chronicle'] . '/variables.json',
-            'data/' . $this->options['chronicle'] . '/functions.json',
-            'data/' . $this->options['chronicle'] . '/enums.json'
+            'data/' . $this->chronicles[$this->header->nascVersion] ?? $this->config['chronicles'],
+            'handlers.json',
+            'variables.json',
+            'functions.json',
+            'enums.json'
         );
 
-        $this->tokenizer = new Tokenizer();
         $this->parser = new Parser($data);
-
-        require_once 'generators/' . $this->options['language'] . '.php';
-        $generatorClass = ucfirst($this->options['language']) . 'Generator';
-        $this->generator = new $generatorClass();
     }
 
     private function printHelp()
     {
         echo "\n";
 
-        foreach ($this->optionsConfig as $option => $config) {
+        foreach ($this->options as $option => $config) {
             echo "\t--" . $option . "\t" . $config[0] . " Default: " . var_export($config[1], true) . "\n";
         }
     }
 
     private function prepareOutput()
     {
-        if (!$this->options['tree']) {
-            $outputFile = $this->options['output'] . '.' . $this->options['language'];
-            file_put_contents($outputFile, $this->options['utf16le'] ? self::BOM : '');
-        } elseif (!is_dir($this->options['output'])) {
-            mkdir($this->options['output']);
+        if (!$this->config['tree']) {
+            $outputFile = $this->config['output'] . '.' . $this->config['language'];
+            file_put_contents($outputFile, $this->config['utf16le'] ? self::BOM : '');
+        } elseif (!is_dir($this->config['output'])) {
+            mkdir($this->config['output']);
         } else {
-            echo 'Cleaning output directory: ' . $this->options['output'] . "\n\n";
-            $this->removeTree($this->options['output']);
-            mkdir($this->options['output']);
+            echo 'Cleaning output directory: ' . $this->config['output'] . "\n\n";
+            $this->removeTree($this->config['output']);
+            mkdir($this->config['output']);
         }
+    }
+
+    private function parseHeader()
+    {
+        $this->header = new HeaderDeclaration();
+
+        while ($this->file && !feof($this->file)) {
+            $string = trim(fgets($this->file));
+
+            if (!$string) {
+                continue;
+            }
+
+            $token = $this->tokenizer->tokenize($string);
+
+            switch ($token->name) {
+                case 'SizeofPointer':
+                    $this->header->sizeOfPointer = $token->data[0];
+                    break;
+                case 'SharedFactoryVersion':
+                    $this->header->sharedFactoryVersion = $token->data[0];
+                    break;
+                case 'NPCHVersion':
+                    $this->header->npcHVersion = $token->data[0];
+                    break;
+                case 'NASCVersion':
+                    $this->header->nascVersion = $token->data[0];
+                    break;
+                case 'NPCEventHVersion':
+                    $this->header->npcEventVersion = $token->data[0];
+                    break;
+                case 'Debug':
+                    $this->header->debug = $token->data[0];
+                    break;
+                default:
+                    break 2;
+            }
+        }
+
+        fseek($this->file, 0);
     }
 
     private function decompile()
     {
-        $file = fopen($this->options['input'], 'r');
-
-        if (fread($file, 2) === self::BOM) {
-            stream_filter_append($file, 'utf16le');
-        }
 
         $line = 0;
 
-        while ($file && !feof($file)) {
-            $string = trim(fgets($file));
+        while ($this->file && !feof($this->file)) {
+            $string = trim(fgets($this->file));
             $line++;
 
             if (!$string) {
@@ -203,81 +259,41 @@ class Main
                 $this->generateOrRunTests($name, $code);
                 echo "\n";
 
-                if (!$this->options['tree']) {
-                    $outputFile = $this->options['output'] . '.' . $this->options['language'];
-                    file_put_contents($outputFile, ($this->options['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code) : $code) . "\n", FILE_APPEND);
+                if (!$this->config['tree']) {
+                    $outputFile = $this->config['output'] . '.' . $this->config['language'];
+                    file_put_contents($outputFile, ($this->config['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code) : $code) . "\n", FILE_APPEND);
                 } else {
-                    $path = $this->treePath($name, $class->getSuper(), $this->options['tree']);
-                    $dir = $this->options['output'] . '/' . $path;
-                    $outputFile = $dir . $name . '.' . $this->options['language'];
+                    $path = $this->treePath($name, $class->getSuper(), $this->config['tree']);
+                    $dir = $this->config['output'] . '/' . $path;
+                    $outputFile = $dir . $name . '.' . $this->config['language'];
 
                     if (!file_exists($dir)) {
                         mkdir($dir, 0755, true);
                     }
 
-                    file_put_contents($this->options['output'] . '/classes.txt', $path . $name . '.' . $this->options['language'] . "\n", FILE_APPEND);
-                    file_put_contents($outputFile, $this->options['utf16le'] ? self::BOM . iconv('UTF-8', 'UTF-16LE', $code) : $code);
+                    file_put_contents($this->config['output'] . '/classes.txt', $path . $name . '.' . $this->config['language'] . "\n", FILE_APPEND);
+                    file_put_contents($outputFile, $this->config['utf16le'] ? self::BOM . iconv('UTF-8', 'UTF-16LE', $code) : $code);
                 }
             }
         }
     }
 
-    private function parseHeader()
-    {
-//        $this->header = new HeaderDeclaration();
-//
-//        while ($this->file && !feof($this->file)) {
-//            $string = trim(fgets($this->file));
-//
-//            if (!$string) {
-//                continue;
-//            }
-//
-//            $token = $this->tokenizer->tokenize($string);
-//
-//            switch ($token->name) {
-//                case 'SizeofPointer':
-//                    $this->header->sizeOfPointer = $token->data[0];
-//                    break;
-//                case 'SharedFactoryVersion':
-//                    $this->header->sharedFactoryVersion = $token->data[0];
-//                    break;
-//                case 'NPCHVersion':
-//                    $this->header->npcHVersion = $token->data[0];
-//                    break;
-//                case 'NASCVersion':
-//                    $this->header->nascVersion = $token->data[0];
-//                    break;
-//                case 'NPCEventHVersion':
-//                    $this->header->npcEventVersion = $token->data[0];
-//                    break;
-//                case 'Debug':
-//                    $this->header->debug = $token->data[0];
-//                    break;
-//                default:
-//                    break 2;
-//            }
-//        }
-//
-//        fseek($this->file, 0);
-    }
-
     private function generateOrRunTests(string $class, ?string $code)
     {
         if ($code === null) {
-            if ($this->options['test']) {
-                $this->regression->test($code);
-            } elseif ($this->options['generate']) {
-                $this->regression->generate($code);
+            if ($this->config['test']) {
+                $this->regression->test(null);
+            } elseif ($this->config['generate']) {
+                $this->regression->generate(null);
             }
-        } else if ($this->options['test']) {
+        } elseif ($this->config['test']) {
             if ($this->regression->test($code)) {
                 echo ' - PASSED (failed tests: ' . count($this->failedTests) . ')';
             } else {
                 echo ' - FAILED';
                 $this->failedTests[] = $class;
             }
-        } elseif ($this->options['generate']) {
+        } elseif ($this->config['generate']) {
             $this->regression->generate($code);
         }
     }
@@ -286,9 +302,9 @@ class Main
     {
         echo "\nJoin classes...\n\n";
 
-        $classes = file($this->options['join'] . '/classes.txt');
-        $outputFile = pathinfo($this->options['join'], PATHINFO_FILENAME) . '.' . pathinfo(trim($classes[0]), PATHINFO_EXTENSION);
-        file_put_contents($outputFile, $this->options['utf16le'] ? self::BOM : '');
+        $classes = file($this->config['join'] . '/classes.txt');
+        $outputFile = pathinfo($this->config['join'], PATHINFO_FILENAME) . '.' . pathinfo(trim($classes[0]), PATHINFO_EXTENSION);
+        file_put_contents($outputFile, $this->config['utf16le'] ? self::BOM : '');
 
         foreach ($classes as $line) {
             $class = trim($line);
@@ -297,8 +313,8 @@ class Main
                 continue;
             }
 
-            $code = file_get_contents($this->options['join'] . '/' . $class) . "\n";
-            file_put_contents($outputFile, $this->options['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code) : $code, FILE_APPEND);
+            $code = file_get_contents($this->config['join'] . '/' . $class) . "\n";
+            file_put_contents($outputFile, $this->config['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code) : $code, FILE_APPEND);
             echo '.';
         }
 
