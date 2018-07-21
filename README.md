@@ -1,4 +1,4 @@
-# Heuristic based AI decompiler
+# AI decompiler based on heuristic rules
 
 **PHP 7 is required (Windows executables are bundled).**
 

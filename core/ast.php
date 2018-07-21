@@ -626,9 +626,9 @@ class PropertyDeclaration implements Declaration
         return $this->name;
     }
 
-    public function addRow(array $row)
+    public function addRow(array $row, ?string $comment = null)
     {
-        $this->rows[] = $row;
+        $this->rows[] = [$row, $comment];
     }
 
     public function getRows(): array

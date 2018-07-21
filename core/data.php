@@ -9,15 +9,19 @@ class Data
     private $functions = [];
     private $pch = [];
 
+    private $idToString = [];
+    private $stringToId = [];
+
     private $variableTypeCache = [];
 
-    public function __construct(string $dir, string $handlers, string $variables, string $functions, string $pch)
+    public function __construct(string $dir, string $handlers, string $variables, string $functions, string $pch, string $fString)
     {
         $this->dir = $dir . '/';
-        $this->handlers = $this->jsonDecode(file_get_contents($this->dir . $handlers));
-        $this->variables = $this->jsonDecode(file_get_contents($this->dir . $variables));
-        $this->functions = $this->jsonDecode(file_get_contents($this->dir . $functions));
-        $this->pch = $this->loadPrecompiledHeaders($this->dir . $pch);
+        $this->handlers = fileJsonDecode($this->dir . $handlers);
+        $this->variables = fileJsonDecode($this->dir . $variables);
+        $this->functions = fileJsonDecode($this->dir . $functions);
+        $this->loadPrecompiledHeaders($this->dir . $pch);
+        $this->loadFString($this->dir . $fString);
     }
 
     public function getHandler(int $classType, int $id): string
@@ -76,19 +80,22 @@ class Data
         return $this->pch;
     }
 
-    private function jsonDecode(string $json): array
+    public function getStringById(int $id): ?string
     {
-        // strip comments
-        $json = preg_replace('#([\s]+//.*)|(^//.*)#', '', $json);
-        return json_decode($json, true);
+        return $this->idToString[$id] ?? null;
     }
 
-    private function loadPrecompiledHeaders(string $pch): array
+    public function getIdByString(string $string): ?int
     {
-        $pch = $this->jsonDecode(file_get_contents($pch));
+        return $this->stringToId[$string] ?? null;
+    }
+
+    private function loadPrecompiledHeaders(string $pch)
+    {
+        $this->pch = fileJsonDecode($pch);
         $files = [];
 
-        foreach ($pch as $name => $constants) {
+        foreach ($this->pch as $name => $constants) {
             $file = null;
             $pattern = null;
 
@@ -105,17 +112,17 @@ class Data
         }
 
         foreach ($files as $file => $patterns) {
-            $values = $this->loadPch($this->dir . $file, $patterns);
+            $values = $this->loadPCH($this->dir . $file, $patterns);
 
             foreach ($values as $name => $constants) {
-                $pch[$name] = $constants;
+                $this->pch[$name] = $constants;
 
                 // workaround for short skill ids
                 if ($name === 'SKILL') {
                     foreach ($constants as $id => $skill) {
                         if ($id % 65536 === 1) {
                             $id = ($id - 1) / 65536;
-                            $pch['SKILL_SHORT'][$id] = $skill;
+                            $this->pch['SKILL_SHORT'][$id] = $skill;
                         }
                     }
                 }
@@ -123,38 +130,65 @@ class Data
         }
 
         // workaround to skip @ab_none precompiled header
-        unset($pch['ABNORMAL'][-1]);
-
-        return $pch;
+        unset($this->pch['ABNORMAL'][-1]);
     }
 
-    private function loadPch(string $path, array $patterns): array
+    private function loadFString(string $fString)
     {
-        $file = fopen($path, 'r');
-        $result = array_combine(array_keys($patterns), array_fill(0, count($patterns), []));
+        if (!file_exists($fString)) {
+            return;
+        }
 
-        while ($file && !feof($file)) {
-            $string = trim(fgets($file));
-            $string = preg_replace('/[^\s\x20-\x7E]/', '', $string); // remove non-ASCII characters
+        $file = fopen($fString, 'r');
 
-            if (!$string || $string[0] !== '[') {
+        if (fread($file, 2) === BOM) {
+            stream_filter_append($file, 'utf16le');
+        }
+
+        while (!feof($file)) {
+            $line = trim(fgets($file));
+
+            if (!$line) {
                 continue;
             }
 
-            if (($comment = strpos($string, '//')) !== false) {
-                $string = trim(substr($string, 0, $comment));
+            [$id, $string] = preg_split('/\s+/', $line, 2);
+            $id = (int) $id;
+            $string = substr($string, 1, -1);
+            $this->idToString[$id] = $string;
+            $this->stringToId[$string] = $id;
+        }
+    }
 
-                if (!$string) {
+    private function loadPCH(string $pch, array $patterns): array
+    {
+        $file = fopen($pch, 'r');
+        $result = array_combine(array_keys($patterns), array_fill(0, count($patterns), []));
+
+        while ($file && !feof($file)) {
+            $line = trim(fgets($file));
+            $line = preg_replace('/[^\s\x20-\x7E]/', '', $line); // remove non-ASCII characters
+
+            if (!$line || $line[0] !== '[') {
+                continue;
+            }
+
+            $comment = strpos($line, '//');
+
+            if ($comment !== false) {
+                $line = trim(substr($line, 0, $comment));
+
+                if (!$line) {
                     continue;
                 }
             }
 
-            if (strpos($string, '=') !== false) {
-                [$constant, $id] = explode('=', $string);
+            if (strpos($line, '=') !== false) {
+                [$constant, $id] = explode('=', $line);
                 $constant = trim($constant);
                 $id = trim($id);
             } else {
-                [$constant, $id] = preg_split('/\s+/', $string);
+                [$constant, $id] = preg_split('/\s+/', $line);
             }
 
             $id = strpos($id, '0x') === 0 ? hexdec($id) : $id;

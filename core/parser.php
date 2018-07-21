@@ -637,7 +637,8 @@ class Parser
         $row = array_map('trim', explode(';', $raw));
 
         if (is_numeric($row[0])) {
-            $row[0] = '"' . $this->data->getPrecompiledHeader('ITEM', $row[0]) . '"';
+            $item = $this->data->getPrecompiledHeader('ITEM', $row[0]); // TODO: if no item, show warning?
+            $row[0] = '"' . ($item ?? $row[0]) . '"';
         }
 
         $this->property->addRow($row);
@@ -647,7 +648,25 @@ class Parser
     {
         $raw = substr($token->raw, 1, -1);
         $row = array_map('trim', explode(';', $raw));
-        $this->property->addRow($row);
+        $comment = null;
+
+//        if (!is_numeric($row[0])) {
+//            $string = substr($row[0], 1, -1);
+//            $id = $this->data->getIdByString($string);
+//
+//            if ($id !== null) {
+//                $comment = $id . ' - ' . $row[0];
+//                $row[0] = $id;
+//            }
+//        } else {
+//            $string = $this->data->getStringById($row[0]);
+//
+//            if ($string !== null) {
+//                $comment = $row[0] . ' - "' . $string . '"';
+//            }
+//        }
+
+        $this->property->addRow($row, $comment);
     }
 
     private function parseVariable(Token $token)
@@ -659,7 +678,7 @@ class Parser
 
             if ($type) {
                 $this->statementStack->top()->addVariable(new VariableDeclaration($type, $variable));
-            }
+            } // TODO: else show warning?
         }
     }
 
