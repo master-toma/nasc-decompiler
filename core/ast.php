@@ -57,6 +57,7 @@ class CallExpression implements Expression
     private $function = '';
     private $object = null;
     private $arguments = [];
+    private $comment = null;
 
     public function __construct(string $type, string $function, array $arguments, ?Expression $object)
     {
@@ -84,6 +85,16 @@ class CallExpression implements Expression
     public function getType(): string
     {
         return $this->type;
+    }
+
+    public function setComment(string $comment)
+    {
+        $this->comment = $comment;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->comment;
     }
 }
 

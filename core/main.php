@@ -170,7 +170,7 @@ class Main
             'variables.json',
             'functions.json',
             'pch.json',
-            'scripts/fstring.txt'
+            'fstring.txt'
         );
 
         $this->parser = new Parser($data);

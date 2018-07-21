@@ -238,6 +238,9 @@ class NascGenerator implements GeneratorInterface
             return 'super;';
         } elseif ($statement instanceof BreakStatement) {
             return 'break;';
+        } elseif ($statement instanceof CallExpression) {
+            $comment = $statement->getComment() ? ' // ' . $statement->getComment() : '';
+            return $this->generateExpression($statement) . ';' . $comment;
         } elseif ($statement instanceof Expression) {
             return $this->generateExpression($statement) . ';';
         } elseif ($statement instanceof BlockStatement) {
