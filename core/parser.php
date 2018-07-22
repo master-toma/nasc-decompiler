@@ -683,13 +683,15 @@ class Parser
     {
         $variable = $this->fixVariableName(trim($token->name, '"'));
 
-        if ($this->shouldAddVariable($variable)) {
-            $type = $this->data->getVariableType($this->class->getType(), $variable);
-
-            if ($type) {
-                $this->statementStack->top()->addVariable(new VariableDeclaration($type, $variable));
-            } // TODO: else show warning?
+        if (!$this->shouldAddVariable($variable)) {
+            return;
         }
+
+        $type = $this->data->getVariableType($this->class->getType(), $variable);
+
+        if ($type) {
+            $this->handler->addVariable(new VariableDeclaration($type, $variable));
+        } // TODO: else show warning?
     }
 
     /* UTILITY */
