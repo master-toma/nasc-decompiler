@@ -421,6 +421,16 @@ class Parser
         if ($token->prev->name === 'push_event') {
             $variable = $this->data->getVariable($this->class->getType(), null, $token->data[0]);
             $this->expressionStack[] = new VariableExpression($variable['type'], $variable['name']);
+
+            if ($this->shouldAddVariable($variable['name'])) {
+                foreach ($this->handler->getVariables() as $handlerVariable) {
+                    if ($handlerVariable->getName() === $variable['name']) {
+                        return;
+                    }
+                }
+
+                $this->handler->addVariable(new VariableDeclaration($variable['type'], $variable['name']));
+            }
         } elseif (strpos($token->data[0], '.') !== false) {
             $this->expressionStack[] = new FloatExpression($token->data[0]);
         } else {
@@ -673,7 +683,7 @@ class Parser
     {
         $variable = $this->fixVariableName(trim($token->name, '"'));
 
-        if ($variable !== 'myself' && $variable[0] !== '_') {
+        if ($this->shouldAddVariable($variable)) {
             $type = $this->data->getVariableType($this->class->getType(), $variable);
 
             if ($type) {
@@ -809,5 +819,10 @@ class Parser
             default:
                 return $variable;
         }
+    }
+
+    private function shouldAddVariable(string $name): bool
+    {
+        return $name !== 'myself' && $name !== 'gg' && $name[0] !== '_';
     }
 }
