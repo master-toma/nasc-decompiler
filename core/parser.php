@@ -455,7 +455,7 @@ class Parser
 
         [$rhs, $lhs] = $this->popExpressions(2);
 
-        if ($this->isObjectType($lhs->getType()) && $rhs instanceof IntegerExpression) {
+        if ($this->isClassType($lhs->getType()) && $rhs instanceof IntegerExpression) {
             $variable = $this->data->getVariable($this->class->getType(), $lhs->getType(), $rhs->getInteger());
             $this->expressionStack[] = new VariableExpression($variable['type'], $variable['name'], $lhs);
         } else {
@@ -650,21 +650,21 @@ class Parser
         $row = array_map('trim', explode(';', $raw));
         $comment = null;
 
-//        if (!is_numeric($row[0])) {
-//            $string = substr($row[0], 1, -1);
-//            $id = $this->data->getIdByString($string);
-//
-//            if ($id !== null) {
-//                $comment = $id . ' - ' . $row[0];
-//                $row[0] = $id;
-//            }
-//        } else {
-//            $string = $this->data->getStringById($row[0]);
-//
-//            if ($string !== null) {
-//                $comment = $row[0] . ' - "' . $string . '"';
-//            }
-//        }
+        if (!is_numeric($row[0])) {
+            $string = substr($row[0], 1, -1);
+            $id = $this->data->getIdByString($string);
+
+            if ($id !== null) {
+                $comment = $id . ' - ' . $row[0];
+                $row[0] = $id;
+            }
+        } else {
+            $string = $this->data->getStringById($row[0]);
+
+            if ($string !== null) {
+                $comment = $row[0] . ' - "' . $string . '"';
+            }
+        }
 
         $this->property->addRow($row, $comment);
     }
@@ -751,7 +751,7 @@ class Parser
         return $token;
     }
 
-    private function isObjectType(string $type): bool
+    private function isClassType(string $type): bool
     {
         $primitives = $this->data->getPrecompiledHeaders();
         $primitives['int'] = true;
