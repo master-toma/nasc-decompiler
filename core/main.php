@@ -4,6 +4,7 @@
 error_reporting(E_ALL);
 ini_set('memory_limit', '1G');
 
+require_once 'common.php';
 require_once 'tokenizer.php';
 require_once 'ast.php';
 require_once 'data.php';
@@ -14,8 +15,6 @@ require_once 'generators/interface.php';
 
 class Main
 {
-    public const BOM = "\xFF\xFE";
-
     private $chronicles = [
         // nasc version => chronicles
         2   => 'gf',
@@ -118,7 +117,7 @@ class Main
 
         // read config file
         if (!empty($this->config['config']) || !empty($defaults['config'])) {
-            $this->config += json_decode(file_get_contents($this->config['config'] ?? $defaults['config']), true);
+            $this->config += fileJsonDecode($this->config['config'] ?? $defaults['config']);
         }
 
         $this->config += $defaults;
@@ -141,10 +140,10 @@ class Main
     private function initializeDependencies()
     {
         // open file
-        stream_filter_register('utf16le', utf16le_filter::class);
+        stream_filter_register('utf16le', UTF16LEFilter::class);
         $this->file = fopen($this->config['input'], 'r');
 
-        if (fread($this->file, 2) === self::BOM) {
+        if (fread($this->file, 2) === BOM) {
             stream_filter_append($this->file, 'utf16le');
         }
 
@@ -170,7 +169,8 @@ class Main
             'handlers.json',
             'variables.json',
             'functions.json',
-            'pch.json'
+            'pch.json',
+            'fstring.txt'
         );
 
         $this->parser = new Parser($data);
@@ -188,7 +188,7 @@ class Main
     private function prepareOutput()
     {
         if (!$this->config['tree']) {
-            file_put_contents($this->config['output'], $this->config['utf16le'] ? self::BOM : '');
+            file_put_contents($this->config['output'], $this->config['utf16le'] ? BOM : '');
         } elseif (!is_dir($this->config['output'])) {
             mkdir($this->config['output']);
         } else {
@@ -203,13 +203,13 @@ class Main
         $this->header = new HeaderDeclaration();
 
         while ($this->file && !feof($this->file)) {
-            $string = trim(fgets($this->file));
+            $line = trim(fgets($this->file));
 
-            if (!$string) {
+            if (!$line) {
                 continue;
             }
 
-            $token = $this->tokenizer->tokenize($string);
+            $token = $this->tokenizer->tokenize($line);
 
             switch ($token->name) {
                 case 'SizeofPointer':
@@ -240,19 +240,18 @@ class Main
 
     private function decompile()
     {
-
-        $line = 0;
+        $lineNo = 0;
 
         while ($this->file && !feof($this->file)) {
-            $string = trim(fgets($this->file));
-            $line++;
+            $line = trim(fgets($this->file));
+            $lineNo++;
 
-            if (!$string) {
+            if (!$line) {
                 continue;
             }
 
-            $token = $this->tokenizer->tokenize($string);
-            $token->line = $line;
+            $token = $this->tokenizer->tokenize($line);
+            $token->line = $lineNo;
 
             if ($token->name === 'class') {
                 $this->tokenizer->setHead($token);
@@ -287,7 +286,7 @@ class Main
                     }
 
                     file_put_contents($this->config['output'] . '/classes.txt', $path . $name . '.' . $this->config['language'] . "\n", FILE_APPEND);
-                    $code = $this->config['utf16le'] ? self::BOM . iconv('UTF-8', 'UTF-16LE', $code) : $code;
+                    $code = $this->config['utf16le'] ? BOM . iconv('UTF-8', 'UTF-16LE', $code) : $code;
                     file_put_contents($outputFile, $code);
                 }
             }
@@ -320,7 +319,7 @@ class Main
 
         $classes = file($this->config['join'] . '/classes.txt');
         $outputFile = pathinfo($this->config['join'], PATHINFO_FILENAME) . '.' . pathinfo(trim($classes[0]), PATHINFO_EXTENSION);
-        file_put_contents($outputFile, $this->config['utf16le'] ? self::BOM : '');
+        file_put_contents($outputFile, $this->config['utf16le'] ? BOM : '');
 
         foreach ($classes as $line) {
             $class = trim($line);
@@ -384,21 +383,6 @@ class Main
         }
 
         return $path;
-    }
-}
-
-class utf16le_filter extends php_user_filter
-{
-    public function filter($in, $out, &$consumed, $closing)
-    {
-        while ($bucket = stream_bucket_make_writeable($in)) {
-            $data = substr($bucket->data, 0, 2) === Main::BOM ? substr($bucket->data, 2) : $bucket->data;
-            $bucket->data = iconv('UTF-16LE', 'UTF-8', $data);
-            $consumed += $bucket->datalen;
-            stream_bucket_append($out, $bucket);
-        }
-
-        return PSFS_PASS_ON;
     }
 }
 

@@ -6,29 +6,29 @@ class NascGenerator implements GeneratorInterface
     private const RIGHT_ASSOCIATIVE = 1;
 
     private $binaryOperators = [
-        '*' => [9, self::LEFT_ASSOCIATIVE],
-        '/' => [9, self::LEFT_ASSOCIATIVE],
-        '%' => [9, self::LEFT_ASSOCIATIVE],
-        '+' => [8, self::LEFT_ASSOCIATIVE],
-        '-' => [8, self::LEFT_ASSOCIATIVE],
-        '<' => [7, self::LEFT_ASSOCIATIVE],
-        '<=' => [7, self::LEFT_ASSOCIATIVE],
-        '>' => [7, self::LEFT_ASSOCIATIVE],
-        '>=' => [7, self::LEFT_ASSOCIATIVE],
-        '==' => [6, self::LEFT_ASSOCIATIVE],
-        '!=' => [6, self::LEFT_ASSOCIATIVE],
-        '&' => [5, self::LEFT_ASSOCIATIVE],
-        '^' => [4, self::LEFT_ASSOCIATIVE],
-        '|' => [3, self::LEFT_ASSOCIATIVE],
-        '&&' => [2, self::LEFT_ASSOCIATIVE],
-        '||' => [1, self::LEFT_ASSOCIATIVE]
+        '*'     => [9, self::LEFT_ASSOCIATIVE],
+        '/'     => [9, self::LEFT_ASSOCIATIVE],
+        '%'     => [9, self::LEFT_ASSOCIATIVE],
+        '+'     => [8, self::LEFT_ASSOCIATIVE],
+        '-'     => [8, self::LEFT_ASSOCIATIVE],
+        '<'     => [7, self::LEFT_ASSOCIATIVE],
+        '<='    => [7, self::LEFT_ASSOCIATIVE],
+        '>'     => [7, self::LEFT_ASSOCIATIVE],
+        '>='    => [7, self::LEFT_ASSOCIATIVE],
+        '=='    => [6, self::LEFT_ASSOCIATIVE],
+        '!='    => [6, self::LEFT_ASSOCIATIVE],
+        '&'     => [5, self::LEFT_ASSOCIATIVE],
+        '^'     => [4, self::LEFT_ASSOCIATIVE],
+        '|'     => [3, self::LEFT_ASSOCIATIVE],
+        '&&'    => [2, self::LEFT_ASSOCIATIVE],
+        '||'    => [1, self::LEFT_ASSOCIATIVE]
     ];
 
     private $unaryOperators = [
-        '++' => [10, self::RIGHT_ASSOCIATIVE],
-        '--' => [10, self::RIGHT_ASSOCIATIVE],
-        '~' => [10, self::RIGHT_ASSOCIATIVE],
-        '-' => [10, self::RIGHT_ASSOCIATIVE]
+        '++'    => [10, self::RIGHT_ASSOCIATIVE],
+        '--'    => [10, self::RIGHT_ASSOCIATIVE],
+        '~'     => [10, self::RIGHT_ASSOCIATIVE],
+        '-'     => [10, self::RIGHT_ASSOCIATIVE]
     ];
 
     public function generateClass(ClassDeclaration $class): string
@@ -72,12 +72,15 @@ class NascGenerator implements GeneratorInterface
 
             foreach ($class->getProperties() as $property) {
                 $list = [];
+                $rows = $property->getRows();
+                $last = count($rows) - 1;
 
-                foreach ($property->getRows() as $row) {
-                    $list[] = "\n{" . implode('; ', $row) . '}';
+                foreach ($rows as $index => $pair) {
+                    [$row, $comment] = $pair;
+                    $list[] = "\n{" . implode('; ', $row) . '}' . ($index !== $last ? ';' : '') . ($comment ? "\t// " . $comment : '');
                 }
 
-                $list = $list ? '{' . implode(';', $list) . "\n}" : '{}';
+                $list = $list ? '{' . implode('', $list) . "\n}" : '{}';
                 $result .= $property->getType() . ' ' . $property->getName() . ' = ' . $list . ";\n";
             }
         }
@@ -235,6 +238,9 @@ class NascGenerator implements GeneratorInterface
             return 'super;';
         } elseif ($statement instanceof BreakStatement) {
             return 'break;';
+        } elseif ($statement instanceof CallExpression) {
+            $comment = $statement->getComment() ? ' // ' . $statement->getComment() : '';
+            return $this->generateExpression($statement) . ';' . $comment;
         } elseif ($statement instanceof Expression) {
             return $this->generateExpression($statement) . ';';
         } elseif ($statement instanceof BlockStatement) {
