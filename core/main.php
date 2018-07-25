@@ -123,7 +123,7 @@ class Main
         $this->config += $defaults;
 
         // prepare --output option
-        if (empty($this->config['output'])) {
+        if (empty($this->config['output']) && !$this->config['join']) {
             $this->config['output'] = pathinfo($this->config['input'], PATHINFO_FILENAME);
 
             if (!$this->config['tree']) {
@@ -319,6 +319,7 @@ class Main
 
         $classes = file($this->config['join'] . '/classes.txt');
         $outputFile = pathinfo($this->config['join'], PATHINFO_FILENAME) . '.' . pathinfo(trim($classes[0]), PATHINFO_EXTENSION);
+        $outputFile = $htis->config['output'] ?? $outputFile;
         file_put_contents($outputFile, $this->config['utf16le'] ? BOM : '');
 
         foreach ($classes as $line) {
@@ -329,7 +330,8 @@ class Main
             }
 
             $code = file_get_contents($this->config['join'] . '/' . $class) . "\n";
-            file_put_contents($outputFile, $this->config['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code) : $code, FILE_APPEND);
+            $code = $this->config['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code) : $code;
+            file_put_contents($outputFile, $code, FILE_APPEND);
             echo '.';
         }
 
