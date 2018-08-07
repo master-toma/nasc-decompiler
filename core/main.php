@@ -319,7 +319,7 @@ class Main
 
         $classes = file($this->config['join'] . '/classes.txt');
         $outputFile = pathinfo($this->config['join'], PATHINFO_FILENAME) . '.' . pathinfo(trim($classes[0]), PATHINFO_EXTENSION);
-        $outputFile = $htis->config['output'] ?? $outputFile;
+        $outputFile = $this->config['output'] ?? $outputFile;
         file_put_contents($outputFile, $this->config['utf16le'] ? BOM : '');
 
         foreach ($classes as $line) {
