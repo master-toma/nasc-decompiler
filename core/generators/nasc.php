@@ -77,7 +77,7 @@ class NascGenerator implements GeneratorInterface
 
                 foreach ($rows as $index => $pair) {
                     [$row, $comment] = $pair;
-                    $list[] = "\n{" . implode('; ', $row) . '}' . ($index !== $last ? ';' : '') . ($comment ? "\t// " . $comment : '');
+                    $list[] = "\n{" . implode('; ', $row) . '}' . ($index !== $last ? ';' : '') . ($comment ? "    // " . $comment : '');
                 }
 
                 $list = $list ? '{' . implode('', $list) . "\n}" : '{}';
@@ -279,7 +279,7 @@ class NascGenerator implements GeneratorInterface
                 $result[] = '';
             }
 
-            $result[] = str_repeat("\t", $indent) . $line;
+            $result[] = str_repeat("    ", $indent) . $line;
 
             if ($currLastChar === '{' || $currLastChar === ':') {
                 $indent++;
