@@ -515,7 +515,7 @@
             },
             "152": {
                 "name": "occupation",
-                "type": "CATEGORY"
+                "type": "CLASS"
             },
             "1620": {
                 "name": "npc_class_id",
