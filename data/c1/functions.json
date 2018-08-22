@@ -1140,14 +1140,14 @@
     "145": {
         "name": "Castle_GetCropRate",
         "arguments": [
-            "NPC"
+            "ITEM"
         ],
         "type": "int"
     },
     "146": {
         "name": "Castle_GetCropPrice",
         "arguments": [
-            "NPC"
+            "ITEM"
         ],
         "type": "int"
     },
@@ -1155,18 +1155,18 @@
         "name": "Castle_GetCropIncome",
         "arguments": [
         ],
-        "type": "NPC"
+        "type": "int"
     },
     "148": {
         "name": "Residence_GetTaxIncome",
         "arguments": [
         ],
-        "type": "NPC"
+        "type": "int"
     },
     "149": {
         "name": "Castle_SetCropPrice",
         "arguments": [
-            "NPC",
+            "ITEM",
             "int"
         ],
         "type": "void"
@@ -1174,16 +1174,17 @@
     "150": {
         "name": "Castle_SetCropDrop",
         "arguments": [
-            "NPC",
+            "ITEM",
             "int",
-            "int"
+            "int",
+			"int"
         ],
         "type": "void"
     },
     "151": {
         "name": "Castle_DeleteCropDrop",
         "arguments": [
-            "NPC"
+            "ITEM"
         ],
         "type": "void"
     },
@@ -1191,7 +1192,7 @@
         "name": "Castle_PostCropPurchase",
         "arguments": [
             "CSharedCreatureData",
-            "NPC",
+            "ITEM",
             "int"
         ],
         "type": "void"
@@ -1271,7 +1272,7 @@
     "163": {
         "name": "UseItem",
         "arguments": [
-            "int"
+            "ITEM"
         ],
         "type": "int"
     },
