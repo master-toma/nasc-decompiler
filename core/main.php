@@ -30,7 +30,7 @@ class Main
         'input'         => ["\t" . 'Path to AI file to decompile.', 'ai.obj'],
         'output'        => ['Path to result file/directory.', null],
         'chronicles'    => ['AI chronicles. Provide a directory name from the data directory.', null],
-        'language'      => ['Result language. Provide a file name from the core/generators directory (without .php extension).', 'nasc'],
+        'language'      => ['Result language. Provide a file name from the core/generators directory (without .php extension).', 'ais'],
         'tree'          => ["\t" . 'Split result in tree structure. Provide a tree depth (0 - don\'t split, 1 - flat, more than 3 can cause problems on Windows).', 3],
         'join'          => ["\t" . 'Join split classes into one file. Provide path to a directory which contains the classes.txt file.', null],
         'utf16le'       => ['Encode output in UTF-16LE instead of UTF-8. NASC Compiler supports only UTF-16LE.', false],

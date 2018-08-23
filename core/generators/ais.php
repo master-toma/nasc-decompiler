@@ -1,6 +1,6 @@
 <?php
 
-class NascGenerator implements GeneratorInterface
+class AisGenerator implements GeneratorInterface
 {
     private const LEFT_ASSOCIATIVE = 0;
     private const RIGHT_ASSOCIATIVE = 1;
