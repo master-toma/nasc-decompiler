@@ -44,9 +44,9 @@ class NascGenerator implements GeneratorInterface
 
         // class declaration
         if ($class->getSuper()) {
-            $result .= 'class ' . $class->getName() . ' : ' . $class->getSuper() . " {\n";
+            $result .= 'class ' . $class->getName() . ' : ' . $class->getSuper() . "\n{\n";
         } else {
-            $result .= 'class ' . $class->getName() . " {\n";
+            $result .= 'class ' . $class->getName() . "\n{\n";
         }
 
         // parameters
@@ -100,7 +100,7 @@ class NascGenerator implements GeneratorInterface
                     $variables[] = $variable->getName();
                 }
 
-                $result .= 'EventHandler ' . $handler->getName() . '(' . implode(', ', $variables) . ") {\n";
+                $result .= 'EventHandler ' . $handler->getName() . '(' . implode(', ', $variables) . ")\n{\n";
                 $result .= $this->generateStatement($handler->getBlock());
                 $result .= "}\n";
             }
@@ -197,23 +197,23 @@ class NascGenerator implements GeneratorInterface
     private function generateStatement(Statement $statement): string
     {
         if ($statement instanceof IfStatement) {
-            $if = 'if (' . $this->generateExpression($statement->getCondition()) . ") {\n";
+            $if = 'if (' . $this->generateExpression($statement->getCondition()) . ")\n{\n";
             $if .= $this->generateStatement($statement->getThenBlock());
             $if .= '}';
 
             $else = $statement->getElseBlock()->getStatements();
 
             if (count($else) === 1 && $else[0] instanceof IfStatement) {
-                $if .= ' else ' . $this->generateStatement($else[0]);
+                $if .= "\nelse " . $this->generateStatement($else[0]); #else if
             } elseif ($else) {
-                $if .= " else {\n";
+                $if .= "\nelse\n{\n";
                 $if .= $this->generateStatement($statement->getElseBlock());
                 $if .= '}';
             }
 
             return $if;
         } elseif ($statement instanceof SelectStatement) {
-            $select = 'select (' . $this->generateExpression($statement->getCondition()) . ") {\n";
+            $select = 'select (' . $this->generateExpression($statement->getCondition()) . ")\n{\n";
 
             foreach ($statement->getCases() as $case) {
                 $select .= 'case ' . $this->generateExpression($case->getExpression()) . ":\n";
@@ -222,14 +222,14 @@ class NascGenerator implements GeneratorInterface
 
             return $select . '}';
         } elseif ($statement instanceof WhileStatement) {
-            $while = 'while (' . $this->generateExpression($statement->getCondition()) . ") {\n";
+            $while = 'while (' . $this->generateExpression($statement->getCondition()) . ")\n{\n";
             $while .= $this->generateStatement($statement->getBlock());
             return $while . '}';
         } elseif ($statement instanceof ForStatement) {
             $init = $this->generateExpression($statement->getInit());
             $condition = $this->generateExpression($statement->getCondition());
             $update = $this->generateExpression($statement->getUpdate());
-            $for = 'for (' . $init . '; ' . $condition . '; ' . $update . ") {\n";
+            $for = 'for (' . $init . '; ' . $condition . '; ' . $update . ")\n{\n";
             $for .= $this->generateStatement($statement->getBlock());
             return $for . '}';
         } elseif ($statement instanceof ReturnStatement) {
@@ -274,7 +274,8 @@ class NascGenerator implements GeneratorInterface
 
             if ($currLastChar !== ':' &&
                 $currFirstChar !== '}' &&
-                ($prevLastChar === '}' || $currLastChar === '{' && trim($prevLastChar, '{:'))
+				$currFirstChar !== 'e' &&
+                ($prevLastChar === '}')
             ) {
                 $result[] = '';
             }
