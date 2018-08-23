@@ -1,4 +1,7 @@
 {
+	// AI types
+	"AI_TYPES":	"pch/ai_types_pch.txt",
+	
     // PCH-files copied directly from the server's scripts directory
     "SKILL":    "pch/skill_pch.txt",
     "ITEM":     "pch/item_pch.txt",

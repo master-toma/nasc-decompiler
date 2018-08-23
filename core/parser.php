@@ -777,7 +777,7 @@ class Parser
         return !isset($primitives[$type]);
     }
 
-    private function getPrecompiledHeader($name, int $id): Expression
+    public function getPrecompiledHeader($name, int $id): Expression
     {
         $names = (array) $name;
 
@@ -799,6 +799,21 @@ class Parser
         return new IntegerExpression($id);
     }
 
+	public function getPrecompiledHeaderStr($name, string $id): string
+    {
+        $names = (array) $name;
+
+        foreach ($names as $name) {
+            $pch = $this->data->getPrecompiledHeaderStr($name, $id);
+
+            if ($pch) {
+                    return $pch;
+                }
+            }
+
+        return "";
+    }
+	
     private function fixTypeCase(string $type): string
     {
         switch ($type) {

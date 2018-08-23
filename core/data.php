@@ -74,6 +74,11 @@ class Data
     {
         return $this->pch[$name][$id] ?? null;
     }
+	
+	public function getPrecompiledHeaderStr(string $name, string $id): ?string
+    {
+        return $this->pch[$name][$id] ?? null;
+    }
 
     public function getPrecompiledHeaders(): array
     {

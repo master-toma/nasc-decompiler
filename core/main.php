@@ -362,28 +362,34 @@ class Main
 
     private function treePath(string $class, ?string $super, int $depth): string
     {
-        if ($super) {
-            $this->tree[$class] = $super;
-        }
-
+		$aiType = $this->parser->getPrecompiledHeaderStr('AI_TYPES', $class);
+		
+        #if ($super) {
+        #    $this->tree[$class] = $super;
+        #}
+        #
         $path = '';
-        $current = $class;
+        #$current = $class;
+        #
+        #while (isset($this->tree[$current])) {
+        #    $current = $this->tree[$current];
+        #    $path = $current . '/' . $path;
+        #}
 
-        while (isset($this->tree[$current])) {
-            $current = $this->tree[$current];
-            $path = $current . '/' . $path;
-        }
+        #$parts = explode('/', $path);
+        #
+        #if (count($parts) >= $depth) {
+        #    $path = implode('/', array_slice($parts, 0, $depth - 1));
+        #
+        #    if ($path) {
+        #        $path .= '/';
+        #    }
+        #}
 
-        $parts = explode('/', $path);
-
-        if (count($parts) >= $depth) {
-            $path = implode('/', array_slice($parts, 0, $depth - 1));
-
-            if ($path) {
-                $path .= '/';
-            }
-        }
-
+		$path .= '/';
+		$path .= $aiType;
+		$path .= '/';
+		
         return $path;
     }
 }
