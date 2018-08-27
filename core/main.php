@@ -274,7 +274,7 @@ class Main
                 echo "\n";
 
                 if (!$this->config['tree']) {
-                    $code = $this->config['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code . "\n") : $code . "\n";
+                    //$code = $this->config['utf16le'] ? iconv('UTF-8', 'UTF-16LE', $code . "\n") : $code . "\n";
                     file_put_contents($this->config['output'], $code, FILE_APPEND);
                 } else {
                     $path = $this->treePath($name, $class->getSuper(), $this->config['tree']);
@@ -286,7 +286,7 @@ class Main
                     }
 
                     file_put_contents($this->config['output'] . '/classes.txt', $path . $name . '.' . $this->config['language'] . "\n", FILE_APPEND);
-                    $code = $this->config['utf16le'] ? BOM . iconv('UTF-8', 'UTF-16LE', $code) : $code;
+                    //$code = $this->config['utf16le'] ? BOM . iconv('UTF-8', 'UTF-16LE', $code) : $code;
                     file_put_contents($outputFile, $code);
                 }
             }
