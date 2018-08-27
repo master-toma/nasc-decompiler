@@ -614,6 +614,7 @@ class Parser
             ) {
                 $expression = $this->getPrecompiledHeader('SKILL', $value);
             } elseif (stripos($name, 'item') !== false ||
+				stripos($name, 'proof') !== false ||
                 stripos($name, 'weapon') !== false
             ) {
                 $expression = $this->getPrecompiledHeader('ITEM', $value);
@@ -621,6 +622,11 @@ class Parser
                 $expression = $this->getPrecompiledHeader('NPC', $value);
             } elseif (strtolower($name) === 'gm_id') {
                 $expression = $this->getPrecompiledHeader('GM_ID', $value);
+            } elseif (stripos($name, 'lv1_class') !== false ||
+                stripos($name, 'lv2_class') !== false ||
+                stripos($name, 'lv3_class') !== false 
+            ) {
+                $expression = $this->getPrecompiledHeader('CLASS', $value);
             } else {
                 $expression = $this->getPrecompiledHeader(['NPC', 'SKILL'], $value);
             }
