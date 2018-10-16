@@ -538,7 +538,7 @@
         "name": "GetAbnormalLevel",
         "arguments": [
             "CSharedCreatureData",
-            "int"
+            "ABNORMAL"
         ],
         "type": "int"
     },
