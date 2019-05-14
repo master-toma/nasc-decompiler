@@ -1623,5 +1623,12 @@
             "string"
         ],
         "type": "void"
+    },
+    "205": {
+        "name": "IsNullCreatire",
+        "arguments": [
+            "CSharedCreatureData"
+        ],
+        "type": "int"
     }
 }
