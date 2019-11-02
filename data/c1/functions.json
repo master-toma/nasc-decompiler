@@ -1625,7 +1625,7 @@
         "type": "void"
     },
     "205": {
-        "name": "IsNullCreatire",
+        "name": "IsNullCreature",
         "arguments": [
             "CSharedCreatureData"
         ],

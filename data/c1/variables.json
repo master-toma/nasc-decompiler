@@ -628,7 +628,27 @@
             "397": {
                 "name": "is_freezed",
                 "type": "int"
-            }
+            },
+             "748": {
+                "name": "mount_type",
+                "type": "int"
+            },
+            "32": {
+                "name": "direction",
+                "type": "int"
+            },
+             "812": {
+                "name": "base_attack_range",
+                "type": "int"
+            },
+             "380": {
+                "name": "pet_index",
+                "type": "int"
+            },
+             "40": {
+                "name": "id",
+                "type": "int"
+            }            
         },
         "CSharedItemData": {
             "120": {
