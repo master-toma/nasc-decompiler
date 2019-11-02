@@ -523,7 +523,7 @@
             "CSharedCreatureData",
             "QUEST"
         ],
-        "type": "int"
+        "type": "BOOL"
     },
     "66": {
         "name": "SetOneTimeQuestFlag",
