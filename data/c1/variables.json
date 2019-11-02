@@ -333,7 +333,7 @@
         "CNPC": {
             "2308": {
                 "name": "p_state",
-                "type": "int"
+                "type": "PSTATE"
             },
             "2312": {
                 "name": "temper",
@@ -559,7 +559,7 @@
             },
             "1672": {
                 "name": "p_state",
-                "type": "int"
+                "type": "PSTATE"
             },
             "384": {
                 "name": "target_index",

@@ -1387,7 +1387,7 @@
         "arguments": [
             "CSharedCreatureData"
         ],
-        "type": "int"
+        "type": "BOOL"
     },
     "178": {
         "name": "InstantTeleportInMyTerritory",
@@ -1451,7 +1451,7 @@
         "arguments": [
             "CSharedCreatureData"
         ],
-        "type": "void"
+        "type": "BOOL"
     },
     "184": {
         "name": "PledgeLevelUp",
