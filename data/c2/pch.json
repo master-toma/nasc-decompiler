@@ -1,0 +1,64 @@
+{
+	// AI types
+	"AI_TYPES":	"pch/ai_types_pch.txt",
+	
+    // PCH-files copied directly from the server's scripts directory
+    "SKILL":    "pch/skill_pch.txt",
+    "ITEM":     "pch/item_pch.txt",
+    "NPC":      "pch/npc_pch.txt",
+    "CATEGORY": "pch/category_pch.txt",
+    "QUEST":    "pch/quest_pch.txt",
+
+    // PCH-files by splitting the manual_pch.txt file
+    "GM_ID":    "pch/gm_pch.txt",
+    "SCE":      "pch/sce_pch.txt",
+    "CLASS":    "pch/class_pch.txt",
+    "ABNORMAL": "pch/abnormal_pch.txt",
+
+    // custom types by parsing the manual_pch.txt file
+    "TUTORIAL":     {"file": "pch/manual_pch.txt", "pattern": "TUTORIAL_*"},
+    "PARAM":        {"file": "pch/manual_pch.txt", "pattern": "PARAM_*"},
+    "AMT":          {"file": "pch/manual_pch.txt", "pattern": "AMT_*"},
+    "ST":           {"file": "pch/manual_pch.txt", "pattern": "ST_*"},
+
+    // custom types from the manual_pch.txt file
+    "PSTATE": [
+        "PSTATE_IDLE",
+        "PSTATE_MOVE_AROUND",
+        "PSTATE_DO_NOTHING",
+        "PSTATE_ATTACK",
+        "PSTATE_CHASE",
+        "PSTATE_FLEE",
+        "PSTATE_GET_ITEM",
+        "PSTATE_FOLLOW",
+        "PSTATE_DECAYING",
+        "PSTATE_MOVE_TO_WAY_POINT",
+        "PSTATE_USE_SKILL",
+        "PSTATE_MOVE_TO",
+        "PSTATE_EFFECT_ACTION",
+        "PSTATE_PET_DEFAULT"
+    ],
+    "AT": [
+        "AT_NONE",
+        "AT_SWORD",
+        "AT_BLUNT",
+        "AT_DAGGER",
+        "AT_POLE",
+        "AT_FIST",
+        "AT_BOW",
+        "AT_ETC",
+        "AT_DUAL",
+        "AT_DUALFIST"
+    ],
+    "RACE": [
+        "race_human",
+        "race_elf",
+        "race_dark_elf",
+        "race_orc",
+        "race_dwarf"
+    ],
+    "BOOL": [
+        "FALSE",
+        "TRUE"
+    ]
+}
