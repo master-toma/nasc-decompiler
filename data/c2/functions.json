@@ -1,1634 +1,1716 @@
 {
-    "0": {
-        "name": "AddMoveAroundDesire",
-        "arguments": [
-            "int",
-            "float"
-        ],
-        "type": "void"
-    },
-    "1": {
-        "name": "AddDoNothingDesire",
-        "arguments": [
-            "int",
-            "float"
-        ],
-        "type": "void"
-    },
-    "2": {
-        "name": "AddAttackDesire",
-        "arguments": [
-            "CSharedCreatureData",
-            "AMT",
-            "float"
-        ],
-        "type": "void"
-    },
-    "3": {
-        "name": "AddAttackDesireEx",
-        "arguments": [
-            "int",
-            "int",
-            "int",
-            "float"
-        ],
-        "type": "void"
-    },
-    "4": {
-        "name": "AddGetItemDesire",
-        "arguments": [
-            "CSharedItemData",
-            "float"
-        ],
-        "type": "void"
-    },
-    "5": {
-        "name": "AddChaseDesire",
-        "arguments": [
-            "CSharedCreatureData",
-            "float"
-        ],
-        "type": "void"
-    },
-    "6": {
-        "name": "AddFleeDesire",
-        "arguments": [
-            "CSharedCreatureData",
-            "float"
-        ],
-        "type": "void"
-    },
-    "7": {
-        "name": "AddFollowDesire",
-        "arguments": [
-            "CSharedCreatureData",
-            "float"
-        ],
-        "type": "void"
-    },
-    "8": {
-        "name": "AddDecayingDesire",
-        "arguments": [
-            "float"
-        ],
-        "type": "void"
-    },
-    "9": {
-        "name": "AddMoveToWayPointDesire",
-        "arguments": [
-            "Waypoints",
-            "WaypointDelays",
-            "int",
-            "float"
-        ],
-        "type": "void"
-    },
-    "10": {
-        "name": "AddUseSkillDesire",
-        "arguments": [
-            "CSharedCreatureData",
-            "SKILL",
-            "ST",
-            "AMT",
-            "float"
-        ],
-        "type": "void"
-    },
-    "11": {
-        "name": "AddUseSkillDesireEx",
-        "arguments": [
-            "int",
-            "int",
-            "ST",
-            "AMT",
-            "int",
-            "float"
-        ],
-        "type": "void"
-    },
-    "12": {
-        "name": "AddMoveToDesire",
-        "arguments": [
-            "int",
-            "int",
-            "int",
-            "float"
-        ],
-        "type": "void"
-    },
-    "13": {
-        "name": "AddEffectActionDesire",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int",
-            "float"
-        ],
-        "type": "void"
-    },
-    "14": {
-        "name": "AddPetDefaultDesire_Follow",
-        "arguments": [
-            "float"
-        ],
-        "type": "void"
-    },
-    "15": {
-        "name": "RemoveAllAttackDesire",
-        "arguments": [
-        ],
-        "type": "void"
-    },
-    "16": {
-        "name": "RemoveAttackDesire",
-        "arguments": [
-            "int"
-        ],
-        "type": "void"
-    },
-    "17": {
-        "name": "RandomizeAttackDesire",
-        "arguments": [
-        ],
-        "type": "void"
-    },
-    "18": {
-        "name": "MakeAttackEvent",
-        "arguments": [
-            "CSharedCreatureData",
-            "float",
-            "int"
-        ],
-        "type": "void"
-    },
-    "19": {
-        "name": "GetTopDesireValue",
-        "arguments": [
-        ],
-        "type": "float"
-    },
-    "20": {
-        "name": "GetLifeTime",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "21": {
-        "name": "GetTick",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "22": {
-        "name": "IsSameString",
-        "arguments": [
-            "string",
-            "string"
-        ],
-        "type": "int"
-    },
-    "23": {
-        "name": "GetCurrentTick",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "24": {
-        "name": "GetDirection",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "int"
-    },
-    "25": {
-        "name": "SetCookie",
-        "arguments": [
-            "CSharedCreatureData",
-            "string",
-            "int"
-        ],
-        "type": "void"
-    },
-    "26": {
-        "name": "GetCookie",
-        "arguments": [
-            "CSharedCreatureData",
-            "string"
-        ],
-        "type": "int"
-    },
-    "27": {
-        "name": "SetTeleportPosOnLost",
-        "arguments": [
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "28": {
-        "name": "AddTimerEx",
-        "arguments": [
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "29": {
-        "name": "GetIndexFromCreature",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "int"
-    },
-    "30": {
-        "name": "GetCreatureFromIndex",
-        "arguments": [
-            "AMT"
-        ],
-        "type": "CSharedCreatureData"
-    },
-    "31": {
-        "name": "RegisterGlobalMap",
-        "arguments": [
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "32": {
-        "name": "UnregisterGlobalMap",
-        "arguments": [
-            "int"
-        ],
-        "type": "int"
-    },
-    "33": {
-        "name": "GetGlobalMap",
-        "arguments": [
-            "int"
-        ],
-        "type": "int"
-    },
-    "34": {
-        "name": "SendScriptEvent",
-        "arguments": [
-            "CSharedCreatureData",
-            "QUEST",
-            "SCE"
-        ],
-        "type": "void"
-    },
-    "35": {
-        "name": "ReportDesire",
-        "arguments": [
-        ],
-        "type": "void"
-    },
-    "36": {
-        "name": "IsSpoiled",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "37": {
-        "name": "Say",
-        "arguments": [
-            "string"
-        ],
-        "type": "int"
-    },
-    "38": {
-        "name": "SayInt",
-        "arguments": [
-            "int"
-        ],
-        "type": "void"
-    },
-    "39": {
-        "name": "SayFloat",
-        "arguments": [
-            "float"
-        ],
-        "type": "void"
-    },
-    "40": {
-        "name": "EquipItem",
-        "arguments": [
-            "int"
-        ],
-        "type": "int"
-    },
-    "41": {
-        "name": "Talk",
-        "arguments": [
-            "CSharedCreatureData",
-            "string"
-        ],
-        "type": "int"
-    },
-    "42": {
-        "name": "Shout",
-        "arguments": [
-            "string"
-        ],
-        "type": "int"
-    },
-    "43": {
-        "name": "ShowPage",
-        "arguments": [
-            "CSharedCreatureData",
-            "string"
-        ],
-        "type": "void"
-    },
-    "44": {
-        "name": "ShowSystemMessage",
-        "arguments": [
-            "CSharedCreatureData",
-            "int"
-        ],
-        "type": "void"
-    },
-    "45": {
-        "name": "Teleport",
-        "arguments": [
-            "CSharedCreatureData",
-            "TeleportPos",
-            "string",
-            "string",
-            "string",
-            "string"
-        ],
-        "type": "void"
-    },
-    "46": {
-        "name": "InstantTeleport",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "47": {
-        "name": "Sell",
-        "arguments": [
-            "CSharedCreatureData",
-            "BuySellList",
-            "string",
-            "string",
-            "string",
-            "string"
-        ],
-        "type": "void"
-    },
-    "48": {
-        "name": "Buy",
-        "arguments": [
-            "CSharedCreatureData",
-            "BuySellList",
-            "string",
-            "string",
-            "string",
-            "float"
-        ],
-        "type": "void"
-    },
-    "49": {
-        "name": "IsAlive",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "int"
-    },
-    "50": {
-        "name": "HPRatio",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "float"
-    },
-    "51": {
-        "name": "DistFromMe",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "float"
-    },
-    "52": {
-        "name": "SetTimerPeriodByTick",
-        "arguments": [
-            "int"
-        ],
-        "type": "void"
-    },
-    "53": {
-        "name": "SetTimerPeriod",
-        "arguments": [
-            "int"
-        ],
-        "type": "void"
-    },
-    "54": {
-        "name": "GetWayPointDelay",
-        "arguments": [
-            "WaypointDelays",
-            "int"
-        ],
-        "type": "int"
-    },
-    "55": {
-        "name": "Rand",
-        "arguments": [
-            "int"
-        ],
-        "type": "int"
-    },
-    "56": {
-        "name": "IntToStr",
-        "arguments": [
-            "int"
-        ],
-        "type": "string"
-    },
-    "57": {
-        "name": "FloatToInt",
-        "arguments": [
-            "float"
-        ],
-        "type": "int"
-    },
-    "58": {
-        "name": "GetMemoCount",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "int"
-    },
-    "59": {
-        "name": "HaveMemo",
-        "arguments": [
-            "CSharedCreatureData",
-            "QUEST"
-        ],
-        "type": "int"
-    },
-    "60": {
-        "name": "SetMemo",
-        "arguments": [
-            "CSharedCreatureData",
-            "QUEST"
-        ],
-        "type": "int"
-    },
-    "61": {
-        "name": "SetMemoState",
-        "arguments": [
-            "CSharedCreatureData",
-            "QUEST",
-            "int"
-        ],
-        "type": "int"
-    },
-    "62": {
-        "name": "GetMemoState",
-        "arguments": [
-            "CSharedCreatureData",
-            "QUEST"
-        ],
-        "type": "int"
-    },
-    "63": {
-        "name": "RemoveMemo",
-        "arguments": [
-            "CSharedCreatureData",
-            "QUEST"
-        ],
-        "type": "int"
-    },
-    "64": {
-        "name": "SetJournal",
-        "arguments": [
-            "CSharedCreatureData",
-            "QUEST",
-            "int"
-        ],
-        "type": "void"
-    },
-    "65": {
-        "name": "GetOneTimeQuestFlag",
-        "arguments": [
-            "CSharedCreatureData",
-            "QUEST"
-        ],
-        "type": "BOOL"
-    },
-    "66": {
-        "name": "SetOneTimeQuestFlag",
-        "arguments": [
-            "CSharedCreatureData",
-            "QUEST",
-            "int"
-        ],
-        "type": "void"
-    },
-    "67": {
-        "name": "GetAbnormalLevel",
-        "arguments": [
-            "CSharedCreatureData",
-            "ABNORMAL"
-        ],
-        "type": "int"
-    },
-    "68": {
-        "name": "SetDBValue",
-        "arguments": [
-            "CSharedCreatureData",
-            "int"
-        ],
-        "type": "void"
-    },
-    "69": {
-        "name": "Party_GetCount",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "int"
-    },
-    "70": {
-        "name": "Party_GetCreature",
-        "arguments": [
-            "CSharedCreatureData",
-            "int"
-        ],
-        "type": "CSharedCreatureData"
-    },
-    "71": {
-        "name": "Party_GetLeader",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "CSharedCreatureData"
-    },
-    "72": {
-        "name": "Pledge_GetCount",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "int"
-    },
-    "73": {
-        "name": "Pledge_GetCreature",
-        "arguments": [
-            "CSharedCreatureData",
-            "int"
-        ],
-        "type": "CSharedCreatureData"
-    },
-    "74": {
-        "name": "Pledge_GetLeader",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "CSharedCreatureData"
-    },
-    "75": {
-        "name": "GetParty",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "CSharedPartyData"
-    },
-    "76": {
-        "name": "GetPledge",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "CSharedPledgeData"
-    },
-    "77": {
-        "name": "GiveItem1",
-        "arguments": [
-            "CSharedCreatureData",
-            "ITEM",
-            "int"
-        ],
-        "type": "int"
-    },
-    "78": {
-        "name": "GiveItem2",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "int"
-    },
-    "79": {
-        "name": "GiveItem3",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "int"
-    },
-    "80": {
-        "name": "DeleteItem1",
-        "arguments": [
-            "CSharedCreatureData",
-            "ITEM",
-            "int"
-        ],
-        "type": "int"
-    },
-    "81": {
-        "name": "OwnItemCount",
-        "arguments": [
-            "CSharedCreatureData",
-            "ITEM"
-        ],
-        "type": "int"
-    },
-    "82": {
-        "name": "AtomicDelete3Give1Item",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "83": {
-        "name": "GetLastAttacker",
-        "arguments": [
-        ],
-        "type": "CSharedCreatureData"
-    },
-    "84": {
-        "name": "FHTML_SetFileName",
-        "arguments": [
-            "UNKNOWN",
-            "string"
-        ],
-        "type": "void"
-    },
-    "85": {
-        "name": "FHTML_SetInt",
-        "arguments": [
-            "UNKNOWN",
-            "string",
-            "QUEST"
-        ],
-        "type": "void"
-    },
-    "86": {
-        "name": "FHTML_SetFloat",
-        "arguments": [
-            "UNKNOWN",
-            "string",
-            "float"
-        ],
-        "type": "void"
-    },
-    "87": {
-        "name": "FHTML_SetStr",
-        "arguments": [
-            "UNKNOWN",
-            "string",
-            "string"
-        ],
-        "type": "void"
-    },
-    "88": {
-        "name": "ShowFHTML",
-        "arguments": [
-            "CSharedCreatureData",
-            "UNKNOWN"
-        ],
-        "type": "void"
-    },
-    "89": {
-        "name": "MakeFString",
-        "arguments": [
-            "int",
-            "string",
-            "string",
-            "string",
-            "string",
-            "string"
-        ],
-        "type": "string"
-    },
-    "90": {
-        "name": "IsWaitingDismiss",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "int"
-    },
-    "91": {
-        "name": "GetPledgeSkillLevel",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "int"
-    },
-    "92": {
-        "name": "RegisterSiege",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "void"
-    },
-    "93": {
-        "name": "RegisterSiegeDefender",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "void"
-    },
-    "94": {
-        "name": "UnregisterSiege",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "void"
-    },
-    "95": {
-        "name": "ShowSetSiegeTime",
-        "arguments": [
-            "CSharedCreatureData",
-            "string",
-            "string",
-            "string"
-        ],
-        "type": "void"
-    },
-    "96": {
-        "name": "PrepareSiegeTime",
-        "arguments": [
-            "int",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "string"
-    },
-    "97": {
-        "name": "ViewSiegeList",
-        "arguments": [
-            "CSharedCreatureData",
-            "string"
-        ],
-        "type": "void"
-    },
-    "98": {
-        "name": "ApproveBattle",
-        "arguments": [
-            "CSharedCreatureData",
-            "string"
-        ],
-        "type": "void"
-    },
-    "99": {
-        "name": "CheckSiege",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "void"
-    },
-    "100": {
-        "name": "IsMyLord",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "int"
-    },
-    "101": {
-        "name": "Castle_GetPledgeName",
-        "arguments": [
-        ],
-        "type": "string"
-    },
-    "102": {
-        "name": "Castle_GetOwnerName",
-        "arguments": [
-        ],
-        "type": "string"
-    },
-    "103": {
-        "name": "Castle_GetSiegeTime",
-        "arguments": [
-        ],
-        "type": "string"
-    },
-    "104": {
-        "name": "Residence_GetTaxRate",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "105": {
-        "name": "Residence_GetTaxRateCurrent",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "106": {
-        "name": "Residence_SetTaxRate",
-        "arguments": [
-            "int"
-        ],
-        "type": "void"
-    },
-    "107": {
-        "name": "Residence_GetChildTaxRate",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "108": {
-        "name": "Residence_SetVaultEmpty",
-        "arguments": [
-            "int"
-        ],
-        "type": "void"
-    },
-    "109": {
-        "name": "Residence_SetChildTaxRateEach",
-        "arguments": [
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "110": {
-        "name": "Residence_SetChildTaxRate",
-        "arguments": [
-            "int"
-        ],
-        "type": "void"
-    },
-    "111": {
-        "name": "Residence_VaultTakeOutMoney",
-        "arguments": [
-            "CSharedCreatureData",
-            "int"
-        ],
-        "type": "void"
-    },
-    "112": {
-        "name": "Castle_IsGateOpen",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "113": {
-        "name": "Castle_SetSiegeTime",
-        "arguments": [
-            "int",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "114": {
-        "name": "Castle_GateOpenClose",
-        "arguments": [
-            "int"
-        ],
-        "type": "void"
-    },
-    "115": {
-        "name": "Castle_GetPledgeState",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "int"
-    },
-    "116": {
-        "name": "Castle_IsUnderSiege",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "117": {
-        "name": "Castle_GetHPRegen",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "118": {
-        "name": "Castle_GetMPRegen",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "119": {
-        "name": "Castle_BanishOthers",
-        "arguments": [
-        ],
-        "type": "void"
-    },
-    "120": {
-        "name": "Castle_SetHPRegen",
-        "arguments": [
-            "int"
-        ],
-        "type": "void"
-    },
-    "121": {
-        "name": "Castle_SetMPRegen",
-        "arguments": [
-            "int"
-        ],
-        "type": "void"
-    },
-    "122": {
-        "name": "Castle_GetRawSiegeTime",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "123": {
-        "name": "Castle_GetRawSystemTime",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "124": {
-        "name": "Castle_IsUnderSiege2",
-        "arguments": [
-            "int"
-        ],
-        "type": "int"
-    },
-    "125": {
-        "name": "Castle_GateOpenClose2",
-        "arguments": [
-            "string",
-            "int"
-        ],
-        "type": "void"
-    },
-    "126": {
-        "name": "Castle_GetPledgeId",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "127": {
-        "name": "Castle_GetLifeControlLevel",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "128": {
-        "name": "Agit_SetMaster",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "void"
-    },
-    "129": {
-        "name": "Agit_GetTeleportLevel",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "130": {
-        "name": "Agit_SetTeleportLevel",
-        "arguments": [
-            "int"
-        ],
-        "type": "void"
-    },
-    "131": {
-        "name": "AddChoice",
-        "arguments": [
-            "int",
-            "string"
-        ],
-        "type": "void"
-    },
-    "132": {
-        "name": "ShowChoicePage",
-        "arguments": [
-            "CSharedCreatureData",
-            "int"
-        ],
-        "type": "void"
-    },
-    "133": {
-        "name": "ShowSkillList",
-        "arguments": [
-            "CSharedCreatureData",
-            "string"
-        ],
-        "type": "void"
-    },
-    "134": {
-        "name": "ShowGrowSkillMessage",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "string"
-        ],
-        "type": "void"
-    },
-    "135": {
-        "name": "ShowGrowSkillMessage2",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int",
-            "int",
-            "string"
-        ],
-        "type": "void"
-    },
-    "136": {
-        "name": "ShowRedirectMessage",
-        "arguments": [
-            "CSharedCreatureData",
-            "int"
-        ],
-        "type": "void"
-    },
-    "137": {
-        "name": "IsRedirect",
-        "arguments": [
-            "RedirectList",
-            "int"
-        ],
-        "type": "int"
-    },
-    "138": {
-        "name": "GetRedirectMessage",
-        "arguments": [
-            "RedirectList",
-            "int"
-        ],
-        "type": "int"
-    },
-    "139": {
-        "name": "ShowQuestSuggestion",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "140": {
-        "name": "SkillQuest_GetQuestID",
-        "arguments": [
-            "SkillQuestList",
-            "int"
-        ],
-        "type": "int"
-    },
-    "141": {
-        "name": "SkillQuest_GetQuestItemID",
-        "arguments": [
-            "SkillQuestList",
-            "int"
-        ],
-        "type": "int"
-    },
-    "142": {
-        "name": "SkillQuest_GetQuestMessage",
-        "arguments": [
-            "SkillQuestList",
-            "int"
-        ],
-        "type": "int"
-    },
-    "143": {
-        "name": "IsInCategory",
-        "arguments": [
-            "CATEGORY",
-            "int"
-        ],
-        "type": "int"
-    },
-    "144": {
-        "name": "ClassChange",
-        "arguments": [
-            "CSharedCreatureData",
-            "int"
-        ],
-        "type": "int"
-    },
-    "145": {
-        "name": "Castle_GetCropRate",
-        "arguments": [
-            "ITEM"
-        ],
-        "type": "int"
-    },
-    "146": {
-        "name": "Castle_GetCropPrice",
-        "arguments": [
-            "ITEM"
-        ],
-        "type": "int"
-    },
-    "147": {
-        "name": "Castle_GetCropIncome",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "148": {
-        "name": "Residence_GetTaxIncome",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "149": {
-        "name": "Castle_SetCropPrice",
-        "arguments": [
-            "ITEM",
-            "int"
-        ],
-        "type": "void"
-    },
-    "150": {
-        "name": "Castle_SetCropDrop",
-        "arguments": [
-            "ITEM",
-            "int",
-            "int",
-			"int"
-        ],
-        "type": "void"
-    },
-    "151": {
-        "name": "Castle_DeleteCropDrop",
-        "arguments": [
-            "ITEM"
-        ],
-        "type": "void"
-    },
-    "152": {
-        "name": "Castle_PostCropPurchase",
-        "arguments": [
-            "CSharedCreatureData",
-            "ITEM",
-            "int"
-        ],
-        "type": "void"
-    },
-    "153": {
-        "name": "Skill_GetTargetType",
-        "arguments": [
-            "int"
-        ],
-        "type": "int"
-    },
-    "154": {
-        "name": "Skill_GetConsumeHP",
-        "arguments": [
-            "SKILL"
-        ],
-        "type": "int"
-    },
-    "155": {
-        "name": "Skill_GetConsumeMP",
-        "arguments": [
-            "SKILL"
-        ],
-        "type": "int"
-    },
-    "156": {
-        "name": "Skill_GetEffectPoint",
-        "arguments": [
-            "int"
-        ],
-        "type": "int"
-    },
-    "157": {
-        "name": "Skill_GetAttribute",
-        "arguments": [
-            "SKILL"
-        ],
-        "type": "SKILL"
-    },
-    "158": {
-        "name": "Skill_GetAbnormalType",
-        "arguments": [
-            "SKILL"
-        ],
-        "type": "int"
-    },
-    "159": {
-        "name": "Skill_GetAbnormalLevel",
-        "arguments": [
-            "ABNORMAL"
-        ],
-        "type": "int"
-    },
-    "160": {
-        "name": "Skill_InReuseDelay",
-        "arguments": [
-            "SKILL"
-        ],
-        "type": "BOOL"
-    },
-    "161": {
-        "name": "UseSkill",
-        "arguments": [
-            "CSharedCreatureData",
-            "int"
-        ],
-        "type": "int"
-    },
-    "162": {
-        "name": "UseCategorySkill",
-        "arguments": [
-            "CSharedCreatureData",
-            "int"
-        ],
-        "type": "int"
-    },
-    "163": {
-        "name": "UseItem",
-        "arguments": [
-            "ITEM"
-        ],
-        "type": "int"
-    },
-    "164": {
-        "name": "UseCategoryItem",
-        "arguments": [
-            "int"
-        ],
-        "type": "int"
-    },
-    "165": {
-        "name": "CreatePrivates",
-        "arguments": [
-            "string"
-        ],
-        "type": "void"
-    },
-    "166": {
-        "name": "CreateOnePrivate",
-        "arguments": [
-            "NPC",
-            "string",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "167": {
-        "name": "EnableTimeEvent",
-        "arguments": [
-            "int"
-        ],
-        "type": "void"
-    },
-    "168": {
-        "name": "Maker_GetNpcCount",
-        "arguments": [
-        ],
-        "type": "int"
-    },
-    "169": {
-        "name": "Maker_FindNpcByKey",
-        "arguments": [
-            "int"
-        ],
-        "type": "CSharedCreatureData"
-    },
-    "170": {
-        "name": "CreateOnePrivateEx",
-        "arguments": [
-            "NPC",
-            "string",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "int"
-    },
-    "171": {
-        "name": "IncrementParam",
-        "arguments": [
-            "CSharedCreatureData",
-            "PARAM",
-            "int"
-        ],
-        "type": "void"
-    },
-    "172": {
-        "name": "SetWeightPoint",
-        "arguments": [
-            "CSharedCreatureData",
-            "int"
-        ],
-        "type": "int"
-    },
-    "173": {
-        "name": "SoundEffect",
-        "arguments": [
-            "CSharedCreatureData",
-            "string"
-        ],
-        "type": "void"
-    },
-    "174": {
-        "name": "EffectMusic",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "string"
-        ],
-        "type": "void"
-    },
-    "175": {
-        "name": "Despawn",
-        "arguments": [
-        ],
-        "type": "void"
-    },
-    "176": {
-        "name": "EnableMakingSeeEvent",
-        "arguments": [
-        ],
-        "type": "void"
-    },
-    "177": {
-        "name": "InMyTerritory",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "BOOL"
-    },
-    "178": {
-        "name": "InstantTeleportInMyTerritory",
-        "arguments": [
-            "int",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "179": {
-        "name": "Dist",
-        "arguments": [
-            "CSharedCreatureData",
-            "CSharedCreatureData"
-        ],
-        "type": "float"
-    },
-    "180": {
-        "name": "EarthQuakeByNPC",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "181": {
-        "name": "SpecialCamera",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "182": {
-        "name": "SpecialCameraEx",
-        "arguments": [
-            "CSharedCreatureData",
-            "CSharedCreatureData",
-            "int",
-            "int",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "183": {
-        "name": "InMyTerritory",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "BOOL"
-    },
-    "184": {
-        "name": "PledgeLevelUp",
-        "arguments": [
-            "CSharedCreatureData",
-            "int"
-        ],
-        "type": "void"
-    },
-    "185": {
-        "name": "PledgeName",
-        "arguments": [
-            "int"
-        ],
-        "type": "string"
-    },
-    "186": {
-        "name": "SubStr",
-        "arguments": [
-            "string",
-            "int",
-            "int"
-        ],
-        "type": "string"
-    },
-    "187": {
-        "name": "StrToInt",
-        "arguments": [
-            "string"
-        ],
-        "type": "int"
-    },
-    "188": {
-        "name": "ShowTutorialHTML",
-        "arguments": [
-            "CSharedCreatureData",
-            "string"
-        ],
-        "type": "void"
-    },
-    "189": {
-        "name": "ShowTutorialHTML2",
-        "arguments": [
-            "CSharedCreatureData",
-            "string",
-            "int",
-            "string"
-        ],
-        "type": "void"
-    },
-    "190": {
-        "name": "ShowQuestionMark",
-        "arguments": [
-            "CSharedCreatureData",
-            "QUEST"
-        ],
-        "type": "void"
-    },
-    "191": {
-        "name": "ShowQuestionMark2",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "192": {
-        "name": "CloseTutorialHTML",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "void"
-    },
-    "193": {
-        "name": "EnableTutorialEvent",
-        "arguments": [
-            "CSharedCreatureData",
-            "TUTORIAL"
-        ],
-        "type": "void"
-    },
-    "194": {
-        "name": "ShowRadar",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "195": {
-        "name": "DeleteRadar",
-        "arguments": [
-            "CSharedCreatureData",
-            "int",
-            "int",
-            "int"
-        ],
-        "type": "void"
-    },
-    "196": {
-        "name": "CreatePet",
-        "arguments": [
-            "CSharedCreatureData",
-            "ITEM",
-            "NPC"
-        ],
-        "type": "void"
-    },
-    "197": {
-        "name": "AgitAuction",
-        "arguments": [
-            "CSharedCreatureData",
-            "int"
-        ],
-        "type": "void"
-    },
-    "198": {
-        "name": "GetAgitDeposit",
-        "arguments": [
-            "int"
-        ],
-        "type": "int"
-    },
-    "199": {
-        "name": "GetPledgeMoney",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "int"
-    },
-    "200": {
-        "name": "OpenSiegeInfo",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "void"
-    },
-    "201": {
-        "name": "SetDoorHpLevel",
-        "arguments": [
-            "string",
-            "int"
-        ],
-        "type": "void"
-    },
-    "202": {
-        "name": "GetDoorHpLevel",
-        "arguments": [
-            "CSharedCreatureData",
-            "string"
-        ],
-        "type": "void"
-    },
-    "203": {
-        "name": "SetControlTowerLevel",
-        "arguments": [
-            "string",
-            "int"
-        ],
-        "type": "void"
-    },
-    "204": {
-        "name": "GetControlTowerLevel",
-        "arguments": [
-            "CSharedCreatureData",
-            "string"
-        ],
-        "type": "void"
-    },
-    "205": {
-        "name": "IsNullCreature",
-        "arguments": [
-            "CSharedCreatureData"
-        ],
-        "type": "int"
-    }
+  "0": {
+    "name": "AddMoveAroundDesire",
+    "arguments": [
+      "int",
+      "float"
+    ],
+    "type": "void"
+  },
+  "1": {
+    "name": "AddDoNothingDesire",
+    "arguments": [
+      "int",
+      "float"
+    ],
+    "type": "void"
+  },
+  "2": {
+    "name": "AddAttackDesire",
+    "arguments": [
+      "CSharedCreatureData",
+      "AMT",
+      "float"
+    ],
+    "type": "void"
+  },
+  "3": {
+    "name": "AddAttackDesireEx",
+    "arguments": [
+      "int",
+      "int",
+      "int",
+      "float"
+    ],
+    "type": "void"
+  },
+  "4": {
+    "name": "AddGetItemDesire",
+    "arguments": [
+      "CSharedItemData",
+      "float"
+    ],
+    "type": "void"
+  },
+  "5": {
+    "name": "AddChaseDesire",
+    "arguments": [
+      "CSharedCreatureData",
+      "float"
+    ],
+    "type": "void"
+  },
+  "6": {
+    "name": "AddFleeDesire",
+    "arguments": [
+      "CSharedCreatureData",
+      "float"
+    ],
+    "type": "void"
+  },
+  "7": {
+    "name": "AddFollowDesire",
+    "arguments": [
+      "CSharedCreatureData",
+      "float"
+    ],
+    "type": "void"
+  },
+  "8": {
+    "name": "AddDecayingDesire",
+    "arguments": [
+      "float"
+    ],
+    "type": "void"
+  },
+  "9": {
+    "name": "AddMoveToWayPointDesire",
+    "arguments": [
+      "Waypoints",
+      "WaypointDelays",
+      "int",
+      "float"
+    ],
+    "type": "void"
+  },
+  "10": {
+    "name": "AddUseSkillDesire",
+    "arguments": [
+      "CSharedCreatureData",
+      "SKILL",
+      "ST",
+      "AMT",
+      "float"
+    ],
+    "type": "void"
+  },
+  "11": {
+    "name": "AddUseSkillDesireEx",
+    "arguments": [
+      "int",
+      "int",
+      "ST",
+      "AMT",
+      "int",
+      "float"
+    ],
+    "type": "void"
+  },
+  "12": {
+    "name": "AddMoveToDesire",
+    "arguments": [
+      "int",
+      "int",
+      "int",
+      "float"
+    ],
+    "type": "void"
+  },
+  "13": {
+    "name": "AddEffectActionDesire",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "int",
+      "float"
+    ],
+    "type": "void"
+  },
+  "14": {
+    "name": "AddPetDefaultDesire_Follow",
+    "arguments": [
+      "float"
+    ],
+    "type": "void"
+  },
+  "15": {
+    "name": "RemoveAllAttackDesire",
+    "arguments": [
+    ],
+    "type": "void"
+  },
+  "16": {
+    "name": "RemoveAttackDesire",
+    "arguments": [
+      "int"
+    ],
+    "type": "void"
+  },
+  "17": {
+    "name": "RandomizeAttackDesire",
+    "arguments": [
+    ],
+    "type": "void"
+  },
+  "18": {
+    "name": "MakeAttackEvent",
+    "arguments": [
+      "CSharedCreatureData",
+      "float",
+      "int"
+    ],
+    "type": "void"
+  },
+  "19": {
+    "name": "GetTopDesireValue",
+    "arguments": [
+    ],
+    "type": "float"
+  },
+  "20": {
+    "name": "GetLifeTime",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "21": {
+    "name": "GetTick",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "22": {
+    "name": "IsSameString",
+    "arguments": [
+      "string",
+      "string"
+    ],
+    "type": "int"
+  },
+  "23": {
+    "name": "GetCurrentTick",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "24": {
+    "name": "GetDirection",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "int"
+  },
+  "25": {
+    "name": "SetCookie",
+    "arguments": [
+      "CSharedCreatureData",
+      "string",
+      "int"
+    ],
+    "type": "void"
+  },
+  "26": {
+    "name": "GetCookie",
+    "arguments": [
+      "CSharedCreatureData",
+      "string"
+    ],
+    "type": "int"
+  },
+  "27": {
+    "name": "SetTeleportPosOnLost",
+    "arguments": [
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "28": {
+    "name": "AddTimerEx",
+    "arguments": [
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "29": {
+    "name": "GetIndexFromCreature",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "int"
+  },
+  "30": {
+    "name": "GetCreatureFromIndex",
+    "arguments": [
+      "int"
+    ],
+    "type": "CSharedCreatureData"
+  },
+  "31": {
+    "name": "RegisterGlobalMap",
+    "arguments": [
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "32": {
+    "name": "UnregisterGlobalMap",
+    "arguments": [
+      "int"
+    ],
+    "type": "int"
+  },
+  "33": {
+    "name": "GetGlobalMap",
+    "arguments": [
+      "int"
+    ],
+    "type": "int"
+  },
+  "34": {
+    "name": "SendScriptEvent",
+    "arguments": [
+      "CSharedCreatureData",
+      "QUEST",
+      "SCE"
+    ],
+    "type": "void"
+  },
+  "35": {
+    "name": "ReportDesire",
+    "arguments": [
+    ],
+    "type": "void"
+  },
+  "36": {
+    "name": "IsSpoiled",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "37": {
+    "name": "Say",
+    "arguments": [
+      "string"
+    ],
+    "type": "int"
+  },
+  "38": {
+    "name": "SayInt",
+    "arguments": [
+      "int"
+    ],
+    "type": "void"
+  },
+  "39": {
+    "name": "SayFloat",
+    "arguments": [
+      "float"
+    ],
+    "type": "void"
+  },
+  "40": {
+    "name": "EquipItem",
+    "arguments": [
+      "int"
+    ],
+    "type": "int"
+  },
+  "41": {
+    "name": "Talk",
+    "arguments": [
+      "CSharedCreatureData",
+      "string"
+    ],
+    "type": "int"
+  },
+  "42": {
+    "name": "Shout",
+    "arguments": [
+      "string"
+    ],
+    "type": "int"
+  },
+  "43": {
+    "name": "ShowPage",
+    "arguments": [
+      "CSharedCreatureData",
+      "string"
+    ],
+    "type": "void"
+  },
+  "44": {
+    "name": "ShowSystemMessage",
+    "arguments": [
+      "CSharedCreatureData",
+      "int"
+    ],
+    "type": "void"
+  },
+  "45": {
+    "name": "Teleport",
+    "arguments": [
+      "CSharedCreatureData",
+      "TeleportPos",
+      "string",
+      "string",
+      "string",
+      "string"
+    ],
+    "type": "void"
+  },
+  "46": {
+    "name": "InstantTeleport",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "47": {
+    "name": "Sell",
+    "arguments": [
+      "CSharedCreatureData",
+      "BuySellList",
+      "string",
+      "string",
+      "string",
+      "string"
+    ],
+    "type": "void"
+  },
+  "48": {
+    "name": "Buy",
+    "arguments": [
+      "CSharedCreatureData",
+      "BuySellList",
+      "string",
+      "string",
+      "string",
+      "float"
+    ],
+    "type": "void"
+  },
+  "49": {
+    "name": "IsAlive",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "int"
+  },
+  "50": {
+    "name": "HPRatio",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "float"
+  },
+  "51": {
+    "name": "DistFromMe",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "float"
+  },
+  "52": {
+    "name": "SetTimerPeriodByTick",
+    "arguments": [
+      "int"
+    ],
+    "type": "void"
+  },
+  "53": {
+    "name": "SetTimerPeriod",
+    "arguments": [
+      "int"
+    ],
+    "type": "void"
+  },
+  "54": {
+    "name": "GetWayPointDelay",
+    "arguments": [
+      "WaypointDelays",
+      "int"
+    ],
+    "type": "int"
+  },
+  "55": {
+    "name": "Rand",
+    "arguments": [
+      "int"
+    ],
+    "type": "int"
+  },
+  "56": {
+    "name": "IntToStr",
+    "arguments": [
+      "int"
+    ],
+    "type": "string"
+  },
+  "57": {
+    "name": "FloatToInt",
+    "arguments": [
+      "float"
+    ],
+    "type": "int"
+  },
+  "58": {
+    "name": "GetMemoCount",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "MAX_QUEST"
+  },
+  "59": {
+    "name": "HaveMemo",
+    "arguments": [
+      "CSharedCreatureData",
+      "QUEST"
+    ],
+    "type": "int"
+  },
+  "60": {
+    "name": "SetMemo",
+    "arguments": [
+      "CSharedCreatureData",
+      "QUEST"
+    ],
+    "type": "int"
+  },
+  "61": {
+    "name": "SetMemoState",
+    "arguments": [
+      "CSharedCreatureData",
+      "QUEST",
+      "int"
+    ],
+    "type": "int"
+  },
+  "62": {
+    "name": "GetMemoState",
+    "arguments": [
+      "CSharedCreatureData",
+      "QUEST"
+    ],
+    "type": "int"
+  },
+  "63": {
+    "name": "SetMemoStateEx",
+    "arguments": [
+      "CSharedCreatureData",
+      "QUEST",
+      "MEMO_SLOT",
+      "int"
+    ],
+    "type": "int"
+  },
+  "64": {
+    "name": "GetMemoStateEx",
+    "arguments": [
+      "CSharedCreatureData",
+      "QUEST",
+      "MEMO_SLOT"
+    ],
+    "type": "int"
+  },
+  "65": {
+    "name": "RemoveMemo",
+    "arguments": [
+      "CSharedCreatureData",
+      "QUEST"
+    ],
+    "type": "int"
+  },
+  "66": {
+    "name": "SetJournal",
+    "arguments": [
+      "CSharedCreatureData",
+      "QUEST",
+      "int"
+    ],
+    "type": "void"
+  },
+  "67": {
+    "name": "GetOneTimeQuestFlag",
+    "arguments": [
+      "CSharedCreatureData",
+      "QUEST"
+    ],
+    "type": "BOOL"
+  },
+  "68": {
+    "name": "SetOneTimeQuestFlag",
+    "arguments": [
+      "CSharedCreatureData",
+      "QUEST",
+      "int"
+    ],
+    "type": "void"
+  },
+  "69": {
+    "name": "GetAbnormalLevel",
+    "arguments": [
+      "CSharedCreatureData",
+      "ABNORMAL"
+    ],
+    "type": "int"
+  },
+  "70": {
+    "name": "SetDBValue",
+    "arguments": [
+      "CSharedCreatureData",
+      "int"
+    ],
+    "type": "void"
+  },
+  "71": {
+    "name": "Party_GetCount",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "int"
+  },
+  "72": {
+    "name": "Party_GetCreature",
+    "arguments": [
+      "CSharedCreatureData",
+      "int"
+    ],
+    "type": "CSharedCreatureData"
+  },
+  "73": {
+    "name": "Party_GetLeader",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "CSharedCreatureData"
+  },
+  "74": {
+    "name": "Pledge_GetCount",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "int"
+  },
+  "75": {
+    "name": "Pledge_GetCreature",
+    "arguments": [
+      "CSharedCreatureData",
+      "int"
+    ],
+    "type": "CSharedCreatureData"
+  },
+  "76": {
+    "name": "Pledge_GetLeader",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "CSharedCreatureData"
+  },
+  "77": {
+    "name": "GetParty",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "CSharedPartyData"
+  },
+  "78": {
+    "name": "GetPledge",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "CSharedPledgeData"
+  },
+  "79": {
+    "name": "GiveItem1",
+    "arguments": [
+      "CSharedCreatureData",
+      "ITEM",
+      "int"
+    ],
+    "type": "int"
+  },
+  "80": {
+    "name": "GiveItem2",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "int"
+  },
+  "81": {
+    "name": "GiveItem3",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "int"
+  },
+  "82": {
+    "name": "DeleteItem1",
+    "arguments": [
+      "CSharedCreatureData",
+      "ITEM",
+      "int"
+    ],
+    "type": "int"
+  },
+  "83": {
+    "name": "OwnItemCount",
+    "arguments": [
+      "CSharedCreatureData",
+      "ITEM"
+    ],
+    "type": "int"
+  },
+  "84": {
+    "name": "AtomicDelete3Give1Item",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "85": {
+    "name": "GetLastAttacker",
+    "arguments": [
+    ],
+    "type": "CSharedCreatureData"
+  },
+  "86": {
+    "name": "FHTML_SetFileName",
+    "arguments": [
+      "FHTML",
+      "string"
+    ],
+    "type": "void"
+  },
+  "87": {
+    "name": "FHTML_SetInt",
+    "arguments": [
+      "FHTML",
+      "string",
+      "QUEST"
+    ],
+    "type": "void"
+  },
+  "88": {
+    "name": "FHTML_SetFloat",
+    "arguments": [
+      "FHTML",
+      "string",
+      "float"
+    ],
+    "type": "void"
+  },
+  "89": {
+    "name": "FHTML_SetStr",
+    "arguments": [
+      "FHTML",
+      "string",
+      "string"
+    ],
+    "type": "void"
+  },
+  "90": {
+    "name": "ShowFHTML",
+    "arguments": [
+      "CSharedCreatureData",
+      "FHTML"
+    ],
+    "type": "void"
+  },
+  "91": {
+    "name": "MakeFString",
+    "arguments": [
+      "int",
+      "string",
+      "string",
+      "string",
+      "string",
+      "string"
+    ],
+    "type": "string"
+  },
+  "92": {
+    "name": "IsWaitingDismiss",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "int"
+  },
+  "93": {
+    "name": "GetPledgeSkillLevel",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "int"
+  },
+  "94": {
+    "name": "RegisterSiege",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "void"
+  },
+  "95": {
+    "name": "RegisterSiegeDefender",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "void"
+  },
+  "96": {
+    "name": "UnregisterSiege",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "void"
+  },
+  "97": {
+    "name": "ShowSetSiegeTime",
+    "arguments": [
+      "CSharedCreatureData",
+      "string",
+      "string",
+      "string"
+    ],
+    "type": "void"
+  },
+  "98": {
+    "name": "PrepareSiegeTime",
+    "arguments": [
+      "int",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "string"
+  },
+  "99": {
+    "name": "ViewSiegeList",
+    "arguments": [
+      "CSharedCreatureData",
+      "string"
+    ],
+    "type": "void"
+  },
+  "100": {
+    "name": "ApproveBattle",
+    "arguments": [
+      "CSharedCreatureData",
+      "string"
+    ],
+    "type": "void"
+  },
+  "101": {
+    "name": "CheckSiege",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "void"
+  },
+  "102": {
+    "name": "IsMyLord",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "int"
+  },
+  "103": {
+    "name": "Castle_GetPledgeName",
+    "arguments": [
+    ],
+    "type": "string"
+  },
+  "104": {
+    "name": "Castle_GetOwnerName",
+    "arguments": [
+    ],
+    "type": "string"
+  },
+  "105": {
+    "name": "Castle_GetSiegeTime",
+    "arguments": [
+    ],
+    "type": "string"
+  },
+  "106": {
+    "name": "Residence_GetTaxRate",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "107": {
+    "name": "Residence_GetTaxRateCurrent",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "108": {
+    "name": "Residence_SetTaxRate",
+    "arguments": [
+      "int"
+    ],
+    "type": "void"
+  },
+  "109": {
+    "name": "Residence_GetChildTaxRate",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "110": {
+    "name": "Residence_SetVaultEmpty",
+    "arguments": [
+      "int"
+    ],
+    "type": "void"
+  },
+  "111": {
+    "name": "Residence_SetChildTaxRateEach",
+    "arguments": [
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "112": {
+    "name": "Residence_SetChildTaxRate",
+    "arguments": [
+      "int"
+    ],
+    "type": "void"
+  },
+  "113": {
+    "name": "Residence_VaultTakeOutMoney",
+    "arguments": [
+      "CSharedCreatureData",
+      "int"
+    ],
+    "type": "void"
+  },
+  "114": {
+    "name": "Castle_IsGateOpen",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "115": {
+    "name": "Castle_SetSiegeTime",
+    "arguments": [
+      "int",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "116": {
+    "name": "Castle_GateOpenClose",
+    "arguments": [
+      "int"
+    ],
+    "type": "void"
+  },
+  "117": {
+    "name": "Castle_GetPledgeState",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "int"
+  },
+  "118": {
+    "name": "Castle_IsUnderSiege",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "119": {
+    "name": "Castle_GetHPRegen",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "120": {
+    "name": "Castle_GetMPRegen",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "121": {
+    "name": "Castle_BanishOthers",
+    "arguments": [
+    ],
+    "type": "void"
+  },
+  "122": {
+    "name": "Castle_SetHPRegen",
+    "arguments": [
+      "int"
+    ],
+    "type": "void"
+  },
+  "123": {
+    "name": "Castle_SetMPRegen",
+    "arguments": [
+      "int"
+    ],
+    "type": "void"
+  },
+  "124": {
+    "name": "Castle_GetRawSiegeTime",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "125": {
+    "name": "Castle_GetRawSystemTime",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "126": {
+    "name": "Castle_IsUnderSiege2",
+    "arguments": [
+      "int"
+    ],
+    "type": "int"
+  },
+  "127": {
+    "name": "Castle_GateOpenClose2",
+    "arguments": [
+      "string",
+      "int"
+    ],
+    "type": "void"
+  },
+  "128": {
+    "name": "Castle_GetPledgeId",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "129": {
+    "name": "Castle_GetLifeControlLevel",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "130": {
+    "name": "Agit_SetMaster",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "void"
+  },
+  "131": {
+    "name": "Agit_GetTeleportLevel",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "132": {
+    "name": "Agit_SetTeleportLevel",
+    "arguments": [
+      "int"
+    ],
+    "type": "void"
+  },
+  "133": {
+    "name": "AddChoice",
+    "arguments": [
+      "int",
+      "string"
+    ],
+    "type": "void"
+  },
+  "134": {
+    "name": "ShowChoicePage",
+    "arguments": [
+      "CSharedCreatureData",
+      "int"
+    ],
+    "type": "void"
+  },
+  "135": {
+    "name": "ShowSkillList",
+    "arguments": [
+      "CSharedCreatureData",
+      "string"
+    ],
+    "type": "void"
+  },
+  "136": {
+    "name": "ShowGrowSkillMessage",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "string"
+    ],
+    "type": "void"
+  },
+  "137": {
+    "name": "ShowGrowSkillMessage2",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "int",
+      "int",
+      "string"
+    ],
+    "type": "void"
+  },
+  "138": {
+    "name": "ShowRedirectMessage",
+    "arguments": [
+      "CSharedCreatureData",
+      "int"
+    ],
+    "type": "void"
+  },
+  "139": {
+    "name": "IsRedirect",
+    "arguments": [
+      "RedirectList",
+      "int"
+    ],
+    "type": "int"
+  },
+  "140": {
+    "name": "GetRedirectMessage",
+    "arguments": [
+      "RedirectList",
+      "int"
+    ],
+    "type": "int"
+  },
+  "141": {
+    "name": "ShowQuestSuggestion",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "142": {
+    "name": "SkillQuest_GetQuestID",
+    "arguments": [
+      "SkillQuestList",
+      "int"
+    ],
+    "type": "int"
+  },
+  "143": {
+    "name": "SkillQuest_GetQuestItemID",
+    "arguments": [
+      "SkillQuestList",
+      "int"
+    ],
+    "type": "int"
+  },
+  "144": {
+    "name": "SkillQuest_GetQuestMessage",
+    "arguments": [
+      "SkillQuestList",
+      "int"
+    ],
+    "type": "int"
+  },
+  "145": {
+    "name": "IsInCategory",
+    "arguments": [
+      "CATEGORY",
+      "int"
+    ],
+    "type": "int"
+  },
+  "146": {
+    "name": "ClassChange",
+    "arguments": [
+      "CSharedCreatureData",
+      "int"
+    ],
+    "type": "int"
+  },
+  "147": {
+    "name": "Castle_GetCropRate",
+    "arguments": [
+      "ITEM"
+    ],
+    "type": "int"
+  },
+  "148": {
+    "name": "Castle_GetCropPrice",
+    "arguments": [
+      "ITEM"
+    ],
+    "type": "int"
+  },
+  "149": {
+    "name": "Castle_GetCropIncome",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "150": {
+    "name": "Residence_GetTaxIncome",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "151": {
+    "name": "Castle_SetCropPrice",
+    "arguments": [
+      "ITEM",
+      "int"
+    ],
+    "type": "void"
+  },
+  "152": {
+    "name": "Castle_SetCropDrop",
+    "arguments": [
+      "ITEM",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "153": {
+    "name": "Castle_DeleteCropDrop",
+    "arguments": [
+      "ITEM"
+    ],
+    "type": "void"
+  },
+  "154": {
+    "name": "Castle_PostCropPurchase",
+    "arguments": [
+      "CSharedCreatureData",
+      "ITEM",
+      "int"
+    ],
+    "type": "void"
+  },
+  "155": {
+    "name": "Skill_GetTargetType",
+    "arguments": [
+      "int"
+    ],
+    "type": "int"
+  },
+  "156": {
+    "name": "Skill_GetConsumeHP",
+    "arguments": [
+      "SKILL"
+    ],
+    "type": "int"
+  },
+  "157": {
+    "name": "Skill_GetConsumeMP",
+    "arguments": [
+      "SKILL"
+    ],
+    "type": "int"
+  },
+  "158": {
+    "name": "Skill_GetEffectPoint",
+    "arguments": [
+      "int"
+    ],
+    "type": "int"
+  },
+  "159": {
+    "name": "Skill_GetAttribute",
+    "arguments": [
+      "SKILL"
+    ],
+    "type": "int"
+  },
+  "160": {
+    "name": "Skill_GetAbnormalType",
+    "arguments": [
+      "SKILL"
+    ],
+    "type": "int"
+  },
+  "161": {
+    "name": "Skill_GetAbnormalLevel",
+    "arguments": [
+      "ABNORMAL"
+    ],
+    "type": "int"
+  },
+  "162": {
+    "name": "Skill_InReuseDelay",
+    "arguments": [
+      "SKILL"
+    ],
+    "type": "BOOL"
+  },
+  "163": {
+    "name": "UseSkill",
+    "arguments": [
+      "CSharedCreatureData",
+      "int"
+    ],
+    "type": "int"
+  },
+  "164": {
+    "name": "UseCategorySkill",
+    "arguments": [
+      "CSharedCreatureData",
+      "int"
+    ],
+    "type": "int"
+  },
+  "165": {
+    "name": "UseItem",
+    "arguments": [
+      "ITEM"
+    ],
+    "type": "int"
+  },
+  "166": {
+    "name": "UseCategoryItem",
+    "arguments": [
+      "int"
+    ],
+    "type": "int"
+  },
+  "167": {
+    "name": "CreatePrivates",
+    "arguments": [
+      "string"
+    ],
+    "type": "void"
+  },
+  "168": {
+    "name": "CreateOnePrivate",
+    "arguments": [
+      "NPC",
+      "string",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "169": {
+    "name": "EnableTimeEvent",
+    "arguments": [
+      "int"
+    ],
+    "type": "void"
+  },
+  "170": {
+    "name": "Maker_GetNpcCount",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "171": {
+    "name": "Maker_FindNpcByKey",
+    "arguments": [
+      "int"
+    ],
+    "type": "CSharedCreatureData"
+  },
+  "172": {
+    "name": "CreateOnePrivateEx",
+    "arguments": [
+      "NPC",
+      "string",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "int"
+  },
+  "173": {
+    "name": "IncrementParam",
+    "arguments": [
+      "CSharedCreatureData",
+      "PARAM",
+      "int"
+    ],
+    "type": "void"
+  },
+  "174": {
+    "name": "SetWeightPoint",
+    "arguments": [
+      "CSharedCreatureData",
+      "int"
+    ],
+    "type": "int"
+  },
+  "175": {
+    "name": "SoundEffect",
+    "arguments": [
+      "CSharedCreatureData",
+      "string"
+    ],
+    "type": "void"
+  },
+  "176": {
+    "name": "EffectMusic",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "string"
+    ],
+    "type": "void"
+  },
+  "177": {
+    "name": "Despawn",
+    "arguments": [
+    ],
+    "type": "void"
+  },
+  "178": {
+    "name": "EnableMakingSeeEvent",
+    "arguments": [
+    ],
+    "type": "void"
+  },
+  "179": {
+    "name": "InMyTerritory",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "BOOL"
+  },
+  "180": {
+    "name": "InstantTeleportInMyTerritory",
+    "arguments": [
+      "int",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "181": {
+    "name": "Dist",
+    "arguments": [
+      "CSharedCreatureData",
+      "CSharedCreatureData"
+    ],
+    "type": "float"
+  },
+  "182": {
+    "name": "EarthQuakeByNPC",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "183": {
+    "name": "SpecialCamera",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "184": {
+    "name": "SpecialCameraEx",
+    "arguments": [
+      "CSharedCreatureData",
+      "CSharedCreatureData",
+      "int",
+      "int",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "185": {
+    "name": "InMyTerritory",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "BOOL"
+  },
+  "186": {
+    "name": "PledgeLevelUp",
+    "arguments": [
+      "CSharedCreatureData",
+      "int"
+    ],
+    "type": "void"
+  },
+  "187": {
+    "name": "PledgeName",
+    "arguments": [
+      "int"
+    ],
+    "type": "string"
+  },
+  "188": {
+    "name": "SubStr",
+    "arguments": [
+      "string",
+      "int",
+      "int"
+    ],
+    "type": "string"
+  },
+  "189": {
+    "name": "StrToInt",
+    "arguments": [
+      "string"
+    ],
+    "type": "int"
+  },
+  "190": {
+    "name": "ShowTutorialHTML",
+    "arguments": [
+      "CSharedCreatureData",
+      "string"
+    ],
+    "type": "void"
+  },
+  "191": {
+    "name": "ShowTutorialHTML2",
+    "arguments": [
+      "CSharedCreatureData",
+      "string",
+      "int",
+      "string"
+    ],
+    "type": "void"
+  },
+  "192": {
+    "name": "ShowQuestionMark",
+    "arguments": [
+      "CSharedCreatureData",
+      "QUEST"
+    ],
+    "type": "void"
+  },
+  "193": {
+    "name": "ShowQuestionMark2",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "194": {
+    "name": "CloseTutorialHTML",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "void"
+  },
+  "195": {
+    "name": "EnableTutorialEvent",
+    "arguments": [
+      "CSharedCreatureData",
+      "TUTORIAL"
+    ],
+    "type": "void"
+  },
+  "196": {
+    "name": "ShowRadar",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "197": {
+    "name": "DeleteRadar",
+    "arguments": [
+      "CSharedCreatureData",
+      "int",
+      "int",
+      "int"
+    ],
+    "type": "void"
+  },
+  "198": {
+    "name": "CreatePet",
+    "arguments": [
+      "CSharedCreatureData",
+      "ITEM",
+      "NPC"
+    ],
+    "type": "void"
+  },
+  "199": {
+    "name": "AgitAuction",
+    "arguments": [
+      "CSharedCreatureData",
+      "int"
+    ],
+    "type": "void"
+  },
+  "200": {
+    "name": "GetAgitDeposit",
+    "arguments": [
+      "int"
+    ],
+    "type": "int"
+  },
+  "201": {
+    "name": "GetPledgeMoney",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "int"
+  },
+  "202": {
+    "name": "OpenSiegeInfo",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "void"
+  },
+  "203": {
+    "name": "SetDoorHpLevel",
+    "arguments": [
+      "string",
+      "int"
+    ],
+    "type": "void"
+  },
+  "204": {
+    "name": "GetDoorHpLevel",
+    "arguments": [
+      "CSharedCreatureData",
+      "string"
+    ],
+    "type": "void"
+  },
+  "205": {
+    "name": "SetControlTowerLevel",
+    "arguments": [
+      "string",
+      "int"
+    ],
+    "type": "void"
+  },
+  "206": {
+    "name": "GetControlTowerLevel",
+    "arguments": [
+      "CSharedCreatureData",
+      "string"
+    ],
+    "type": "void"
+  },
+  "207": {
+    "name": "IsNullCreature",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "int"
+  },
+  "208": {
+    "name": "SetCurrentQuestID",
+    "arguments": [
+      "QUEST"
+    ],
+    "type": "void"
+  },
+  "209": {
+    "name": "GetInventoryInfo",
+    "arguments": [
+      "CSharedCreatureData",
+      "INVENTORY_SLOT"
+    ],
+    "type": "int"
+  },
+  "210": {
+    "name": "GetPathfindFailCount",
+    "arguments": [
+    ],
+    "type": "int"
+  },
+  "211": {
+    "name": "QuestRateAdena",
+    "arguments": [
+      "int"
+    ],
+    "type": "int"
+  },
+  "212": {
+    "name": "QuestRateExp",
+    "arguments": [
+      "float"
+    ],
+    "type": "float"
+  },
+  "213": {
+    "name": "QuestRateSp",
+    "arguments": [
+      "float"
+    ],
+    "type": "float"
+  },
+  "214": {
+    "name": "CanAttack",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "BOOL"
+  },
+  "215": {
+    "name": "OpenHennaItemListForEquip",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "void"
+  },
+  "216": {
+    "name": "OpenHennaListForUnquip",
+    "arguments": [
+      "CSharedCreatureData"
+    ],
+    "type": "void"
+  }
 }

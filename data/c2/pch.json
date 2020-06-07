@@ -1,7 +1,7 @@
 {
-	// AI types
-	"AI_TYPES":	"pch/ai_types_pch.txt",
-	
+    // AI types
+    "AI_TYPES":	"pch/ai_types_pch.txt",
+
     // PCH-files copied directly from the server's scripts directory
     "SKILL":    "pch/skill_pch.txt",
     "ITEM":     "pch/item_pch.txt",
@@ -20,6 +20,7 @@
     "PARAM":        {"file": "pch/manual_pch.txt", "pattern": "PARAM_*"},
     "AMT":          {"file": "pch/manual_pch.txt", "pattern": "AMT_*"},
     "ST":           {"file": "pch/manual_pch.txt", "pattern": "ST_*"},
+    "MAX_QUEST":    {"file": "pch/manual_pch.txt", "pattern": "MAX_QUEST_*"},
 
     // custom types from the manual_pch.txt file
     "PSTATE": [
@@ -60,5 +61,15 @@
     "BOOL": [
         "FALSE",
         "TRUE"
+    ],
+    "MEMO_SLOT": [
+        "MEMO_SLOT",
+        "MEMO_SLOT_EX"
+    ],
+    "INVENTORY_SLOT": [
+        "IPT_CURRENT_SLOT_COUNT",
+        "IPT_MAX_SLOT_COUNT",
+        "IPT_CURRENT_WEIGHT",
+        "IPT_MAX_CARRY_WEIGHT"
     ]
 }
