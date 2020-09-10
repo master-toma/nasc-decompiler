@@ -278,13 +278,19 @@ class AisGenerator implements GeneratorInterface
                 ($prevLastChar === '}')
             ) {
                 $result[] = '';
-            }
+            }	
 
-            $result[] = str_repeat("    ", $indent) . $line;
+			
+			// avoid indentations for empty lines
+            if (strlen(trim($line)) == 0) {                
+                $result[] = "";
+            } else {				
+                $result[] = str_repeat("    ", $indent) . $line;
+			}				
 
             if ($currLastChar === '{' || $currLastChar === ':') {
                 $indent++;
-            }
+            }		
         }
 
         return implode("\n", $result) . "\n";
