@@ -21,6 +21,7 @@
     "AMT":          {"file": "pch/manual_pch.txt", "pattern": "AMT_*"},
     "ST":           {"file": "pch/manual_pch.txt", "pattern": "ST_*"},
     "MAX_QUEST":    {"file": "pch/manual_pch.txt", "pattern": "MAX_QUEST_*"},
+    "PLEDGE_POWER": {"file": "pch/manual_pch.txt", "pattern": "PP_*"},
 
     // custom types from the manual_pch.txt file
     "PSTATE": [
