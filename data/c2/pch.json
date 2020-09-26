@@ -22,6 +22,8 @@
     "ST":           {"file": "pch/manual_pch.txt", "pattern": "ST_*"},
     "MAX_QUEST":    {"file": "pch/manual_pch.txt", "pattern": "MAX_QUEST_*"},
     "PLEDGE_POWER": {"file": "pch/manual_pch.txt", "pattern": "PP_*"},
+    "ACTION":       {"file": "pch/manual_pch.txt", "pattern": "ACTION_*"},
+	"SUMMON_OPTION":{"file": "pch/manual_pch.txt", "pattern": "SUMMON_OPTION_*"},
 
     // custom types from the manual_pch.txt file
     "PSTATE": [
