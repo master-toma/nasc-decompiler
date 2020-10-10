@@ -23,7 +23,9 @@
     "MAX_QUEST":    {"file": "pch/manual_pch.txt", "pattern": "MAX_QUEST_*"},
     "PLEDGE_POWER": {"file": "pch/manual_pch.txt", "pattern": "PP_*"},
     "ACTION":       {"file": "pch/manual_pch.txt", "pattern": "ACTION_*"},
-	"SUMMON_OPTION":{"file": "pch/manual_pch.txt", "pattern": "SUMMON_OPTION_*"},
+    "SUMMON_OPTION":{"file": "pch/manual_pch.txt", "pattern": "SUMMON_OPTION_*"},
+    "STOP_MODE":    {"file": "pch/manual_pch.txt", "pattern": "STOP_MODE_*"},
+    "AT":           {"file": "pch/manual_pch.txt", "pattern": "AT_*"},
 
     // custom types from the manual_pch.txt file
     "PSTATE": [
@@ -41,18 +43,6 @@
         "PSTATE_MOVE_TO",
         "PSTATE_EFFECT_ACTION",
         "PSTATE_PET_DEFAULT"
-    ],
-    "AT": [
-        "AT_NONE",
-        "AT_SWORD",
-        "AT_BLUNT",
-        "AT_DAGGER",
-        "AT_POLE",
-        "AT_FIST",
-        "AT_BOW",
-        "AT_ETC",
-        "AT_DUAL",
-        "AT_DUALFIST"
     ],
     "RACE": [
         "race_human",
