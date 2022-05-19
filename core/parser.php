@@ -105,7 +105,7 @@ class Parser
                     break;
                 case 'assign4':
                 case 'assign':
-                    $this->parseAssign($token);
+                    $this->parseAssign();
                     break;
                 case 'jump':
                     $this->parseJump($token);
@@ -371,24 +371,15 @@ class Parser
         }
     }
 
-    private function parseAssign(Token $token)
+    private function parseAssign()
     {
         [$rvalue, $lvalue] = $this->popExpressions(2);
 
-        // increment/decrement
-        if (in_array($token->prev->name, ['add', 'sub']) &&
-            $token->prev->prev->name === 'push_const' && $token->prev->prev->data[0] == 1 &&
-            strpos($token->prev->prev->prev->name, 'fetch_i') === 0 &&
-            strpos($token->prev->prev->prev->prev->name, 'fetch_i') === 0
-        ) {
-            $this->expressionStack[] = new UnaryExpression($lvalue, $token->prev->name === 'add' ? '++' : '--');
-        } else {
             if ($rvalue instanceof IntegerExpression) {
                 $rvalue = $this->getPrecompiledHeader($lvalue->getType(), $rvalue->getInteger());
             }
 
-            $this->expressionStack[] = new AssignExpression($lvalue, $rvalue);
-        }
+        $this->expressionStack[] = new AssignExpression($lvalue, $rvalue);;
 
         // for statement
         if ($this->statementStack->top() === '_for') {
